@@ -1,0 +1,61 @@
+{
+  "产品": "Faster Chat",
+  "厂商": "1337hero",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "其它",
+  "Stars": 168,
+  "GitHub": "https://github.com/1337hero/faster-chat",
+  "官网": "https://github.com/1337hero/faster-chat",
+  "文档": "https://github.com/1337hero/faster-chat",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "docker compose up -d → localhost:8787；开发用 bun run dev",
+  "去重键": "1337hero-faster-chat",
+  "备注": "隐私优先 Preact 多厂商聊天，SQLite 服务端存储。语言实际是 JavaScript。",
+  "资产号": 41,
+  "首次写入": "2026-09-03",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-20T14:08:25+08:00",
+  "启动指引": "使用 Docker：执行 `docker compose up -d` 后通过 http://localhost:8787 访问；源码方式：先安装 bun，运行 `bun install` 再 `bun run dev`，默认端口请查看项目配置；目前未发现必需的环境变量，如需鉴权请参考项目的 .env.example 或文档。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/1337hero/faster-chat"
+    },
+    {
+      "title": "README 文件",
+      "url": "https://github.com/1337hero/faster-chat#readme"
+    },
+    {
+      "title": "DeepWiki 文档",
+      "url": "https://deepwiki.com/1337hero/faster-chat"
+    },
+    {
+      "title": "官网（即 GitHub 页面）",
+      "url": "https://github.com/1337hero/faster-chat"
+    }
+  ],
+  "建议追问": [
+    "项目是否需要额外的环境变量（如 API 密钥、数据库路径）？",
+    "如何配置反向代理（如 Nginx）以提供 HTTPS 访问？",
+    "默认的鉴权机制是什么？是否支持 JWT 或 OAuth？",
+    "持久化数据存储位置在哪里？如何备份 SQLite 数据库？",
+    "在开发模式下，bun run dev 会监听哪个端口？是否支持热重载？",
+    "是否有现成的 Docker 镜像？镜像 tag 和拉取命令是什么？"
+  ],
+  "已知坑": "首次运行时需要确保数据卷或目录有写入权限，否则 SQLite 可能无法创建文件导致启动失败；此外，若使用自定义端口，需同步修改 docker-compose.yml 中的端口映射。",
+  "成功标准": "打开浏览器访问 http://localhost:8787 能看到 Faster Chat 的聊天界面，或通过 curl http://localhost:8787/api/health（若存在）返回 200 OK。",
+  "研判摘要": "Faster Chat 是一个基于 Preact 的多厂商隐私优先聊天应用，支持 Docker 一键启动及源码开发模式，默认端口 8787，存储使用 SQLite。",
+  "推荐启动": "docker compose up -d",
+  "agentHint": "先确认 8787 端口未被占用，然后执行 docker compose up -d 并检查日志。",
+  "DeepWiki": "https://deepwiki.com/1337hero/faster-chat",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/1337hero-faster-chat.json",
+  "source": "ai-web"
+}

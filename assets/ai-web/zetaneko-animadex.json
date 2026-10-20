@@ -1,0 +1,78 @@
+{
+  "产品": "AnimaDex",
+  "厂商": "zetaneko",
+  "状态": "可下",
+  "类型": "图像",
+  "语言": "Python",
+  "Stars": 127,
+  "GitHub": "https://github.com/zetaneko/AnimaDex",
+  "官网": "https://github.com/zetaneko/AnimaDex",
+  "文档": "https://github.com/zetaneko/AnimaDex",
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "./install.sh && ./run.sh → http://127.0.0.1:5000",
+  "去重键": "zetaneko-animadex",
+  "备注": "Flask 自托动漫角色/画师参考图库，SQLite。",
+  "资产号": 33,
+  "首次写入": "2026-09-03",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-20T14:10:49+08:00",
+  "启动指引": "克隆仓库后运行 ./install.sh（或 Windows 的 install.bat）完成依赖安装和虚拟环境创建；随后执行 python -m animadex genkey 生成 secret_key 并填入 config.toml 的 [server].secret_key；如需使用消息收件箱，可设置 [admin].password；最后运行 ./run.sh（或 run.bat）启动 Flask 开发服务器，默认监听端口 5000，访问 http://127.0.0.1:5000 即可。可通过环境变量 ANIMADEX_SERVER_PORT、ANIMADEX_SERVER_SECRET_KEY、ANIMADEX_ADMIN_PASSWORD 覆盖对应配置。",
+  "开工前先看": [
+    {
+      "title": "Getting Started",
+      "url": "https://deepwiki.com/zetaneko/AnimaDex#getting-started"
+    },
+    {
+      "title": "Importing Data from animadex.net",
+      "url": "https://deepwiki.com/zetaneko/AnimaDex#importing-data-from-animadexnet"
+    },
+    {
+      "title": "config.toml Reference",
+      "url": "https://deepwiki.com/zetaneko/AnimaDex#configtoml-reference"
+    },
+    {
+      "title": "Web Routes and API",
+      "url": "https://deepwiki.com/zetaneko/AnimaDex#web-routes-and-api"
+    },
+    {
+      "title": "AnimaDex Overview",
+      "url": "https://deepwiki.com/zetaneko/AnimaDex#animadex-overview"
+    },
+    {
+      "title": "Production Deployment (gunicorn/nginx)",
+      "url": "https://deepwiki.com/zetaneko/AnimaDex#production-deployment"
+    },
+    {
+      "title": "Optional Dependencies (scoring/generation)",
+      "url": "https://deepwiki.com/zetaneko/AnimaDex#optional-dependencies"
+    },
+    {
+      "title": "Environment Variables",
+      "url": "https://deepwiki.com/zetaneko/AnimaDex#environment-variables"
+    }
+  ],
+  "建议追问": [
+    "如何生成并配置 secret_key？",
+    "如何修改服务器端口？",
+    "如何启用调试模式（--dev）？",
+    "如何使用 gunicorn 进行生产部署？",
+    "如何导入 animadex.net 数据并处理 token 失效或 48 小时限制？",
+    "如何检查数据库是否已正确初始化？",
+    "在反向代理后如何正确获取客户端 IP（trust_proxy 设置）？",
+    "如何清除缓存或强制重新生成缩略图？"
+  ],
+  "已知坑": "需 Python 3.11+，若版本过低安装脚本会直接退出；未先运行 install.sh 会提示找不到 .venv；config.toml 未生成或未填写 secret_key 会导致会话在每次重启后失效；数据目录不可写会引起数据库错误；导入 animadex.net 数据时 token 必须来自账户离线数据导出页面，且完整导入受 48 小时频率限制，超时会自动回退为增量更新。",
+  "成功标准": "能够在浏览器打开 http://127.0.0.1:5000 看到画廊首页，且控制台输出类似 \"Ready: X characters, Y artists (path/to/animadex.db)\" 的初始化信息，表明服务器已启动并成功连接数据库。",
+  "研判摘要": "AnimaDex 是基于 Flask 的自托动漫角色/画师参考图库，使用 Python 虚拟环境和 SQLite，默认端口 5000，需手动生成 secret_key 配置后即可本地启动。",
+  "推荐启动": "./run.sh",
+  "agentHint": "先运行 install.sh 再运行 run.sh，确保 Python 3.11+ 并配置 secret_key。",
+  "DeepWiki": "https://deepwiki.com/zetaneko/AnimaDex",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zetaneko-animadex.json",
+  "source": "ai-web"
+}

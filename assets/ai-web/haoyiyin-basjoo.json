@@ -1,0 +1,61 @@
+{
+  "产品": "Basjoo",
+  "厂商": "haoyiyin",
+  "状态": "可下",
+  "类型": "知识库",
+  "语言": "Python",
+  "Stars": 156,
+  "GitHub": "https://github.com/haoyiyin/basjoo",
+  "官网": "https://github.com/haoyiyin/basjoo",
+  "文档": "https://github.com/haoyiyin/basjoo",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "docker compose --profile dev|prod up -d；或 install-deploy.sh",
+  "去重键": "haoyiyin-basjoo",
+  "备注": "FastAPI+Next.js 智能客服：管理台+可嵌入 chat widget+Qdrant。",
+  "资产号": 22,
+  "首次写入": "2026-09-03",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-20T14:09:26+08:00",
+  "启动指引": "按照下载条件执行 `docker compose --profile dev|prod up -d` 启动容器，或运行 `install-deploy.sh` 脚本。端口、环境变量等需查看项目的 `docker-compose.yml` 或 `.env.example` 文件；鉴权要点参考项目的 auth 配置（如 JWT、API key）。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/haoyiyin/basjoo"
+    },
+    {
+      "title": "官网",
+      "url": "https://github.com/haoyiyin/basjoo"
+    },
+    {
+      "title": "文档",
+      "url": "https://github.com/haoyiyin/basjoo"
+    },
+    {
+      "title": "DeepWiki",
+      "url": "https://deepwiki.com/haoyiyin/basjoo"
+    }
+  ],
+  "建议追问": [
+    "默认的前端和后端端口分别是多少？",
+    "需要哪些必填环境变量（如数据库、Qdrant、JWT 密钥）？",
+    "如何配置 Qdrant 连接及集合名称？",
+    "管理台的初始账号密码是什么？如何修改？",
+    "如何切换到生产模式（prod profile）并启用 HTTPS？",
+    "日志查看方式是什么？是否支持滚动日志？"
+  ],
+  "已知坑": "暂无已知坑信息，需根据实际部署观察。",
+  "成功标准": "能够通过浏览器访问管理台 UI 并看到登录页，或访问 API 健康检查端点（如 /health）返回 200。",
+  "研判摘要": "Basjoo 是基于 FastAPI+Next.js 的智能客服平台，支持 Docker 或源码部署，具体端口和环境变量需参考项目配置。",
+  "推荐启动": "docker compose --profile dev up -d",
+  "agentHint": "先检查 docker-compose.yml 和 .env 示例，确保端口和必要变量已配置。",
+  "DeepWiki": "https://deepwiki.com/haoyiyin/basjoo",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/haoyiyin-basjoo.json",
+  "source": "ai-web"
+}

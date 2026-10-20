@@ -1,0 +1,69 @@
+{
+  "产品": "Hermes Studio",
+  "厂商": "JPeetz",
+  "状态": "可下",
+  "类型": "Agent",
+  "语言": "TypeScript",
+  "Stars": 344,
+  "GitHub": "https://github.com/JPeetz/Hermes-Studio",
+  "官网": "https://github.com/JPeetz/Hermes-Studio",
+  "文档": "https://github.com/JPeetz/Hermes-Studio",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "docker compose up（带 Hermes Agent gateway）",
+  "去重键": "jpeetz-hermes-studio",
+  "备注": "Nous Hermes Agent 的自托 Web 工作台：多 agent/cron/审批/MCP。",
+  "资产号": 8,
+  "首次写入": "2026-09-03",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-20T14:07:57+08:00",
+  "启动指引": "克隆仓库后，复制 .env.example 为 .env 并设置 HERMES_API_URL（如 http://127.0.0.1:8642）以及 ANTHROPIC_API_KEY（Docker 需要），然后执行 pnpm install 并 pnpm dev（或 docker compose up），访问 http://localhost:3000；若设置 HERMES_PASSWORD 则会出现登录页，成功后会生成会话 token。",
+  "开工前先看": [
+    {
+      "title": "Hermes Studio GitHub 主页",
+      "url": "https://github.com/JPeetz/Hermes-Studio"
+    },
+    {
+      "title": "安装与启动指南（含 Docker 与 pnpm）",
+      "url": "https://github.com/JPeetz/Hermes-Studio#installation-and-startup-methods"
+    },
+    {
+      "title": "环境变量说明",
+      "url": "https://github.com/JPeetz/Hermes-Studio#environment-variables"
+    },
+    {
+      "title": "常见坑与故障排除",
+      "url": "https://github.com/JPeetz/Hermes-Studio#common-pitfalls-and-troubleshooting"
+    },
+    {
+      "title": "DeepWiki 概览",
+      "url": "https://deepwiki.com/JPeetz/Hermes-Studio"
+    },
+    {
+      "title": "Web UI / API 端点概述",
+      "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_1c312d38-9156-429f-a096-462acdd75e09"
+    }
+  ],
+  "建议追问": [
+    "如何在生产环境中配置 HTTPS 反向代理？",
+    "是否可以使用自定义 OpenAI 兼容端点而不依赖 Hermes Agent？",
+    "如何启用 Redis 持久化并调整 REDIS_URL？",
+    "在 Docker 中如何查看 hermes-agent 容器的日志以排查连接问题？",
+    "如果想禁用密码认知，应该如何设置 HERMES_PASSWORD？",
+    "如何通过 /api/hermes-proxy/* 端点直接调用 Hermes Gateway？"
+  ],
+  "已知坑": "常见问题包括：ANTHROPIC_API_KEY 未设置导致 hermes-agent 无法启动；Hermes Agent 未运行或版本过旧造成连接被拒；Ollama 未开启 CORS 或配置错误导致模型离线；Docker 环境下未正确挂载 .env 导致认证失败；网络不通时 UI 会降级为 portable 模式，部分高级功能不可用。",
+  "成功标准": "打开 http://localhost:3000 能看到 Hermes Studio 界面；在设置页面点击 \"Test Connection\" 返回成功提示；同时执行 curl http://localhost:8642/health 响应 {\"status\":\"ok\"}；若设置了 HERMES_PASSWORD，登录后可正常进行对话且会话持久化。",
+  "研判摘要": "Hermes Studio 是基于 Node.js 的多 agent 工作台，支持 Docker 或 pnpm 两种部署方式，默认端口 3000，需要配置 Hermes Agent 网关（端口 8642）及相关 API 密钥才能获得完整功能。",
+  "推荐启动": "docker compose up",
+  "agentHint": "先确认 .env 中的 ANTHROPIC_API_KEY 和 HERMES_API_URL，再启动服务并检查网关健康端点。",
+  "DeepWiki": "https://deepwiki.com/JPeetz/Hermes-Studio",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/jpeetz-hermes-studio.json",
+  "source": "ai-web"
+}

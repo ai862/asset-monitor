@@ -86,7 +86,54 @@
     "去重键": "jpeetz-hermes-studio",
     "备注": "Nous Hermes Agent 的自托 Web 工作台：多 agent/cron/审批/MCP。",
     "资产号": 8,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-20T14:07:57+08:00",
+    "启动指引": "克隆仓库后，复制 .env.example 为 .env 并设置 HERMES_API_URL（如 http://127.0.0.1:8642）以及 ANTHROPIC_API_KEY（Docker 需要），然后执行 pnpm install 并 pnpm dev（或 docker compose up），访问 http://localhost:3000；若设置 HERMES_PASSWORD 则会出现登录页，成功后会生成会话 token。",
+    "开工前先看": [
+      {
+        "title": "Hermes Studio GitHub 主页",
+        "url": "https://github.com/JPeetz/Hermes-Studio"
+      },
+      {
+        "title": "安装与启动指南（含 Docker 与 pnpm）",
+        "url": "https://github.com/JPeetz/Hermes-Studio#installation-and-startup-methods"
+      },
+      {
+        "title": "环境变量说明",
+        "url": "https://github.com/JPeetz/Hermes-Studio#environment-variables"
+      },
+      {
+        "title": "常见坑与故障排除",
+        "url": "https://github.com/JPeetz/Hermes-Studio#common-pitfalls-and-troubleshooting"
+      },
+      {
+        "title": "DeepWiki 概览",
+        "url": "https://deepwiki.com/JPeetz/Hermes-Studio"
+      },
+      {
+        "title": "Web UI / API 端点概述",
+        "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_1c312d38-9156-429f-a096-462acdd75e09"
+      }
+    ],
+    "建议追问": [
+      "如何在生产环境中配置 HTTPS 反向代理？",
+      "是否可以使用自定义 OpenAI 兼容端点而不依赖 Hermes Agent？",
+      "如何启用 Redis 持久化并调整 REDIS_URL？",
+      "在 Docker 中如何查看 hermes-agent 容器的日志以排查连接问题？",
+      "如果想禁用密码认知，应该如何设置 HERMES_PASSWORD？",
+      "如何通过 /api/hermes-proxy/* 端点直接调用 Hermes Gateway？"
+    ],
+    "已知坑": "常见问题包括：ANTHROPIC_API_KEY 未设置导致 hermes-agent 无法启动；Hermes Agent 未运行或版本过旧造成连接被拒；Ollama 未开启 CORS 或配置错误导致模型离线；Docker 环境下未正确挂载 .env 导致认证失败；网络不通时 UI 会降级为 portable 模式，部分高级功能不可用。",
+    "成功标准": "打开 http://localhost:3000 能看到 Hermes Studio 界面；在设置页面点击 \"Test Connection\" 返回成功提示；同时执行 curl http://localhost:8642/health 响应 {\"status\":\"ok\"}；若设置了 HERMES_PASSWORD，登录后可正常进行对话且会话持久化。",
+    "研判摘要": "Hermes Studio 是基于 Node.js 的多 agent 工作台，支持 Docker 或 pnpm 两种部署方式，默认端口 3000，需要配置 Hermes Agent 网关（端口 8642）及相关 API 密钥才能获得完整功能。",
+    "推荐启动": "docker compose up",
+    "agentHint": "先确认 .env 中的 ANTHROPIC_API_KEY 和 HERMES_API_URL，再启动服务并检查网关健康端点。",
+    "DeepWiki": "https://deepwiki.com/JPeetz/Hermes-Studio",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/jpeetz-hermes-studio.json"
   },
   {
     "产品": "Faster Chat",
@@ -107,7 +154,46 @@
     "去重键": "1337hero-faster-chat",
     "备注": "隐私优先 Preact 多厂商聊天，SQLite 服务端存储。语言实际是 JavaScript。",
     "资产号": 41,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-20T14:08:25+08:00",
+    "启动指引": "使用 Docker：执行 `docker compose up -d` 后通过 http://localhost:8787 访问；源码方式：先安装 bun，运行 `bun install` 再 `bun run dev`，默认端口请查看项目配置；目前未发现必需的环境变量，如需鉴权请参考项目的 .env.example 或文档。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/1337hero/faster-chat"
+      },
+      {
+        "title": "README 文件",
+        "url": "https://github.com/1337hero/faster-chat#readme"
+      },
+      {
+        "title": "DeepWiki 文档",
+        "url": "https://deepwiki.com/1337hero/faster-chat"
+      },
+      {
+        "title": "官网（即 GitHub 页面）",
+        "url": "https://github.com/1337hero/faster-chat"
+      }
+    ],
+    "建议追问": [
+      "项目是否需要额外的环境变量（如 API 密钥、数据库路径）？",
+      "如何配置反向代理（如 Nginx）以提供 HTTPS 访问？",
+      "默认的鉴权机制是什么？是否支持 JWT 或 OAuth？",
+      "持久化数据存储位置在哪里？如何备份 SQLite 数据库？",
+      "在开发模式下，bun run dev 会监听哪个端口？是否支持热重载？",
+      "是否有现成的 Docker 镜像？镜像 tag 和拉取命令是什么？"
+    ],
+    "已知坑": "首次运行时需要确保数据卷或目录有写入权限，否则 SQLite 可能无法创建文件导致启动失败；此外，若使用自定义端口，需同步修改 docker-compose.yml 中的端口映射。",
+    "成功标准": "打开浏览器访问 http://localhost:8787 能看到 Faster Chat 的聊天界面，或通过 curl http://localhost:8787/api/health（若存在）返回 200 OK。",
+    "研判摘要": "Faster Chat 是一个基于 Preact 的多厂商隐私优先聊天应用，支持 Docker 一键启动及源码开发模式，默认端口 8787，存储使用 SQLite。",
+    "推荐启动": "docker compose up -d",
+    "agentHint": "先确认 8787 端口未被占用，然后执行 docker compose up -d 并检查日志。",
+    "DeepWiki": "https://deepwiki.com/1337hero/faster-chat",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/1337hero-faster-chat.json"
   },
   {
     "产品": "ollama-webUI",
@@ -128,7 +214,45 @@
     "去重键": "812781385-ollama-webui",
     "备注": "中文 Vue Ollama 聊天/模型管理/RAG，非 Open WebUI 叉。语言实际是 Vue。",
     "资产号": 39,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-20T14:08:57+08:00",
+    "启动指引": "在客户端目录执行 `pnpm i` 然后 `npm run dev` 启动前端；在后端目录执行 `python-serve` 或 `serve npm dev` 启动后端。具体端口和环境变量请参考项目文档。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/812781385/ollama-webUI"
+      },
+      {
+        "title": "官网",
+        "url": "https://github.com/812781385/ollama-webUI"
+      },
+      {
+        "title": "文档",
+        "url": "https://github.com/812781385/ollama-webUI"
+      },
+      {
+        "title": "DeepWiki 页面",
+        "url": "https://deepwiki.com/812781385/ollama-webUI"
+      }
+    ],
+    "建议追问": [
+      "前端默认运行在哪个端口？",
+      "后端服务需要哪些环境变量才能连接到 Ollama？",
+      "是否需要额外的身份验证或 token 配置？",
+      "如何在生产环境中使用反向代理（如 Nginx）进行端口转发？",
+      "启动后如何验证前端与后端的通信是否正常？",
+      "是否有 Docker 镜像或一键启动脚本可供参考？"
+    ],
+    "已知坑": "暂无已知坑信息",
+    "成功标准": "前端页面能够在浏览器中打开并显示聊天界面，后端服务能够响应 API 请求（如模型列表），前端与后端之间的数据交互正常。",
+    "研判摘要": "ollama-webUI 是一个基于 Vue 的 Ollama 聊天与模型管理界面，提供前端开发模式和后端 Python/Node 服务两种启动方式。",
+    "agentHint": "根据仓库的下载条件，先安装依赖再分别启动前端与后端服务。",
+    "DeepWiki": "https://deepwiki.com/812781385/ollama-webUI",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/812781385-ollama-webui.json"
   },
   {
     "产品": "Basjoo",
@@ -149,7 +273,46 @@
     "去重键": "haoyiyin-basjoo",
     "备注": "FastAPI+Next.js 智能客服：管理台+可嵌入 chat widget+Qdrant。",
     "资产号": 22,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-20T14:09:26+08:00",
+    "启动指引": "按照下载条件执行 `docker compose --profile dev|prod up -d` 启动容器，或运行 `install-deploy.sh` 脚本。端口、环境变量等需查看项目的 `docker-compose.yml` 或 `.env.example` 文件；鉴权要点参考项目的 auth 配置（如 JWT、API key）。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/haoyiyin/basjoo"
+      },
+      {
+        "title": "官网",
+        "url": "https://github.com/haoyiyin/basjoo"
+      },
+      {
+        "title": "文档",
+        "url": "https://github.com/haoyiyin/basjoo"
+      },
+      {
+        "title": "DeepWiki",
+        "url": "https://deepwiki.com/haoyiyin/basjoo"
+      }
+    ],
+    "建议追问": [
+      "默认的前端和后端端口分别是多少？",
+      "需要哪些必填环境变量（如数据库、Qdrant、JWT 密钥）？",
+      "如何配置 Qdrant 连接及集合名称？",
+      "管理台的初始账号密码是什么？如何修改？",
+      "如何切换到生产模式（prod profile）并启用 HTTPS？",
+      "日志查看方式是什么？是否支持滚动日志？"
+    ],
+    "已知坑": "暂无已知坑信息，需根据实际部署观察。",
+    "成功标准": "能够通过浏览器访问管理台 UI 并看到登录页，或访问 API 健康检查端点（如 /health）返回 200。",
+    "研判摘要": "Basjoo 是基于 FastAPI+Next.js 的智能客服平台，支持 Docker 或源码部署，具体端口和环境变量需参考项目配置。",
+    "推荐启动": "docker compose --profile dev up -d",
+    "agentHint": "先检查 docker-compose.yml 和 .env 示例，确保端口和必要变量已配置。",
+    "DeepWiki": "https://deepwiki.com/haoyiyin/basjoo",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/haoyiyin-basjoo.json"
   },
   {
     "产品": "AnimaDex",
@@ -169,7 +332,64 @@
     "去重键": "zetaneko-animadex",
     "备注": "Flask 自托动漫角色/画师参考图库，SQLite。",
     "资产号": 33,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-20T14:10:49+08:00",
+    "启动指引": "克隆仓库后运行 ./install.sh（或 Windows 的 install.bat）完成依赖安装和虚拟环境创建；随后执行 python -m animadex genkey 生成 secret_key 并填入 config.toml 的 [server].secret_key；如需使用消息收件箱，可设置 [admin].password；最后运行 ./run.sh（或 run.bat）启动 Flask 开发服务器，默认监听端口 5000，访问 http://127.0.0.1:5000 即可。可通过环境变量 ANIMADEX_SERVER_PORT、ANIMADEX_SERVER_SECRET_KEY、ANIMADEX_ADMIN_PASSWORD 覆盖对应配置。",
+    "开工前先看": [
+      {
+        "title": "Getting Started",
+        "url": "https://deepwiki.com/zetaneko/AnimaDex#getting-started"
+      },
+      {
+        "title": "Importing Data from animadex.net",
+        "url": "https://deepwiki.com/zetaneko/AnimaDex#importing-data-from-animadexnet"
+      },
+      {
+        "title": "config.toml Reference",
+        "url": "https://deepwiki.com/zetaneko/AnimaDex#configtoml-reference"
+      },
+      {
+        "title": "Web Routes and API",
+        "url": "https://deepwiki.com/zetaneko/AnimaDex#web-routes-and-api"
+      },
+      {
+        "title": "AnimaDex Overview",
+        "url": "https://deepwiki.com/zetaneko/AnimaDex#animadex-overview"
+      },
+      {
+        "title": "Production Deployment (gunicorn/nginx)",
+        "url": "https://deepwiki.com/zetaneko/AnimaDex#production-deployment"
+      },
+      {
+        "title": "Optional Dependencies (scoring/generation)",
+        "url": "https://deepwiki.com/zetaneko/AnimaDex#optional-dependencies"
+      },
+      {
+        "title": "Environment Variables",
+        "url": "https://deepwiki.com/zetaneko/AnimaDex#environment-variables"
+      }
+    ],
+    "建议追问": [
+      "如何生成并配置 secret_key？",
+      "如何修改服务器端口？",
+      "如何启用调试模式（--dev）？",
+      "如何使用 gunicorn 进行生产部署？",
+      "如何导入 animadex.net 数据并处理 token 失效或 48 小时限制？",
+      "如何检查数据库是否已正确初始化？",
+      "在反向代理后如何正确获取客户端 IP（trust_proxy 设置）？",
+      "如何清除缓存或强制重新生成缩略图？"
+    ],
+    "已知坑": "需 Python 3.11+，若版本过低安装脚本会直接退出；未先运行 install.sh 会提示找不到 .venv；config.toml 未生成或未填写 secret_key 会导致会话在每次重启后失效；数据目录不可写会引起数据库错误；导入 animadex.net 数据时 token 必须来自账户离线数据导出页面，且完整导入受 48 小时频率限制，超时会自动回退为增量更新。",
+    "成功标准": "能够在浏览器打开 http://127.0.0.1:5000 看到画廊首页，且控制台输出类似 \"Ready: X characters, Y artists (path/to/animadex.db)\" 的初始化信息，表明服务器已启动并成功连接数据库。",
+    "研判摘要": "AnimaDex 是基于 Flask 的自托动漫角色/画师参考图库，使用 Python 虚拟环境和 SQLite，默认端口 5000，需手动生成 secret_key 配置后即可本地启动。",
+    "推荐启动": "./run.sh",
+    "agentHint": "先运行 install.sh 再运行 run.sh，确保 Python 3.11+ 并配置 secret_key。",
+    "DeepWiki": "https://deepwiki.com/zetaneko/AnimaDex",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zetaneko-animadex.json"
   },
   {
     "产品": "GPTPortal",

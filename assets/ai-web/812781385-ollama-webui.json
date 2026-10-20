@@ -1,0 +1,60 @@
+{
+  "产品": "ollama-webUI",
+  "厂商": "812781385",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "其它",
+  "Stars": 98,
+  "GitHub": "https://github.com/812781385/ollama-webUI",
+  "官网": "https://github.com/812781385/ollama-webUI",
+  "文档": "https://github.com/812781385/ollama-webUI",
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "npm"
+  ],
+  "下载条件": "client 下 pnpm i && npm run dev；后端 python-serve 或 serve npm run dev",
+  "去重键": "812781385-ollama-webui",
+  "备注": "中文 Vue Ollama 聊天/模型管理/RAG，非 Open WebUI 叉。语言实际是 Vue。",
+  "资产号": 39,
+  "首次写入": "2026-09-03",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-20T14:08:57+08:00",
+  "启动指引": "在客户端目录执行 `pnpm i` 然后 `npm run dev` 启动前端；在后端目录执行 `python-serve` 或 `serve npm dev` 启动后端。具体端口和环境变量请参考项目文档。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/812781385/ollama-webUI"
+    },
+    {
+      "title": "官网",
+      "url": "https://github.com/812781385/ollama-webUI"
+    },
+    {
+      "title": "文档",
+      "url": "https://github.com/812781385/ollama-webUI"
+    },
+    {
+      "title": "DeepWiki 页面",
+      "url": "https://deepwiki.com/812781385/ollama-webUI"
+    }
+  ],
+  "建议追问": [
+    "前端默认运行在哪个端口？",
+    "后端服务需要哪些环境变量才能连接到 Ollama？",
+    "是否需要额外的身份验证或 token 配置？",
+    "如何在生产环境中使用反向代理（如 Nginx）进行端口转发？",
+    "启动后如何验证前端与后端的通信是否正常？",
+    "是否有 Docker 镜像或一键启动脚本可供参考？"
+  ],
+  "已知坑": "暂无已知坑信息",
+  "成功标准": "前端页面能够在浏览器中打开并显示聊天界面，后端服务能够响应 API 请求（如模型列表），前端与后端之间的数据交互正常。",
+  "研判摘要": "ollama-webUI 是一个基于 Vue 的 Ollama 聊天与模型管理界面，提供前端开发模式和后端 Python/Node 服务两种启动方式。",
+  "agentHint": "根据仓库的下载条件，先安装依赖再分别启动前端与后端服务。",
+  "DeepWiki": "https://deepwiki.com/812781385/ollama-webUI",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/812781385-ollama-webui.json",
+  "source": "ai-web"
+}
