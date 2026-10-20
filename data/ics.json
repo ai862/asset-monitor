@@ -1890,5 +1890,26 @@
     "备注": "安徽旭帆国标 GB28181 视频云平台；Web 管理；Docker 镜像可拉",
     "资产号": 95,
     "首次写入": "2026-09-11"
+  },
+  {
+    "产品": "DIAEnergie",
+    "厂商": "台达 Delta",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国内",
+    "官网": "https://downloadcenter.delta-china.com.cn/",
+    "下载页": "https://downloadcenter.delta-china.com.cn/DownloadCenter?v=1&q=DIAEnergie&sort_expr=cdate&sort_dir=DESC",
+    "文档": "https://downloadcenter.delta-china.com.cn/DownloadCenter?v=1&q=DIAEnergie&sort_expr=cdate&sort_dir=DESC",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "下载中心可检索 DIAEnergie V1.11（软件 ZIP 约258MB，2024-10-30）；列表免登录可见，点下跳转 register.delta-china.com.cn 需台达账号",
+    "去重键": "delta-diaenergie",
+    "备注": "工业能源管理系统 IEMS；可搭建 Web；同厂商目前库内仅有 DIAView，台达下载中心另有 DIAMES/DIASPC/DIAWebDesigner 等可扩",
+    "资产号": 97,
+    "首次写入": "2026-10-20",
+    "下载核验时间": "2026-10-20T18:19:24+08:00",
+    "下载核验来源": "opencode+playwright 2026-10-20"
   }
 ]

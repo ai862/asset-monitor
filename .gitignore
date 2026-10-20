@@ -13,3 +13,5 @@ __pycache__/
 # Local OpenRouter / credential dirs (box paths; also block accidental copies)
 .openrouter/
 **/openrouter/*.env
+
+.playwright-mcp/
