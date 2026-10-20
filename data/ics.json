@@ -1911,5 +1911,68 @@
     "首次写入": "2026-10-20",
     "下载核验时间": "2026-10-20T18:19:24+08:00",
     "下载核验来源": "opencode+playwright 2026-10-20"
+  },
+  {
+    "产品": "DIAWebDesigner",
+    "厂商": "台达 Delta",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国内",
+    "官网": "https://www.delta-china.com.cn/zh-CN/products/Touch-Panel-HMI-Human-Machine-Interfaces/ALL/",
+    "下载页": "https://downloadcenter.delta-china.com.cn/DownloadCenter?v=1&q=DIAWebDesigner&sort_expr=cdate&sort_dir=DESC",
+    "文档": "https://downloadcenter.delta-china.com.cn/DownloadCenter?v=1&q=DIAWebDesigner&sort_expr=cdate&sort_dir=DESC",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "列表免登录可见；点击下载跳转 register.delta-china.com.cn 需台达账号",
+    "去重键": "delta-diawebdesigner",
+    "备注": "适用 DOP-300；最新软件 DIAWebDesigner V1.2.0（641MB，ZIP，DID=48006，文件名含 20260310）；另有简中操作手册 DID=48007（16.2MB PDF）与发行说明。Windows 8/10/11。",
+    "资产号": 98,
+    "首次写入": "2026-10-20",
+    "下载核验时间": "2026-10-20T18:32:32+08:00",
+    "下载核验来源": "opencode+playwright 2026-10-20"
+  },
+  {
+    "产品": "eDIACloud",
+    "厂商": "台达 Delta",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国内",
+    "官网": "https://www.delta-china.com.cn/zh-CN/products/Touch-Panel-HMI-Human-Machine-Interfaces/ALL/",
+    "下载页": "https://downloadcenter.delta-china.com.cn/DownloadCenter?v=1&q=eDIACloud&sort_expr=cdate&sort_dir=DESC",
+    "文档": "https://downloadcenter.delta-china.com.cn/DownloadCenter?v=1&q=eDIACloud&sort_expr=cdate&sort_dir=DESC",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "列表免登录可见；点击下载跳转 register.delta-china.com.cn 需台达账号",
+    "去重键": "delta-ediacloud",
+    "备注": "最新 eDIACloud V1.0.8 安装软件 61.7MB（DID=50107）；另有 Android eDIACloud App v1.0.4 36MB（DID=48490）。手册明确「DIACloud Web Portal 与 eDIACloud APP」。Web 入口在 DIACloud 门户，本条为配套客户端。",
+    "资产号": 99,
+    "首次写入": "2026-10-20",
+    "下载核验时间": "2026-10-20T18:32:32+08:00",
+    "下载核验来源": "opencode+playwright 2026-10-20"
+  },
+  {
+    "产品": "DIACloud",
+    "厂商": "台达 Delta",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国内",
+    "官网": "https://www.diacloudsolutions.com/",
+    "下载页": "https://downloadcenter.delta-china.com.cn/DownloadCenter?v=1&q=DIACloud&sort_expr=cdate&sort_dir=DESC",
+    "文档": "https://downloadcenter.delta-china.com.cn/DownloadCenter?v=1&q=eDIACloud&sort_expr=cdate&sort_dir=DESC",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "云门户本身为 SaaS Web；配套连线工具/App 列表免登录可见，点击下载需台达账号",
+    "去重键": "delta-diacloud",
+    "备注": "Web 门户 https://www.diacloudsolutions.com/（标题 DIACloud）。下载中心配套：DIACOM V1.5.0.4（DID=50106，20MB）、DIACom V1.5.0.3、DIACMT、DIACloud APP 等。官网 HMI 页称台达云端服务平台 DIACloud；官方文档写可通过 PC web browser 监控。",
+    "资产号": 100,
+    "首次写入": "2026-10-20",
+    "下载核验时间": "2026-10-20T18:32:32+08:00",
+    "下载核验来源": "opencode+playwright 2026-10-20"
   }
 ]
