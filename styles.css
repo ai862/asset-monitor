@@ -329,29 +329,40 @@ tr.v-row:hover td { background: #f0f4fa; }
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
 
-/* Side panel */
+/* Side panel — keep scroll cheap: no backdrop-filter, isolate paint */
+.app.is-guide-open {
+  /* Stop painting the big table/cards behind the drawer while it scrolls */
+  content-visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+}
 .guide-overlay {
   position: fixed; inset: 0; z-index: 40;
-  background: rgba(0, 0, 0, .28);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, .32);
+  /* blur removed: re-composites every frame and janks long panels */
 }
 .guide-panel {
   position: fixed; top: 0; right: 0; z-index: 50;
   width: min(440px, 100vw); height: 100vh;
+  height: 100dvh;
   background: var(--bg-elev);
   border-left: 1px solid var(--border);
-  box-shadow: -8px 0 32px rgba(0, 0, 0, .1);
+  box-shadow: -4px 0 20px rgba(0, 0, 0, .08);
   display: flex; flex-direction: column;
-  animation: guide-in .18s ease-out;
+  contain: layout paint style;
+  isolation: isolate;
+  transform: translateZ(0);
+  animation: guide-in .16s ease-out;
 }
 @keyframes guide-in {
-  from { transform: translateX(12px); opacity: .6; }
-  to { transform: translateX(0); opacity: 1; }
+  from { transform: translate3d(16px, 0, 0); opacity: .85; }
+  to { transform: translate3d(0, 0, 0); opacity: 1; }
 }
 .guide-head {
   display: flex; justify-content: space-between; gap: 12px; align-items: flex-start;
   padding: 20px 20px 14px; border-bottom: 1px solid var(--border-soft);
+  flex-shrink: 0;
+  background: var(--bg-elev);
 }
 .guide-head h2 { margin: 0; font-size: 1.15rem; font-weight: 700; letter-spacing: -.02em; }
 .guide-sub { margin: 4px 0 0; color: var(--muted); font-size: .82rem; }
@@ -363,23 +374,109 @@ tr.v-row:hover td { background: #f0f4fa; }
 }
 .guide-close:hover { color: var(--text); background: #ebebed; }
 .guide-body {
-  overflow: auto; padding: 16px 20px 32px; flex: 1;
+  overflow: auto;
+  overflow-x: hidden;
+  padding: 16px 20px 32px;
+  flex: 1;
+  min-height: 0;
   overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  contain: content;
+  /* Own compositor layer so scroll doesn't thrash the page behind */
+  transform: translateZ(0);
+  will-change: scroll-position;
 }
-.guide-section { margin-bottom: 18px; }
+.guide-section {
+  margin-bottom: 14px;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 96px;
+}
 .guide-section h3 {
   margin: 0 0 8px; font-size: .72rem; font-weight: 700;
   letter-spacing: .04em; color: var(--faint); text-transform: uppercase;
 }
-.guide-section p, .guide-section pre {
+.guide-section p, .guide-section pre, .guide-prose {
   margin: 0; font-size: .9rem; color: var(--text); white-space: pre-wrap; word-break: break-word;
   line-height: 1.55;
 }
-.guide-section pre {
+.guide-section pre, .guide-prose {
   font-family: var(--font);
   background: var(--bg-soft); border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 12px 14px;
 }
+/* Collapsible blocks for long guidance */
+.guide-fold {
+  margin-bottom: 14px;
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  background: var(--bg-elev);
+  content-visibility: auto;
+  contain-intrinsic-size: auto 64px;
+}
+.guide-fold > summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--faint);
+  text-transform: uppercase;
+}
+.guide-fold > summary::-webkit-details-marker { display: none; }
+.guide-fold > summary::after {
+  content: "";
+  width: 8px; height: 8px;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg);
+  transition: transform .15s ease;
+  flex-shrink: 0;
+  margin-top: -3px;
+}
+.guide-fold[open] > summary::after {
+  transform: rotate(-135deg);
+  margin-top: 3px;
+}
+.guide-fold > summary:hover { color: var(--text); }
+.guide-fold-body {
+  padding: 0 14px 14px;
+}
+.guide-fold-body p,
+.guide-fold-body pre,
+.guide-fold-body .guide-prose,
+.guide-fold-body .guide-qs,
+.guide-fold-body .guide-links {
+  margin: 0;
+}
+.guide-clamp {
+  position: relative;
+  max-height: 11.5em;
+  overflow: hidden;
+}
+.guide-clamp.is-expanded {
+  max-height: none;
+  overflow: visible;
+}
+.guide-clamp:not(.is-expanded)::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 2.6em;
+  background: linear-gradient(transparent, var(--bg-soft));
+  pointer-events: none;
+  border-radius: 0 0 10px 10px;
+}
+.guide-more {
+  appearance: none; border: 0; background: transparent;
+  color: var(--accent); font: inherit; font-size: .82rem; font-weight: 650;
+  padding: 8px 0 0; cursor: pointer;
+}
+.guide-more:hover { text-decoration: underline; }
 .guide-links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
 .guide-links a {
   display: block; padding: 8px 12px; border-radius: 10px;

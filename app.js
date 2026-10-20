@@ -594,6 +594,8 @@
       overlay.setAttribute("aria-hidden", "true");
     }
     document.body.style.overflow = "";
+    const app = document.querySelector(".app");
+    if (app) app.classList.remove("is-guide-open");
     try {
       const u = new URL(location.href);
       if (u.searchParams.has("id")) {
@@ -601,6 +603,28 @@
         history.replaceState(null, "", u.toString());
       }
     } catch (_) { /* ignore */ }
+  }
+
+  function foldSection(title, innerHtml, { open = false } = {}) {
+    return (
+      `<details class="guide-fold"${open ? " open" : ""}>` +
+        `<summary>${esc(title)}</summary>` +
+        `<div class="guide-fold-body">${innerHtml}</div>` +
+      `</details>`
+    );
+  }
+
+  /** Long prose: clamp + expand so the drawer stays short and scroll stays light. */
+  function proseBlock(text, { clampAt = 280 } = {}) {
+    const raw = String(text || "");
+    const body = `<div class="guide-prose">${esc(raw)}</div>`;
+    if (raw.length < clampAt) return body;
+    return (
+      `<div class="guide-clamp-wrap">` +
+        `<div class="guide-prose guide-clamp">${esc(raw)}</div>` +
+        `<button type="button" class="guide-more" data-guide-more>展开全部</button>` +
+      `</div>`
+    );
   }
 
   function openGuide(key) {
@@ -634,47 +658,63 @@
       parts.push(`<section class="guide-section"><h3>推荐启动</h3><pre class="guide-cmd">${esc(r["推荐启动"])}</pre></section>`);
     }
     if (r["启动指引"]) {
-      parts.push(`<section class="guide-section"><h3>启动指引</h3><pre>${esc(r["启动指引"])}</pre></section>`);
+      parts.push(foldSection("启动指引", proseBlock(r["启动指引"]), { open: true }));
     }
     if (links.length) {
       parts.push(
-        `<section class="guide-section"><h3>开工前先看</h3><ul class="guide-links">${links
-          .filter((x) => x && x.url)
-          .map((x) => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title || x.url)}</a></li>`)
-          .join("")}</ul></section>`
+        foldSection(
+          "开工前先看",
+          `<ul class="guide-links">${links
+            .filter((x) => x && x.url)
+            .map((x) => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title || x.url)}</a></li>`)
+            .join("")}</ul>`,
+          { open: true }
+        )
       );
     }
     if (qs.length) {
       parts.push(
-        `<section class="guide-section"><h3>建议追问</h3><ol class="guide-qs">${qs
-          .map((q) => `<li>${esc(q)}</li>`)
-          .join("")}</ol></section>`
+        foldSection(
+          "建议追问",
+          `<ol class="guide-qs">${qs.map((q) => `<li>${esc(q)}</li>`).join("")}</ol>`,
+          { open: false }
+        )
       );
     }
     if (r["已知坑"]) {
-      parts.push(`<section class="guide-section"><h3>已知坑</h3><p>${esc(r["已知坑"])}</p></section>`);
+      parts.push(foldSection("已知坑", proseBlock(r["已知坑"], { clampAt: 160 }), { open: false }));
     }
     if (r["成功标准"]) {
-      parts.push(`<section class="guide-section"><h3>成功标准</h3><p>${esc(r["成功标准"])}</p></section>`);
+      parts.push(foldSection("成功标准", proseBlock(r["成功标准"], { clampAt: 160 }), { open: false }));
     }
     if (isHttp(r["DeepWiki"])) {
       parts.push(
-        `<section class="guide-section"><h3>DeepWiki</h3><ul class="guide-links"><li><a href="${esc(r["DeepWiki"])}" target="_blank" rel="noopener">打开 DeepWiki</a></li></ul></section>`
+        foldSection(
+          "DeepWiki",
+          `<ul class="guide-links"><li><a href="${esc(r["DeepWiki"])}" target="_blank" rel="noopener">打开 DeepWiki</a></li></ul>`,
+          { open: false }
+        )
       );
     }
     if (r["agentHint"]) {
-      parts.push(`<section class="guide-section"><h3>Agent 提示</h3><p>${esc(r["agentHint"])}</p></section>`);
+      parts.push(foldSection("Agent 提示", `<p>${esc(r["agentHint"])}</p>`, { open: false }));
     }
     if (r["研判时间"]) {
-      parts.push(`<section class="guide-section"><h3>研判时间</h3><p class="cell-muted">${esc(formatUpdated(r["研判时间"]))}</p></section>`);
+      parts.push(
+        `<section class="guide-section"><h3>研判时间</h3><p class="cell-muted">${esc(formatUpdated(r["研判时间"]))}</p></section>`
+      );
     }
 
-    $("guide-body").innerHTML = parts.join("");
+    const body = $("guide-body");
+    body.innerHTML = parts.join("");
+    body.scrollTop = 0;
     $("guide-panel").classList.remove("hidden");
     $("guide-panel").setAttribute("aria-hidden", "false");
     $("guide-overlay").classList.remove("hidden");
     $("guide-overlay").setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    const app = document.querySelector(".app");
+    if (app) app.classList.add("is-guide-open");
   }
 
   function bind() {
@@ -724,6 +764,17 @@
     });
 
     document.addEventListener("click", (e) => {
+      const moreBtn = e.target.closest("[data-guide-more]");
+      if (moreBtn) {
+        e.preventDefault();
+        const wrap = moreBtn.closest(".guide-clamp-wrap");
+        const clamp = wrap && wrap.querySelector(".guide-clamp");
+        if (clamp) {
+          const expanded = clamp.classList.toggle("is-expanded");
+          moreBtn.textContent = expanded ? "收起" : "展开全部";
+        }
+        return;
+      }
       const copyBtn = e.target.closest(".guide-copy-btn");
       if (copyBtn && copyBtn.dataset.copy) {
         e.preventDefault();
