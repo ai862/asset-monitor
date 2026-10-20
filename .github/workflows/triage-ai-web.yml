@@ -87,4 +87,10 @@ jobs:
             exit 0
           fi
           git commit -m "chore(triage): update AI Web guidance"
+          # Rebase once if main moved (e.g. concurrent Pages/UI commits)
+          git pull --rebase origin main || {
+            echo "::warning::rebase failed; retry once after fetch"
+            git fetch origin main
+            git rebase origin/main
+          }
           git push origin HEAD:main
