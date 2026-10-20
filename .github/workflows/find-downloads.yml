@@ -41,7 +41,7 @@ on:
     - cron: "0 15 * * *"
 
 concurrency:
-  group: find-downloads
+  group: asset-monitor-data-write
   cancel-in-progress: false
 
 permissions:
@@ -110,9 +110,57 @@ jobs:
             exit 0
           fi
           git commit -m "chore(downloads): update ICS / 信创 download pages"
-          git pull --rebase origin main || {
-            echo "::warning::rebase failed; retry once after fetch"
+          attempt_push() {
             git fetch origin main
-            git rebase origin/main
+            if git rebase origin/main; then
+              git push origin HEAD:main
+              return 0
+            fi
+            echo "::warning::rebase conflict; resolving"
+            # During rebase: --ours = upstream main, --theirs = our commit
+            while git diff --name-only --diff-filter=U | grep -q .; do
+              for f in $(git diff --name-only --diff-filter=U); do
+                if [ "$f" = "config.json" ]; then
+                  # keep higher updatedAt
+                  python3 -c "
+import json,re,pathlib
+p=pathlib.Path('config.json')
+t=p.read_text()
+# extract both sides if conflicted
+m=re.search(r'<<<<<<<[^\n]*\n(.*?)\n=======\n(.*?)\n>>>>>>>[^\n]*', t, re.S)
+if m:
+    import json as J
+    def parse(s):
+        try: return J.loads(s)
+        except: return None
+    a,b=parse(m.group(1)),parse(m.group(2))
+    if a and b:
+        cfg=b if str(b.get('updatedAt',''))>=str(a.get('updatedAt','')) else a
+        # preserve sources from whichever has them
+        if not cfg.get('sources'): cfg['sources']=(a.get('sources') or b.get('sources'))
+        p.write_text(J.dumps(cfg,ensure_ascii=False,indent=2)+'\n')
+    else:
+        p.write_text(m.group(2))
+else:
+    pass
+"
+                else
+                  git checkout --theirs -- "$f"
+                fi
+                git add -- "$f"
+              done
+              if ! GIT_EDITOR=true git rebase --continue; then
+                if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then
+                  continue
+                fi
+                break
+              fi
+            done
+            if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then
+              echo "::error::unresolved rebase"
+              git rebase --abort || true
+              return 1
+            fi
+            git push origin HEAD:main
           }
-          git push origin HEAD:main
+          attempt_push

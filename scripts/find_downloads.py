@@ -36,6 +36,8 @@ OPENROUTER_TITLE = "asset-monitor-downloads"
 MODEL_CHAIN = [
     "nvidia/nemotron-3-super-120b-a12b:free",
     "openrouter/free",
+    # free 日配额用尽时走积分（同 Key 有 $ 额度）
+    "nvidia/nemotron-3-super-120b-a12b",
 ]
 
 TZ_SH = timezone(timedelta(hours=8), name="Asia/Shanghai")
