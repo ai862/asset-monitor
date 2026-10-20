@@ -7,24 +7,17 @@
     xinchuang: { key: "层", label: "层" },
   };
 
-  const ICONS = {
-    "ai-web":
-      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M18 14l.8 2.2L21 17l-2.2.8L18 20l-.8-2.2L15 17l2.2-.8L18 14z"/></svg>',
-    ics:
-      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="9" width="14" height="10" rx="1.5"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/><path d="M9 14h.01M12 14h.01M15 14h.01"/></svg>',
-    xinchuang:
-      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3.5v5.2c0 4.4-3.2 7.8-8 9.3-4.8-1.5-8-4.9-8-9.3V6.5L12 3z"/><path d="M9 12l2 2 4-4"/></svg>',
+  const ICON_IDS = {
+    "ai-web": "i-ai-web",
+    ics: "i-ics",
+    xinchuang: "i-xinchuang",
   };
 
-  const LINK_ICONS = {
-    官网:
-      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
-    GitHub:
-      '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05A9.3 9.3 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.9-1.32 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.48A10.03 10.03 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>',
-    下载页:
-      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10"/><path d="M8 10l4 4 4-4"/><path d="M5 18h14"/></svg>',
-    文档:
-      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h10l4 4v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M14 4v5h5M8 13h8M8 17h6"/></svg>',
+  const LINK_ICON_IDS = {
+    官网: "i-link-web",
+    GitHub: "i-link-github",
+    下载页: "i-link-download",
+    文档: "i-link-docs",
   };
 
   const LINK_SPECS = [
@@ -33,6 +26,9 @@
     { key: "下载页", label: "下载" },
     { key: "文档", label: "文档" },
   ];
+
+  const ROW_HEIGHT = 60;
+  const OVERSCAN = 8;
 
   const state = {
     config: null,
@@ -44,6 +40,11 @@
     view: "table",
     tabsBuilt: false,
     raf: 0,
+    scrollRaf: 0,
+    filtered: [],
+    colCount: 7,
+    tableBuilt: false,
+    resetScroll: false,
   };
 
   const $ = (id) => document.getElementById(id);
@@ -76,11 +77,16 @@
     return typeof u === "string" && /^https?:\/\//i.test(u);
   }
 
+  function iconUse(id, size) {
+    if (!id) return "";
+    return `<svg class="ico" width="${size}" height="${size}" aria-hidden="true"><use href="#${id}"></use></svg>`;
+  }
+
   function linkPills(item) {
     return LINK_SPECS.filter((s) => isHttp(item[s.key]))
       .map((s) => {
-        const icon = LINK_ICONS[s.key] || "";
-        return `<a class="link-pill" href="${esc(item[s.key])}" target="_blank" rel="noopener">${icon}${esc(s.label)}</a>`;
+        const ico = iconUse(LINK_ICON_IDS[s.key], 12);
+        return `<a class="link-pill" href="${esc(item[s.key])}" target="_blank" rel="noopener">${ico}${esc(s.label)}</a>`;
       })
       .join("");
   }
@@ -157,7 +163,7 @@
       .map((s) => {
         const n = state.cache[s.id]?.length ?? "…";
         const active = s.id === state.sourceId ? " active" : "";
-        const icon = ICONS[s.id] || "";
+        const icon = iconUse(ICON_IDS[s.id], 15);
         return `<button type="button" class="tab${active}" role="tab" data-id="${esc(s.id)}" aria-selected="${
           s.id === state.sourceId
         }">${icon}<span class="tab-label">${esc(s.name)}</span><span class="count">${n}</span></button>`;
@@ -220,57 +226,124 @@
     renderChips($("extra-chips"), uniqueValues(rows, extra.key), state.extra, "全部");
   }
 
-  function renderTable(rows) {
-    const src = state.sourceId;
-    let headExtra = "";
-    let cols = "";
-
+  function headExtraAndCount(src) {
     if (src === "ai-web") {
-      headExtra = "<th>类型</th><th>语言</th><th>Stars</th><th>Web</th><th>部署</th>";
+      return { head: "<th>类型</th><th>语言</th><th>Stars</th><th>Web</th><th>部署</th>", cols: 8 };
+    }
+    if (src === "ics") {
+      return { head: "<th>行业</th><th>地区</th><th>Web</th><th>部署</th>", cols: 7 };
+    }
+    return { head: "<th>层</th><th>内核系</th><th>Web</th><th>统信</th>", cols: 7 };
+  }
+
+  function rowCells(r, src) {
+    let cols = "";
+    if (src === "ai-web") {
+      cols = `<td>${esc(r["类型"] || "—")}</td>
+        <td class="cell-muted">${esc(r["语言"] || "—")}</td>
+        <td class="mono">${r.Stars != null ? esc(r.Stars) : "—"}</td>
+        <td>${fmtBool(r["Web服务"])}</td>
+        <td>${fmtDeploy(r["部署方式"])}</td>`;
     } else if (src === "ics") {
-      headExtra = "<th>行业</th><th>地区</th><th>Web</th><th>部署</th>";
+      cols = `<td>${esc(r["行业"] || "—")}</td>
+        <td class="cell-muted">${esc(r["地区"] || "—")}</td>
+        <td>${fmtBool(r["Web服务"])}</td>
+        <td>${fmtDeploy(r["部署方式"])}</td>`;
     } else {
-      headExtra = "<th>层</th><th>内核系</th><th>Web</th><th>统信</th>";
+      cols = `<td>${esc(r["层"] || "—")}</td>
+        <td class="cell-muted">${esc(r["内核系"] || "—")}</td>
+        <td>${fmtBool(r["Web服务"])}</td>
+        <td>${fmtBool(r["统信清单"])}</td>`;
+    }
+    return `<td>
+        <div class="product">${esc(r["产品"] || "—")}</div>
+        <div class="vendor">${esc(r["厂商"] || "")}</div>
+        <div class="mono">${esc(r["去重键"] || "")}</div>
+      </td>
+      <td><span class="badge ${statusClass(r["状态"])}">${esc(r["状态"] || "—")}</span></td>
+      ${cols}
+      <td><div class="links">${linkPills(r) || '<span class="cell-muted">—</span>'}</div></td>`;
+  }
+
+  function rebuildTableShell() {
+    const wrap = $("table-view");
+    const { head, cols } = headExtraAndCount(state.sourceId);
+    state.colCount = cols;
+    const scrollTop = state.resetScroll ? 0 : wrap.scrollTop;
+    wrap.innerHTML = `<table>
+      <thead><tr>
+        <th>产品</th><th>状态</th>${head}<th>链接</th>
+      </tr></thead>
+      <tbody id="table-body"></tbody>
+    </table>`;
+    state.tableBuilt = true;
+    if (!wrap._scrollBound) {
+      wrap.addEventListener("scroll", onTableScroll, { passive: true });
+      wrap._scrollBound = true;
+    }
+    wrap.scrollTop = scrollTop;
+  }
+
+  function onTableScroll() {
+    if (state.scrollRaf) return;
+    state.scrollRaf = requestAnimationFrame(() => {
+      state.scrollRaf = 0;
+      paintVirtualRows();
+    });
+  }
+
+  function paintVirtualRows() {
+    const wrap = $("table-view");
+    const tbody = $("table-body");
+    if (!tbody || !wrap) return;
+
+    const rows = state.filtered;
+    const total = rows.length;
+    const src = state.sourceId;
+    const rh = ROW_HEIGHT;
+    const scrollTop = wrap.scrollTop;
+    const viewH = wrap.clientHeight || 480;
+    const start = Math.max(0, Math.floor(scrollTop / rh) - OVERSCAN);
+    const visible = Math.ceil(viewH / rh) + OVERSCAN * 2;
+    const end = Math.min(total, start + visible);
+    const topPad = start * rh;
+    const bottomPad = Math.max(0, (total - end) * rh);
+
+    const parts = [];
+    if (topPad > 0) {
+      parts.push(`<tr class="v-spacer" aria-hidden="true"><td colspan="${state.colCount}" style="height:${topPad}px;padding:0;border:0"></td></tr>`);
+    }
+    for (let i = start; i < end; i++) {
+      const even = i % 2 === 1 ? " even" : "";
+      parts.push(`<tr class="v-row${even}" data-i="${i}">${rowCells(rows[i], src)}</tr>`);
+    }
+    if (bottomPad > 0) {
+      parts.push(`<tr class="v-spacer" aria-hidden="true"><td colspan="${state.colCount}" style="height:${bottomPad}px;padding:0;border:0"></td></tr>`);
     }
 
-    const body = rows
-      .map((r) => {
-        if (src === "ai-web") {
-          cols = `<td>${esc(r["类型"] || "—")}</td>
-            <td class="cell-muted">${esc(r["语言"] || "—")}</td>
-            <td class="mono">${r.Stars != null ? esc(r.Stars) : "—"}</td>
-            <td>${fmtBool(r["Web服务"])}</td>
-            <td>${fmtDeploy(r["部署方式"])}</td>`;
-        } else if (src === "ics") {
-          cols = `<td>${esc(r["行业"] || "—")}</td>
-            <td class="cell-muted">${esc(r["地区"] || "—")}</td>
-            <td>${fmtBool(r["Web服务"])}</td>
-            <td>${fmtDeploy(r["部署方式"])}</td>`;
-        } else {
-          cols = `<td>${esc(r["层"] || "—")}</td>
-            <td class="cell-muted">${esc(r["内核系"] || "—")}</td>
-            <td>${fmtBool(r["Web服务"])}</td>
-            <td>${fmtBool(r["统信清单"])}</td>`;
-        }
-        return `<tr>
-          <td>
-            <div class="product">${esc(r["产品"] || "—")}</div>
-            <div class="vendor">${esc(r["厂商"] || "")}</div>
-            <div class="mono">${esc(r["去重键"] || "")}</div>
-          </td>
-          <td><span class="badge ${statusClass(r["状态"])}">${esc(r["状态"] || "—")}</span></td>
-          ${cols}
-          <td><div class="links">${linkPills(r) || '<span class="cell-muted">—</span>'}</div></td>
-        </tr>`;
-      })
-      .join("");
+    tbody.innerHTML = parts.join("") || "";
+  }
 
-    $("table-view").innerHTML = `<table>
-      <thead><tr>
-        <th>产品</th><th>状态</th>${headExtra}<th>链接</th>
-      </tr></thead>
-      <tbody>${body || ""}</tbody>
-    </table>`;
+  function renderTable(rows, { forceShell = false } = {}) {
+    state.filtered = rows;
+    const wrap = $("table-view");
+
+    if (forceShell || !state.tableBuilt || !wrap.querySelector("#table-body")) {
+      rebuildTableShell();
+    } else {
+      // Column count may change when switching source
+      const { cols } = headExtraAndCount(state.sourceId);
+      if (cols !== state.colCount || !wrap.querySelector("thead th")) {
+        rebuildTableShell();
+      }
+    }
+
+    if (state.resetScroll) {
+      wrap.scrollTop = 0;
+      state.resetScroll = false;
+    }
+
+    paintVirtualRows();
   }
 
   function renderCards(rows) {
@@ -342,7 +415,8 @@
     }
   }
 
-  function render() {
+  function render({ resetScroll = false } = {}) {
+    if (resetScroll) state.resetScroll = true;
     if (state.raf) cancelAnimationFrame(state.raf);
     state.raf = requestAnimationFrame(() => {
       state.raf = 0;
@@ -369,14 +443,15 @@
     if (!same) {
       state.status = new Set();
       state.extra = new Set();
+      state.tableBuilt = false;
+      state.resetScroll = true;
     }
 
     applySourceChrome(src, { pushHash });
 
-    // Instant path: cache hit — never flash loading
     if (state.cache[id]) {
       renderFilters(state.cache[id]);
-      render();
+      render({ resetScroll: !same });
       return;
     }
 
@@ -392,7 +467,7 @@
       state.cache[id] = await res.json();
       refreshTabCounts();
       renderFilters(state.cache[id]);
-      render();
+      render({ resetScroll: true });
     } catch (err) {
       $("loading").classList.add("hidden");
       $("error").classList.remove("hidden");
@@ -417,7 +492,7 @@
         else state.status.add(v);
       }
       renderFilters(state.cache[state.sourceId] || []);
-      render();
+      render({ resetScroll: true });
     });
 
     $("extra-chips").addEventListener("click", (e) => {
@@ -430,7 +505,7 @@
         else state.extra.add(v);
       }
       renderFilters(state.cache[state.sourceId] || []);
-      render();
+      render({ resetScroll: true });
     });
 
     let t = null;
@@ -438,7 +513,7 @@
       clearTimeout(t);
       t = setTimeout(() => {
         state.search = e.target.value;
-        render();
+        render({ resetScroll: true });
       }, 120);
     });
 
@@ -446,7 +521,7 @@
       btn.addEventListener("click", () => {
         state.view = btn.dataset.view;
         document.querySelectorAll(".view-btn").forEach((b) => b.classList.toggle("active", b === btn));
-        render();
+        render({ resetScroll: true });
       });
     });
 
@@ -463,6 +538,14 @@
         $("search").focus();
       }
     });
+
+    window.addEventListener(
+      "resize",
+      () => {
+        if (state.view === "table" && state.filtered.length) paintVirtualRows();
+      },
+      { passive: true }
+    );
   }
 
   async function init() {
@@ -477,7 +560,6 @@
         .map((s) => `<a href="${esc(s.notion)}" target="_blank" rel="noopener">${esc(s.name)} Notion</a>`)
         .join("");
 
-      // Prefetch all sources so tab switches are instant
       await Promise.all(
         state.config.sources.map(async (s) => {
           try {
