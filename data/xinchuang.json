@@ -1564,20 +1564,22 @@
   {
     "产品": "通达 OA V13",
     "厂商": "通达信科",
-    "状态": "待核",
+    "状态": "可下",
     "层": "OA/门户",
     "内核系": "自研",
     "官网": "https://tongda2000.com/oa/xinchuang/",
-    "下载页": "https://www.tongda2000.com/download/",
+    "下载页": "https://www.tongda2000.com/download/p2024.php",
     "文档": "https://www.tongda2000.com/download/",
     "Web服务": true,
     "统信清单": true,
     "适配信号": "统信清单本批（OfficeAnywhere通达网络智能办公系统）",
-    "下载条件": "官网可直下 Windows 通用版 V13服务端；信创包仍未见",
+    "下载条件": "官网服务端自助下：down.php?VERSION=v13 → cdndown TDOA13.6.exe（约701MB）；客户端 ispirit 直链；20用户永久免费需注册 oa/reg/",
     "去重键": "tongda-oa",
-    "备注": "download/p2024.php 有 V13.5 Windows 下载；oa/xinchuang/ 仅方案介绍。状态继续待核。",
+    "备注": "agent-browser 打开 p2024.php：正文写明「新部署通达OA服务器端」；HEAD down.php?VERSION=v13 302 到 https://cdndown.tongda2000.com/oa/2024/TDOA13.6.exe（200, 701129376 bytes）。信创专用包仍未见。",
     "资产号": 8,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "下载核验时间": "2026-10-20 14:58 CST",
+    "下载核验来源": "agent-browser+curl（Pi因OpenRouter free日配额429未成）"
   },
   {
     "产品": "福昕 WEB OFD",
