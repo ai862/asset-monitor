@@ -2,42 +2,46 @@
   {
     "产品": "Apache IoTDB Web Workbench",
     "厂商": "Apache Software Foundation",
-    "状态": "待核",
+    "状态": "可下",
     "行业": "工业物联网",
     "地区": "国外",
     "官网": "https://iotdb.apache.org/",
-    "下载页": "https://github.com/apache/iotdb-web-workbench",
+    "下载页": "https://iotdb.apache.org/Download/",
     "文档": "https://github.com/apache/iotdb-web-workbench",
     "Web服务": true,
     "部署方式": [
       "Docker",
       "源码"
     ],
-    "下载条件": "归档 GitHub + Docker Hub apache/iotdb-web-workbench；新版 Workbench 非开源",
+    "下载条件": "从官方下载页获取 IoTDB 服务器安装包，内置 Web Workbench（无需额外下载）",
     "去重键": "apache-iotdb-web-workbench",
     "备注": "旧版开源 Web 工作台已 archived；仅当 Web UI 可部署时收录；新版需厂商站",
     "资产号": 41,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "下载核验时间": "2026-10-20T14:32:53+08:00",
+    "下载核验来源": "openrouter+browser"
   },
   {
     "产品": "SIMATIC WinCC Unified (Trial)",
     "厂商": "西门子 Siemens",
-    "状态": "待核",
+    "状态": "可下",
     "行业": "工控/组态",
     "地区": "国外",
     "官网": "https://www.siemens.com/wincc-unified",
-    "下载页": "https://www.ad.siemens.com.cn/download/materialaggregation_3562.html",
+    "下载页": "https://www.ad.siemens.com.cn/download/materialaggregation_3545.html",
     "文档": "https://support.industry.siemens.com/cs/ww/en/view/109963850",
     "Web服务": true,
     "部署方式": [
       "安装包",
       "ISO"
     ],
-    "下载条件": "西门子支持站试用版；可能需注册/受限下载审核",
+    "下载条件": "需在西门子支持站注册登录后方可下载试用版，可能需要审核",
     "去重键": "siemens-wincc-unified-trial",
     "备注": "Unified 支持 Web 客户端；组态+PC Runtime 试用包分链下载",
     "资产号": 16,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "下载核验时间": "2026-10-20T14:34:09+08:00",
+    "下载核验来源": "openrouter+browser"
   },
   {
     "产品": "NDS6000 配电监控平台",
@@ -80,22 +84,24 @@
   {
     "产品": "EasyCVR",
     "厂商": "安徽旭帆 / TSINGSEE 青犀",
-    "状态": "待核",
+    "状态": "可下",
     "行业": "安防",
     "地区": "国内",
     "官网": "https://www.tsingsee.com/",
-    "下载页": "https://www.easycvr.com/",
+    "下载页": "https://www.tsingsee.com/?/download/productdetailid-4.html",
     "文档": "https://www.easycvr.com/docs/doc/%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/",
     "Web服务": true,
     "部署方式": [
       "安装包",
       "Docker"
     ],
-    "下载条件": "文档描述 Win/Linux 安装包；试用授权需邮件机器码；官网演示账号走售前",
+    "下载条件": "直接提供 Windows/Linux/ARM/Docker 安装包下载链接，无需登录即可下载",
     "去重键": "easycvr-tsingsee",
     "备注": "安徽旭帆信息科技有限公司（TSINGSEE 青犀视频）产品；视频融合/边缘网关，Web 管理口常见 :18000；试用授权常需邮件机器码。",
     "资产号": 37,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "下载核验时间": "2026-10-20T14:34:45+08:00",
+    "下载核验来源": "openrouter+browser"
   },
   {
     "产品": "ThingsBoard CE",
