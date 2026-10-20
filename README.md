@@ -61,7 +61,22 @@ python3 scripts/triage_ai_web.py --dry-run --limit 3
 
 样例字段见 `triage-pilot/rikyz90-shibaclaw.v2.json`（已合并进 `data/ai-web.json`）。
 
-网页上：打开 AI Web → 搜 `ShibaClaw` → 点「指引」看侧栏。
+网页上：打开 AI Web → 搜 `ShibaClaw` → 点「指引」看侧栏（含可分享链接）。
+
+### Agent 如何读取指引
+
+每条已研判资产会导出静态 JSON，供 Agent `fetch`：
+
+- 表字段 `指引URL`（绝对地址）
+- 或 `https://ai862.github.io/asset-monitor/assets/ai-web/{去重键}.json`
+
+示例：
+
+```bash
+curl -sL https://ai862.github.io/asset-monitor/assets/ai-web/rikyz90-shibaclaw.json
+```
+
+人类深链（自动打开侧栏）：`?source=ai-web&id=rikyz90-shibaclaw`。研判流水线结束时会运行 `scripts/export_guidance_assets.py` 同步这些文件。
 
 ## 扩展新监控源
 

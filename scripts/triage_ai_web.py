@@ -49,6 +49,7 @@ V2_KEYS = (
     "研判来源",
     "schemaVersion",
     "agentHint",
+    "指引URL",
 )
 
 UNTRIAGED = {"", "未研判", "索引缺失", None}
@@ -503,6 +504,19 @@ def main() -> int:
         log(f"wrote {DATA_PATH.relative_to(ROOT)} and updated config.json")
     else:
         log("no changes")
+
+    # Always refresh per-asset Pages JSON so Agents can fetch 指引URL
+    try:
+        import importlib.util
+
+        exp_path = Path(__file__).resolve().parent / "export_guidance_assets.py"
+        spec = importlib.util.spec_from_file_location("export_guidance_assets", exp_path)
+        mod = importlib.util.module_from_spec(spec)
+        assert spec and spec.loader
+        spec.loader.exec_module(mod)
+        mod.export(update_data=True)
+    except Exception as e:
+        log(f"warn: export_guidance_assets failed: {e}")
     return 0
 
 

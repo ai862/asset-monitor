@@ -88,8 +88,28 @@
     return `<span class="badge ${diffClass(d)}">${esc(d)}</span>`;
   }
 
+
   function hasGuide(r) {
     return !!(r && (r["启动指引"] || r["研判摘要"] || r["推荐启动"]));
+  }
+
+  const PAGES_ORIGIN = "https://ai862.github.io/asset-monitor";
+
+  function guidanceJsonUrl(r) {
+    if (!r) return "";
+    if (r["指引URL"] && /^https?:\/\//i.test(String(r["指引URL"]))) return String(r["指引URL"]);
+    const key = r["去重键"];
+    if (!key) return "";
+    return `${PAGES_ORIGIN}/assets/ai-web/${encodeURIComponent(key)}.json`;
+  }
+
+  function humanDeepLink(key, sourceId) {
+    const src = sourceId || "ai-web";
+    const u = new URL(location.href);
+    u.searchParams.set("source", src);
+    u.searchParams.set("id", key);
+    u.hash = src;
+    return u.toString();
   }
 
   function esc(s) {
@@ -574,6 +594,13 @@
       overlay.setAttribute("aria-hidden", "true");
     }
     document.body.style.overflow = "";
+    try {
+      const u = new URL(location.href);
+      if (u.searchParams.has("id")) {
+        u.searchParams.delete("id");
+        history.replaceState(null, "", u.toString());
+      }
+    } catch (_) { /* ignore */ }
   }
 
   function openGuide(key) {
@@ -587,6 +614,19 @@
     const qs = Array.isArray(r["建议追问"]) ? r["建议追问"] : [];
     const parts = [];
     parts.push(`<div class="guide-meta">${difficultyBadge(r)}${triageBadge(r)}</div>`);
+    const jsonUrl = guidanceJsonUrl(r);
+    if (jsonUrl) {
+      parts.push(
+        `<section class="guide-section guide-share">` +
+          `<h3>可分享链接（Agent 可读）</h3>` +
+          `<div class="guide-share-row">` +
+            `<a class="guide-share-link" href="${esc(jsonUrl)}" target="_blank" rel="noopener">${esc(jsonUrl)}</a>` +
+            `<button type="button" class="guide-copy-btn" data-copy="${esc(jsonUrl)}">复制</button>` +
+          `</div>` +
+          `<p class="guide-share-hint">Agent 请 <code>fetch</code> 此 JSON；人类也可打开。</p>` +
+        `</section>`
+      );
+    }
     if (r["研判摘要"]) {
       parts.push(`<section class="guide-section"><h3>研判摘要</h3><p>${esc(r["研判摘要"])}</p></section>`);
     }
@@ -684,6 +724,26 @@
     });
 
     document.addEventListener("click", (e) => {
+      const copyBtn = e.target.closest(".guide-copy-btn");
+      if (copyBtn && copyBtn.dataset.copy) {
+        e.preventDefault();
+        const val = copyBtn.dataset.copy;
+        const done = () => {
+          const prev = copyBtn.textContent;
+          copyBtn.textContent = "已复制";
+          setTimeout(() => {
+            copyBtn.textContent = prev || "复制";
+          }, 1200);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(val).then(done).catch(() => {
+            window.prompt("复制链接：", val);
+          });
+        } else {
+          window.prompt("复制链接：", val);
+        }
+        return;
+      }
       const btn = e.target.closest(".guide-btn");
       if (btn && btn.dataset.guide) {
         e.preventDefault();
@@ -764,11 +824,25 @@
 
       buildTabs();
       bind();
+      const params = new URLSearchParams(location.search);
+      const qSource = params.get("source");
+      const qId = params.get("id");
       const hash = location.hash.replace(/^#/, "");
       const initial =
+        (qSource && state.config.sources.some((s) => s.id === qSource) && qSource) ||
         (hash && state.config.sources.some((s) => s.id === hash) && hash) ||
         state.config.sources[0]?.id;
       await loadSource(initial, { pushHash: true });
+      if (qId && initial === "ai-web") {
+        openGuide(qId);
+      } else if (qId && state.cache[initial]) {
+        // Prefer matching source; fall back to ai-web if key lives there
+        if (findByKey(qId)) openGuide(qId);
+        else if (state.cache["ai-web"]?.some((r) => r["去重键"] === qId)) {
+          await loadSource("ai-web", { pushHash: true });
+          openGuide(qId);
+        }
+      }
     } catch (err) {
       $("loading").classList.add("hidden");
       $("error").classList.remove("hidden");

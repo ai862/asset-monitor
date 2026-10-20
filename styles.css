@@ -399,3 +399,40 @@ tr.v-row:hover td { background: #f0f4fa; }
 @media (max-width: 520px) {
   .guide-panel { width: 100vw; }
 }
+
+.guide-share-row {
+  display: flex; gap: 8px; align-items: stretch;
+}
+.guide-share-link {
+  flex: 1; min-width: 0;
+  display: block; padding: 8px 12px; border-radius: 10px;
+  text-decoration: none; color: var(--accent); font-size: .78rem; font-weight: 550;
+  font-family: var(--mono);
+  background: var(--bg-soft); border: 1px solid var(--border-soft);
+  word-break: break-all; line-height: 1.4;
+}
+.guide-share-link:hover {
+  background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+.guide-copy-btn {
+  appearance: none; flex-shrink: 0;
+  border: 1px solid var(--border); background: var(--bg-elev);
+  color: var(--text); padding: 0 12px; border-radius: 10px;
+  font: inherit; font-size: .78rem; font-weight: 650; cursor: pointer;
+  white-space: nowrap;
+}
+.guide-copy-btn:hover {
+  background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  color: var(--accent);
+}
+.guide-share-hint {
+  margin: 8px 0 0 !important;
+  color: var(--muted) !important;
+  font-size: .78rem !important;
+}
+.guide-share-hint code {
+  font-family: var(--mono); font-size: .75rem;
+  background: var(--bg-soft); padding: 1px 5px; border-radius: 4px;
+}
