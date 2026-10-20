@@ -1,0 +1,118 @@
+# 工控 / 信创：自动查找官方下载页（浏览器抓取 + OpenRouter）
+# 密钥：仅使用仓库 Secrets 中的 OPENROUTER_API_KEY。
+# 切勿把 API key 粘贴进 workflow inputs、日志或提交到仓库。
+
+name: Find Downloads (ICS / 信创)
+
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: "数据源：ics / xinchuang / both"
+        required: false
+        type: choice
+        options:
+          - both
+          - ics
+          - xinchuang
+        default: both
+      dedupe_keys:
+        description: "去重键（逗号分隔；空=自动挑待核/空下载页）。勿粘贴 API key。"
+        required: false
+        type: string
+        default: ""
+      limit:
+        description: "每源最多处理条数（免费额度安全上限 8）"
+        required: false
+        type: number
+        default: 3
+      force:
+        description: "已可下也强制重核"
+        required: false
+        type: boolean
+        default: false
+      max_steps:
+        description: "单条最多浏览步数"
+        required: false
+        type: number
+        default: 6
+  schedule:
+    # 每周日 15:00 UTC ≈ 周一 23:00 Asia/Shanghai — 低流量补链
+    - cron: "0 15 * * 0"
+
+concurrency:
+  group: find-downloads
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  find-downloads:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Mask OpenRouter key
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          if [ -z "$OPENROUTER_API_KEY" ]; then
+            echo "::error::OPENROUTER_API_KEY secret is not set. Add it in repo Settings → Secrets."
+            exit 1
+          fi
+          echo "::add-mask::$OPENROUTER_API_KEY"
+
+      - name: Install Playwright Chromium
+        run: |
+          set -euo pipefail
+          pip install --quiet playwright
+          playwright install --with-deps chromium
+
+      - name: Find downloads
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          set -euo pipefail
+          SOURCE="${{ github.event.inputs.source }}"
+          if [ -z "$SOURCE" ]; then SOURCE=both; fi
+          LIMIT="${{ github.event.inputs.limit }}"
+          if [ -z "$LIMIT" ]; then LIMIT=3; fi
+          if [ "$LIMIT" -gt 8 ]; then LIMIT=8; fi
+          if [ "$LIMIT" -lt 1 ]; then LIMIT=1; fi
+          MAX_STEPS="${{ github.event.inputs.max_steps }}"
+          if [ -z "$MAX_STEPS" ]; then MAX_STEPS=6; fi
+          KEYS="${{ github.event.inputs.dedupe_keys }}"
+          FORCE="${{ github.event.inputs.force }}"
+          ARGS=(--source "$SOURCE" --limit "$LIMIT" --max-steps "$MAX_STEPS")
+          if [ -n "$KEYS" ]; then
+            ARGS+=(--keys "$KEYS")
+          fi
+          if [ "$FORCE" = "true" ]; then
+            ARGS+=(--force)
+          fi
+          python3 scripts/find_downloads.py "${ARGS[@]}"
+
+      - name: Commit & push if changed
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ics.json data/xinchuang.json config.json
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+          git commit -m "chore(downloads): update ICS / 信创 download pages"
+          git pull --rebase origin main || {
+            echo "::warning::rebase failed; retry once after fetch"
+            git fetch origin main
+            git rebase origin/main
+          }
+          git push origin HEAD:main

@@ -78,6 +78,15 @@ curl -sL https://ai862.github.io/asset-monitor/assets/ai-web/rikyz90-shibaclaw.j
 
 人类深链（自动打开侧栏）：`?source=ai-web&id=rikyz90-shibaclaw`。研判流水线结束时会运行 `scripts/export_guidance_assets.py` 同步这些文件。
 
+## 工控 / 信创 下载页补链（浏览器 + OpenRouter）
+
+对 **工控 Web**、**信创 Web** 中「待核 / 下载页为空 / 下载页仅官网首页」的条目，用公开网页抓取 + 免费大模型判断官方下载中心或试用页，写回 `data/ics.json`、`data/xinchuang.json`（字段：`下载页`、`下载条件`、`状态`，并带 `下载核验时间` / `下载核验来源`）。**不会**编造安装包直链；仅商务预约则标「商务墙」。
+
+- 密钥同上：仓库 Secret `OPENROUTER_API_KEY`（与 AI Web 研判共用）。
+- Actions → **Find Downloads (ICS / 信创)** → Run workflow；可选 `source`（ics / xinchuang / both）、`dedupe_keys`、`limit`（默认 3，最大 8）、`force`、`max_steps`。
+- 每周日 15:00 UTC 低流量自动跑一轮。
+- 本地：`export OPENROUTER_API_KEY=…` 后执行 `python3 scripts/find_downloads.py --source xinchuang --keys nfschina-browser --limit 1`（勿提交 key）。无 Playwright 时回退 urllib。
+
 ## 扩展新监控源
 
 1. 在 `data/` 新增 JSON 数组（字段名与现有表风格一致即可，至少含 `产品`、`厂商`、`状态`、`去重键`）。
