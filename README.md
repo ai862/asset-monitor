@@ -2,6 +2,8 @@
 
 把 Notion 里的 **AI Web / 工控 Web / 信创 Web** 三张资产表镜像成静态页，方便国内网络快速浏览。数据在 `data/*.json`，配置在 `config.json`，无构建步骤。
 
+线上：https://ai862.github.io/asset-monitor/
+
 ## 本地预览
 
 必须用 HTTP 服务打开（`file://` 下 `fetch` JSON 会被浏览器拦截）：
@@ -26,6 +28,39 @@ npx --yes serve .
 
 相对路径引用 `config.json`、`data/*.json`、`styles.css`、`app.js`，子路径托管也可直接用。
 
+## AI Web 自动研判（OpenRouter + DeepWiki）
+
+对 AI Web 资产生成 v2 引导字段（搭建难度、启动指引、开工前先看、建议追问、已知坑、成功标准等），写入 `data/ai-web.json` 后 Pages 自动更新。
+
+### 密钥（务必保密）
+
+- 在仓库 **Settings → Secrets and variables → Actions** 配置 `OPENROUTER_API_KEY`。
+- Workflow **只**通过 `${{ secrets.OPENROUTER_API_KEY }}` 读取；日志里会 `::add-mask::`。
+- **不要**把 key 写进代码、workflow inputs、`.env` 或提交到 Git。本地 `.env` / `*.env` 已在 `.gitignore`。
+
+### 手动跑
+
+1. Actions → **Triage AI Web** → Run workflow。
+2. 可选输入：
+   - `dedupe_keys`：逗号分隔去重键（空=自动挑未研判）
+   - `limit`：默认 3，最大 10
+   - `force`：已研判也重跑
+3. 有变更时 bot 会 commit `chore(triage): update AI Web guidance` 并推到 `main`。
+
+每周日 14:00 UTC 也会自动扫一轮（limit 5）。
+
+本地试跑（需自行 export 环境变量，勿把 key 打进终端历史到公开处）：
+
+```bash
+export OPENROUTER_API_KEY=…   # 勿提交
+python3 scripts/triage_ai_web.py --keys rikyz90-shibaclaw --limit 1
+python3 scripts/triage_ai_web.py --dry-run --limit 3
+```
+
+样例字段见 `triage-pilot/rikyz90-shibaclaw.v2.json`（已合并进 `data/ai-web.json`）。
+
+网页上：打开 AI Web → 搜 `ShibaClaw` → 点「指引」看侧栏。
+
 ## 扩展新监控源
 
 1. 在 `data/` 新增 JSON 数组（字段名与现有表风格一致即可，至少含 `产品`、`厂商`、`状态`、`去重键`）。
@@ -49,3 +84,4 @@ npx --yes serve .
 - Checkbox 字段已转为布尔值（`true` / `false`）。
 - `部署方式` 多为字符串数组。
 - 页面只读；改资产请回 Notion，再重新导出 JSON。
+- AI Web 的 v2 研判字段由 Actions 写入；页面侧栏只读展示。

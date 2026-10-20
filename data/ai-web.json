@@ -19,7 +19,52 @@
     "去重键": "rikyz90-shibaclaw",
     "备注": "自托 Agent +内置 WebUI，28 厂商；也有 Telegram 等渠道。",
     "资产号": 44,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-20T13:28:48+08:00",
+    "启动指引": "最短路径（推荐）：`pip install shibaclaw`，再执行 `shibaclaw web --with-gateway`。浏览器打开 http://localhost:3000。该命令会同时拉起 WebUI 与 agent gateway。\n\nDocker 备选：`curl -fsSL https://raw.githubusercontent.com/RikyZ90/ShibaClaw/main/docker-compose.yml -o docker-compose.yml && docker compose up -d`。WebUI 映射宿主机 127.0.0.1:3000；gateway HTTP 19999 / WS 19998。取 token：`docker exec -it shibaclaw-gateway shibaclaw print-token`，粘贴到 WebUI。\n\n环境与模型：不强制本地 LLM/GPU。配置 `OPENAI_API_KEY` / `ANTHROPIC_API_KEY` / `GEMINI_API_KEY` 等，或在 WebUI 接入 OpenRouter；也可接 Ollama / LM Studio 等本地端点。\n\n鉴权：Bearer token。首次需 WebUI 管理员注册或 `shibaclaw onboard`；CLI 可用 `shibaclaw print-token`。调试可设 `SHIBACLAW_AUTH=false`；登录异常可 `shibaclaw reset-admin`。反代 OpenRouter OAuth 时先设 `SHIBACLAW_OPENROUTER_CALLBACK_BASE_URL`。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库 README",
+        "url": "https://github.com/RikyZ90/ShibaClaw"
+      },
+      {
+        "title": "PyPI: shibaclaw",
+        "url": "https://pypi.org/project/shibaclaw/"
+      },
+      {
+        "title": "DeepWiki 总览",
+        "url": "https://deepwiki.com/RikyZ90/ShibaClaw"
+      },
+      {
+        "title": "DeepWiki: Getting Started & Deployment",
+        "url": "https://deepwiki.com/RikyZ90/ShibaClaw#1.1"
+      },
+      {
+        "title": "DeepWiki: WebUI Server & Authentication",
+        "url": "https://deepwiki.com/RikyZ90/ShibaClaw#3.1"
+      },
+      {
+        "title": "docker-compose.yml (raw)",
+        "url": "https://raw.githubusercontent.com/RikyZ90/ShibaClaw/main/docker-compose.yml"
+      }
+    ],
+    "建议追问": [
+      "ShibaClaw 支持哪些 LLM 提供商以及如何配置？",
+      "WebUI 和网关的默认端口是多少，如何修改？",
+      "如何在 Docker 中获取并重置管理员 token？",
+      "是否可以关闭鉴权，以及对应的环境变量是什么？",
+      "使用 Ollama 作为本地端点时需要哪些额外步骤？"
+    ],
+    "已知坑": "常见问题包括：token 生成或使用不当导致认证失败；首次启动未完成 onboard 步骤无法登录；Docker 容器内的 localhost 与宿主机不互通，需使用宿主机 IP 或 127.0.0.1 进行端口映射；在使用反向代理时若未设置 SHIBACLAW_OPENROUTER_CALLBACK_BASE_URL 会导致回调地址错误；端口冲突或未开放防火墙也会阻止访问 WebUI。",
+    "成功标准": "1) 浏览器打开 http://localhost:3000 能看到 WebUI（登录/引导页即可）；2) `shibaclaw print-token`（Docker 则在 gateway 容器内执行）能打出 token；3) `shibaclaw status` 健康检查通过，或 GET /api/auth/status 返回可读 JSON（含 auth_required 等字段）。",
+    "DeepWiki": "https://deepwiki.com/RikyZ90/ShibaClaw",
+    "研判摘要": "ShibaClaw 是一个易于安装的 LLM 网关与 WebUI 工具，支持 pip、Docker 和脚本自动安装，提供可配置的 API key 接入与 Bearer 鉴权，默认端口 3000/WebUI、19999/19998 网关，适用于快速本地或远端模型调用。",
+    "推荐启动": "pip install shibaclaw && shibaclaw web --with-gateway",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "agentHint": "不要只跑推荐启动，先读启动指引与开工前先看，配好 LLM API key 后再按成功标准自测。"
   },
   {
     "产品": "Hermes Studio",

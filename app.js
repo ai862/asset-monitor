@@ -37,6 +37,7 @@
     search: "",
     status: new Set(),
     extra: new Set(),
+    difficulty: new Set(),
     view: "table",
     tabsBuilt: false,
     raf: 0,
@@ -45,6 +46,7 @@
     colCount: 7,
     tableBuilt: false,
     resetScroll: false,
+    guideKey: null,
   };
 
   const $ = (id) => document.getElementById(id);
@@ -63,6 +65,31 @@
       return "badge-mute";
     }
     return "badge-other";
+  }
+
+
+  function diffClass(d) {
+    if (d === "易") return "badge-diff-easy";
+    if (d === "中") return "badge-diff-mid";
+    if (d === "难") return "badge-diff-hard";
+    return "badge-diff-unk";
+  }
+
+  function triageBadge(r) {
+    const st = r["研判状态"];
+    if (st === "已研判") return `<span class="badge badge-triage">已研判</span>`;
+    if (st === "索引缺失") return `<span class="badge badge-triage-miss">索引缺失</span>`;
+    return "";
+  }
+
+  function difficultyBadge(r) {
+    const d = r["搭建难度"];
+    if (!d) return "";
+    return `<span class="badge ${diffClass(d)}">${esc(d)}</span>`;
+  }
+
+  function hasGuide(r) {
+    return !!(r && (r["启动指引"] || r["研判摘要"] || r["推荐启动"]));
   }
 
   function esc(s) {
@@ -143,13 +170,28 @@
   function filteredRows(rows) {
     const q = state.search.trim().toLowerCase();
     const extraMeta = EXTRA_FIELD[state.sourceId];
+    const isAi = state.sourceId === "ai-web";
     return rows.filter((r) => {
       if (state.status.size && !state.status.has(r["状态"])) return false;
       if (extraMeta && state.extra.size) {
         if (!state.extra.has(r[extraMeta.key])) return false;
       }
+      if (isAi && state.difficulty.size) {
+        const d = r["搭建难度"] || "未知";
+        // 未研判无难度字段 → 视为「未知」以便筛选仍能看到
+        if (!state.difficulty.has(d)) return false;
+      }
       if (!q) return true;
-      const hay = [r["产品"], r["厂商"], r["去重键"], r["资产号"], r["备注"]]
+      const hay = [
+        r["产品"],
+        r["厂商"],
+        r["去重键"],
+        r["资产号"],
+        r["备注"],
+        r["研判摘要"],
+        r["启动指引"],
+        r["推荐启动"],
+      ]
         .filter(Boolean)
         .join(" ")
         .toLowerCase();
@@ -219,16 +261,34 @@
     const extraWrap = $("extra-filters");
     if (!extra) {
       extraWrap.classList.add("hidden");
+    } else {
+      extraWrap.classList.remove("hidden");
+      $("extra-label").textContent = extra.label;
+      renderChips($("extra-chips"), uniqueValues(rows, extra.key), state.extra, "全部");
+    }
+    const diffWrap = $("diff-filters");
+    if (state.sourceId !== "ai-web") {
+      diffWrap.classList.add("hidden");
       return;
     }
-    extraWrap.classList.remove("hidden");
-    $("extra-label").textContent = extra.label;
-    renderChips($("extra-chips"), uniqueValues(rows, extra.key), state.extra, "全部");
+    diffWrap.classList.remove("hidden");
+    // Normalize empty 搭建难度 → 未知 for chip counts
+    const norm = rows.map((r) => ({
+      ...r,
+      搭建难度: r["搭建难度"] || "未知",
+    }));
+    const order = ["易", "中", "难", "未知"];
+    const counts = uniqueValues(norm, "搭建难度");
+    counts.sort((a, b) => order.indexOf(a[0]) - order.indexOf(b[0]) || b[1] - a[1]);
+    renderChips($("diff-chips"), counts, state.difficulty, "全部");
   }
 
   function headExtraAndCount(src) {
     if (src === "ai-web") {
-      return { head: "<th>类型</th><th>语言</th><th>Stars</th><th>Web</th><th>部署</th>", cols: 8 };
+      return {
+        head: "<th>类型</th><th>语言</th><th>Stars</th><th>Web</th><th>部署</th><th>研判</th>",
+        cols: 9,
+      };
     }
     if (src === "ics") {
       return { head: "<th>行业</th><th>地区</th><th>Web</th><th>部署</th>", cols: 7 };
@@ -239,11 +299,15 @@
   function rowCells(r, src) {
     let cols = "";
     if (src === "ai-web") {
+      const guide = hasGuide(r)
+        ? `<button type="button" class="guide-btn" data-guide="${esc(r["去重键"] || "")}">指引</button>`
+        : '<span class="cell-muted">—</span>';
       cols = `<td>${esc(r["类型"] || "—")}</td>
         <td class="cell-muted">${esc(r["语言"] || "—")}</td>
         <td class="mono">${r.Stars != null ? esc(r.Stars) : "—"}</td>
         <td>${fmtBool(r["Web服务"])}</td>
-        <td>${fmtDeploy(r["部署方式"])}</td>`;
+        <td>${fmtDeploy(r["部署方式"])}</td>
+        <td><div class="triage-cell">${difficultyBadge(r) || '<span class="cell-muted">未研判</span>'}${triageBadge(r)}${guide}</div></td>`;
     } else if (src === "ics") {
       cols = `<td>${esc(r["行业"] || "—")}</td>
         <td class="cell-muted">${esc(r["地区"] || "—")}</td>
@@ -361,6 +425,19 @@
           meta = `${esc(r["层"] || "—")} · ${esc(r["内核系"] || "—")}`;
         }
         const note = r["下载条件"] || r["备注"] || "";
+        const snippet = r["研判摘要"] || "";
+        const triageRow =
+          src === "ai-web"
+            ? `<div class="card-triage">${difficultyBadge(r)}${triageBadge(r)}${
+                hasGuide(r)
+                  ? `<button type="button" class="guide-btn" data-guide="${esc(r["去重键"] || "")}">查看指引</button>`
+                  : ""
+              }</div>${
+                snippet
+                  ? `<div class="card-snippet">${esc(snippet).slice(0, 120)}${snippet.length > 120 ? "…" : ""}</div>`
+                  : ""
+              }`
+            : "";
         return `<article class="card">
           <div class="card-top">
             <div>
@@ -370,6 +447,7 @@
             <span class="badge ${statusClass(r["状态"])}">${esc(r["状态"] || "—")}</span>
           </div>
           <div class="card-meta">${meta}</div>
+          ${triageRow}
           <div class="card-body">
             <div class="row">Web：${fmtBool(r["Web服务"])}${
           src === "xinchuang" ? ` · 统信：${fmtBool(r["统信清单"])}` : ""
@@ -443,8 +521,10 @@
     if (!same) {
       state.status = new Set();
       state.extra = new Set();
+      state.difficulty = new Set();
       state.tableBuilt = false;
       state.resetScroll = true;
+      closeGuide();
     }
 
     applySourceChrome(src, { pushHash });
@@ -473,6 +553,88 @@
       $("error").classList.remove("hidden");
       $("error").textContent = String(err.message || err);
     }
+  }
+
+
+  function findByKey(key) {
+    const rows = state.cache[state.sourceId] || [];
+    return rows.find((r) => r["去重键"] === key);
+  }
+
+  function closeGuide() {
+    state.guideKey = null;
+    const panel = $("guide-panel");
+    const overlay = $("guide-overlay");
+    if (panel) {
+      panel.classList.add("hidden");
+      panel.setAttribute("aria-hidden", "true");
+    }
+    if (overlay) {
+      overlay.classList.add("hidden");
+      overlay.setAttribute("aria-hidden", "true");
+    }
+    document.body.style.overflow = "";
+  }
+
+  function openGuide(key) {
+    const r = findByKey(key);
+    if (!r || !hasGuide(r)) return;
+    state.guideKey = key;
+    $("guide-title").textContent = r["产品"] || "启动指引";
+    $("guide-sub").textContent = [r["厂商"], r["去重键"]].filter(Boolean).join(" · ");
+
+    const links = Array.isArray(r["开工前先看"]) ? r["开工前先看"] : [];
+    const qs = Array.isArray(r["建议追问"]) ? r["建议追问"] : [];
+    const parts = [];
+    parts.push(`<div class="guide-meta">${difficultyBadge(r)}${triageBadge(r)}</div>`);
+    if (r["研判摘要"]) {
+      parts.push(`<section class="guide-section"><h3>研判摘要</h3><p>${esc(r["研判摘要"])}</p></section>`);
+    }
+    if (r["推荐启动"]) {
+      parts.push(`<section class="guide-section"><h3>推荐启动</h3><pre class="guide-cmd">${esc(r["推荐启动"])}</pre></section>`);
+    }
+    if (r["启动指引"]) {
+      parts.push(`<section class="guide-section"><h3>启动指引</h3><pre>${esc(r["启动指引"])}</pre></section>`);
+    }
+    if (links.length) {
+      parts.push(
+        `<section class="guide-section"><h3>开工前先看</h3><ul class="guide-links">${links
+          .filter((x) => x && x.url)
+          .map((x) => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title || x.url)}</a></li>`)
+          .join("")}</ul></section>`
+      );
+    }
+    if (qs.length) {
+      parts.push(
+        `<section class="guide-section"><h3>建议追问</h3><ol class="guide-qs">${qs
+          .map((q) => `<li>${esc(q)}</li>`)
+          .join("")}</ol></section>`
+      );
+    }
+    if (r["已知坑"]) {
+      parts.push(`<section class="guide-section"><h3>已知坑</h3><p>${esc(r["已知坑"])}</p></section>`);
+    }
+    if (r["成功标准"]) {
+      parts.push(`<section class="guide-section"><h3>成功标准</h3><p>${esc(r["成功标准"])}</p></section>`);
+    }
+    if (isHttp(r["DeepWiki"])) {
+      parts.push(
+        `<section class="guide-section"><h3>DeepWiki</h3><ul class="guide-links"><li><a href="${esc(r["DeepWiki"])}" target="_blank" rel="noopener">打开 DeepWiki</a></li></ul></section>`
+      );
+    }
+    if (r["agentHint"]) {
+      parts.push(`<section class="guide-section"><h3>Agent 提示</h3><p>${esc(r["agentHint"])}</p></section>`);
+    }
+    if (r["研判时间"]) {
+      parts.push(`<section class="guide-section"><h3>研判时间</h3><p class="cell-muted">${esc(formatUpdated(r["研判时间"]))}</p></section>`);
+    }
+
+    $("guide-body").innerHTML = parts.join("");
+    $("guide-panel").classList.remove("hidden");
+    $("guide-panel").setAttribute("aria-hidden", "false");
+    $("guide-overlay").classList.remove("hidden");
+    $("guide-overlay").setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
   }
 
   function bind() {
@@ -508,6 +670,31 @@
       render({ resetScroll: true });
     });
 
+    $("diff-chips").addEventListener("click", (e) => {
+      const btn = e.target.closest(".chip");
+      if (!btn) return;
+      const v = btn.dataset.value;
+      if (v === "__all__") state.difficulty = new Set();
+      else {
+        if (state.difficulty.has(v)) state.difficulty.delete(v);
+        else state.difficulty.add(v);
+      }
+      renderFilters(state.cache[state.sourceId] || []);
+      render({ resetScroll: true });
+    });
+
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest(".guide-btn");
+      if (btn && btn.dataset.guide) {
+        e.preventDefault();
+        openGuide(btn.dataset.guide);
+        return;
+      }
+    });
+
+    $("guide-close").addEventListener("click", closeGuide);
+    $("guide-overlay").addEventListener("click", closeGuide);
+
     let t = null;
     $("search").addEventListener("input", (e) => {
       clearTimeout(t);
@@ -533,6 +720,10 @@
     });
 
     document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && state.guideKey) {
+        closeGuide();
+        return;
+      }
       if (e.key === "/" && document.activeElement !== $("search") && !e.metaKey && !e.ctrlKey) {
         e.preventDefault();
         $("search").focus();
