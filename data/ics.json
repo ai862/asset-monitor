@@ -88,19 +88,19 @@
     "行业": "安防",
     "地区": "国内",
     "官网": "https://www.tsingsee.com/",
-    "下载页": "https://www.tsingsee.com/?/download/productdetailid-4.html",
+    "下载页": "https://www.tsingsee.com/download/EasyCVR.html",
     "文档": "https://www.easycvr.com/docs/doc/%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/",
     "Web服务": true,
     "部署方式": [
       "安装包",
       "Docker"
     ],
-    "下载条件": "直接提供 Windows/Linux/ARM/Docker 安装包下载链接，无需登录即可下载",
+    "下载条件": "可直接下载 Windows、Linux、ARM 和 Docker 安装包，无需登录。",
     "去重键": "easycvr-tsingsee",
     "备注": "安徽旭帆信息科技有限公司（TSINGSEE 青犀视频）产品；视频融合/边缘网关，Web 管理口常见 :18000；试用授权常需邮件机器码。",
     "资产号": 37,
     "首次写入": "2026-09-09",
-    "下载核验时间": "2026-10-20T14:43:45+08:00",
+    "下载核验时间": "2026-10-21T02:54:40+08:00",
     "下载核验来源": "openrouter+browser"
   },
   {
@@ -501,11 +501,13 @@
     "部署方式": [
       "安装包"
     ],
-    "下载条件": "官网评估表单注册后下载；Demo 模式 Runtime 约 2 小时",
+    "下载条件": "官网评估表单注册后下载；Demo 模式 Runtime 约 2 小时；自动核验未完成（LLM/网络失败）",
     "去重键": "movicon-next-trial",
     "备注": "Web SCADA/HMI 平台；表单下载试用",
     "资产号": 63,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "下载核验时间": "2026-10-21T02:54:44+08:00",
+    "下载核验来源": "openrouter+browser"
   },
   {
     "产品": "FameView",
@@ -597,11 +599,13 @@
     "部署方式": [
       "安装包"
     ],
-    "下载条件": "官网下载需 Beckhoff 账号；7 天试用许可可反复生成",
+    "下载条件": "需 Beckhoff 账号登录后下载",
     "去重键": "beckhoff-twincat-hmi",
     "备注": "TF2000 TwinCAT HMI 含 Web 服务；随 TwinCAT 3 XAE；账号门槛标待核",
     "资产号": 27,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "下载核验时间": "2026-10-21T02:56:07+08:00",
+    "下载核验来源": "openrouter+browser"
   },
   {
     "产品": "FHEM",
