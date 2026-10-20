@@ -100,7 +100,7 @@
     "备注": "安徽旭帆信息科技有限公司（TSINGSEE 青犀视频）产品；视频融合/边缘网关，Web 管理口常见 :18000；试用授权常需邮件机器码。",
     "资产号": 37,
     "首次写入": "2026-09-09",
-    "下载核验时间": "2026-10-20T14:34:45+08:00",
+    "下载核验时间": "2026-10-20T14:43:45+08:00",
     "下载核验来源": "openrouter+browser"
   },
   {
@@ -224,7 +224,7 @@
   {
     "产品": "ForceControl / FWebSCADA",
     "厂商": "力控科技",
-    "状态": "待核",
+    "状态": "可下",
     "行业": "工控/组态",
     "地区": "国内",
     "官网": "http://www.sunwayland.com/",
@@ -234,16 +234,18 @@
     "部署方式": [
       "安装包"
     ],
-    "下载条件": "下载中心列出产品；部分包可能需注册/登录",
+    "下载条件": "需注册/登录后下载（部分包可能免登录）",
     "去重键": "forcecontrol-sunwayland",
     "备注": "力控组态/FWebSCADA 网页监控；下载通道需再点验是否免登录",
     "资产号": 6,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "下载核验时间": "2026-10-20T14:44:22+08:00",
+    "下载核验来源": "openrouter+browser"
   },
   {
     "产品": "WAGO e!COCKPIT",
     "厂商": "WAGO",
-    "状态": "待核",
+    "状态": "可下",
     "行业": "PLC",
     "地区": "国外",
     "官网": "https://www.wago.com/",
@@ -257,27 +259,31 @@
     "去重键": "wago-ecockpit",
     "备注": "基于 CODESYS 的工程软件；控制器 WebVisu 浏览器可视化（区别于通用 codesys-webvisu 条目）",
     "资产号": 71,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "下载核验时间": "2026-10-20T14:44:54+08:00",
+    "下载核验来源": "openrouter+browser"
   },
   {
     "产品": "PcVue (Demo)",
     "厂商": "ARC Informatique",
-    "状态": "待核",
+    "状态": "可下",
     "行业": "SCADA",
     "地区": "国外",
     "官网": "https://www.pcvue.com/",
-    "下载页": "https://www.pcvue.com/",
+    "下载页": "https://www.pcvue.com/helpcenter/knowledge-base/pcvue-12-software-download/",
     "文档": "https://www.pcvue.com/ProductHelp/PcVue/en/Content/Install/Can_I_run_the_SV_without_a_key.php",
     "Web服务": true,
     "部署方式": [
       "安装包",
       "ISO"
     ],
-    "下载条件": "官网表单申请下载；无许可可进 Demonstration 模式",
+    "下载条件": "需填写官网表单申请后获取下载链接；演示模式可直接使用",
     "去重键": "pcvue-demo",
     "备注": "含 WebVue 浏览器客户端；Demo 限约 1 小时采集/变量数/WebVue 连接数",
     "资产号": 72,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "下载核验时间": "2026-10-20T14:45:23+08:00",
+    "下载核验来源": "openrouter+browser"
   },
   {
     "产品": "【重复】ioBroker",
@@ -321,21 +327,23 @@
   {
     "产品": "ICONICS GENESIS (Trial)",
     "厂商": "ICONICS / Mitsubishi Electric",
-    "状态": "待核",
+    "状态": "可下",
     "行业": "SCADA",
     "地区": "国外",
     "官网": "https://iconics.com/products/genesis64",
-    "下载页": "https://iconics.com/downloads/download-genesis",
+    "下载页": "https://iconics.com/site/product-trials/genesis-download",
     "文档": "https://documentation.iconics.com/",
     "Web服务": true,
     "部署方式": [
       "安装包"
     ],
-    "下载条件": "官网申请试用下载；无许可 Demo 约 2 小时/会话",
+    "下载条件": "填写在线试用申请表后，审核通过即可获取下载链接（约 1 工作日）",
     "去重键": "iconics-genesis-trial",
     "备注": "GENESIS/GENESIS64 Web HMI/SCADA；申请下载可能需 1 个工作日",
     "资产号": 65,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "下载核验时间": "2026-10-20T14:45:47+08:00",
+    "下载核验来源": "openrouter+browser"
   },
   {
     "产品": "ChirpStack",
