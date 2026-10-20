@@ -40,6 +40,8 @@ npx --yes serve .
 
 ### 手动跑
 
+若 Actions 里还没有该 workflow：把 `scripts/triage-ai-web.workflow.yml` 复制为 `.github/workflows/triage-ai-web.yml` 并提交（需具备创建 workflow 的权限 / `workflow` scope），或在 GitHub 网页上 Add file。
+
 1. Actions → **Triage AI Web** → Run workflow。
 2. 可选输入：
    - `dedupe_keys`：逗号分隔去重键（空=自动挑未研判）

@@ -1,0 +1,90 @@
+# AI Web 自动研判（DeepWiki + OpenRouter）
+# 密钥：仅使用仓库 Secrets 中的 OPENROUTER_API_KEY。
+# 切勿把 API key 粘贴进 workflow inputs、日志或提交到仓库。
+
+name: Triage AI Web
+
+on:
+  workflow_dispatch:
+    inputs:
+      dedupe_keys:
+        description: "去重键（逗号分隔；空=自动挑未研判）。勿在此粘贴 API key。"
+        required: false
+        type: string
+        default: ""
+      limit:
+        description: "最多研判条数（免费额度安全上限 10）"
+        required: false
+        type: number
+        default: 3
+      force:
+        description: "已研判也强制重跑"
+        required: false
+        type: boolean
+        default: false
+  schedule:
+    # 每周日 14:00 UTC ≈ 周一 22:00 Asia/Shanghai — 低成本扫未研判
+    - cron: "0 14 * * 0"
+
+concurrency:
+  group: triage-ai-web
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Mask OpenRouter key
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          if [ -z "$OPENROUTER_API_KEY" ]; then
+            echo "::error::OPENROUTER_API_KEY secret is not set. Add it in repo Settings → Secrets."
+            exit 1
+          fi
+          echo "::add-mask::$OPENROUTER_API_KEY"
+
+      - name: Run triage
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          set -euo pipefail
+          LIMIT="${{ github.event.inputs.limit }}"
+          if [ -z "$LIMIT" ]; then LIMIT=5; fi
+          # schedule 默认 limit 5；dispatch 用输入（再夹到 1–10）
+          if [ "$LIMIT" -gt 10 ]; then LIMIT=10; fi
+          if [ "$LIMIT" -lt 1 ]; then LIMIT=1; fi
+          KEYS="${{ github.event.inputs.dedupe_keys }}"
+          FORCE="${{ github.event.inputs.force }}"
+          ARGS=(--limit "$LIMIT")
+          if [ -n "$KEYS" ]; then
+            ARGS+=(--keys "$KEYS")
+          fi
+          if [ "$FORCE" = "true" ]; then
+            ARGS+=(--force)
+          fi
+          python3 scripts/triage_ai_web.py "${ARGS[@]}"
+
+      - name: Commit & push if changed
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ai-web.json config.json
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+          git commit -m "chore(triage): update AI Web guidance"
+          git push origin HEAD:main
