@@ -1,0 +1,60 @@
+{
+  "产品": "Lang-Agent",
+  "厂商": "cqzyys",
+  "状态": "可下",
+  "类型": "工作流",
+  "语言": "TypeScript",
+  "Stars": 332,
+  "GitHub": "https://github.com/cqzyys/lang-agent",
+  "官网": "https://github.com/cqzyys/lang-agent",
+  "文档": "https://github.com/cqzyys/lang-agent",
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "后端 python -m lang_agent.main；前端 yarn dev → localhost:8820",
+  "去重键": "cqzyys-lang-agent",
+  "备注": "LangGraph Agent 可视化配置台，ReactFlow 截图。后端 Python。",
+  "资产号": 43,
+  "首次写入": "2026-09-03",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-20T15:05:24+08:00",
+  "启动指引": "最短启动路径：1）执行 git clone https://github.com/cqzyys/lang-agent.git 并进入仓库；2）按 README 安装后端 Python 依赖，具体版本与安装命令待确认；3）启动后端：python -m lang_agent.main；4）进入前端目录，未安装依赖时先执行 yarn install，再执行 yarn dev。端口：目前仅确认前端为 http://localhost:8820，后端监听端口及 API 地址未提供。环境变量：现有资料未列出，需检查 .env.example、README 和配置加载代码，不能假定无需配置。鉴权：是否需要 Token、API Key 或其他凭据尚未确认，应同时核对后端鉴权中间件和前端请求头配置。",
+  "开工前先看": [
+    {
+      "title": "GitHub README：安装、配置与启动说明",
+      "url": "https://github.com/cqzyys/lang-agent#readme"
+    },
+    {
+      "title": "GitHub 仓库首页及目录结构",
+      "url": "https://github.com/cqzyys/lang-agent"
+    },
+    {
+      "title": "DeepWiki 仓库索引（当前可能尚未收录）",
+      "url": "https://deepwiki.com/cqzyys/lang-agent"
+    },
+    {
+      "title": "GitHub Issues：启动与依赖问题记录",
+      "url": "https://github.com/cqzyys/lang-agent/issues"
+    }
+  ],
+  "建议追问": [
+    "后端要求的 Python 版本、依赖安装命令及启动参数是什么？",
+    "后端默认监听哪个端口，是否提供健康检查或 API 文档地址？",
+    "项目需要哪些环境变量，.env.example 中应如何配置？",
+    "后端与前端是否需要鉴权，Token 或 API Key 应放在哪里？",
+    "前端源码位于哪个目录，Node.js 与 Yarn 的推荐版本是什么？",
+    "前端如何配置后端 API 地址，是否依赖 Vite 代理或反向代理？"
+  ],
+  "已知坑": "DeepWiki 当前返回“Repository not found”，无法从其索引核实安装、端口、环境变量、鉴权和 API 细节；已知的 8820 仅是前端 yarn dev 地址，不能当作后端端口；后端与前端需分别运行，依赖未安装、API 地址未配置或代理缺失时可能出现页面可打开但接口请求失败；仓库可访问性、默认分支、Python/Node 版本及目录结构也需先核验。",
+  "成功标准": "后端执行 python -m lang_agent.main 后进程持续运行且日志无导入、依赖或配置错误；前端执行 yarn dev 后可访问 http://localhost:8820 并正常渲染可视化配置台；浏览器开发者工具中核心页面请求无连接失败，若接口需要鉴权则不出现未配置凭据导致的 401 或 403。",
+  "研判摘要": "这是一个前后端分离的 LangGraph Agent 可视化配置台，已知后端启动模块和前端 8820 端口，但仓库索引不可用，安装、联调、环境变量与鉴权信息明显缺失。当前可按源码方式尝试启动，难度暂无法可靠评估。",
+  "推荐启动": "python -m lang_agent.main",
+  "agentHint": "先核验 README、环境变量样例和前后端联调配置，再分终端启动两个进程。",
+  "DeepWiki": "https://deepwiki.com/cqzyys/lang-agent",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/cqzyys-lang-agent.json",
+  "source": "ai-web"
+}

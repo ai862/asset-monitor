@@ -410,7 +410,14 @@
     "去重键": "zaki-1052-gptportal",
     "备注": "轻量 Node Web：GPT-4/Claude/Gemini 等，多模态语音/图/文件。语言实际是 JavaScript。",
     "资产号": 34,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "研判状态": "未研判",
+    "研判时间": "2026-10-20T15:01:48+08:00",
+    "DeepWiki": "https://deepwiki.com/Zaki-1052/GPTPortal",
+    "搭建难度": "未知",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "研判摘要": "OpenRouter 未能生成有效 JSON。"
   },
   {
     "产品": "DataMate",
@@ -431,7 +438,14 @@
     "去重键": "modelengine-group-datamate",
     "备注": "面向微调/RAG 的企业数据处理平台，带前端。",
     "资产号": 35,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "研判状态": "未研判",
+    "研判时间": "2026-10-20T15:02:43+08:00",
+    "DeepWiki": "https://deepwiki.com/ModelEngine-Group/DataMate",
+    "搭建难度": "未知",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "研判摘要": "OpenRouter 未能生成有效 JSON。"
   },
   {
     "产品": "MCP Web UI",
@@ -452,7 +466,61 @@
     "去重键": "megagrindstone-mcp-web-ui",
     "备注": "MCP Host Web UI，多 LLM 提供方+SSE 流式聊天，BoltDB 历史。",
     "资产号": 12,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-20T15:04:50+08:00",
+    "启动指引": "最短路径（Docker）：git clone https://github.com/MegaGrindStone/mcp-web-ui.git && cd mcp-web-ui；执行 mkdir -p $HOME/.config/mcpwebui && cp config.example.yaml $HOME/.config/mcpwebui/config.yaml，按需编辑配置后运行 docker build -t mcp-web-ui . && docker run -p 8080:8080 -v $HOME/.config/mcpwebui/config.yaml:/app/config.yaml -e ANTHROPIC_API_KEY -e OPENAI_API_KEY -e OPENROUTER_API_KEY mcp-web-ui。默认端口为 8080，访问 http://localhost:8080，可在 config.yaml 的 port 字段修改。源码方式需 Go 1.23+，配置后执行 go mod download && go run ./cmd/server/main.go。鉴权要点：ANTHROPIC_API_KEY、OPENAI_API_KEY、OPENROUTER_API_KEY 可作为 config.yaml 中 apiKey 的后备凭据，按实际使用的提供商注入；OLLAMA_HOST 用于指定 Ollama 地址。资料未说明 Web UI 自身有登录鉴权机制，公网暴露时需另行配置网关鉴权；MCP Server 的鉴权需按具体服务配置。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库与 README",
+        "url": "https://github.com/MegaGrindStone/mcp-web-ui"
+      },
+      {
+        "title": "示例配置文件 config.example.yaml",
+        "url": "https://github.com/MegaGrindStone/mcp-web-ui/blob/main/config.example.yaml"
+      },
+      {
+        "title": "DeepWiki：安装与启动说明",
+        "url": "https://deepwiki.com/search/how-do-i-install-and-start-mcp_00a44487-48ee-4b28-924b-8a775cb682f2"
+      },
+      {
+        "title": "DeepWiki：配置说明",
+        "url": "https://deepwiki.com/MegaGrindStone/mcp-web-ui#3"
+      },
+      {
+        "title": "DeepWiki：系统架构",
+        "url": "https://deepwiki.com/MegaGrindStone/mcp-web-ui#2"
+      },
+      {
+        "title": "DeepWiki：HTTP Handlers 与接口",
+        "url": "https://deepwiki.com/MegaGrindStone/mcp-web-ui#4.2"
+      },
+      {
+        "title": "DeepWiki：常见坑与鉴权说明",
+        "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_d661f2c2-842a-4a72-bc03-f95deec3f95e"
+      },
+      {
+        "title": "DeepWiki：Web UI、网关及 API 端点",
+        "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_c45bd966-01f5-4953-828b-9c4c0538f0cf"
+      }
+    ],
+    "建议追问": [
+      "目标环境采用 Docker 部署，还是使用 Go 1.23+ 直接运行源码？",
+      "计划启用哪些 LLM 提供商和模型，config.yaml 中的 llm、genTitleLLM、model、apiKey 是否已经配置完整？",
+      "各提供商密钥准备通过哪些环境变量注入，Ollama 是本地运行还是远程服务？",
+      "需要接入哪些 MCP Server，分别使用 SSE 还是 stdIO，其启动命令和参数是什么？",
+      "是否需要公网访问或反向代理部署，Web UI 的访问鉴权准备由谁提供？"
+    ],
+    "已知坑": "config.yaml 通常必须位于 $HOME/.config/mcpwebui/config.yaml；字段缺失或格式错误可能阻止启动，已配置的 LLM 提供商若 model 为空会触发 panic，Anthropic 配置缺少必填的 maxTokens 会报错。API Key 未配置或未注入会导致模型调用失败。MCP SSE 或 stdIO Server 在 30 秒内未连接时会记录错误，但主服务仍可能继续启动并以功能不完整状态运行，因此不能只看进程存活。Docker 挂载路径或端口映射错误会导致页面不可访问。项目本身不是 pip/npm 包，npx 仅用于示例中的 stdIO MCP Server。该项目不是 pip/npm 包，npx 仅用于示例中的 stdIO MCP Server；仓库资料也未提供反向代理专项说明。",
+    "成功标准": "启动进程不退出且日志无 panic，日志出现服务器启动并监听端口的信息；浏览器访问 http://localhost:8080 能加载聊天首页和聊天列表；新建聊天并发送消息后，可通过 /sse/messages 或 /sse/chats 看到流式更新；聊天消息与历史列表能够正常显示和持久化；若配置了 MCP Server，日志中能看到对应连接结果；启动日志可在 $HOME/.config/mcpwebui/mcpwebui.log 查看。",
+    "研判摘要": "这是一个 Go 编写、支持 Docker 部署的 MCP Host Web UI，具备多 LLM 提供商、SSE 流式聊天和 BoltDB 历史记录。基础启动路径较清晰，但完整可用性高度依赖 config.yaml、提供商凭据及 MCP Server 配置。",
+    "推荐启动": "go mod download && go run ./cmd/server/main.go",
+    "agentHint": "先核对配置与凭据，再启动并用 8080 页面和 SSE 聊天完成验收。",
+    "DeepWiki": "https://deepwiki.com/MegaGrindStone/mcp-web-ui",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/megagrindstone-mcp-web-ui.json"
   },
   {
     "产品": "Lang-Agent",
@@ -472,7 +540,46 @@
     "去重键": "cqzyys-lang-agent",
     "备注": "LangGraph Agent 可视化配置台，ReactFlow 截图。后端 Python。",
     "资产号": 43,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-20T15:05:24+08:00",
+    "启动指引": "最短启动路径：1）执行 git clone https://github.com/cqzyys/lang-agent.git 并进入仓库；2）按 README 安装后端 Python 依赖，具体版本与安装命令待确认；3）启动后端：python -m lang_agent.main；4）进入前端目录，未安装依赖时先执行 yarn install，再执行 yarn dev。端口：目前仅确认前端为 http://localhost:8820，后端监听端口及 API 地址未提供。环境变量：现有资料未列出，需检查 .env.example、README 和配置加载代码，不能假定无需配置。鉴权：是否需要 Token、API Key 或其他凭据尚未确认，应同时核对后端鉴权中间件和前端请求头配置。",
+    "开工前先看": [
+      {
+        "title": "GitHub README：安装、配置与启动说明",
+        "url": "https://github.com/cqzyys/lang-agent#readme"
+      },
+      {
+        "title": "GitHub 仓库首页及目录结构",
+        "url": "https://github.com/cqzyys/lang-agent"
+      },
+      {
+        "title": "DeepWiki 仓库索引（当前可能尚未收录）",
+        "url": "https://deepwiki.com/cqzyys/lang-agent"
+      },
+      {
+        "title": "GitHub Issues：启动与依赖问题记录",
+        "url": "https://github.com/cqzyys/lang-agent/issues"
+      }
+    ],
+    "建议追问": [
+      "后端要求的 Python 版本、依赖安装命令及启动参数是什么？",
+      "后端默认监听哪个端口，是否提供健康检查或 API 文档地址？",
+      "项目需要哪些环境变量，.env.example 中应如何配置？",
+      "后端与前端是否需要鉴权，Token 或 API Key 应放在哪里？",
+      "前端源码位于哪个目录，Node.js 与 Yarn 的推荐版本是什么？",
+      "前端如何配置后端 API 地址，是否依赖 Vite 代理或反向代理？"
+    ],
+    "已知坑": "DeepWiki 当前返回“Repository not found”，无法从其索引核实安装、端口、环境变量、鉴权和 API 细节；已知的 8820 仅是前端 yarn dev 地址，不能当作后端端口；后端与前端需分别运行，依赖未安装、API 地址未配置或代理缺失时可能出现页面可打开但接口请求失败；仓库可访问性、默认分支、Python/Node 版本及目录结构也需先核验。",
+    "成功标准": "后端执行 python -m lang_agent.main 后进程持续运行且日志无导入、依赖或配置错误；前端执行 yarn dev 后可访问 http://localhost:8820 并正常渲染可视化配置台；浏览器开发者工具中核心页面请求无连接失败，若接口需要鉴权则不出现未配置凭据导致的 401 或 403。",
+    "研判摘要": "这是一个前后端分离的 LangGraph Agent 可视化配置台，已知后端启动模块和前端 8820 端口，但仓库索引不可用，安装、联调、环境变量与鉴权信息明显缺失。当前可按源码方式尝试启动，难度暂无法可靠评估。",
+    "推荐启动": "python -m lang_agent.main",
+    "agentHint": "先核验 README、环境变量样例和前后端联调配置，再分终端启动两个进程。",
+    "DeepWiki": "https://deepwiki.com/cqzyys/lang-agent",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/cqzyys-lang-agent.json"
   },
   {
     "产品": "Revornix",
@@ -558,7 +665,61 @@
     "去重键": "coddy-project-coddy-agent",
     "备注": "Go 单二进制 ReAct agent，内嵌 Web UI+OpenAI 兼容 API。",
     "资产号": 18,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-20T15:06:48+08:00",
+    "启动指引": "最短路径是 Docker：在仓库根目录执行 `cp config.example.yaml config.yaml` 和 `mkdir -p workspace coddy_home`，在 config.yaml 中配置模型提供商凭证，再运行 `docker compose pull && docker compose up -d`，随后访问 http://127.0.0.1:12345/。默认 HTTP 端口为 12345，可通过 `CODDY_HTTP_PORT` 覆盖；已有完整二进制时也可运行 `coddy http`。模型密钥常用 `OPENAI_API_KEY`、`ANTHROPIC_API_KEY`、`DEEPSEEK_API_KEY`；其他常用变量包括 `CODDY_CONFIG`（Docker 文档默认 `/home/user/.coddy.yaml`）、`CODDY_HOME`（`/home/user/.coddy`）、`CODDY_CWD`（`/workspace`）、`CODDY_HTTP_TOKEN` 和 `CODDY_COMMAND`。HTTP 默认不鉴权；设置 `httpserver.auth_token`、启动参数 `--auth-token` 或环境变量 `CODDY_HTTP_TOKEN` 后，`/v1/*` 与 `/coddy/*` 请求必须携带 `Authorization: Bearer <token>`。使用 Codex 时可在 Web UI 登录，或先执行 `coddy codex login`；若需远程访问，应启用鉴权并通过 TLS 反向代理暴露，远程 UI 还需配置 CORS。",
+    "开工前先看": [
+      {
+        "title": "Coddy Agent GitHub 仓库",
+        "url": "https://github.com/coddy-project/coddy-agent"
+      },
+      {
+        "title": "DeepWiki：项目概览",
+        "url": "https://deepwiki.com/coddy-project/coddy-agent#1"
+      },
+      {
+        "title": "DeepWiki：Getting Started",
+        "url": "https://deepwiki.com/coddy-project/coddy-agent#1.1"
+      },
+      {
+        "title": "DeepWiki：HTTP API 与 Web UI",
+        "url": "https://deepwiki.com/coddy-project/coddy-agent#5"
+      },
+      {
+        "title": "DeepWiki：术语表",
+        "url": "https://deepwiki.com/coddy-project/coddy-agent#11"
+      },
+      {
+        "title": "安装、端口与环境变量资料",
+        "url": "https://deepwiki.com/search/how-do-i-install-and-start-cod_3e1c3b5b-a4ea-40ea-a66a-77ad229a7061"
+      },
+      {
+        "title": "鉴权、常见坑与启动验证资料",
+        "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_923631e6-dcbd-4171-9c08-080d94eef0c7"
+      },
+      {
+        "title": "Web UI、网关、API 与反向代理资料",
+        "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_eb09fd09-c673-4ad3-8fb7-2ecabc40b77e"
+      }
+    ],
+    "建议追问": [
+      "目标环境准备使用 Docker、预编译二进制还是源码构建，宿主机是什么操作系统和 CPU 架构？",
+      "计划接入 OpenAI、Anthropic、DeepSeek 还是 Codex，所需凭证由谁提供并如何安全注入？",
+      "服务只供本机使用还是需要对外部署，期望采用何种 Bearer Token、TLS 和 CORS 策略？",
+      "是否需要 scheduler、memory、CLI 或 Telegram 等 gateway 功能，以便确认所需构建标签？",
+      "workspace、会话和 Codex 凭证分别需要挂载或备份哪些持久化目录？"
+    ],
+    "已知坑": "HTTP API 默认无应用层鉴权，若监听非回环地址会打印安全警告，应优先绑定 127.0.0.1，远程使用时配置 token 和 TLS。源码构建若缺少 `http`、`ui`、`scheduler`、`memory`、`cli` 等对应构建标签，相关子命令会提示未编译；核心程序是 Go 二进制，不使用 pip/npm 安装。Codex 凭证保存在 `$CODDY_HOME/providers/<provider-name>/codex-auth.json`，缺失、过期或不支持的认证模式需在启动日志中检查。远程 UI 需要配置 `httpserver.cors.enabled` 和允许来源；SSE 虽可用 `?access_token=` 传 token，但可能进入代理日志，应优先使用请求头。`ui.enabled: false` 会令根路径返回 404。仓库资料中的源码克隆示例使用了 `EvilFreelancer/coddy-agent`，与资产指定的 `coddy-project/coddy-agent` 不一致，源码构建前应先核验仓库归属和分支。",
+    "成功标准": "`docker compose ps` 显示服务正常运行，日志出现监听地址及鉴权状态；未禁用 UI 时，访问 http://127.0.0.1:12345/ 能加载内嵌 Web UI；未启用 token 时，请求 `GET /v1/models` 能返回模型列表，启用 token 时缺少 Authorization 应返回 401、携带正确 Bearer token 应返回 200；所选模型完成一次 `/v1/chat/completions` 或 `/v1/responses` 调用；使用 Codex 时，`coddy codex status` 或 UI 的 LLM Providers 页面显示已连接。",
+    "研判摘要": "项目提供预构建镜像、Compose 和单二进制部署，核心服务可用很短路径启动，适合快速验证。开工前应优先确定模型凭证、鉴权与公网暴露策略，并核验源码仓库地址。",
+    "推荐启动": "docker compose pull && docker compose up -d",
+    "agentHint": "先确认模型凭证和暴露范围，再启动并用 /v1/models 验收。",
+    "DeepWiki": "https://deepwiki.com/coddy-project/coddy-agent",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/coddy-project-coddy-agent.json"
   },
   {
     "产品": "ThinkRAG",

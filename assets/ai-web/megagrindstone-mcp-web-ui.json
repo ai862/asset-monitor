@@ -1,0 +1,76 @@
+{
+  "产品": "MCP Web UI",
+  "厂商": "MegaGrindStone",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "Go",
+  "Stars": 87,
+  "GitHub": "https://github.com/MegaGrindStone/mcp-web-ui",
+  "官网": "https://github.com/MegaGrindStone/mcp-web-ui",
+  "文档": "https://github.com/MegaGrindStone/mcp-web-ui",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "docker build/run -p 8080:8080；也可 Go 源码",
+  "去重键": "megagrindstone-mcp-web-ui",
+  "备注": "MCP Host Web UI，多 LLM 提供方+SSE 流式聊天，BoltDB 历史。",
+  "资产号": 12,
+  "首次写入": "2026-09-03",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-20T15:04:50+08:00",
+  "启动指引": "最短路径（Docker）：git clone https://github.com/MegaGrindStone/mcp-web-ui.git && cd mcp-web-ui；执行 mkdir -p $HOME/.config/mcpwebui && cp config.example.yaml $HOME/.config/mcpwebui/config.yaml，按需编辑配置后运行 docker build -t mcp-web-ui . && docker run -p 8080:8080 -v $HOME/.config/mcpwebui/config.yaml:/app/config.yaml -e ANTHROPIC_API_KEY -e OPENAI_API_KEY -e OPENROUTER_API_KEY mcp-web-ui。默认端口为 8080，访问 http://localhost:8080，可在 config.yaml 的 port 字段修改。源码方式需 Go 1.23+，配置后执行 go mod download && go run ./cmd/server/main.go。鉴权要点：ANTHROPIC_API_KEY、OPENAI_API_KEY、OPENROUTER_API_KEY 可作为 config.yaml 中 apiKey 的后备凭据，按实际使用的提供商注入；OLLAMA_HOST 用于指定 Ollama 地址。资料未说明 Web UI 自身有登录鉴权机制，公网暴露时需另行配置网关鉴权；MCP Server 的鉴权需按具体服务配置。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库与 README",
+      "url": "https://github.com/MegaGrindStone/mcp-web-ui"
+    },
+    {
+      "title": "示例配置文件 config.example.yaml",
+      "url": "https://github.com/MegaGrindStone/mcp-web-ui/blob/main/config.example.yaml"
+    },
+    {
+      "title": "DeepWiki：安装与启动说明",
+      "url": "https://deepwiki.com/search/how-do-i-install-and-start-mcp_00a44487-48ee-4b28-924b-8a775cb682f2"
+    },
+    {
+      "title": "DeepWiki：配置说明",
+      "url": "https://deepwiki.com/MegaGrindStone/mcp-web-ui#3"
+    },
+    {
+      "title": "DeepWiki：系统架构",
+      "url": "https://deepwiki.com/MegaGrindStone/mcp-web-ui#2"
+    },
+    {
+      "title": "DeepWiki：HTTP Handlers 与接口",
+      "url": "https://deepwiki.com/MegaGrindStone/mcp-web-ui#4.2"
+    },
+    {
+      "title": "DeepWiki：常见坑与鉴权说明",
+      "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_d661f2c2-842a-4a72-bc03-f95deec3f95e"
+    },
+    {
+      "title": "DeepWiki：Web UI、网关及 API 端点",
+      "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_c45bd966-01f5-4953-828b-9c4c0538f0cf"
+    }
+  ],
+  "建议追问": [
+    "目标环境采用 Docker 部署，还是使用 Go 1.23+ 直接运行源码？",
+    "计划启用哪些 LLM 提供商和模型，config.yaml 中的 llm、genTitleLLM、model、apiKey 是否已经配置完整？",
+    "各提供商密钥准备通过哪些环境变量注入，Ollama 是本地运行还是远程服务？",
+    "需要接入哪些 MCP Server，分别使用 SSE 还是 stdIO，其启动命令和参数是什么？",
+    "是否需要公网访问或反向代理部署，Web UI 的访问鉴权准备由谁提供？"
+  ],
+  "已知坑": "config.yaml 通常必须位于 $HOME/.config/mcpwebui/config.yaml；字段缺失或格式错误可能阻止启动，已配置的 LLM 提供商若 model 为空会触发 panic，Anthropic 配置缺少必填的 maxTokens 会报错。API Key 未配置或未注入会导致模型调用失败。MCP SSE 或 stdIO Server 在 30 秒内未连接时会记录错误，但主服务仍可能继续启动并以功能不完整状态运行，因此不能只看进程存活。Docker 挂载路径或端口映射错误会导致页面不可访问。项目本身不是 pip/npm 包，npx 仅用于示例中的 stdIO MCP Server。该项目不是 pip/npm 包，npx 仅用于示例中的 stdIO MCP Server；仓库资料也未提供反向代理专项说明。",
+  "成功标准": "启动进程不退出且日志无 panic，日志出现服务器启动并监听端口的信息；浏览器访问 http://localhost:8080 能加载聊天首页和聊天列表；新建聊天并发送消息后，可通过 /sse/messages 或 /sse/chats 看到流式更新；聊天消息与历史列表能够正常显示和持久化；若配置了 MCP Server，日志中能看到对应连接结果；启动日志可在 $HOME/.config/mcpwebui/mcpwebui.log 查看。",
+  "研判摘要": "这是一个 Go 编写、支持 Docker 部署的 MCP Host Web UI，具备多 LLM 提供商、SSE 流式聊天和 BoltDB 历史记录。基础启动路径较清晰，但完整可用性高度依赖 config.yaml、提供商凭据及 MCP Server 配置。",
+  "推荐启动": "go mod download && go run ./cmd/server/main.go",
+  "agentHint": "先核对配置与凭据，再启动并用 8080 页面和 SSE 聊天完成验收。",
+  "DeepWiki": "https://deepwiki.com/MegaGrindStone/mcp-web-ui",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/megagrindstone-mcp-web-ui.json",
+  "source": "ai-web"
+}

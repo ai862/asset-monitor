@@ -1,0 +1,77 @@
+{
+  "产品": "Coddy Agent",
+  "厂商": "coddy-project",
+  "状态": "可下",
+  "类型": "Agent",
+  "语言": "Go",
+  "Stars": 128,
+  "GitHub": "https://github.com/coddy-project/coddy-agent",
+  "官网": "https://github.com/coddy-project/coddy-agent",
+  "文档": "https://github.com/coddy-project/coddy-agent",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "二进制",
+    "源码"
+  ],
+  "下载条件": "docker compose up -d；内嵌 UI http://127.0.0.1:12345/ （README 声称 HTTP 无登录）",
+  "去重键": "coddy-project-coddy-agent",
+  "备注": "Go 单二进制 ReAct agent，内嵌 Web UI+OpenAI 兼容 API。",
+  "资产号": 18,
+  "首次写入": "2026-09-03",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-20T15:06:48+08:00",
+  "启动指引": "最短路径是 Docker：在仓库根目录执行 `cp config.example.yaml config.yaml` 和 `mkdir -p workspace coddy_home`，在 config.yaml 中配置模型提供商凭证，再运行 `docker compose pull && docker compose up -d`，随后访问 http://127.0.0.1:12345/。默认 HTTP 端口为 12345，可通过 `CODDY_HTTP_PORT` 覆盖；已有完整二进制时也可运行 `coddy http`。模型密钥常用 `OPENAI_API_KEY`、`ANTHROPIC_API_KEY`、`DEEPSEEK_API_KEY`；其他常用变量包括 `CODDY_CONFIG`（Docker 文档默认 `/home/user/.coddy.yaml`）、`CODDY_HOME`（`/home/user/.coddy`）、`CODDY_CWD`（`/workspace`）、`CODDY_HTTP_TOKEN` 和 `CODDY_COMMAND`。HTTP 默认不鉴权；设置 `httpserver.auth_token`、启动参数 `--auth-token` 或环境变量 `CODDY_HTTP_TOKEN` 后，`/v1/*` 与 `/coddy/*` 请求必须携带 `Authorization: Bearer <token>`。使用 Codex 时可在 Web UI 登录，或先执行 `coddy codex login`；若需远程访问，应启用鉴权并通过 TLS 反向代理暴露，远程 UI 还需配置 CORS。",
+  "开工前先看": [
+    {
+      "title": "Coddy Agent GitHub 仓库",
+      "url": "https://github.com/coddy-project/coddy-agent"
+    },
+    {
+      "title": "DeepWiki：项目概览",
+      "url": "https://deepwiki.com/coddy-project/coddy-agent#1"
+    },
+    {
+      "title": "DeepWiki：Getting Started",
+      "url": "https://deepwiki.com/coddy-project/coddy-agent#1.1"
+    },
+    {
+      "title": "DeepWiki：HTTP API 与 Web UI",
+      "url": "https://deepwiki.com/coddy-project/coddy-agent#5"
+    },
+    {
+      "title": "DeepWiki：术语表",
+      "url": "https://deepwiki.com/coddy-project/coddy-agent#11"
+    },
+    {
+      "title": "安装、端口与环境变量资料",
+      "url": "https://deepwiki.com/search/how-do-i-install-and-start-cod_3e1c3b5b-a4ea-40ea-a66a-77ad229a7061"
+    },
+    {
+      "title": "鉴权、常见坑与启动验证资料",
+      "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_923631e6-dcbd-4171-9c08-080d94eef0c7"
+    },
+    {
+      "title": "Web UI、网关、API 与反向代理资料",
+      "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_eb09fd09-c673-4ad3-8fb7-2ecabc40b77e"
+    }
+  ],
+  "建议追问": [
+    "目标环境准备使用 Docker、预编译二进制还是源码构建，宿主机是什么操作系统和 CPU 架构？",
+    "计划接入 OpenAI、Anthropic、DeepSeek 还是 Codex，所需凭证由谁提供并如何安全注入？",
+    "服务只供本机使用还是需要对外部署，期望采用何种 Bearer Token、TLS 和 CORS 策略？",
+    "是否需要 scheduler、memory、CLI 或 Telegram 等 gateway 功能，以便确认所需构建标签？",
+    "workspace、会话和 Codex 凭证分别需要挂载或备份哪些持久化目录？"
+  ],
+  "已知坑": "HTTP API 默认无应用层鉴权，若监听非回环地址会打印安全警告，应优先绑定 127.0.0.1，远程使用时配置 token 和 TLS。源码构建若缺少 `http`、`ui`、`scheduler`、`memory`、`cli` 等对应构建标签，相关子命令会提示未编译；核心程序是 Go 二进制，不使用 pip/npm 安装。Codex 凭证保存在 `$CODDY_HOME/providers/<provider-name>/codex-auth.json`，缺失、过期或不支持的认证模式需在启动日志中检查。远程 UI 需要配置 `httpserver.cors.enabled` 和允许来源；SSE 虽可用 `?access_token=` 传 token，但可能进入代理日志，应优先使用请求头。`ui.enabled: false` 会令根路径返回 404。仓库资料中的源码克隆示例使用了 `EvilFreelancer/coddy-agent`，与资产指定的 `coddy-project/coddy-agent` 不一致，源码构建前应先核验仓库归属和分支。",
+  "成功标准": "`docker compose ps` 显示服务正常运行，日志出现监听地址及鉴权状态；未禁用 UI 时，访问 http://127.0.0.1:12345/ 能加载内嵌 Web UI；未启用 token 时，请求 `GET /v1/models` 能返回模型列表，启用 token 时缺少 Authorization 应返回 401、携带正确 Bearer token 应返回 200；所选模型完成一次 `/v1/chat/completions` 或 `/v1/responses` 调用；使用 Codex 时，`coddy codex status` 或 UI 的 LLM Providers 页面显示已连接。",
+  "研判摘要": "项目提供预构建镜像、Compose 和单二进制部署，核心服务可用很短路径启动，适合快速验证。开工前应优先确定模型凭证、鉴权与公网暴露策略，并核验源码仓库地址。",
+  "推荐启动": "docker compose pull && docker compose up -d",
+  "agentHint": "先确认模型凭证和暴露范围，再启动并用 /v1/models 验收。",
+  "DeepWiki": "https://deepwiki.com/coddy-project/coddy-agent",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/coddy-project-coddy-agent.json",
+  "source": "ai-web"
+}
