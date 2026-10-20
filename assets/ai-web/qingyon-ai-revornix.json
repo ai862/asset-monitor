@@ -1,0 +1,77 @@
+{
+  "产品": "Revornix",
+  "厂商": "Qingyon-AI",
+  "状态": "可下",
+  "类型": "知识库",
+  "语言": "TypeScript",
+  "Stars": 288,
+  "GitHub": "https://github.com/Qingyon-AI/Revornix",
+  "官网": "https://revornix.com",
+  "文档": "https://revornix.com/docs",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "docker compose -f docker-compose-local.yaml --env-file .env.local up -d 后再起 web/api/worker",
+  "去重键": "qingyon-ai-revornix",
+  "备注": "本地优先信息工作区：入库→GraphRAG→报告/播客，整栈可自托。",
+  "资产号": 21,
+  "首次写入": "2026-09-03",
+  "搭建难度": "难",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-21T02:20:23+08:00",
+  "启动指引": "最短启动路径（需预装 Docker Compose、uv、pnpm、Go、Node）：① `git clone git@github.com:Qingyon-AI/Revornix.git && cd Revornix`；② 复制环境文件：`cp .env.local.example .env.local`，并分别复制 `web/.env.example`、`gateway/.env.example`、`api/.env.example`、`worker/.env.example` 到对应 `.env`；③ 启动基础依赖：`docker compose -f ./docker-compose-local.yaml --env-file .env.local up -d`，其中 PostgreSQL 为 5432、Redis 为 6379、Neo4j 为 7687、MinIO 为 9010、Milvus 为 19530；④ 根目录执行 `uv sync --all-packages`，并在 `agent-sidecar` 执行 `pnpm install && pnpm build`；⑤ 分终端启动：API 使用 `uv run --directory api fastapi run main.py --port 8001`，Gateway 使用 `cd gateway && go run ./cmd/gateway`，hot-news 使用 `cd hot-news && pnpm build && pnpm start`，Worker 先执行 `uv run --directory worker playwright install chromium-headless-shell`，再执行 `uv run --directory worker celery -A common.celery.app worker --pool=threads --concurrency=20 --loglevel=info -E`，Web 使用 `cd web && pnpm install && pnpm build && pnpm start`。服务端口为 Web 3000、Gateway 8787、API 8001、hot-news 6688。API 需按 `.env.example` 配置 `OAUTH_SECRET_KEY`、PostgreSQL、Redis、Milvus、Neo4j、文件存储、Langfuse 及五个加密密钥变量；API 与 Worker 必须使用相同的 `OAUTH_SECRET_KEY`。Web 配置 `NEXT_PUBLIC_API_PREFIX`、`NEXT_PUBLIC_HOT_NEWS_API_PREFIX`、`NEXT_PUBLIC_NOTIFICATION_WS_API_PREFIX`，Gateway 配置 `GATEWAY_API_UPSTREAMS` 和 `GATEWAY_HOT_NEWS_UPSTREAMS`。鉴权采用 HS256 JWT Bearer access token 和轮换 refresh token，缺失、过期或无效令牌应返回 401；使用反向代理时还需正确设置 API 的 `TRUSTED_PROXY_COUNT`。`scripts/dev.sh` 可自动启动 API 与 Worker，但不能替代 Gateway、hot-news 和 Web。",
+  "开工前先看": [
+    {
+      "title": "仓库 README、目录结构与启动脚本",
+      "url": "https://github.com/Qingyon-AI/Revornix"
+    },
+    {
+      "title": "Revornix 官方文档",
+      "url": "https://revornix.com/docs"
+    },
+    {
+      "title": "环境变量清单",
+      "url": "https://github.com/Qingyon-AI/Revornix/blob/HEAD/docs/src/content/en/docs/environment.mdx"
+    },
+    {
+      "title": "API README：CRUD 提交、鉴权与软删除注意事项",
+      "url": "https://github.com/Qingyon-AI/Revornix/blob/HEAD/api/README.md"
+    },
+    {
+      "title": "系统架构",
+      "url": "https://deepwiki.com/Qingyon-AI/Revornix#1.1"
+    },
+    {
+      "title": "本地开发与启动指南",
+      "url": "https://deepwiki.com/Qingyon-AI/Revornix#1.5"
+    },
+    {
+      "title": "Go Gateway 服务与反向代理说明",
+      "url": "https://deepwiki.com/Qingyon-AI/Revornix#4.14"
+    },
+    {
+      "title": "共享 app 包说明",
+      "url": "https://deepwiki.com/Qingyon-AI/Revornix#1.12"
+    }
+  ],
+  "建议追问": [
+    "本地最小可运行配置中，哪些环境变量必须填写，哪些可以留空，是否存在完全离线启动方案？",
+    "首次管理员或测试用户如何创建，是否还依赖 OAuth 客户端、Langfuse 或外部模型服务凭据？",
+    "agent-sidecar 和 hot-news 是否属于核心链路的硬依赖，能否先以最小功能集延后启动？",
+    "本地 Gateway 的 upstream 环境变量应如何填写，通知 WebSocket 应走 API 直连还是 Gateway 代理？",
+    "uv、pnpm、Go、Docker 的最低版本要求是什么，Worker 所需 Chromium 如何在离线环境预装？",
+    "反向代理部署时 `TRUSTED_PROXY_COUNT` 应如何计算，外部 OAuth 回调和 WebSocket 还需要哪些配置？"
+  ],
+  "已知坑": "根目录 `.env.local` 与各微服务 `.env` 是不同层级，漏配服务级文件会导致连接或鉴权失败；API 与 Worker 的 `OAUTH_SECRET_KEY` 不一致会破坏 JWT 信任链，缺失时可能直接抛出 `ValueError`；`uv run --directory` 不能省略，否则日志路径和 `.env` 解析目录可能错误；Worker 处理网页转换前必须安装 `chromium-headless-shell`；Gateway 是 Web 的主要 API 入口，不能因 API 已在 8001 端口可访问而跳过；Worker 签发的令牌缺少 API 侧使用的 `type` 和 `auth_epoch` 字段，密码修改或强制退出后可能出现 401；`get_current_user_without_throw` 仅适合无令牌匿名场景，无效令牌必须抛出 401，不能静默降级；CRUD 层只暂存事务，路由层负责 `await db.commit()`；多数表采用软删除，查询时需保留删除标记过滤；反向代理部署若未正确设置 `TRUSTED_PROXY_COUNT`，真实客户端 IP 识别可能不可靠。",
+  "成功标准": "① `docker compose -f ./docker-compose-local.yaml --env-file .env.local ps` 显示 PostgreSQL、Redis、Neo4j、MinIO、Milvus 均已运行或健康；② `uv run --directory api python -m scripts.export_openapi --check` 退出码为 0，且 `http://localhost:8001/health` 可访问；③ Gateway 在 8787 端口可访问，并能将 `/api/*` 转发至 API、将 `/hot/*` 转发至 6688；④ Web 在 3000 端口可打开，hot-news 在 6688 端口可访问；⑤ Celery Worker 日志显示正常就绪，Chromium 转换依赖可用；⑥ 登录后能取得 access token 和 refresh token，携带 Bearer access token 可访问受保护 API，无效或过期 token 返回 401；⑦ 可选执行 `./scripts/check-all.sh` 验证导入、OpenAPI 同步及测试。",
+  "研判摘要": "Revornix 是由 Python API、Celery Worker、Go Gateway、Next.js Web、Node hot-news 和多项基础设施组成的本地优先工作区。启动难点主要在多套环境变量、网关与端口联调以及 JWT 密钥一致性，适合按基础设施、后端、Worker、网关和前端的顺序分阶段验收。",
+  "推荐启动": "docker compose -f ./docker-compose-local.yaml --env-file .env.local up -d",
+  "agentHint": "先拉起基础设施并校验各服务环境变量，再依次启动 API、Gateway、Worker、hot-news 和 Web，逐层做健康检查。",
+  "DeepWiki": "https://deepwiki.com/Qingyon-AI/Revornix",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/qingyon-ai-revornix.json",
+  "source": "ai-web"
+}

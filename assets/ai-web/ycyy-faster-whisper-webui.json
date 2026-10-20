@@ -1,0 +1,61 @@
+{
+  "产品": "faster-whisper-webui",
+  "厂商": "ycyy",
+  "状态": "可下",
+  "类型": "其它",
+  "语言": "Python",
+  "Stars": 276,
+  "GitHub": "https://github.com/ycyy/faster-whisper-webui",
+  "官网": "https://github.com/ycyy/faster-whisper-webui",
+  "文档": "https://github.com/ycyy/faster-whisper-webui",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码",
+    "pip"
+  ],
+  "下载条件": "docker run -p 7860:7860 或 python app.py",
+  "去重键": "ycyy-faster-whisper-webui",
+  "备注": "Gradio 语音转写 WebUI，基于 faster-whisper。",
+  "资产号": 31,
+  "首次写入": "2026-09-03",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-21T02:21:24+08:00",
+  "启动指引": "最短路径：安装 Docker 后运行 sudo docker run -d -p 7860:7860 registry.gitlab.com/aadnk/whisper-webui:latest；如需 GPU，可添加 --gpus all。源码路径需 Python 3.9+、Git、FFmpeg，先执行 pip install -r requirements.txt 和 pip install -r requirements-fasterWhisper.txt，按仓库说明将 faster-whisper 与 silero-vad 模型放入 models 目录，再运行 python app.py --whisper_implementation faster-whisper --input_audio_max_duration -1 --server_name 127.0.0.1 --auto_parallel True。Web UI 默认端口为 7860。WHISPER_WEBUI_CONFIG 是可选环境变量，用于指定自定义配置文件路径，默认使用 config.json5。资料未显示内置用户鉴权或 Token 机制，公网部署前需在反向代理或网关层增加访问控制。",
+  "开工前先看": [
+    {
+      "title": "项目 README 与 Quick Start",
+      "url": "https://github.com/ycyy/faster-whisper-webui"
+    },
+    {
+      "title": "DeepWiki 项目概览",
+      "url": "https://deepwiki.com/ycyy/faster-whisper-webui"
+    },
+    {
+      "title": "DeepWiki Quick Start",
+      "url": "https://deepwiki.com/ycyy/faster-whisper-webui#2.2"
+    },
+    {
+      "title": "DeepWiki 配置系统",
+      "url": "https://deepwiki.com/ycyy/faster-whisper-webui#4.1"
+    }
+  ],
+  "建议追问": [
+    "目标机器使用 CPU 还是 GPU，操作系统和 Python 版本是什么？",
+    "若使用 GPU，CUDA、cuDNN、NVIDIA 驱动及 Container Toolkit 是否已经就绪？",
+    "faster-whisper 与 silero-vad 模型从哪里获取，具体目录结构是什么？",
+    "服务仅供本机使用，还是需要通过反向代理对公网开放？",
+    "是否需要自定义 config.json5、模型名称、VAD、并行度或队列参数？"
+  ],
+  "已知坑": "模型文件缺失或放入 models 目录时层级不正确会导致启动或转写失败；GPU 运行依赖可用的 CUDA/cuDNN 环境，CPU 容器应移除 --gpus 参数；Windows 需要安装 FFmpeg 并加入 PATH；绑定 127.0.0.1 时只能本机访问，容器或反向代理部署通常需绑定 0.0.0.0；应用没有内置鉴权，不应直接暴露到公网；控制台出现队列启用或禁用的提示属于正常状态，不一定代表错误。",
+  "成功标准": "启动日志出现 Gradio 服务地址，浏览器可打开 http://localhost:7860，页面能显示“Simple/基础版”和“Full/完整版”标签；上传一段可识别的短音频后能够完成转写并返回文本，且控制台无模型加载、FFmpeg、CUDA 或端口占用错误。",
+  "研判摘要": "这是一个基于 faster-whisper 和 Gradio 的本地语音转写 WebUI，默认端口为 7860，没有独立业务 API 或内置鉴权。Docker 启动较直接，但模型文件、FFmpeg、GPU 依赖和目录结构是主要落地风险。",
+  "推荐启动": "sudo docker run -d -p 7860:7860 registry.gitlab.com/aadnk/whisper-webui:latest",
+  "agentHint": "先确认 CPU/GPU、模型目录与部署边界，再启动 7860 端口并完成一次音频转写冒烟测试。",
+  "DeepWiki": "https://deepwiki.com/ycyy/faster-whisper-webui",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ycyy-faster-whisper-webui.json",
+  "source": "ai-web"
+}

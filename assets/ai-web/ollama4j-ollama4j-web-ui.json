@@ -1,0 +1,57 @@
+{
+  "产品": "Ollama4j Web UI",
+  "厂商": "ollama4j",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "Java",
+  "Stars": 126,
+  "GitHub": "https://github.com/ollama4j/ollama4j-web-ui",
+  "官网": "https://hub.docker.com/r/amithkoujalgi/ollama4j-web-ui",
+  "文档": "https://github.com/ollama4j/ollama4j-web-ui",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "docker run -p 9090:8080 amithkoujalgi/ollama4j-web-ui；也可 compose 带 ollama",
+  "去重键": "ollama4j-ollama4j-web-ui",
+  "备注": "Java/Spring/Vaadin 的 Ollama Web UI，localhost:9090。README 称已迁移 Doota，镜像仍可下。",
+  "资产号": 2,
+  "首次写入": "2026-09-03",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-21T02:22:58+08:00",
+  "启动指引": "最短启动路径：先准备可访问的 Ollama 服务，再执行 `docker run -p 9090:8080 amithkoujalgi/ollama4j-web-ui`，随后访问 `http://localhost:9090`；容器内应用端口为 8080，宿主机映射端口为 9090。也可使用 Compose 同时启动 Ollama 与 Web UI，但现有资料未提供具体 compose 文件。环境变量：资料未列出变量名、默认值或是否必填，Ollama 地址及容器网络配置需以 README/Compose 为准，不要直接假定容器内的 localhost 能访问宿主机 Ollama。鉴权：资料未说明 Web UI 或 Ollama 的令牌配置，公网部署前应核实访问控制并按 README 配置。源码方式为 Java/Spring/Vaadin，但构建命令、Java 版本及 Maven/Gradle 要求尚不明确。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库与 README",
+      "url": "https://github.com/ollama4j/ollama4j-web-ui"
+    },
+    {
+      "title": "Docker Hub 镜像页面",
+      "url": "https://hub.docker.com/r/amithkoujalgi/ollama4j-web-ui"
+    },
+    {
+      "title": "DeepWiki 仓库页（当前未索引）",
+      "url": "https://deepwiki.com/ollama4j/ollama4j-web-ui"
+    }
+  ],
+  "建议追问": [
+    "Ollama4j Web UI 使用的具体环境变量名、默认值和必填项是什么？",
+    "官方推荐的完整 docker-compose.yml 是什么，Web UI 与 Ollama 如何通信？",
+    "容器内访问宿主机 Ollama 时应配置什么地址或使用哪种网络模式？",
+    "源码构建需要哪个 Java、Maven 或 Gradle 版本，完整构建与启动命令是什么？",
+    "Web UI 和 Ollama 是否支持令牌鉴权，部署到公网时需要配置哪些安全项？",
+    "项目迁移到 Doota 后，该镜像会维护到何时，当前镜像是否仍与最新 Ollama API 兼容？"
+  ],
+  "已知坑": "README 已说明项目迁移至 Doota，虽然旧镜像仍可下载，但文档、版本兼容性和后续维护可能存在风险；当前 DeepWiki 未索引该仓库，Ollama 地址、环境变量、鉴权和源码启动信息无法从现有资料确认。容器内使用 localhost 连接宿主机 Ollama 是常见网络误区，应按 README 或 Compose 核实；同时需确认宿主机 9090 端口未被占用。",
+  "成功标准": "容器启动后保持运行，访问 `http://localhost:9090` 能得到 Web UI 页面响应；Web UI 能成功连接 Ollama 服务并完成一次最小模型对话；若使用 Compose，则应同时确认 Ollama 容器健康且两服务之间的网络连通正常。",
+  "研判摘要": "可利用现成 Docker 镜像较快拉起 Web UI，对外端口为 9090，并可采用 Compose 联动 Ollama。由于项目已迁移且环境变量、鉴权、源码构建和兼容状态均缺少可靠资料，当前更适合作为 PoC，部署前需补齐配置与端到端验证。",
+  "推荐启动": "docker run -p 9090:8080 amithkoujalgi/ollama4j-web-ui",
+  "agentHint": "先核实 Ollama 地址与环境变量，再启动容器并完成一次端到端模型回复测试。",
+  "DeepWiki": "https://deepwiki.com/ollama4j/ollama4j-web-ui",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ollama4j-ollama4j-web-ui.json",
+  "source": "ai-web"
+}

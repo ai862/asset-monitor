@@ -1,0 +1,56 @@
+{
+  "产品": "MindBase",
+  "厂商": "frankchu91",
+  "状态": "可下",
+  "类型": "知识库",
+  "语言": "TypeScript",
+  "Stars": 93,
+  "GitHub": "https://github.com/frankchu91/mindbase-llm-wiki",
+  "官网": "https://frankchu91.github.io/mindbase-llm-wiki/",
+  "文档": "https://github.com/frankchu91/mindbase-llm-wiki",
+  "Web服务": true,
+  "部署方式": [
+    "npm",
+    "源码"
+  ],
+  "下载条件": "npx mindbase-app（Node 20+）本地服务+开 Web",
+  "去重键": "frankchu91-mindbase-llm-wiki",
+  "备注": "Karpathy LLM Wiki 实现：本地 markdown 知识库+Web UI，默认本地模型。",
+  "资产号": 13,
+  "首次写入": "2026-09-03",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-21T02:23:13+08:00",
+  "启动指引": "最短启动路径：安装 Node.js 20+，运行 `npx mindbase-app`，等待本地服务启动后按终端输出打开 Web UI。现有资料未给出固定默认端口，应以启动日志中的 URL/端口为准；未提供必需环境变量清单；未提供鉴权或 Token 配置说明，当前先按仅本地使用理解。",
+  "开工前先看": [
+    {
+      "title": "MindBase GitHub 仓库与 README",
+      "url": "https://github.com/frankchu91/mindbase-llm-wiki"
+    },
+    {
+      "title": "MindBase 官方网页",
+      "url": "https://frankchu91.github.io/mindbase-llm-wiki/"
+    },
+    {
+      "title": "MindBase DeepWiki 索引",
+      "url": "https://deepwiki.com/frankchu91/mindbase-llm-wiki"
+    }
+  ],
+  "建议追问": [
+    "`npx mindbase-app` 启动后输出的默认访问地址和端口是什么？",
+    "是否必须配置本地模型，以及相关环境变量和模型文件路径是什么？",
+    "本地 Markdown 知识库的目录位置、文件格式和初始化方式是什么？",
+    "Web UI、网关及 API 是否提供登录鉴权、访问令牌或权限控制？",
+    "从源码安装时需要执行哪些 npm 命令，构建和启动脚本分别是什么？"
+  ],
+  "已知坑": "DeepWiki 查询均返回“Repository not found”，因此默认端口、环境变量、鉴权、API 和反向代理说明目前无法确认；必须使用 Node.js 20+；不要假定服务自带登录保护，如需对外暴露，应先核实鉴权及代理配置。",
+  "成功标准": "执行 `npx mindbase-app` 后进程持续运行，终端给出可访问的本地地址，浏览器能够打开 Web UI，并可放入一个测试 Markdown 文件验证知识库能够读取或检索。",
+  "研判摘要": "该项目提供 Node.js 20+ 下的 `npx` 一键试用路径，本地服务和 Web UI 的启动门槛较低。DeepWiki 索引缺失，端口、模型配置、鉴权及部署细节仍需从仓库 README 或实际运行日志确认。",
+  "推荐启动": "npx mindbase-app",
+  "agentHint": "先运行 `npx mindbase-app` 并以终端输出确认端口，不要猜测固定端口或鉴权参数。",
+  "DeepWiki": "https://deepwiki.com/frankchu91/mindbase-llm-wiki",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/frankchu91-mindbase-llm-wiki.json",
+  "source": "ai-web"
+}

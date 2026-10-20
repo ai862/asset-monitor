@@ -1,0 +1,77 @@
+{
+  "产品": "ThinkRAG",
+  "厂商": "wzdavid",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 353,
+  "GitHub": "https://github.com/wzdavid/ThinkRAG",
+  "官网": "https://github.com/wzdavid/ThinkRAG",
+  "文档": "https://github.com/wzdavid/ThinkRAG",
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "pip"
+  ],
+  "下载条件": "pip3 install -r requirements.txt && streamlit run app.py → localhost:8501",
+  "去重键": "wzdavid-thinkrag",
+  "备注": "笔记本可跑的中文 RAG，LlamaIndex+Streamlit，支持 Ollama/深度求索/智谱。",
+  "资产号": 4,
+  "首次写入": "2026-09-03",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-21T02:22:31+08:00",
+  "启动指引": "1. 克隆仓库后进入项目目录\n2. pip3 install -r requirements.txt 安装依赖\n3. 设置环境变量：OPENAI_API_KEY / DEEPSEEK_API_KEY / MOONSHOT_API_KEY / ZHIPU_API_KEY（可选，也可在UI中配置）\n4. streamlit run app.py 启动，访问 http://localhost:8501/\n5. 本地Ollama默认端口11434，生产模式需设置 THINKRAG_ENV=production",
+  "开工前先看": [
+    {
+      "title": "System Architecture",
+      "url": "https://github.com/wzdavid/ThinkRAG/wiki/System-Architecture"
+    },
+    {
+      "title": "Remote LLM APIs",
+      "url": "https://github.com/wzdavid/ThinkRAG/wiki/Remote-LLM-APIs"
+    },
+    {
+      "title": "HowToUsePythonVirtualEnv",
+      "url": "https://github.com/wzdavid/ThinkRAG/blob/main/docs/HowToUsePythonVirtualEnv.md"
+    },
+    {
+      "title": "Overview",
+      "url": "https://github.com/wzdavid/ThinkRAG/wiki/Overview"
+    },
+    {
+      "title": "Knowledge Base Management",
+      "url": "https://github.com/wzdavid/ThinkRAG/wiki/Knowledge-Base-Management"
+    },
+    {
+      "title": "Contributing Guidelines",
+      "url": "https://github.com/wzdavid/ThinkRAG/wiki/Contributing-Guidelines"
+    },
+    {
+      "title": "Installation & Quick Start",
+      "url": "https://github.com/wzdavid/ThinkRAG"
+    },
+    {
+      "title": "DeepWiki Overview",
+      "url": "https://deepwiki.com/wzdavid/ThinkRAG"
+    }
+  ],
+  "建议追问": [
+    "Windows系统是否完全兼容？是否有已知的崩溃或报错问题？",
+    "Ollama版本0.3.3的具体安装命令是什么？如何确认当前版本？",
+    "生产模式（THINKRAG_ENV=production）需要额外安装Redis和向量数据库吗？",
+    "首次运行时embedding模型从Hugging Face下载，耗时多久？能否预估？",
+    "本地模型和远程API之间如何切换？切换后知识库数据是否保留？",
+    "数据存储在本地文件系统还是云端？重启后数据是否丢失？"
+  ],
+  "已知坑": "Windows系统兼容性差，推荐使用Linux或macOS；Ollama版本需为0.3.3（因llama_index与0.4版本不兼容）；首次运行可能需下载embedding模型，耗时较长；生产模式需额外配置Redis和向量数据库",
+  "成功标准": "浏览器打开 http://localhost:8501/ 显示应用界面；LLM配置页面API Key验证通过（绿色文字显示）；Ollama状态显示'🟢 Ollama is running'或远程API连接正常；可在UI中上传文档并执行查询",
+  "研判摘要": "ThinkRAG是基于LlamaIndex+Streamlit的中文RAG系统，适合笔记本部署，安装启动简单但需注意Windows兼容性和Ollama版本要求，适合个人学习和小规模知识库场景",
+  "推荐启动": "streamlit run app.py",
+  "agentHint": "先clone仓库，pip install依赖，运行streamlit，注意Windows兼容性，Ollama版本需为0.3.3",
+  "DeepWiki": "https://deepwiki.com/wzdavid/ThinkRAG",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/wzdavid-thinkrag.json",
+  "source": "ai-web"
+}
