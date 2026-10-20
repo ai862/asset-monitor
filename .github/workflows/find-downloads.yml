@@ -37,8 +37,8 @@ on:
         type: number
         default: 6
   schedule:
-    # 每周日 15:00 UTC ≈ 周一 23:00 Asia/Shanghai — 低流量补链
-    - cron: "0 15 * * 0"
+    # 每天 15:00 UTC ≈ 23:00 Asia/Shanghai — 扫待核/空下载页
+    - cron: "0 15 * * *"
 
 concurrency:
   group: find-downloads

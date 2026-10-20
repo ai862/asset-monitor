@@ -23,8 +23,10 @@ on:
         type: boolean
         default: false
   schedule:
-    # 每周日 14:00 UTC ≈ 周一 22:00 Asia/Shanghai — 低成本扫未研判
-    - cron: "0 14 * * 0"
+    # 每天 14:00 UTC ≈ 22:00 Asia/Shanghai — 清未研判积压（每轮 limit 见下方）
+    - cron: "0 14 * * *"
+    # 每周日额外一班（同窗口错开 2h）
+    - cron: "0 16 * * 0"
 
 concurrency:
   group: triage-ai-web
@@ -61,8 +63,8 @@ jobs:
         run: |
           set -euo pipefail
           LIMIT="${{ github.event.inputs.limit }}"
-          if [ -z "$LIMIT" ]; then LIMIT=5; fi
-          # schedule 默认 limit 5；dispatch 用输入（再夹到 1–10）
+          if [ -z "$LIMIT" ]; then LIMIT=8; fi
+          # schedule 默认 limit 8；dispatch 用输入（再夹到 1–10，护免费额度）
           if [ "$LIMIT" -gt 10 ]; then LIMIT=10; fi
           if [ "$LIMIT" -lt 1 ]; then LIMIT=1; fi
           KEYS="${{ github.event.inputs.dedupe_keys }}"
