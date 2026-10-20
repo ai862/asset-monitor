@@ -7,6 +7,26 @@
     xinchuang: { key: "层", label: "层" },
   };
 
+  const ICONS = {
+    "ai-web":
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M18 14l.8 2.2L21 17l-2.2.8L18 20l-.8-2.2L15 17l2.2-.8L18 14z"/></svg>',
+    ics:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="9" width="14" height="10" rx="1.5"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/><path d="M9 14h.01M12 14h.01M15 14h.01"/></svg>',
+    xinchuang:
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3.5v5.2c0 4.4-3.2 7.8-8 9.3-4.8-1.5-8-4.9-8-9.3V6.5L12 3z"/><path d="M9 12l2 2 4-4"/></svg>',
+  };
+
+  const LINK_ICONS = {
+    官网:
+      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+    GitHub:
+      '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05A9.3 9.3 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.9-1.32 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.48A10.03 10.03 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>',
+    下载页:
+      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10"/><path d="M8 10l4 4 4-4"/><path d="M5 18h14"/></svg>',
+    文档:
+      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h10l4 4v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M14 4v5h5M8 13h8M8 17h6"/></svg>',
+  };
+
   const LINK_SPECS = [
     { key: "官网", label: "官网" },
     { key: "GitHub", label: "GitHub" },
@@ -22,6 +42,8 @@
     status: new Set(),
     extra: new Set(),
     view: "table",
+    tabsBuilt: false,
+    raf: 0,
   };
 
   const $ = (id) => document.getElementById(id);
@@ -30,7 +52,13 @@
     if (!s) return "badge-other";
     if (s === "可下") return "badge-ok";
     if (s === "待核") return "badge-warn";
-    if (s.includes("跳过") || s.includes("商务") || s.includes("太热") || s.includes("非 Web") || s.includes("不合格")) {
+    if (
+      s.includes("跳过") ||
+      s.includes("商务") ||
+      s.includes("太热") ||
+      s.includes("非 Web") ||
+      s.includes("不合格")
+    ) {
       return "badge-mute";
     }
     return "badge-other";
@@ -50,10 +78,10 @@
 
   function linkPills(item) {
     return LINK_SPECS.filter((s) => isHttp(item[s.key]))
-      .map(
-        (s) =>
-          `<a class="link-pill" href="${esc(item[s.key])}" target="_blank" rel="noopener">${esc(s.label)}</a>`
-      )
+      .map((s) => {
+        const icon = LINK_ICONS[s.key] || "";
+        return `<a class="link-pill" href="${esc(item[s.key])}" target="_blank" rel="noopener">${icon}${esc(s.label)}</a>`;
+      })
       .join("");
   }
 
@@ -70,7 +98,7 @@
   }
 
   function setAccent(color) {
-    document.documentElement.style.setProperty("--accent", color || "#6366f1");
+    document.documentElement.style.setProperty("--accent", color || "#0071e3");
   }
 
   function formatUpdated(iso) {
@@ -94,10 +122,6 @@
     }
   }
 
-  function currentSource() {
-    return state.config.sources.find((s) => s.id === state.sourceId);
-  }
-
   function uniqueValues(rows, key) {
     const map = new Map();
     for (const r of rows) {
@@ -105,7 +129,9 @@
       if (v == null || v === "") continue;
       map.set(v, (map.get(v) || 0) + 1);
     }
-    return [...map.entries()].sort((a, b) => b[1] - a[1] || String(a[0]).localeCompare(String(b[0]), "zh"));
+    return [...map.entries()].sort(
+      (a, b) => b[1] - a[1] || String(a[0]).localeCompare(String(b[0]), "zh")
+    );
   }
 
   function filteredRows(rows) {
@@ -125,17 +151,46 @@
     });
   }
 
-  function renderTabs() {
+  function buildTabs() {
     const el = $("tabs");
     el.innerHTML = state.config.sources
       .map((s) => {
         const n = state.cache[s.id]?.length ?? "…";
         const active = s.id === state.sourceId ? " active" : "";
-        return `<button type="button" class="tab${active}" role="tab" data-id="${esc(s.id)}" aria-selected="${s.id === state.sourceId}">
-          ${esc(s.name)}<span class="count">${n}</span>
-        </button>`;
+        const icon = ICONS[s.id] || "";
+        return `<button type="button" class="tab${active}" role="tab" data-id="${esc(s.id)}" aria-selected="${
+          s.id === state.sourceId
+        }">${icon}<span class="tab-label">${esc(s.name)}</span><span class="count">${n}</span></button>`;
       })
       .join("");
+    state.tabsBuilt = true;
+  }
+
+  function updateTabActive() {
+    const el = $("tabs");
+    if (!state.tabsBuilt || !el.children.length) {
+      buildTabs();
+      return;
+    }
+    for (const btn of el.querySelectorAll(".tab")) {
+      const on = btn.dataset.id === state.sourceId;
+      btn.classList.toggle("active", on);
+      btn.setAttribute("aria-selected", on ? "true" : "false");
+      const count = btn.querySelector(".count");
+      if (count) {
+        const n = state.cache[btn.dataset.id]?.length;
+        if (n != null) count.textContent = String(n);
+      }
+    }
+  }
+
+  function refreshTabCounts() {
+    const el = $("tabs");
+    for (const btn of el.querySelectorAll(".tab")) {
+      const count = btn.querySelector(".count");
+      const n = state.cache[btn.dataset.id]?.length;
+      if (count && n != null) count.textContent = String(n);
+    }
   }
 
   function renderChips(container, values, selected, allLabel) {
@@ -144,7 +199,9 @@
       `<button type="button" class="chip${!selected.size ? " active" : ""}" data-value="__all__">${allLabel}<span class="n">${total}</span></button>`,
       ...values.map(
         ([v, n]) =>
-          `<button type="button" class="chip${selected.has(v) ? " active" : ""}" data-value="${esc(v)}">${esc(v)}<span class="n">${n}</span></button>`
+          `<button type="button" class="chip${selected.has(v) ? " active" : ""}" data-value="${esc(v)}">${esc(
+            v
+          )}<span class="n">${n}</span></button>`
       ),
     ];
     container.innerHTML = chips.join("");
@@ -165,7 +222,6 @@
 
   function renderTable(rows) {
     const src = state.sourceId;
-    const extra = EXTRA_FIELD[src];
     let headExtra = "";
     let cols = "";
 
@@ -223,7 +279,9 @@
       .map((r) => {
         let meta = "";
         if (src === "ai-web") {
-          meta = `${esc(r["类型"] || "—")} · ${esc(r["语言"] || "—")}${r.Stars != null ? ` · ★ ${esc(r.Stars)}` : ""}`;
+          meta = `${esc(r["类型"] || "—")} · ${esc(r["语言"] || "—")}${
+            r.Stars != null ? ` · ★ ${esc(r.Stars)}` : ""
+          }`;
         } else if (src === "ics") {
           meta = `${esc(r["行业"] || "—")} · ${esc(r["地区"] || "—")}`;
         } else {
@@ -240,8 +298,14 @@
           </div>
           <div class="card-meta">${meta}</div>
           <div class="card-body">
-            <div class="row">Web：${fmtBool(r["Web服务"])}${src === "xinchuang" ? ` · 统信：${fmtBool(r["统信清单"])}` : ""}</div>
-            ${note ? `<div class="row">${esc(note).slice(0, 160)}${note.length > 160 ? "…" : ""}</div>` : ""}
+            <div class="row">Web：${fmtBool(r["Web服务"])}${
+          src === "xinchuang" ? ` · 统信：${fmtBool(r["统信清单"])}` : ""
+        }</div>
+            ${
+              note
+                ? `<div class="row">${esc(note).slice(0, 160)}${note.length > 160 ? "…" : ""}</div>`
+                : ""
+            }
             <div class="row mono">${esc(r["去重键"] || "")}</div>
           </div>
           <div class="card-footer">${linkPills(r)}</div>
@@ -250,7 +314,7 @@
       .join("");
   }
 
-  function render() {
+  function paint() {
     const rows = state.cache[state.sourceId] || [];
     const filtered = filteredRows(rows);
     $("visible-count").textContent = String(filtered.length);
@@ -278,19 +342,43 @@
     }
   }
 
+  function render() {
+    if (state.raf) cancelAnimationFrame(state.raf);
+    state.raf = requestAnimationFrame(() => {
+      state.raf = 0;
+      paint();
+    });
+  }
+
+  function applySourceChrome(src, { pushHash }) {
+    setAccent(src.accent);
+    $("notion-edit").href = src.notion;
+    if (pushHash) {
+      const hash = `#${src.id}`;
+      if (location.hash !== hash) history.replaceState(null, "", hash);
+    }
+    updateTabActive();
+  }
+
   async function loadSource(id, { pushHash = true } = {}) {
     const src = state.config.sources.find((s) => s.id === id);
     if (!src) return;
+
+    const same = state.sourceId === id;
     state.sourceId = id;
-    state.status = new Set();
-    state.extra = new Set();
-    setAccent(src.accent);
-    if (pushHash) {
-      const hash = `#${id}`;
-      if (location.hash !== hash) history.replaceState(null, "", hash);
+    if (!same) {
+      state.status = new Set();
+      state.extra = new Set();
     }
-    $("notion-edit").href = src.notion;
-    renderTabs();
+
+    applySourceChrome(src, { pushHash });
+
+    // Instant path: cache hit — never flash loading
+    if (state.cache[id]) {
+      renderFilters(state.cache[id]);
+      render();
+      return;
+    }
 
     $("loading").classList.remove("hidden");
     $("empty").classList.add("hidden");
@@ -299,12 +387,10 @@
     $("cards-view").classList.add("hidden");
 
     try {
-      if (!state.cache[id]) {
-        const res = await fetch(src.data);
-        if (!res.ok) throw new Error(`加载 ${src.data} 失败 (${res.status})`);
-        state.cache[id] = await res.json();
-      }
-      renderTabs();
+      const res = await fetch(src.data);
+      if (!res.ok) throw new Error(`加载 ${src.data} 失败 (${res.status})`);
+      state.cache[id] = await res.json();
+      refreshTabCounts();
       renderFilters(state.cache[id]);
       render();
     } catch (err) {
@@ -391,7 +477,7 @@
         .map((s) => `<a href="${esc(s.notion)}" target="_blank" rel="noopener">${esc(s.name)} Notion</a>`)
         .join("");
 
-      // Prefetch counts for tab badges
+      // Prefetch all sources so tab switches are instant
       await Promise.all(
         state.config.sources.map(async (s) => {
           try {
@@ -403,6 +489,7 @@
         })
       );
 
+      buildTabs();
       bind();
       const hash = location.hash.replace(/^#/, "");
       const initial =

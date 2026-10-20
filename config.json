@@ -7,21 +7,21 @@
       "name": "AI Web",
       "data": "data/ai-web.json",
       "notion": "https://bedecked-oregano-603.notion.site/6b9b20b7999e4f3b9e8eb59657ae59b0",
-      "accent": "#6366f1"
+      "accent": "#0071e3"
     },
     {
       "id": "ics",
       "name": "工控 Web",
       "data": "data/ics.json",
       "notion": "https://bedecked-oregano-603.notion.site/8291c64b5325432f95410c720b6dc8c8",
-      "accent": "#14b8a6"
+      "accent": "#00a4c2"
     },
     {
       "id": "xinchuang",
       "name": "信创 Web",
       "data": "data/xinchuang.json",
       "notion": "https://bedecked-oregano-603.notion.site/010b0f973d6245fdaa14318193468ce5",
-      "accent": "#f59e0b"
+      "accent": "#ff9500"
     }
   ]
 }
