@@ -1,0 +1,1880 @@
+[
+  {
+    "产品": "Apache IoTDB Web Workbench",
+    "厂商": "Apache Software Foundation",
+    "状态": "待核",
+    "行业": "工业物联网",
+    "地区": "国外",
+    "官网": "https://iotdb.apache.org/",
+    "下载页": "https://github.com/apache/iotdb-web-workbench",
+    "文档": "https://github.com/apache/iotdb-web-workbench",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码"
+    ],
+    "下载条件": "归档 GitHub + Docker Hub apache/iotdb-web-workbench；新版 Workbench 非开源",
+    "去重键": "apache-iotdb-web-workbench",
+    "备注": "旧版开源 Web 工作台已 archived；仅当 Web UI 可部署时收录；新版需厂商站",
+    "资产号": 41,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "SIMATIC WinCC Unified (Trial)",
+    "厂商": "西门子 Siemens",
+    "状态": "待核",
+    "行业": "工控/组态",
+    "地区": "国外",
+    "官网": "https://www.siemens.com/wincc-unified",
+    "下载页": "https://www.ad.siemens.com.cn/download/materialaggregation_3562.html",
+    "文档": "https://support.industry.siemens.com/cs/ww/en/view/109963850",
+    "Web服务": true,
+    "部署方式": [
+      "安装包",
+      "ISO"
+    ],
+    "下载条件": "西门子支持站试用版；可能需注册/受限下载审核",
+    "去重键": "siemens-wincc-unified-trial",
+    "备注": "Unified 支持 Web 客户端；组态+PC Runtime 试用包分链下载",
+    "资产号": 16,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "NDS6000 配电监控平台",
+    "厂商": "正泰物联",
+    "状态": "商务墙",
+    "行业": "SCADA",
+    "地区": "国内",
+    "官网": "https://aiot.chint.com/",
+    "下载页": "https://aiot.chint.com/solution/index.html",
+    "文档": "https://aiot.chint.com/solution/index.html",
+    "Web服务": true,
+    "部署方式": [
+      "其它"
+    ],
+    "下载条件": "方案交付制，无公开安装包；支持 Web/移动端，需联系正泰物联定制部署",
+    "去重键": "chint-nds6000",
+    "备注": "垂直：电力/能源监控；正泰配电监控 Web 平台，公有/私有云均偏商务交付",
+    "资产号": 90,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "BAScontrol Toolset (Sedona)",
+    "厂商": "Contemporary Controls",
+    "状态": "可下",
+    "行业": "其它",
+    "地区": "国外",
+    "官网": "https://ccontrols.com/",
+    "下载页": "https://ccontrols.com/basautomation/bastools.php",
+    "文档": "https://www.ccontrols.com/basautomation/bascontrolresources.htm",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网免费注册后下载完整 Toolset（SAE/BASemulator/BASbackup）；无许可证费",
+    "去重键": "bascontrol-toolset",
+    "备注": "垂直：楼宇自控 BMS；Sedona 编程工具+控制器内置 Web 配置页；非独立 SCADA 服务器",
+    "资产号": 86,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "EasyCVR",
+    "厂商": "安徽旭帆 / TSINGSEE 青犀",
+    "状态": "待核",
+    "行业": "安防",
+    "地区": "国内",
+    "官网": "https://www.tsingsee.com/",
+    "下载页": "https://www.easycvr.com/",
+    "文档": "https://www.easycvr.com/docs/doc/%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包",
+      "Docker"
+    ],
+    "下载条件": "文档描述 Win/Linux 安装包；试用授权需邮件机器码；官网演示账号走售前",
+    "去重键": "easycvr-tsingsee",
+    "备注": "安徽旭帆信息科技有限公司（TSINGSEE 青犀视频）产品；视频融合/边缘网关，Web 管理口常见 :18000；试用授权常需邮件机器码。",
+    "资产号": 37,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "ThingsBoard CE",
+    "厂商": "ThingsBoard",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国外",
+    "官网": "https://thingsboard.io/",
+    "下载页": "https://thingsboard.io/docs/user-guide/install/docker/",
+    "文档": "https://thingsboard.io/docs/user-guide/install/docker/",
+    "Web服务": true,
+    "部署方式": [
+      "Docker"
+    ],
+    "下载条件": "开源 CE；官方 docker-compose",
+    "去重键": "thingsboard-ce",
+    "备注": "IoT 平台 Web UI :8080；非纯 SCADA，工业物联网常用",
+    "资产号": 7,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Advantech WebAccess/SCADA",
+    "厂商": "研华 Advantech",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国内",
+    "官网": "https://www.advantech.com.cn/zh-cn/products/webaccess-scada/sub_a7b4308c-a3d0-446c-8f03-0d098d4b2c31",
+    "下载页": "https://www.advantech.com.cn/zh-cn/industrial-automation/webaccess/trialdownload",
+    "文档": "https://www.advantech.com.cn/zh-cn/industrial-automation/webaccess/trialdownload",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "试用全功能限时 2 小时；研华硬件平台可申 75 点无限时授权",
+    "去重键": "advantech-webaccess",
+    "备注": "浏览器原生 HMI/SCADA；可能需研华账号登录后下包",
+    "资产号": 14,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "motionEye",
+    "厂商": "motioneye-project",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国外",
+    "官网": "https://github.com/motioneye-project/motioneye",
+    "下载页": "https://github.com/motioneye-project/motioneye",
+    "文档": "https://github.com/motioneye-project/motioneye/wiki",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "pip",
+      "源码"
+    ],
+    "下载条件": "开源；Docker/pip 可下",
+    "去重键": "motioneye",
+    "备注": "motion 守护进程 Web 前端 :8765；轻量 NVR/监控",
+    "资产号": 50,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "XDPPro",
+    "厂商": "信捷电气 Xinje",
+    "状态": "可下",
+    "行业": "PLC",
+    "地区": "国内",
+    "官网": "https://www.xinje.com/",
+    "下载页": "https://www.xinje.com/web/downloadCenter/index",
+    "文档": "https://college.xinje.net/",
+    "Web服务": false,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "信捷下载中心 XDPPro V3.8.x 直下",
+    "去重键": "xinje-xdppro",
+    "备注": "XD/XG/XL 系列 PLC 编程软件；桌面工具无 Web 控制台",
+    "资产号": 43,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "VOLTTRON AEMS",
+    "厂商": "PNNL / Eclipse VOLTTRON",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国外",
+    "官网": "https://www.pnnl.gov/volttron",
+    "下载页": "https://github.com/VOLTTRON/volttron-pnnl-aems",
+    "文档": "https://volttron.readthedocs.io/",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码"
+    ],
+    "下载条件": "开源；Docker Compose 一键部署 Web UI+API+Historian+edge agents",
+    "去重键": "volttron-aems",
+    "备注": "垂直：电力/能源+楼宇暖通；建筑能源管理 AEMS，BACnet 驱动，Web UI",
+    "资产号": 85,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Eclipse NeoSCADA",
+    "厂商": "Eclipse Foundation",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://projects.eclipse.org/projects/iot.eclipsescada",
+    "下载页": "https://archive.eclipse.org/eclipsescada/downloads/downloads/",
+    "文档": "https://github.com/eclipse-archived/neoscada",
+    "Web服务": true,
+    "部署方式": [
+      "源码",
+      "安装包"
+    ],
+    "下载条件": "Eclipse 归档二进制/源码可下；项目已 archived",
+    "去重键": "eclipse-neoscada",
+    "备注": "归档开源 ICS/SCADA；末版 0.5.0(2018)；含 HMI；仅作研究资产",
+    "资产号": 24,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "ForceControl / FWebSCADA",
+    "厂商": "力控科技",
+    "状态": "待核",
+    "行业": "工控/组态",
+    "地区": "国内",
+    "官网": "http://www.sunwayland.com/",
+    "下载页": "http://www.sunwayland.com/software_download.html",
+    "文档": "http://www.sunwayland.com/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "下载中心列出产品；部分包可能需注册/登录",
+    "去重键": "forcecontrol-sunwayland",
+    "备注": "力控组态/FWebSCADA 网页监控；下载通道需再点验是否免登录",
+    "资产号": 6,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "WAGO e!COCKPIT",
+    "厂商": "WAGO",
+    "状态": "待核",
+    "行业": "PLC",
+    "地区": "国外",
+    "官网": "https://www.wago.com/",
+    "下载页": "https://www.wago.com/global/automation-technology/discover-software/ecockpit-engineering-software",
+    "文档": "https://www.wago.com/global/webvisu",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网注册后邮件获取下载；约 30 天试用",
+    "去重键": "wago-ecockpit",
+    "备注": "基于 CODESYS 的工程软件；控制器 WebVisu 浏览器可视化（区别于通用 codesys-webvisu 条目）",
+    "资产号": 71,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "PcVue (Demo)",
+    "厂商": "ARC Informatique",
+    "状态": "待核",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://www.pcvue.com/",
+    "下载页": "https://www.pcvue.com/",
+    "文档": "https://www.pcvue.com/ProductHelp/PcVue/en/Content/Install/Can_I_run_the_SV_without_a_key.php",
+    "Web服务": true,
+    "部署方式": [
+      "安装包",
+      "ISO"
+    ],
+    "下载条件": "官网表单申请下载；无许可可进 Demonstration 模式",
+    "去重键": "pcvue-demo",
+    "备注": "含 WebVue 浏览器客户端；Demo 限约 1 小时采集/变量数/WebVue 连接数",
+    "资产号": 72,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "【重复】ioBroker",
+    "厂商": "ioBroker",
+    "状态": "可下",
+    "行业": "其它",
+    "地区": "国外",
+    "官网": "https://www.iobroker.net/",
+    "下载页": "https://hub.docker.com/r/buanet/iobroker",
+    "文档": "https://www.iobroker.net/#en/documentation",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码"
+    ],
+    "下载条件": "开源免费；官方 Docker 镜像 buanet/iobroker；Admin Web :8081，可视化 vis 等适配器",
+    "去重键": "iobroker-DUP",
+    "备注": "并行写入重复；请用去重键 iobroker 另一条。本行可删。",
+    "资产号": 84,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "FrameworX / FactoryStudio Community",
+    "厂商": "Tatsoft",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://tatsoft.com/",
+    "下载页": "https://tatsoft.com/fx-101/",
+    "文档": "https://docs.tatsoft.com/display/FX/Installation+and+Licensing+Reference",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网 Download Now；Eval 4h/会话；可注册 Community(≤1000 tags)",
+    "去重键": "factorystudio-frameworx",
+    "备注": "原 FactoryStudio；HTML5 Web；Community 可永久限点运行",
+    "资产号": 33,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "ICONICS GENESIS (Trial)",
+    "厂商": "ICONICS / Mitsubishi Electric",
+    "状态": "待核",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://iconics.com/products/genesis64",
+    "下载页": "https://iconics.com/downloads/download-genesis",
+    "文档": "https://documentation.iconics.com/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网申请试用下载；无许可 Demo 约 2 小时/会话",
+    "去重键": "iconics-genesis-trial",
+    "备注": "GENESIS/GENESIS64 Web HMI/SCADA；申请下载可能需 1 个工作日",
+    "资产号": 65,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "ChirpStack",
+    "厂商": "ChirpStack",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国外",
+    "官网": "https://www.chirpstack.io/",
+    "下载页": "https://www.chirpstack.io/docs/chirpstack/downloads.html",
+    "文档": "https://www.chirpstack.io/docs/getting-started/docker.html",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "安装包",
+      "源码"
+    ],
+    "下载条件": "MIT 开源；Docker Compose / deb 包",
+    "去重键": "chirpstack",
+    "备注": "开源 LoRaWAN Network Server；多租户 Web UI :8080 管理网关/设备",
+    "资产号": 54,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "【重复】openHAB",
+    "厂商": "openHAB Foundation",
+    "状态": "可下",
+    "行业": "其它",
+    "地区": "国外",
+    "官网": "https://www.openhab.org/",
+    "下载页": "https://www.openhab.org/download/",
+    "文档": "https://www.openhab.org/docs/",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码",
+      "安装包",
+      "ISO"
+    ],
+    "下载条件": "开源免费；apt/zip/Docker/openHABian 镜像均可；默认 :8080 Main UI",
+    "去重键": "openhab-DUP",
+    "备注": "并行写入重复；请用去重键 openhab 另一条。本行可删。",
+    "资产号": 82,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "ScadaBR",
+    "厂商": "ScadaBR Community",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://github.com/ScadaBR/ScadaBR",
+    "下载页": "https://github.com/ScadaBR/ScadaBR/releases",
+    "文档": "https://github.com/ScadaBR/ScadaBR",
+    "Web服务": true,
+    "部署方式": [
+      "安装包",
+      "源码"
+    ],
+    "下载条件": "GitHub Releases：Win/Linux 安装包或 WAR(Tomcat)",
+    "去重键": "scadabr",
+    "备注": "开源 Web SCADA，浏览器 HMI；GPL；官方迁至 GitHub",
+    "资产号": 22,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Hanwha Wisenet WAVE",
+    "厂商": "Hanwha Vision",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国外",
+    "官网": "https://wavevms.com/",
+    "下载页": "https://wavevms.com/download/",
+    "文档": "https://hanwhavisionamerica.com/wisenet-wave-vms/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官方免费下载客户端/服务端；约 4 路免授权观看，完整录像需许可",
+    "去重键": "hanwha-wisenet-wave",
+    "备注": "轻量 IP VMS；Server+Client；含 Server Web Admin；自部署",
+    "资产号": 47,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Scada-LTS",
+    "厂商": "SCADA-LTS",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://scada-lts.com/",
+    "下载页": "https://github.com/SCADA-LTS/Scada-LTS",
+    "文档": "https://github.com/SCADA-LTS/Scada-LTS/wiki/Scada-LTS-on-Docker-tutorial",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码"
+    ],
+    "下载条件": "开源；docker pull scadalts/scadalts",
+    "去重键": "scada-lts",
+    "备注": "浏览器访问 :8080/Scada-LTS 或 /ScadaBR；含 Graphical Views HMI",
+    "资产号": 3,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Agent DVR",
+    "厂商": "iSpyConnect",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国外",
+    "官网": "https://www.ispyconnect.com/",
+    "下载页": "https://www.ispyconnect.com/download",
+    "文档": "https://www.ispyconnect.com/docs/agent/about",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "安装包"
+    ],
+    "下载条件": "个人本地免费；远程/商用需订阅",
+    "去重键": "agent-dvr",
+    "备注": "浏览器原生 NVR Web UI :8090；Win/Linux/macOS/Docker/树莓派",
+    "资产号": 49,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "WVP-GB28181-pro",
+    "厂商": "开源社区 / 648540858",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国内",
+    "官网": "https://doc.wvp-pro.cn",
+    "下载页": "https://github.com/648540858/wvp-GB28181-pro",
+    "文档": "https://doc.wvp-pro.cn",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码",
+      "安装包"
+    ],
+    "下载条件": "MIT 开源；GitHub/Gitee/Docker 可下",
+    "去重键": "wvp-gb28181-pro",
+    "备注": "国标 GB28181/部标808/1078 视频平台；自带 Web 管理页 :18080；对接 ZLMediaKit",
+    "资产号": 44,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Movicon.NExT (Trial)",
+    "厂商": "Emerson / Progea",
+    "状态": "待核",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://www.emerson.com/en-us/automation/control-and-safety-systems/movicon/movicon-next",
+    "下载页": "https://go.emersonautomation.com/movicon-software-download",
+    "文档": "https://www.movicon.info/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网评估表单注册后下载；Demo 模式 Runtime 约 2 小时",
+    "去重键": "movicon-next-trial",
+    "备注": "Web SCADA/HMI 平台；表单下载试用",
+    "资产号": 63,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "FameView",
+    "厂商": "北京杰控",
+    "状态": "商务墙",
+    "行业": "工控/组态",
+    "地区": "国内",
+    "官网": "https://fameview.com/",
+    "下载页": "https://fameview.com/product/83",
+    "文档": "https://fameview.com/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网无公开安装包；需联系销售/技术获取试用",
+    "去重键": "fameview-jiekon",
+    "备注": "国产组态 SCADA；宣传 Web/云接口；无公开自助下载→商务墙",
+    "资产号": 40,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "openHAB",
+    "厂商": "openHAB Foundation",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国外",
+    "官网": "https://www.openhab.org/",
+    "下载页": "https://www.openhab.org/docs/installation/",
+    "文档": "https://www.openhab.org/docs/installation/docker.html",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "安装包"
+    ],
+    "下载条件": "EPL 开源；官方 Docker Hub openhab/openhab",
+    "去重键": "openhab",
+    "备注": "开源智能家居/IoT 集成平台；Main UI :8080",
+    "资产号": 58,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Xeoma Trial",
+    "厂商": "Felenasoft",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国外",
+    "官网": "https://felenasoft.com/xeoma/en/",
+    "下载页": "https://felenasoft.com/xeoma/en/download/",
+    "文档": "https://felenasoft.com/xeoma/en/trial/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官方各 OS 安装包直下；默认进入 Trial",
+    "去重键": "xeoma-trial",
+    "备注": "自托管监控；Trial 功能近全；含 Web 远程访问模块",
+    "资产号": 31,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Desigo CC",
+    "厂商": "Siemens",
+    "状态": "商务墙",
+    "行业": "其它",
+    "地区": "国外",
+    "官网": "https://www.siemens.com/global/en/products/buildings/building-management/desigo-cc.html",
+    "下载页": "https://www.siemens.com/global/en/products/buildings/building-management/desigo-cc.html",
+    "文档": "https://cache.industry.siemens.com/dl/files/477/109791477/att_1048229/v7/A6V11852707.pdf",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "无公开试用下载；经西门子渠道/HIT 订购与评估；含 HTML5 Flex Client",
+    "去重键": "desigo-cc",
+    "备注": "垂直：楼宇自控 BMS；多专业楼宇管理平台，Flex Web 客户端",
+    "资产号": 91,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "TwinCAT 3 HMI",
+    "厂商": "Beckhoff",
+    "状态": "待核",
+    "行业": "工控/组态",
+    "地区": "国外",
+    "官网": "https://www.beckhoff.com/en-en/products/automation/twincat/",
+    "下载页": "https://www.beckhoff.com/en-en/support/download-finder/",
+    "文档": "https://infosys.beckhoff.com/content/1033/tc3_licensing/179888523.html",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网下载需 Beckhoff 账号；7 天试用许可可反复生成",
+    "去重键": "beckhoff-twincat-hmi",
+    "备注": "TF2000 TwinCAT HMI 含 Web 服务；随 TwinCAT 3 XAE；账号门槛标待核",
+    "资产号": 27,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "FHEM",
+    "厂商": "FHEM e.V.",
+    "状态": "可下",
+    "行业": "其它",
+    "地区": "国外",
+    "官网": "https://fhem.de/",
+    "下载页": "https://fhem.de/",
+    "文档": "https://wiki.fhem.de/",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码",
+      "安装包"
+    ],
+    "下载条件": "开源免费；tar.gz/deb/Docker(ghcr.io/fhem)；内置 FHEMWEB 默认 :8083",
+    "去重键": "fhem",
+    "备注": "垂直：楼宇自控相关开源家居/楼宇自动化；行业标其它",
+    "资产号": 83,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "UniLogic Studio",
+    "厂商": "Unitronics",
+    "状态": "可下",
+    "行业": "PLC",
+    "地区": "国外",
+    "官网": "https://www.unitronicsplc.com/",
+    "下载页": "https://www.unitronicsplc.com/software-unilogic-for-programmable-controllers/",
+    "文档": "https://www.unitronicsplc.com/Download/SoftwareHelp/%21UniLogicWebhelp2024/Getting_Started_With_UniLogic/Welcome_to_UniLogic.htm",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网免费下载最新版；软件与更新免费用",
+    "去重键": "unitronics-unilogic",
+    "备注": "UniStream 一体 PLC+HMI；内置 Web Server，可设计 Web Pages 浏览器访问",
+    "资产号": 66,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Kinco DToolsPro",
+    "厂商": "步科 Kinco",
+    "状态": "可下",
+    "行业": "工控/组态",
+    "地区": "国内",
+    "官网": "https://www.kinco.cn/",
+    "下载页": "https://www.kinco.cn/download/hmibcrj.html",
+    "文档": "https://www.kincoautomation.com/download/2/dsoft.html",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网/英文站资料下载中心直接下载 DToolsPro/DTPView",
+    "去重键": "kinco-dtoolspro",
+    "备注": "F2/G2/GL2 HMI 组态；支持浏览器 VNC 与 EdgeAccess2 H5/小程序远程",
+    "资产号": 73,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "DIAView",
+    "厂商": "台达 Delta",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国内",
+    "官网": "https://www.deltaww.com.cn/DIAView/zh-CN/",
+    "下载页": "https://www.deltaww.com.cn/DIAView/zh-CN/DownLoad",
+    "文档": "https://www.deltaww.com.cn/DIAView/zh-CN/DownLoad",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "台达中国站下载中心直下 V4.4；无加密狗可演示模式限时",
+    "去重键": "delta-diaview",
+    "备注": "工业组态 SCADA；提供 Web-Based(B/S) 版本；官方安装包可达",
+    "资产号": 32,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "HiaSCADA",
+    "厂商": "和利时 Hollysys",
+    "状态": "商务墙",
+    "行业": "SCADA",
+    "地区": "国内",
+    "官网": "https://www.hollysys.com.cn/",
+    "下载页": "https://www.hollysys.com.cn/product/industrials/software/intelligent-perception/hiascada/506",
+    "文档": "https://www.hollysys.com.cn/product/industrials/software/intelligent-perception/hiascada/506",
+    "Web服务": false,
+    "部署方式": [
+      "其它"
+    ],
+    "下载条件": "官网仅产品手册；安装包需商务/试用申请",
+    "去重键": "hollysys-hiascada",
+    "备注": "官方写明 C/S、B/S、手机 WEB；暂无公开安装包直链",
+    "资产号": 18,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "SKTOOL",
+    "厂商": "显控 Samkoon",
+    "状态": "待核",
+    "行业": "工控/组态",
+    "地区": "国内",
+    "官网": "https://www.samkoon.com.cn/",
+    "下载页": "https://www.samkoon.store/hmi-software/",
+    "文档": "https://www.samkoon.com.cn/service/questions/2",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网/商城下载中心提供 SKTOOL 安装包",
+    "去重键": "samkoon-sktool",
+    "备注": "SK 系列 HMI；远程组态+VNC/显控云；偏云/客户端，纯浏览器能力需结合型号核验",
+    "资产号": 75,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Easy7 VMS",
+    "厂商": "天地伟业 Tiandy",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国内",
+    "官网": "https://www.tiandy.com/",
+    "下载页": "https://help.tiandycloud.com/software.html",
+    "文档": "https://help.tiandycloud.com/software.html",
+    "Web服务": false,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "tiandycloud 帮助中心官方包(Easy7 VMS/CMS)",
+    "去重键": "tiandy-easy7-vms",
+    "备注": "官方 VMS/CMS 客户端；以 C/S 为主；同页有 Easy7 CMS SDK",
+    "资产号": 39,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "VTScada LIGHT",
+    "厂商": "Trihedral",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://www.vtscada.com/free-scada-software/",
+    "下载页": "https://www.vtscada.com/download-vtscada/",
+    "文档": "https://www.vtscada.com/help/Content/Op_Welcome/Licensing.htm",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官方安装包；无许可密钥时即 LIGHT(≤50 I/O)；需同意 EULA",
+    "去重键": "vtscada-light",
+    "备注": "免费永久 LIGHT；含 Thin Client；与完整版同安装包",
+    "资产号": 25,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "AVEVA InTouch HMI Trial",
+    "厂商": "AVEVA",
+    "状态": "可下",
+    "行业": "工控/组态",
+    "地区": "国外",
+    "官网": "https://www.aveva.com/en/products/intouch-hmi/",
+    "下载页": "https://engage.aveva.com/AVEVA-HMI-InTouch-Trial.html",
+    "文档": "https://www.aveva.com/en/products/intouch-hmi/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "AVEVA Engage 注册（商务邮箱）后下载试用；约30天试用许可",
+    "去重键": "aveva-intouch-trial",
+    "备注": "垂直：市政水务/暖通相关 HMI；以 WindowMaker/Viewer 为主，Web 能力需核验具体版本模块",
+    "资产号": 81,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "ZoneMinder",
+    "厂商": "ZoneMinder",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国外",
+    "官网": "https://zoneminder.com/",
+    "下载页": "https://github.com/ZoneMinder/zoneminder",
+    "文档": "https://zoneminder.readthedocs.io/",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码"
+    ],
+    "下载条件": "开源；Docker/源码",
+    "去重键": "zoneminder",
+    "备注": "经典开源 NVR/监控，浏览器管理界面",
+    "资产号": 11,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "C-more CM5 Programming Software",
+    "厂商": "AutomationDirect",
+    "状态": "可下",
+    "行业": "工控/组态",
+    "地区": "国外",
+    "官网": "https://www.automationdirect.com/",
+    "下载页": "https://www.automationdirect.com/adc/shopping/catalog/hmi_(human_machine_interface)/graphical_hmi_devices/hmi_accessories/cm5-pgmsw",
+    "文档": "https://cdn.automationdirect.com/static/specs/cm5pgmsw.pdf",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网免费下载 CM5-PGMSW；亦可购 USB 介质",
+    "去重键": "automationdirect-cmore",
+    "备注": "面板内置 FTP/HTTPS Webserver 与 Remote HMI；组态软件免费",
+    "资产号": 69,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "iManager NetEco 1000S",
+    "厂商": "华为",
+    "状态": "商务墙",
+    "行业": "SCADA",
+    "地区": "国内",
+    "官网": "https://solar.huawei.com/",
+    "下载页": "https://support.huawei.com/enterprise/",
+    "文档": "https://support.huawei.com/enterprise/zh/fusionsolar/smartpvms-pid-21608721",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "需通过华为技术支持/support 门户获取安装包与签名；非公开自助下载；浏览器 https://IP:8443",
+    "去重键": "huawei-neteco-1000s",
+    "备注": "垂直：电力/光伏能源监控；本地 Web 管理，FusionSolar 云为主流替代",
+    "资产号": 88,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "MCGS McgsPro / McgsWeb",
+    "厂商": "昆仑技创/昆仑通态",
+    "状态": "待核",
+    "行业": "工控/组态",
+    "地区": "国内",
+    "官网": "http://www.mcgs.com.cn/",
+    "下载页": "http://www.mcgs.com.cn/",
+    "文档": "http://www.mcgs.com.cn/src/products.html?cid=2",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "需核实 McgsPro/McgsWeb 官网下载入口是否免登录",
+    "去重键": "mcgs-pro-web",
+    "备注": "McgsWeb 面向物联网触摸屏 Web 远程；下载通道待点验",
+    "资产号": 19,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "ioBroker",
+    "厂商": "ioBroker",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国外",
+    "官网": "https://www.iobroker.net/",
+    "下载页": "https://hub.docker.com/r/buanet/iobroker",
+    "文档": "https://docs.buanet.de/iobroker-docker-image/docs/",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "安装包"
+    ],
+    "下载条件": "开源；官方 Docker 镜像 buanet/iobroker",
+    "去重键": "iobroker",
+    "备注": "JS IoT 集成平台；Admin Web :8081；适配器生态",
+    "资产号": 60,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "CODESYS WebVisu / HMI SL",
+    "厂商": "CODESYS GmbH",
+    "状态": "可下",
+    "行业": "工控/组态",
+    "地区": "国外",
+    "官网": "https://www.codesys.com/products/visualization/",
+    "下载页": "https://store.codesys.com/",
+    "文档": "https://www.codesys.com/products/visualization/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "CODESYS Store 免费下载 Development System；Runtime/WebVisu 无许可可试用(约2小时)",
+    "去重键": "codesys-webvisu",
+    "备注": "HTML5 WebVisu；HMI SL demo 随 IDE；Web 浏览器访问可视化",
+    "资产号": 26,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "RealSCADA V2.0",
+    "厂商": "紫金桥",
+    "状态": "可下",
+    "行业": "工控/组态",
+    "地区": "国内",
+    "官网": "https://www.realinfo.cc/",
+    "下载页": "https://www.realinfo.cc/download-category/software/",
+    "文档": "https://www.realinfo.cc/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网下载页公开；下载前需图形验证码",
+    "去重键": "realscada-zijinqiao",
+    "备注": "监控组态，官方写明支持 Web 发布；Windows 包，Linux/信创需联系",
+    "资产号": 4,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "FUXA",
+    "厂商": "frangoteam",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://frangoteam.github.io/FUXA/",
+    "下载页": "https://github.com/frangoteam/FUXA",
+    "文档": "https://frangoteam.github.io/FUXA/Installing-and-Running/",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码"
+    ],
+    "下载条件": "开源；Docker pull 或 GitHub release",
+    "去重键": "fuxa-frangoteam",
+    "备注": "Web SCADA/HMI，默认 :1881；可对接 OpenPLC Modbus",
+    "资产号": 1,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "OpenRemote",
+    "厂商": "OpenRemote",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国外",
+    "官网": "https://openremote.io/",
+    "下载页": "https://github.com/openremote/openremote",
+    "文档": "https://docs.openremote.io/",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码"
+    ],
+    "下载条件": "AGPL 开源；官方 Docker Compose 一键",
+    "去重键": "openremote",
+    "备注": "开源 IoT 设备管理/规则/Insights 仪表盘；Manager Web UI",
+    "资产号": 55,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Rapid SCADA Community",
+    "厂商": "Rapid SCADA",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://rapidscada.org/",
+    "下载页": "https://rapidscada.org/download-all-files/download-rapid-scada/",
+    "文档": "https://rapidscada.net/docs/en/latest/installation/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官方 Community 安装包(Win/Linux)直链；提示填写 profile",
+    "去重键": "rapid-scada",
+    "备注": "开源全功能 SCADA，内置 Web 应用(IIS/Nginx)；Community 无限点位无过期",
+    "资产号": 21,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Scrypted",
+    "厂商": "Scrypted / koush",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国外",
+    "官网": "https://www.scrypted.app/",
+    "下载页": "https://docs.scrypted.app/install/linux-docker.html",
+    "文档": "https://docs.scrypted.app/",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "安装包"
+    ],
+    "下载条件": "核心开源可自部署；Scrypted NVR 录像插件需许可",
+    "去重键": "scrypted",
+    "备注": "摄像头自动化/NVR 平台；Web 管理台 HTTPS :10443；Docker Compose 一键",
+    "资产号": 52,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Niagara Framework N4",
+    "厂商": "Tridium (Honeywell)",
+    "状态": "商务墙",
+    "行业": "其它",
+    "地区": "国外",
+    "官网": "https://www.tridium.com/",
+    "下载页": "https://www.niagara-community.com/",
+    "文档": "https://docs.niagara-community.com/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "Niagara Community 注册+有效许可/SMA；安装包可得但需 Host ID 许可才可运行 Station/Workbench",
+    "去重键": "niagara-n4",
+    "备注": "垂直：楼宇自控 BMS/BA；浏览器 Supervisor/HTML5；无公开免许可试用",
+    "资产号": 89,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "KingSCADA 3.8",
+    "厂商": "亚控科技",
+    "状态": "待核",
+    "行业": "SCADA",
+    "地区": "国内",
+    "官网": "https://www.kingview.com/",
+    "下载页": "https://www.kingview.com/download.php",
+    "文档": "https://www.kingview.com/pro_info.php?num=1000003",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网软件下载列出安装包；需登录后获取提取码",
+    "去重键": "kingscada-wellintech",
+    "备注": "官方称支持 C/S、B/S；下载需登录拿提取码",
+    "资产号": 9,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "OpenPLC Runtime v3",
+    "厂商": "thiagoralves",
+    "状态": "可下",
+    "行业": "PLC",
+    "地区": "国外",
+    "官网": "https://openplcproject.com/",
+    "下载页": "https://github.com/thiagoralves/OpenPLC_v3",
+    "文档": "https://autonomylogic.com/docs/",
+    "Web服务": true,
+    "部署方式": [
+      "源码"
+    ],
+    "下载条件": "开源；git clone + install.sh",
+    "去重键": "openplc-v3",
+    "备注": "软PLC Runtime，带 Web 管理界面；常与 FUXA 组实验环境",
+    "资产号": 2,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Hikvision iVMS-4200",
+    "厂商": "海康威视 Hikvision",
+    "状态": "待核",
+    "行业": "安防",
+    "地区": "国内",
+    "官网": "https://www.hikvision.com/",
+    "下载页": "https://www.hikvision.com/en/support/download/software/ivms4200-series/",
+    "文档": "https://www.hikvision.com/en/support/download/software/ivms4200-series/",
+    "Web服务": false,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "全球站官方软件下载",
+    "去重键": "hikvision-ivms-4200",
+    "备注": "桌面客户端为主，非浏览器自托平台；收录作安防对比，Web 平台另寻 HikCentral/iSecure",
+    "资产号": 20,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "TDengine Explorer (taosExplorer)",
+    "厂商": "涛思数据 TDengine",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国内",
+    "官网": "https://www.taosdata.com/",
+    "下载页": "https://tdengine.com/downloads/",
+    "文档": "https://docs.tdengine.com/reference/components/explorer/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包",
+      "Docker"
+    ],
+    "下载条件": "随 TDengine 开源安装包免费附带（非单独开源组件）",
+    "去重键": "tdengine-explorer",
+    "备注": "时序库可视化管理 Web :6060；工业物联网数据侧常用",
+    "资产号": 61,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Node-RED",
+    "厂商": "OpenJS Foundation",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国外",
+    "官网": "https://nodered.org/",
+    "下载页": "https://nodered.org/docs/getting-started/",
+    "文档": "https://nodered.org/docs/getting-started/",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码"
+    ],
+    "下载条件": "开源；npm/Docker",
+    "去重键": "node-red",
+    "备注": "流程编排/工控边缘常见；Web 编辑器 :1880",
+    "资产号": 12,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "PcVue",
+    "厂商": "ARC Informatique",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://www.pcvue.com/",
+    "下载页": "https://www.pcvue.com/our-offers/by-application/pcvue-hmi-scada/",
+    "文档": "https://www.pcvue.com/wp-content/uploads/2024/10/Download-instructions-PcVue-English.pdf",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网填表下载；无许可自动 demonstration 模式（会话/点数限制）；含 WebVue HTML5",
+    "去重键": "pcvue",
+    "备注": "垂直：市政水务/暖通/楼宇；HMI/SCADA + WebVue 浏览器客户端",
+    "资产号": 79,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Nx Witness VMS",
+    "厂商": "Network Optix",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国外",
+    "官网": "https://www.networkoptix.com/nx-witness",
+    "下载页": "https://www.networkoptix.com/nx-witness",
+    "文档": "https://support.networkoptix.com/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官方可下；直播免费，录像可激活 30 天 4 路试用许可",
+    "去重键": "nx-witness",
+    "备注": "企业级 VMS；含 Server Web Admin；自部署 Bundle Installer",
+    "资产号": 48,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "EasyBuilder Pro / cMT WebView",
+    "厂商": "威纶通 Weintek",
+    "状态": "可下",
+    "行业": "工控/组态",
+    "地区": "国外",
+    "官网": "https://www.weintek.com/",
+    "下载页": "https://www.weintek.com/Download/Software",
+    "文档": "https://dl.weintek.com/public/cMT/eng/UserManual/UM020001E_cMT_X_Series_Easyweb_2.0_UserManual_eng.pdf",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网软件中心直接下载 EasyBuilder Pro 安装包；免费组态软件",
+    "去重键": "weintek-easybuilder-pro",
+    "备注": "cMT X 支持 EasyWeb 2.0 / WebView，浏览器远程监控；EBPro 免费下载",
+    "资产号": 62,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "EasyDarwin",
+    "厂商": "EasyDarwin",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国内",
+    "官网": "https://www.easydarwin.org/",
+    "下载页": "https://github.com/EasyDarwin/EasyDarwin",
+    "文档": "https://github.com/EasyDarwin/EasyDarwin",
+    "Web服务": true,
+    "部署方式": [
+      "源码",
+      "安装包"
+    ],
+    "下载条件": "MIT 开源；GitHub 源码/发行包",
+    "去重键": "easydarwin",
+    "备注": "开源流媒体服务器；与安徽旭帆/TSINGSEE Easy* 产品线同源生态常见关联，厂商页为 EasyDarwin 开源社区。已下源码包至 Drive「安装包」。",
+    "资产号": 45,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Shinobi NVR",
+    "厂商": "Shinobi Systems",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国外",
+    "官网": "https://shinobi.video/",
+    "下载页": "https://docs.shinobi.video/installation/docker",
+    "文档": "https://docs.shinobi.video/",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码"
+    ],
+    "下载条件": "官方 GitLab 镜像 registry.gitlab.com/shinobi-systems/shinobi:dev",
+    "去重键": "shinobi-nvr",
+    "备注": "开源 NVR；Web UI :8080；已不用 Docker Hub",
+    "资产号": 29,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Ignition Maker Edition",
+    "厂商": "Inductive Automation",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://inductiveautomation.com/ignition/maker-edition",
+    "下载页": "https://inductiveautomation.com/downloads/",
+    "文档": "https://www.docs.inductiveautomation.com/docs/8.3/getting-started/startup-guide/downloading-and-installing-ignition",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "Maker Edition 个人非商用免费；商用需正式版",
+    "去重键": "ignition-maker",
+    "备注": "Web-based SCADA/HMI 网关；研究向常用",
+    "资产号": 15,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Frigate NVR",
+    "厂商": "blakeblackshear",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国外",
+    "官网": "https://frigate.video",
+    "下载页": "https://github.com/blakeblackshear/frigate",
+    "文档": "https://docs.frigate.video",
+    "Web服务": true,
+    "部署方式": [
+      "Docker"
+    ],
+    "下载条件": "开源；ghcr.io/blakeblackshear/frigate",
+    "去重键": "frigate-nvr",
+    "备注": "本地 AI NVR，Web UI :5000；对接 RTSP 摄像头（含海康等）",
+    "资产号": 8,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "EMQX",
+    "厂商": "EMQ Technologies",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国外",
+    "官网": "https://www.emqx.io/",
+    "下载页": "https://www.emqx.com/en/downloads",
+    "文档": "https://docs.emqx.com/en/emqx/latest/getting-started/getting-started.html",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "安装包",
+      "源码"
+    ],
+    "下载条件": "Docker Hub / 官方安装包直下；Dashboard :18083",
+    "去重键": "emqx",
+    "备注": "MQTT Broker + Web Dashboard；工业 IoT 常用网关层；BSL 后功能统一镜像",
+    "资产号": 28,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Kerberos Agent",
+    "厂商": "Kerberos.io",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国外",
+    "官网": "https://kerberos.io/",
+    "下载页": "https://github.com/kerberos-io/agent",
+    "文档": "https://doc.kerberos.io/",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码"
+    ],
+    "下载条件": "MIT 开源 Agent；Docker Hub kerberos/agent",
+    "去重键": "kerberos-io-agent",
+    "备注": "单路摄像头 Agent；内置 React Web UI；可扩 Vault/Hub 企业套件",
+    "资产号": 51,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "PIStudio",
+    "厂商": "维控 Wecon",
+    "状态": "可下",
+    "行业": "工控/组态",
+    "地区": "国内",
+    "官网": "https://www.we-con.com.cn/",
+    "下载页": "https://docs.we-con.com.cn/bin/view/PIStudio/Download/3%20Software/",
+    "文档": "https://docs.we-con.com.cn/bin/view/PIStudio/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官方 Wiki/FTP 直接下载 PIStudio 安装包",
+    "去重键": "wecon-pistudio",
+    "备注": "PI 系列高端 HMI；宣称支持 HTML5 浏览器远程监控（配合 APP/V-NET）",
+    "资产号": 74,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "GENESIS (GENESIS64)",
+    "厂商": "ICONICS / Mitsubishi Electric",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://iconics.com/",
+    "下载页": "https://iconics.com/downloads/download-genesis",
+    "文档": "https://documentation.iconics.com/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网表单申请试用；无许可时 demo 模式约2小时可重复延长；需 IIS HTML5 WebHMI",
+    "去重键": "iconics-genesis",
+    "备注": "垂直：楼宇自控/暖通/能源；含 HTML5 WebHMI，BACnet/Modbus/OPC",
+    "资产号": 78,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "mySCADA myPRO",
+    "厂商": "mySCADA Technologies",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://www.myscada.org/mypro/",
+    "下载页": "https://www.myscada.org/download/",
+    "文档": "https://www.myscada.org/download/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "软件下载需注册登录；未注册版非商用评估可用，约 2 小时需重启",
+    "去重键": "myscada-mypro",
+    "备注": "纯 Web HMI/SCADA；浏览器操作，Windows/Linux Manager+Runtime",
+    "资产号": 64,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "组态王 KingView 7.5",
+    "厂商": "亚控科技",
+    "状态": "待核",
+    "行业": "工控/组态",
+    "地区": "国内",
+    "官网": "https://www.kingview.com/",
+    "下载页": "https://www.kingview.com/download.php",
+    "文档": "https://www.kingview.com/pro_info.php?num=1000002",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网软件下载列出安装包；需登录后获取提取码",
+    "去重键": "kingview-wellintech",
+    "备注": "国内主流组态；Web/手机能力需对照具体版本功能；下载需登录",
+    "资产号": 10,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "EdgeX Foundry UI",
+    "厂商": "LF Edge / EdgeX Foundry",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国外",
+    "官网": "https://www.edgexfoundry.org/",
+    "下载页": "https://hub.docker.com/r/edgexfoundry/edgex-ui",
+    "文档": "https://docs.edgexfoundry.org/latest/getting-started/tools/Ch-GUI/",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码"
+    ],
+    "下载条件": "开源；edgex-compose / edgex-ui 镜像可下",
+    "去重键": "edgex-foundry-ui",
+    "备注": "工业边缘中间件演示/开发 Web UI :4000；管理设备/服务/读数",
+    "资产号": 56,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "中控 InPlant SCADA",
+    "厂商": "中控技术 SUPCON",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国内",
+    "官网": "https://www.supcon.com/new/NBD",
+    "下载页": "https://www.supcon.com/new/NBD",
+    "文档": "https://www.supcon.com/new/NBD/list_57/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网免费下载；核心 5 万点永久免费；Web/APP 等为商城插件授权",
+    "去重键": "supcon-inplant-scada",
+    "备注": "市政/水利/油气/环保等行业监控；Web 客户端经 WebServer 插件（默认 :23380）；另有 Web 报表/APP 插件",
+    "资产号": 13,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "OpenEMS",
+    "厂商": "OpenEMS Association",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国外",
+    "官网": "https://openems.io/",
+    "下载页": "https://github.com/OpenEMS/openems/releases",
+    "文档": "https://openems.github.io/openems.io/openems/latest/gettingstarted.html",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码"
+    ],
+    "下载条件": "开源免费；GitHub Releases 提供 Edge/Backend/UI 预编译与 Docker 镜像",
+    "去重键": "openems",
+    "备注": "垂直：电力/能源监控；开源能源管理系统，含 OpenEMS UI（Web），可自建 Edge+Backend+UI",
+    "资产号": 76,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "OpenSCADA",
+    "厂商": "OpenSCADA Project",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "http://oscada.org/",
+    "下载页": "http://oscada.org/en/main/download/",
+    "文档": "http://www.oscada.org/wiki/Documents/How_to/Install",
+    "Web服务": true,
+    "部署方式": [
+      "安装包",
+      "源码",
+      "ISO"
+    ],
+    "下载条件": "官方 APT/YUM 仓库与 FTP 源码/LiveCD，无销售门墙",
+    "去重键": "openscada",
+    "备注": "完整开源 SCADA；含 Web 可视化模块；FTP/仓库持续更新",
+    "资产号": 23,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "zenon",
+    "厂商": "COPA-DATA",
+    "状态": "待核",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://www.copadata.com/en/",
+    "下载页": "https://www.copadata.com/en/products/zenon-software-platform-for-industrial-automation-energy-automation/current-version/",
+    "文档": "http://download.copadata.com/fileadmin/user_upload/Downloads/Dokumentation/820SP0/ENGLISH/Manual/Runtime.pdf",
+    "Web服务": true,
+    "部署方式": [
+      "ISO",
+      "安装包"
+    ],
+    "下载条件": "官网列 zenon 15 ISO(~10GB) 下载；安装含 Demo 许可；完整评估常需联系销售",
+    "去重键": "zenon-copa-data",
+    "备注": "含 HTML5 Web Visualization；Service Engine；标待核因大 ISO/区域联系可能门墙",
+    "资产号": 34,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "【重复】myPRO",
+    "厂商": "mySCADA",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://www.myscada.org/",
+    "下载页": "https://www.myscada.org/mypro/",
+    "文档": "https://www.myscada.tech/products/mypro/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包",
+      "Docker"
+    ],
+    "下载条件": "官网注册后下载；未注册版非商用/测试，连续运行约2小时需重启",
+    "去重键": "myscada-mypro-DUP",
+    "备注": "并行写入重复；请用 myscada-mypro 另一条。本行可删。",
+    "资产号": 77,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "EZStation",
+    "厂商": "宇视 Uniview",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国内",
+    "官网": "https://cn.uniview.com/Products/General-Software/General-Security/EZStation/",
+    "下载页": "https://cn.uniview.com/Service/Service_Training/Download/Desktop_Software/Client_Software/",
+    "文档": "https://www.uniview.com/Products/Software/PC/EZStation/",
+    "Web服务": false,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "宇视下载中心/国际站桌面客户端直下；免费提供",
+    "去重键": "uniview-ezstation",
+    "备注": "桌面 VMS 客户端(非 B/S)；Win/Mac 官方包；优先目标已核",
+    "资产号": 38,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Dahua DSS Express",
+    "厂商": "大华 Dahua",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国内",
+    "官网": "https://software.dahuasecurity.com/",
+    "下载页": "https://software.dahuasecurity.com/en/download",
+    "文档": "https://software.dahuasecurity.com/en/dss/express",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官方 Software Download Center；Express 档常见可免费用",
+    "去重键": "dahua-dss-express",
+    "备注": "安防 VMS 客户端-服务器；有 Web 访问能力需对照具体版本；非 FOFA 测绘",
+    "资产号": 17,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Acrel-3000WEB",
+    "厂商": "安科瑞",
+    "状态": "商务墙",
+    "行业": "SCADA",
+    "地区": "国内",
+    "官网": "https://www.acrel.cn/",
+    "下载页": "https://www.acrel-ems.cn/pd.jsp?id=259",
+    "文档": "http://www.lcacrel.com/Article-346354.html",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "无公开完整平台安装包；需厂商交付/联系安装；有在线演示账号",
+    "去重键": "acrel-3000web",
+    "备注": "垂直：电力/能源监控；B/S 电能管理，支持本地/私有部署但软件不公开自助下载",
+    "资产号": 87,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Movicon.NExT",
+    "厂商": "Emerson (Progea)",
+    "状态": "可下",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://www.emerson.com/en-us/automation/control-and-safety-systems/movicon/movicon-next",
+    "下载页": "https://go.emersonautomation.com/movicon-sftwr-dwnld",
+    "文档": "https://www.movicon.info/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包",
+      "Docker"
+    ],
+    "下载条件": "Emerson 官网表单申请试用；含 HTML5 Web Client / WebHMI（Linux Deploy Server 可 Docker）",
+    "去重键": "movicon-next",
+    "备注": "垂直：市政水务/暖通/工控；SCADA+WebHMI，水务行业表单选项含 Water & Wastewater",
+    "资产号": 80,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "PLCnext Engineer",
+    "厂商": "Phoenix Contact",
+    "状态": "可下",
+    "行业": "PLC",
+    "地区": "国外",
+    "官网": "https://www.plcnext-community.net/",
+    "下载页": "https://www.phoenixcontact.com/en-us/products/programming-plcnext-engineer-1046008",
+    "文档": "https://engineer.plcnext.help/latest/HMI_Quickstart.htm",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "产品页 Downloads 免费下载基础版；扩展功能需付费 add-in",
+    "去重键": "phoenix-plcnext-engineer",
+    "备注": "内置 HMI Webserver；浏览器访问控制器可视化（常见 :81/:443）",
+    "资产号": 67,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "InoProShop",
+    "厂商": "汇川技术 Inovance",
+    "状态": "可下",
+    "行业": "PLC",
+    "地区": "国内",
+    "官网": "https://www.inovance.com/",
+    "下载页": "https://www.inovance.com/",
+    "文档": "https://www.inovance.com/",
+    "Web服务": false,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "汇川官网服务支持免费下 InoProShop；无需销售",
+    "去重键": "inovance-inoproshop",
+    "备注": "中型 PLC(AM 系列)编程组态；基于 CODESYS；桌面 IDE 无独立 B/S",
+    "资产号": 42,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Beremiz + SVGHMI",
+    "厂商": "Beremiz Project",
+    "状态": "可下",
+    "行业": "PLC",
+    "地区": "国外",
+    "官网": "https://beremiz.org/",
+    "下载页": "https://github.com/beremiz/beremiz/releases",
+    "文档": "https://beremiz.org/2023/10/29/svghmi.html",
+    "Web服务": true,
+    "部署方式": [
+      "源码",
+      "安装包"
+    ],
+    "下载条件": "开源 GPL；GitHub Release Windows installer / Snap",
+    "去重键": "beremiz-svghmi",
+    "备注": "IEC 61131 IDE；SVGHMI 基于 SVG/HTML5/WebSocket 的浏览器 HMI",
+    "资产号": 68,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "AVEVA Edge (ex-InduSoft Web Studio)",
+    "厂商": "AVEVA",
+    "状态": "待核",
+    "行业": "工控/组态",
+    "地区": "国外",
+    "官网": "https://www.aveva.com/en/products/edge/",
+    "下载页": "https://www.aveva.com/en/products/edge/",
+    "文档": "https://www.aveva.com/en/products/edge/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "engage.aveva.com 评估表单下载；约 40 小时试用",
+    "去重键": "aveva-edge-trial",
+    "备注": "原 InduSoft Web Studio；内置 Web 发布；评估需注册表单",
+    "资产号": 35,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "EcoStruxure Geo SCADA Expert",
+    "厂商": "Schneider Electric",
+    "状态": "待核",
+    "行业": "SCADA",
+    "地区": "国外",
+    "官网": "https://www.se.com/us/en/product-range/65481-ecostruxure-geo-scada-expert/",
+    "下载页": "https://community.se.com/t5/Geo-SCADA-Knowledge-Base/Geo-SCADA-Expert-Downloads/ba-p/279115",
+    "文档": "https://community.se.com/t5/Geo-SCADA-Knowledge-Base/Resource-Center-Home/ba-p/279133",
+    "Web服务": true,
+    "部署方式": [
+      "ISO",
+      "安装包"
+    ],
+    "下载条件": "SE Community/官网账号下载 ISO；未授权即 Demo(2h/1000点)",
+    "去重键": "schneider-geo-scada-expert",
+    "备注": "原 ClearSCADA；WebX 客户端；下载需登录标待核",
+    "资产号": 36,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "RealHistorian V3.2",
+    "厂商": "紫金桥",
+    "状态": "可下",
+    "行业": "工控/组态",
+    "地区": "国内",
+    "官网": "https://www.realinfo.cc/",
+    "下载页": "https://www.realinfo.cc/download-category/software/",
+    "文档": "https://www.realinfo.cc/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官网下载页公开；下载前需图形验证码",
+    "去重键": "realhistorian-zijinqiao",
+    "备注": "实时数据库+组态画面，支持浏览器及手机 APP 浏览；信创认证表述",
+    "资产号": 5,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "EcoStruxure Operator Terminal Expert (Trial)",
+    "厂商": "Schneider Electric",
+    "状态": "待核",
+    "行业": "工控/组态",
+    "地区": "国外",
+    "官网": "https://www.se.com/",
+    "下载页": "https://www.se.com/us/en/download/document/EOTE_3_5_100/",
+    "文档": "https://www.se.com/uk/en/faqs/FAQ000257549/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "se.com 需登录下载；安装后约 42 天试用；WebViewer 能力需 Professional/附加许可",
+    "去重键": "schneider-eote-trial",
+    "备注": "原 Vijeo XD；Harmony HMI/iPC 组态；WebViewer/WebServer 为专业版能力",
+    "资产号": 70,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Domoticz",
+    "厂商": "Domoticz",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国外",
+    "官网": "https://www.domoticz.com/",
+    "下载页": "https://www.domoticz.com/",
+    "文档": "https://wiki.domoticz.com/",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "安装包",
+      "源码"
+    ],
+    "下载条件": "GPL 开源；一键脚本/Windows 安装包/源码",
+    "去重键": "domoticz",
+    "备注": "轻量本地自动化；HTML5 Web UI :8080；无云依赖",
+    "资产号": 59,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "ContaCam",
+    "厂商": "Contaware",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国外",
+    "官网": "https://www.contaware.com/software/contacam.html",
+    "下载页": "https://www.contaware.com/software/download.html",
+    "文档": "https://www.contaware.com/help/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "官方免费下载 Windows 安装包",
+    "去重键": "contacam",
+    "备注": "Windows 视频监控；内置 Web Server(默认 :8800)；支持 IP/USB 摄像头",
+    "资产号": 53,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Monibuca",
+    "厂商": "Monibuca",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国内",
+    "官网": "https://monibuca.com/",
+    "下载页": "https://monibuca.com/en/guides/download/",
+    "文档": "https://monibuca.com/en/guides/quickstart/",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "安装包",
+      "源码"
+    ],
+    "下载条件": "开源免费；官方二进制/Docker/GitHub Releases",
+    "去重键": "monibuca",
+    "备注": "高性能流媒体引擎；内置 Admin Web 控制台 :8180；支持 RTMP/RTSP/HLS/WebRTC",
+    "资产号": 46,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "EcoStruxure Building Operation",
+    "厂商": "Schneider Electric",
+    "状态": "商务墙",
+    "行业": "其它",
+    "地区": "国外",
+    "官网": "https://www.se.com/",
+    "下载页": "https://community.se.com/t5/Ask-the-Community/Unable-to-find-EcoStruxure-Building-Operation-EBO-software/td-p/539960",
+    "文档": "https://www.se.com/us/en/partners/ecoxpert/benefits-for-partners/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包"
+    ],
+    "下载条件": "仅 EcoXpert BMS 合作伙伴/员工经 mySchneider Premium 下载；含评估许可但非公开试用",
+    "去重键": "ecostruxure-building-operation",
+    "备注": "垂直：楼宇自控 BMS；Web 操作客户端，渠道墙",
+    "资产号": 92,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "WebCTRL",
+    "厂商": "Automated Logic (Carrier)",
+    "状态": "商务墙",
+    "行业": "其它",
+    "地区": "国外",
+    "官网": "https://www.automatedlogic.com/en/products/webctrl-building-automation-system/",
+    "下载页": "https://www.automatedlogic.com/en/products/webctrl-building-automation-system/",
+    "文档": "https://www.automatedlogic.com/en/media/WebCTRL-10_Cutsheet_final-10312025_tcm702-197377.pdf",
+    "Web服务": true,
+    "部署方式": [
+      "安装包",
+      "其它"
+    ],
+    "下载条件": "无公开试用包；经经销商/分公司安装配置；可 on-prem 或 ALC Cloud",
+    "去重键": "webctrl-automated-logic",
+    "备注": "垂直：楼宇自控 BMS/暖通；原生 BACnet，纯浏览器操作",
+    "资产号": 93,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Home Assistant",
+    "厂商": "Home Assistant / Nabu Casa",
+    "状态": "可下",
+    "行业": "工业物联网",
+    "地区": "国外",
+    "官网": "https://www.home-assistant.io/",
+    "下载页": "https://www.home-assistant.io/installation/",
+    "文档": "https://www.home-assistant.io/docs/",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "ISO",
+      "安装包"
+    ],
+    "下载条件": "开源；HAOS 镜像/容器/Supervised 可下",
+    "去重键": "home-assistant",
+    "备注": "本地优先自动化平台；Web UI :8123；含 Supervisor 扩展生态",
+    "资产号": 57,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "Bluecherry NVR",
+    "厂商": "Bluecherry",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国外",
+    "官网": "https://www.bluecherrydvr.com/",
+    "下载页": "https://www.bluecherrydvr.com/download-instructions/",
+    "文档": "https://docs.bluecherrydvr.com/server-installation",
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "安装包"
+    ],
+    "下载条件": "官方 Docker 安装脚本；GPL 全开源无许可费",
+    "去重键": "bluecherry-nvr",
+    "备注": "Web 管理默认 https://IP:7001；Admin/bluecherry",
+    "资产号": 30,
+    "首次写入": "2026-09-09"
+  },
+  {
+    "产品": "EasyNVR",
+    "厂商": "安徽旭帆 / TSINGSEE 青犀",
+    "状态": "可下",
+    "行业": "安防",
+    "地区": "国内",
+    "官网": "https://www.easynvr.com/",
+    "下载页": "https://www.easynvr.com/download.html",
+    "文档": "https://www.easynvr.com/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包",
+      "Docker"
+    ],
+    "下载条件": "官网提供 Win/Linux/ARM64/Docker 包，解压即跑；默认端口 10000 Web",
+    "去重键": "easynvr-tsingsee",
+    "备注": "安徽旭帆（TSINGSEE）安防视频云；RTSP 设备接入与多协议分发；厂商页写明安徽旭帆信息科技有限公司",
+    "资产号": 94,
+    "首次写入": "2026-09-11"
+  },
+  {
+    "产品": "EasyDSS",
+    "厂商": "安徽旭帆 / TSINGSEE 青犀",
+    "状态": "待核",
+    "行业": "安防",
+    "地区": "国内",
+    "官网": "https://www.tsingsee.com/product/easydss",
+    "下载页": "https://www.tsingsee.com/download",
+    "文档": "https://www.tsingsee.com/product/easydss",
+    "Web服务": true,
+    "部署方式": [
+      "安装包",
+      "Docker"
+    ],
+    "下载条件": "TSINGSEE 下载中心；具体包链接待核",
+    "去重键": "easydss-tsingsee",
+    "备注": "安徽旭帆互联网视频点播/直播流媒体平台；Web 控制台",
+    "资产号": 96,
+    "首次写入": "2026-09-11"
+  },
+  {
+    "产品": "EasyGBS",
+    "厂商": "安徽旭帆 / TSINGSEE 青犀",
+    "状态": "待核",
+    "行业": "安防",
+    "地区": "国内",
+    "官网": "https://www.easygbs.com/",
+    "下载页": "https://www.tsingsee.com/download/EasyGBS.html",
+    "文档": "https://www.tsingsee.com/product/easygbs/",
+    "Web服务": true,
+    "部署方式": [
+      "安装包",
+      "Docker"
+    ],
+    "下载条件": "官网有 EasyGBS 下载入口；具体是否免登录待点验",
+    "去重键": "easygbs-tsingsee",
+    "备注": "安徽旭帆国标 GB28181 视频云平台；Web 管理；Docker 镜像可拉",
+    "资产号": 95,
+    "首次写入": "2026-09-11"
+  }
+]

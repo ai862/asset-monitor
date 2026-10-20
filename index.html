@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>资产监控中心</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-main">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <h1 id="page-title">资产监控中心</h1>
+            <p class="subtitle">Notion 镜像 · 本地静态加速</p>
+          </div>
+        </div>
+        <div class="header-meta">
+          <div class="sync-pill" title="数据同步时间">
+            <span class="dot"></span>
+            <span>同步 <time id="updated-at">—</time></span>
+          </div>
+          <a id="notion-edit" class="btn ghost" href="#" target="_blank" rel="noopener">在 Notion 编辑</a>
+        </div>
+      </div>
+
+      <nav class="tabs" id="tabs" role="tablist" aria-label="监控分类"></nav>
+
+      <div class="toolbar">
+        <div class="search-wrap">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+          </svg>
+          <input id="search" type="search" placeholder="搜索产品 / 厂商 / 去重键…" autocomplete="off" />
+          <kbd class="hint">/</kbd>
+        </div>
+        <div class="view-toggle" role="group" aria-label="视图">
+          <button type="button" class="view-btn active" data-view="table" title="表格">表</button>
+          <button type="button" class="view-btn" data-view="cards" title="卡片">卡</button>
+        </div>
+        <div class="result-count"><span id="visible-count">0</span> / <span id="total-count">0</span></div>
+      </div>
+
+      <div class="filters">
+        <div class="filter-group" id="status-filters">
+          <span class="filter-label">状态</span>
+          <div class="chips" id="status-chips"></div>
+        </div>
+        <div class="filter-group hidden" id="extra-filters">
+          <span class="filter-label" id="extra-label">类型</span>
+          <div class="chips" id="extra-chips"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div id="loading" class="state">加载中…</div>
+      <div id="empty" class="state hidden">没有匹配的资产</div>
+      <div id="error" class="state error hidden"></div>
+      <div id="table-view" class="table-wrap hidden"></div>
+      <div id="cards-view" class="cards-grid hidden"></div>
+    </main>
+
+    <footer class="footer">
+      <p>数据从 Notion 三张资产表镜像；编辑请回 Notion。本页可托管到 GitHub Pages。</p>
+      <p class="footer-links" id="footer-links"></p>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
