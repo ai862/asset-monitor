@@ -1,0 +1,65 @@
+{
+  "产品": "Arkloop",
+  "厂商": "qqqqqf-q",
+  "状态": "可下",
+  "类型": "Agent",
+  "语言": "Go",
+  "Stars": 376,
+  "GitHub": "https://github.com/qqqqqf-q/Arkloop",
+  "官网": "https://github.com/qqqqqf-q/Arkloop",
+  "文档": "https://github.com/qqqqqf-q/Arkloop",
+  "Web服务": true,
+  "部署方式": [
+    "二进制",
+    "源码"
+  ],
+  "下载条件": "GitHub Releases 或 brew install 后 ark web；头部 Linux: ark web --host 0.0.0.0 --no-open",
+  "去重键": "qqqqqf-q-arkloop",
+  "备注": "本地优先 Agent 平台，桌面+内嵌 SQLite；CLI 可单独起 Web。",
+  "资产号": 19,
+  "首次写入": "2026-09-03",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-22T02:26:44+08:00",
+  "启动指引": "1. 确保 Docker 和 Docker Compose 已安装；2. 运行 chmod +x ./setup.sh；3. 执行 ./setup.sh install --profile full --mode self-hosted --sandbox docker --non-interactive；4. 启动后访问 http://localhost:19000 检查健康；5. 关键端口：Gateway 19000、API 19001、Web 19080、Console-lite 19082、S3 9000；6. 环境变量由 setup.sh 自动生成，主要包括ARKLOOP_*_PASSWORD、ARKLOOP_AUTH_JWT_SECRET等；7. 鉴权通过 JWT access_token 和 HttpOnly refresh_token 实现。",
+  "开工前先看": [
+    {
+      "title": "GitHub 主页",
+      "url": "https://github.com/qqqqqf-q/Arkloop"
+    },
+    {
+      "title": "DeepWiki 文档",
+      "url": "https://deepwiki.com/qqqqqf-q/Arkloop"
+    },
+    {
+      "title": "安装脚本说明",
+      "url": "https://deepwiki.com/qqqqqf-q/Arkloop#installation"
+    },
+    {
+      "title": "配置参考",
+      "url": "https://deepwiki.com/qqqqqf-q/Arkloop#configuration-reference"
+    },
+    {
+      "title": "常见问题与陷阱",
+      "url": "https://deepwiki.com/qqqqqf-q/Arkloop#troubleshooting"
+    }
+  ],
+  "建议追问": [
+    "如何单独启动 API 服务进行开发调试？",
+    "Firecracker 沙箱的具体硬件要求是什么？",
+    "如何修改默认端口或配置反向代理？",
+    "S3 存储的配置和使用方式？",
+    "如何备份 SQLite 数据库或迁移到外部数据库？",
+    "Console-lite 和 Full Console 的功能差异？"
+  ],
+  "已知坑": "1. 安装时需确保用户在 docker 组内，否则 --sandbox docker 模式会失败；2. 默认 Gateway 端口 19000 可能与其他服务冲突；3. 首次启动需等待健康检查，超时可能是内存不足；4. 使用 trusted_proxy 模式时需正确配置 ARKLOOP_GATEWAY_TRUSTED_CIDRS；5. 生产环境建议自行处理 TLS，Arkloop 本身不提供 HTTPS。",
+  "成功标准": "1. 执行 ./setup.sh status 显示所有容器运行状态为 running；2. curl -sf http://localhost:19000/healthz 返回成功；3. 浏览器访问 http://localhost:19080 能加载 Web 界面；4. 初始安装完成后能获取到 admin 初始化 URL；5. 数据库和 Redis 容器健康运行。",
+  "研判摘要": "Arkloop 是一个基于 Docker Compose 的多服务协同系统，核心通过 setup.sh 脚本完成全自动安装，Gateway 作为统一入口代理 API 和前端，支持 JWT 鉴权，适合需要本地化部署的 AI 开发平台。",
+  "推荐启动": "./setup.sh install --profile full --mode self-hosted --sandbox docker --non-interactive",
+  "agentHint": "首次安装建议使用 --prod 参数获取预构建镜像，避免源码编译耗时；生产环境注意配置反向代理和 TLS。",
+  "DeepWiki": "https://deepwiki.com/qqqqqf-q/Arkloop",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/qqqqqf-q-arkloop.json",
+  "source": "ai-web"
+}

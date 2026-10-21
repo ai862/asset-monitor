@@ -1,0 +1,57 @@
+{
+  "产品": "Oh-DSH",
+  "厂商": "hust-open-atom-club",
+  "状态": "可下",
+  "类型": "代码助手",
+  "语言": "TypeScript",
+  "Stars": 300,
+  "GitHub": "https://github.com/hust-open-atom-club/oh-dsh",
+  "官网": "https://github.com/hust-open-atom-club/oh-dsh",
+  "文档": "https://github.com/hust-open-atom-club/oh-dsh/blob/main/docs/usage.zh.md",
+  "Web服务": true,
+  "部署方式": [
+    "二进制",
+    "源码"
+  ],
+  "下载条件": "install.sh --surface web；启动 ohdsh web",
+  "去重键": "hust-open-atom-club-oh-dsh",
+  "备注": "华中科大开源俱乐部 DeepSeek Harness：Desktop/Web/TUI 三端。",
+  "资产号": 28,
+  "首次写入": "2026-09-03",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-22T02:22:00+08:00",
+  "启动指引": "请查阅仓库中的 install.sh 脚本和 usage.zh.md 文档以获取确切的安装及启动说明。具体的环境变量、端口及认证细节请参考官方文档。",
+  "开工前先看": [
+    {
+      "title": "产品使用文档",
+      "url": "https://github.com/hust-open-atom-club/oh-dsh/blob/main/docs/usage.zh.md"
+    },
+    {
+      "title": "安装脚本",
+      "url": "https://github.com/hust-open-atom-club/oh-dsh/blob/main/install.sh"
+    },
+    {
+      "title": "仓库主页",
+      "url": "https://github.com/hust-open-atom-club/oh-dsh"
+    }
+  ],
+  "建议追问": [
+    "安装时是否需要配置特定的环境变量（如 API_KEY、PORT 等）？",
+    "启动服务后，Web UI 的默认访问地址和端口是什么？",
+    "是否需要进行身份验证或令牌设置才能使用 API？",
+    "如何验证服务是否已成功启动？",
+    "是否支持 Docker 镜像部署？",
+    "是否有已知的使用或部署上的常见问题？"
+  ],
+  "已知坑": "仓库尚未被 DeepWiki 索引，文档可能不完整，安装步骤和默认端口/环境变量信息缺失，导致具体操作难以确定。",
+  "成功标准": "Web UI 可正常访问，API 端点返回预期的 JSON 响应，日志中无错误信息。",
+  "研判摘要": "Oh-DSH 是一个多端（桌面/Web/TUI）的开源工具，但其安装和启动文档尚不完整，需进一步查证具体步骤。",
+  "推荐启动": "请参考仓库中的 install.sh 脚本并按照文档中的说明启动服务。",
+  "agentHint": "请查阅仓库的 install.sh 和 usage.zh.md 获取确切的安装及启动命令。",
+  "DeepWiki": "https://deepwiki.com/hust-open-atom-club/oh-dsh",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/hust-open-atom-club-oh-dsh.json",
+  "source": "ai-web"
+}

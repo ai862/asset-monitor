@@ -1,0 +1,60 @@
+{
+  "产品": "Open Deep Wide Research",
+  "厂商": "puppyone-ai",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "TypeScript",
+  "Stars": 289,
+  "GitHub": "https://github.com/puppyone-ai/DeepWideResearch",
+  "官网": "https://go.deepwideresearch.com/4o5mSMy",
+  "文档": "https://github.com/puppyone-ai/DeepWideResearch",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "npm",
+    "源码"
+  ],
+  "下载条件": "chat_interface 下 npm run dev → localhost:3000；或 docker-compose up -d",
+  "去重键": "puppyone-ai-deepwideresearch",
+  "备注": "Agentic RAG Web 聊天界面，可调深度/宽度与数据源。",
+  "资产号": 27,
+  "首次写入": "2026-09-03",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-22T02:24:06+08:00",
+  "启动指引": "仓库原始资料缺失，无法获取详细环境变量与鉴权要点。根据资产信息，可通过 chat_interface 下 npm run dev 或 docker-compose up -d 启动，默认监听端口 3000。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/puppyone-ai/DeepWideResearch"
+    },
+    {
+      "title": "官网",
+      "url": "https://go.deepwideresearch.com/4o5mSMy"
+    },
+    {
+      "title": "文档",
+      "url": "https://github.com/puppyone-ai/DeepWideResearch"
+    },
+    {
+      "title": "DeepWiki",
+      "url": "https://deepwiki.com/puppyone-ai/DeepWideResearch"
+    }
+  ],
+  "建议追问": [
+    "该项目的完整安装依赖和启动步骤是什么？",
+    "项目需要哪些环境变量配置？",
+    "项目是否需要 API Key 或 Token 进行鉴权？",
+    "Docker 部署的具体环境变量有哪些？"
+  ],
+  "已知坑": "仓库资料查询失败，无法获取已知坑点。",
+  "成功标准": "访问 http://localhost:3000 查看 Web UI 是否正常加载。",
+  "研判摘要": "该项目为 Agentic RAG Web 聊天界面，资产信息提供了基本的启动方式，但仓库原始资料缺失，导致详细部署与鉴权配置无法确认。",
+  "推荐启动": "npm run dev",
+  "agentHint": "注意：仓库原始资料未返回有效内容，启动指引需基于资产信息推断，可能存在偏差。",
+  "DeepWiki": "https://deepwiki.com/puppyone-ai/DeepWideResearch",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/puppyone-ai-deepwideresearch.json",
+  "source": "ai-web"
+}

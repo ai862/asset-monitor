@@ -1,0 +1,54 @@
+{
+  "产品": "生猪健康智慧医药",
+  "厂商": "linyshdhhcb",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Java",
+  "Stars": 174,
+  "GitHub": "https://github.com/linyshdhhcb/PigHealthSmartMedicine",
+  "官网": "https://github.com/linyshdhhcb/PigHealthSmartMedicine",
+  "文档": "https://github.com/linyshdhhcb/PigHealthSmartMedicine",
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "Docker"
+  ],
+  "下载条件": "mvn package 起后端 + Node 起 Vue 管理端；Milvus 用 doc/milvus/docker-compose.yml",
+  "去重键": "linyshdhhcb-pighealthsmartmedicine",
+  "备注": "中文 Spring Boot3+Vue3 RAG 兽医诊断 Web，Ollama/深度求索/通义。",
+  "资产号": 26,
+  "首次写入": "2026-09-03",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-22T02:23:25+08:00",
+  "启动指引": "未知",
+  "开工前先看": [
+    {
+      "title": "DeepWiki文档",
+      "url": "https://deepwiki.com/linyshdhhcb/PigHealthSmartMedicine"
+    },
+    {
+      "title": "GitHub仓库",
+      "url": "https://github.com/linyshdhhcb/PigHealthSmartMedicine"
+    },
+    {
+      "title": "项目说明",
+      "url": "https://github.com/linyshdhhcb/PigHealthSmartMedicine"
+    }
+  ],
+  "建议追问": [
+    "如何在本地完成 Maven 打包并启动后端与前端？",
+    "需要哪些环境变量以及它们的具体取值？",
+    "Ollama、深度求索或通义模型的鉴权方式是什么？",
+    "Milvus 的 Docker Compose 配置有哪些关键参数？"
+  ],
+  "已知坑": "未知",
+  "成功标准": "未知",
+  "推荐启动": "未知",
+  "agentHint": "请先确认仓库地址并查看DeepWiki文档以获取完整部署指引。",
+  "DeepWiki": "https://deepwiki.com/linyshdhhcb/PigHealthSmartMedicine",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/linyshdhhcb-pighealthsmartmedicine.json",
+  "source": "ai-web"
+}

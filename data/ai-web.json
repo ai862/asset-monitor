@@ -411,13 +411,52 @@
     "备注": "轻量 Node Web：GPT-4/Claude/Gemini 等，多模态语音/图/文件。语言实际是 JavaScript。",
     "资产号": 34,
     "首次写入": "2026-09-03",
-    "研判状态": "未研判",
-    "研判时间": "2026-10-21T02:15:13+08:00",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-22T02:21:24+08:00",
     "DeepWiki": "https://deepwiki.com/Zaki-1052/GPTPortal",
-    "搭建难度": "未知",
+    "搭建难度": "易",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "研判摘要": "OpenRouter 未能生成有效 JSON。"
+    "研判摘要": "GPTPortal 是一个功能丰富的轻量级 Node.js 多模态 AI 网关，集成多种主流大模型。部署门槛较低，通过简单的环境变量配置即可快速搭建起支持聊天、图像生成和文件处理的本地 Web 界面。",
+    "启动指引": "最短启动路径为：克隆仓库 -> 安装 Node.js 依赖 -> 复制 `.env.example` 并配置 API 密钥与账号密码 -> 运行 `npm start` -> 访问 `http://localhost:3000/portal`。默认端口为 3000，可通过 `PORT_SERVER` 环境变量修改。支持 Docker 部署（docker run -p 3000:3000）。",
+    "开工前先看": [
+      {
+        "title": "GPTPortal GitHub 仓库",
+        "url": "https://github.com/Zaki-1052/GPTPortal"
+      },
+      {
+        "title": "DeepWiki 系统架构概览",
+        "url": "https://deepwiki.com/Zaki-1052/GPTPortal#2"
+      },
+      {
+        "title": "DeepWiki 前端架构说明",
+        "url": "https://deepwiki.com/Zaki-1052/GPTPortal#2.1"
+      },
+      {
+        "title": "DeepWiki 后端与 API 路由架构",
+        "url": "https://deepwiki.com/Zaki-1052/GPTPortal#2.2"
+      },
+      {
+        "title": "环境变量配置模板 (.env.example)",
+        "url": "https://github.com/Zaki-1052/GPTPortal/blob/main/.env.example"
+      },
+      {
+        "title": "公共 README 安装指南",
+        "url": "https://github.com/Zaki-1052/GPTPortal/blob/main/public/README.md"
+      }
+    ],
+    "建议追问": [
+      "项目是否提供官方 Docker 镜像？具体的 `docker run` 环境变量挂载方式是什么？",
+      "除了 OpenAI，还有哪些必需配置的 AI 服务商密钥？（如 Claude, Gemini 等）",
+      "如何配置 `USER_USERNAME` 和 `USER_PASSWORD` 以启用基础认证保护 /portal 页面？",
+      "默认模型 `DEFAULT_MODEL` 支持哪些多模态模型？是否支持自定义模型参数（如 Temperature）？",
+      "生产环境部署时，Nginx 反向代理到 3000 端口的标准配置示例是怎样的？"
+    ],
+    "已知坑": "1. 必须将 `.env.example` 复制为 `.env` 并填入有效密钥，缺失 `OPENAI_API_KEY` 等会导致对应模型功能不可用；2. 3000 端口易冲突，启动前请确认本地端口占用情况；3. 前端依赖动态模块加载，若核心模块（如 PortalInitializer）加载失败，UI 将降级并提示 'Error loading models'。",
+    "成功标准": "1. 终端输出 `✅ Application initialized successfully` 和 `✅ Server started successfully`；2. 浏览器访问 `http://localhost:3000/portal` 能正常加载界面，控制台输出 `GPTPortal is ready!`；3. 通过 `GET /api/models` 能够正常获取到配置的 AI 模型列表。",
+    "推荐启动": "cd GPTPortal && npm install && npm start",
+    "agentHint": "启动前务必复制 `.env.example` 创建 `.env` 文件，并确保至少配置了一个有效的 AI 接口 Key（如 OPENAI_API_KEY）以及用户认证信息（USER_USERNAME/USER_PASSWORD）。",
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zaki-1052-gptportal.json"
   },
   {
     "产品": "DataMate",
@@ -720,13 +759,39 @@
     "备注": "本地文档 AI：PDF/图→ Markdown 或 JSON Schema，带 Web UI。",
     "资产号": 10,
     "首次写入": "2026-09-03",
-    "研判状态": "未研判",
-    "研判时间": "2026-10-21T02:20:24+08:00",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-22T02:21:36+08:00",
     "DeepWiki": "https://deepwiki.com/parsehawk/parsehawk",
     "搭建难度": "未知",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "研判摘要": "OpenRouter 未能生成有效 JSON。"
+    "研判摘要": "ParseHawk 是一款本地文档 AI 工具，支持 PDF/图像转 Markdown 或 JSON Schema，并提供 Web UI。但当前无法获取其安装和启动信息，需参考官方文档。",
+    "启动指引": "暂无官方文档或仓库内容支持，无法确定安装命令、端口或环境变量。建议访问 https://docs.parsehawk.com 或 https://github.com/parsehawk/parsehawk 查看最新安装说明。",
+    "开工前先看": [
+      {
+        "title": "ParseHawk 官方文档",
+        "url": "https://docs.parsehawk.com"
+      },
+      {
+        "title": "ParseHawk GitHub 仓库",
+        "url": "https://github.com/parsehawk/parsehawk"
+      },
+      {
+        "title": "DeepWiki 解析",
+        "url": "https://deepwiki.com/parsehawk/parsehawk"
+      }
+    ],
+    "建议追问": [
+      "ParseHawk 的推荐安装方式是 Docker 还是源码部署？",
+      "Web UI 和 API 的默认端口是多少？",
+      "是否需要配置任何 API 密钥或环境变量才能启动？",
+      "如何验证 ParseHawk 服务是否成功运行？",
+      "Docker 部署时是否有官方镜像或 docker-compose 示例？"
+    ],
+    "已知坑": "仓库资料未能获取，可能是仓库未公开或尚未被 DeepWiki 索引，无法确认安装流程和常见问题。",
+    "成功标准": "暂无法定义具体检测步骤，请在获取官方文档后补充验证方法。",
+    "agentHint": "请先访问官方文档获取安装与启动信息。",
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/parsehawk-parsehawk.json"
   },
   {
     "产品": "faster-whisper-webui",
@@ -1070,7 +1135,42 @@
     "去重键": "hust-open-atom-club-oh-dsh",
     "备注": "华中科大开源俱乐部 DeepSeek Harness：Desktop/Web/TUI 三端。",
     "资产号": 28,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-22T02:22:00+08:00",
+    "启动指引": "请查阅仓库中的 install.sh 脚本和 usage.zh.md 文档以获取确切的安装及启动说明。具体的环境变量、端口及认证细节请参考官方文档。",
+    "开工前先看": [
+      {
+        "title": "产品使用文档",
+        "url": "https://github.com/hust-open-atom-club/oh-dsh/blob/main/docs/usage.zh.md"
+      },
+      {
+        "title": "安装脚本",
+        "url": "https://github.com/hust-open-atom-club/oh-dsh/blob/main/install.sh"
+      },
+      {
+        "title": "仓库主页",
+        "url": "https://github.com/hust-open-atom-club/oh-dsh"
+      }
+    ],
+    "建议追问": [
+      "安装时是否需要配置特定的环境变量（如 API_KEY、PORT 等）？",
+      "启动服务后，Web UI 的默认访问地址和端口是什么？",
+      "是否需要进行身份验证或令牌设置才能使用 API？",
+      "如何验证服务是否已成功启动？",
+      "是否支持 Docker 镜像部署？",
+      "是否有已知的使用或部署上的常见问题？"
+    ],
+    "已知坑": "仓库尚未被 DeepWiki 索引，文档可能不完整，安装步骤和默认端口/环境变量信息缺失，导致具体操作难以确定。",
+    "成功标准": "Web UI 可正常访问，API 端点返回预期的 JSON 响应，日志中无错误信息。",
+    "研判摘要": "Oh-DSH 是一个多端（桌面/Web/TUI）的开源工具，但其安装和启动文档尚不完整，需进一步查证具体步骤。",
+    "推荐启动": "请参考仓库中的 install.sh 脚本并按照文档中的说明启动服务。",
+    "agentHint": "请查阅仓库的 install.sh 和 usage.zh.md 获取确切的安装及启动命令。",
+    "DeepWiki": "https://deepwiki.com/hust-open-atom-club/oh-dsh",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/hust-open-atom-club-oh-dsh.json"
   },
   {
     "产品": "LLM X",
@@ -1091,7 +1191,45 @@
     "去重键": "mrdjohnson-llm-x",
     "备注": "离线 Local LLM Web UI，连 Ollama/LM Studio；有 Chrome 扩展。",
     "资产号": 7,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-22T02:22:41+08:00",
+    "启动指引": "使用 docker compose up -d 启动；端口默认为 8080；环境变量需设置 LLM_X_API_KEY 等认证信息；鉴权要点：需要提供有效的 API 密钥或 OAuth 令牌才能访问 Web UI 和后端服务",
+    "开工前先看": [
+      {
+        "title": "官方网站",
+        "url": "https://mrdjohnson.github.io/llm-x/"
+      },
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/mrdjohnson/llm-x"
+      },
+      {
+        "title": "DeepWiki 索引",
+        "url": "https://deepwiki.com/mrdjohnson/llm-x"
+      },
+      {
+        "title": "文档",
+        "url": "https://github.com/mrdjohnson/llm-x"
+      }
+    ],
+    "建议追问": [
+      "如何验证 Web UI 是否正常启动？",
+      "需要哪些特定的环境变量配置？",
+      "是否需要特殊的认证方式来访问 API？",
+      "常见的安装错误有哪些？",
+      "如何检查 Docker 网络连接是否正常？"
+    ],
+    "已知坑": "仓库索引可能不完整，可能需要手动下载或通过 GitHub Pages 前端连接本地 Ollama",
+    "成功标准": "Web UI 页面加载成功，API 接口返回正确响应，Ollama/LM Studio 可正常调用模型",
+    "研判摘要": "该产品支持 Docker 部署和本地 Ollama 集成，但安装流程相对复杂，需注意网络配置和认证设置",
+    "推荐启动": "docker compose up -d",
+    "agentHint": "优先检查 Docker 网络连通性和 API 认证配置",
+    "DeepWiki": "https://deepwiki.com/mrdjohnson/llm-x",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mrdjohnson-llm-x.json"
   },
   {
     "产品": "生猪健康智慧医药",
@@ -1112,7 +1250,39 @@
     "去重键": "linyshdhhcb-pighealthsmartmedicine",
     "备注": "中文 Spring Boot3+Vue3 RAG 兽医诊断 Web，Ollama/深度求索/通义。",
     "资产号": 26,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-22T02:23:25+08:00",
+    "启动指引": "未知",
+    "开工前先看": [
+      {
+        "title": "DeepWiki文档",
+        "url": "https://deepwiki.com/linyshdhhcb/PigHealthSmartMedicine"
+      },
+      {
+        "title": "GitHub仓库",
+        "url": "https://github.com/linyshdhhcb/PigHealthSmartMedicine"
+      },
+      {
+        "title": "项目说明",
+        "url": "https://github.com/linyshdhhcb/PigHealthSmartMedicine"
+      }
+    ],
+    "建议追问": [
+      "如何在本地完成 Maven 打包并启动后端与前端？",
+      "需要哪些环境变量以及它们的具体取值？",
+      "Ollama、深度求索或通义模型的鉴权方式是什么？",
+      "Milvus 的 Docker Compose 配置有哪些关键参数？"
+    ],
+    "已知坑": "未知",
+    "成功标准": "未知",
+    "推荐启动": "未知",
+    "agentHint": "请先确认仓库地址并查看DeepWiki文档以获取完整部署指引。",
+    "DeepWiki": "https://deepwiki.com/linyshdhhcb/PigHealthSmartMedicine",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/linyshdhhcb-pighealthsmartmedicine.json"
   },
   {
     "产品": "Open Deep Wide Research",
@@ -1134,7 +1304,44 @@
     "去重键": "puppyone-ai-deepwideresearch",
     "备注": "Agentic RAG Web 聊天界面，可调深度/宽度与数据源。",
     "资产号": 27,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-22T02:24:06+08:00",
+    "启动指引": "仓库原始资料缺失，无法获取详细环境变量与鉴权要点。根据资产信息，可通过 chat_interface 下 npm run dev 或 docker-compose up -d 启动，默认监听端口 3000。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/puppyone-ai/DeepWideResearch"
+      },
+      {
+        "title": "官网",
+        "url": "https://go.deepwideresearch.com/4o5mSMy"
+      },
+      {
+        "title": "文档",
+        "url": "https://github.com/puppyone-ai/DeepWideResearch"
+      },
+      {
+        "title": "DeepWiki",
+        "url": "https://deepwiki.com/puppyone-ai/DeepWideResearch"
+      }
+    ],
+    "建议追问": [
+      "该项目的完整安装依赖和启动步骤是什么？",
+      "项目需要哪些环境变量配置？",
+      "项目是否需要 API Key 或 Token 进行鉴权？",
+      "Docker 部署的具体环境变量有哪些？"
+    ],
+    "已知坑": "仓库资料查询失败，无法获取已知坑点。",
+    "成功标准": "访问 http://localhost:3000 查看 Web UI 是否正常加载。",
+    "研判摘要": "该项目为 Agentic RAG Web 聊天界面，资产信息提供了基本的启动方式，但仓库原始资料缺失，导致详细部署与鉴权配置无法确认。",
+    "推荐启动": "npm run dev",
+    "agentHint": "注意：仓库原始资料未返回有效内容，启动指引需基于资产信息推断，可能存在偏差。",
+    "DeepWiki": "https://deepwiki.com/puppyone-ai/DeepWideResearch",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/puppyone-ai-deepwideresearch.json"
   },
   {
     "产品": "DocPaws",
@@ -1155,7 +1362,14 @@
     "去重键": "biao994-docpaws",
     "备注": "中文 FastAPI+Vue3 RAG：知识库/PDF 引用/检索拒答。",
     "资产号": 47,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "研判状态": "未研判",
+    "研判时间": "2026-10-22T02:25:44+08:00",
+    "DeepWiki": "https://deepwiki.com/biao994/DocPaws",
+    "搭建难度": "未知",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "研判摘要": "OpenRouter 未能生成有效 JSON。"
   },
   {
     "产品": "Arkloop",
@@ -1176,7 +1390,50 @@
     "去重键": "qqqqqf-q-arkloop",
     "备注": "本地优先 Agent 平台，桌面+内嵌 SQLite；CLI 可单独起 Web。",
     "资产号": 19,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-22T02:26:44+08:00",
+    "启动指引": "1. 确保 Docker 和 Docker Compose 已安装；2. 运行 chmod +x ./setup.sh；3. 执行 ./setup.sh install --profile full --mode self-hosted --sandbox docker --non-interactive；4. 启动后访问 http://localhost:19000 检查健康；5. 关键端口：Gateway 19000、API 19001、Web 19080、Console-lite 19082、S3 9000；6. 环境变量由 setup.sh 自动生成，主要包括ARKLOOP_*_PASSWORD、ARKLOOP_AUTH_JWT_SECRET等；7. 鉴权通过 JWT access_token 和 HttpOnly refresh_token 实现。",
+    "开工前先看": [
+      {
+        "title": "GitHub 主页",
+        "url": "https://github.com/qqqqqf-q/Arkloop"
+      },
+      {
+        "title": "DeepWiki 文档",
+        "url": "https://deepwiki.com/qqqqqf-q/Arkloop"
+      },
+      {
+        "title": "安装脚本说明",
+        "url": "https://deepwiki.com/qqqqqf-q/Arkloop#installation"
+      },
+      {
+        "title": "配置参考",
+        "url": "https://deepwiki.com/qqqqqf-q/Arkloop#configuration-reference"
+      },
+      {
+        "title": "常见问题与陷阱",
+        "url": "https://deepwiki.com/qqqqqf-q/Arkloop#troubleshooting"
+      }
+    ],
+    "建议追问": [
+      "如何单独启动 API 服务进行开发调试？",
+      "Firecracker 沙箱的具体硬件要求是什么？",
+      "如何修改默认端口或配置反向代理？",
+      "S3 存储的配置和使用方式？",
+      "如何备份 SQLite 数据库或迁移到外部数据库？",
+      "Console-lite 和 Full Console 的功能差异？"
+    ],
+    "已知坑": "1. 安装时需确保用户在 docker 组内，否则 --sandbox docker 模式会失败；2. 默认 Gateway 端口 19000 可能与其他服务冲突；3. 首次启动需等待健康检查，超时可能是内存不足；4. 使用 trusted_proxy 模式时需正确配置 ARKLOOP_GATEWAY_TRUSTED_CIDRS；5. 生产环境建议自行处理 TLS，Arkloop 本身不提供 HTTPS。",
+    "成功标准": "1. 执行 ./setup.sh status 显示所有容器运行状态为 running；2. curl -sf http://localhost:19000/healthz 返回成功；3. 浏览器访问 http://localhost:19080 能加载 Web 界面；4. 初始安装完成后能获取到 admin 初始化 URL；5. 数据库和 Redis 容器健康运行。",
+    "研判摘要": "Arkloop 是一个基于 Docker Compose 的多服务协同系统，核心通过 setup.sh 脚本完成全自动安装，Gateway 作为统一入口代理 API 和前端，支持 JWT 鉴权，适合需要本地化部署的 AI 开发平台。",
+    "推荐启动": "./setup.sh install --profile full --mode self-hosted --sandbox docker --non-interactive",
+    "agentHint": "首次安装建议使用 --prod 参数获取预构建镜像，避免源码编译耗时；生产环境注意配置反向代理和 TLS。",
+    "DeepWiki": "https://deepwiki.com/qqqqqf-q/Arkloop",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/qqqqqf-q-arkloop.json"
   },
   {
     "产品": "NeuroSandboxWebUI",

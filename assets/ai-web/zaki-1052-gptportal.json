@@ -1,0 +1,68 @@
+{
+  "产品": "GPTPortal",
+  "厂商": "Zaki-1052",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "其它",
+  "Stars": 397,
+  "GitHub": "https://github.com/Zaki-1052/GPTPortal",
+  "官网": "https://github.com/Zaki-1052/GPTPortal",
+  "文档": "https://github.com/Zaki-1052/GPTPortal",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "docker compose up 或 docker run -p 3000:3000",
+  "去重键": "zaki-1052-gptportal",
+  "备注": "轻量 Node Web：GPT-4/Claude/Gemini 等，多模态语音/图/文件。语言实际是 JavaScript。",
+  "资产号": 34,
+  "首次写入": "2026-09-03",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-22T02:21:24+08:00",
+  "DeepWiki": "https://deepwiki.com/Zaki-1052/GPTPortal",
+  "搭建难度": "易",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "研判摘要": "GPTPortal 是一个功能丰富的轻量级 Node.js 多模态 AI 网关，集成多种主流大模型。部署门槛较低，通过简单的环境变量配置即可快速搭建起支持聊天、图像生成和文件处理的本地 Web 界面。",
+  "启动指引": "最短启动路径为：克隆仓库 -> 安装 Node.js 依赖 -> 复制 `.env.example` 并配置 API 密钥与账号密码 -> 运行 `npm start` -> 访问 `http://localhost:3000/portal`。默认端口为 3000，可通过 `PORT_SERVER` 环境变量修改。支持 Docker 部署（docker run -p 3000:3000）。",
+  "开工前先看": [
+    {
+      "title": "GPTPortal GitHub 仓库",
+      "url": "https://github.com/Zaki-1052/GPTPortal"
+    },
+    {
+      "title": "DeepWiki 系统架构概览",
+      "url": "https://deepwiki.com/Zaki-1052/GPTPortal#2"
+    },
+    {
+      "title": "DeepWiki 前端架构说明",
+      "url": "https://deepwiki.com/Zaki-1052/GPTPortal#2.1"
+    },
+    {
+      "title": "DeepWiki 后端与 API 路由架构",
+      "url": "https://deepwiki.com/Zaki-1052/GPTPortal#2.2"
+    },
+    {
+      "title": "环境变量配置模板 (.env.example)",
+      "url": "https://github.com/Zaki-1052/GPTPortal/blob/main/.env.example"
+    },
+    {
+      "title": "公共 README 安装指南",
+      "url": "https://github.com/Zaki-1052/GPTPortal/blob/main/public/README.md"
+    }
+  ],
+  "建议追问": [
+    "项目是否提供官方 Docker 镜像？具体的 `docker run` 环境变量挂载方式是什么？",
+    "除了 OpenAI，还有哪些必需配置的 AI 服务商密钥？（如 Claude, Gemini 等）",
+    "如何配置 `USER_USERNAME` 和 `USER_PASSWORD` 以启用基础认证保护 /portal 页面？",
+    "默认模型 `DEFAULT_MODEL` 支持哪些多模态模型？是否支持自定义模型参数（如 Temperature）？",
+    "生产环境部署时，Nginx 反向代理到 3000 端口的标准配置示例是怎样的？"
+  ],
+  "已知坑": "1. 必须将 `.env.example` 复制为 `.env` 并填入有效密钥，缺失 `OPENAI_API_KEY` 等会导致对应模型功能不可用；2. 3000 端口易冲突，启动前请确认本地端口占用情况；3. 前端依赖动态模块加载，若核心模块（如 PortalInitializer）加载失败，UI 将降级并提示 'Error loading models'。",
+  "成功标准": "1. 终端输出 `✅ Application initialized successfully` 和 `✅ Server started successfully`；2. 浏览器访问 `http://localhost:3000/portal` 能正常加载界面，控制台输出 `GPTPortal is ready!`；3. 通过 `GET /api/models` 能够正常获取到配置的 AI 模型列表。",
+  "推荐启动": "cd GPTPortal && npm install && npm start",
+  "agentHint": "启动前务必复制 `.env.example` 创建 `.env` 文件，并确保至少配置了一个有效的 AI 接口 Key（如 OPENAI_API_KEY）以及用户认证信息（USER_USERNAME/USER_PASSWORD）。",
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zaki-1052-gptportal.json",
+  "source": "ai-web"
+}

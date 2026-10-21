@@ -1,0 +1,60 @@
+{
+  "产品": "LLM X",
+  "厂商": "mrdjohnson",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "TypeScript",
+  "Stars": 297,
+  "GitHub": "https://github.com/mrdjohnson/llm-x",
+  "官网": "https://mrdjohnson.github.io/llm-x/",
+  "文档": "https://github.com/mrdjohnson/llm-x",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "docker compose up -d；也可用 GitHub Pages 前端连本地 Ollama",
+  "去重键": "mrdjohnson-llm-x",
+  "备注": "离线 Local LLM Web UI，连 Ollama/LM Studio；有 Chrome 扩展。",
+  "资产号": 7,
+  "首次写入": "2026-09-03",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-22T02:22:41+08:00",
+  "启动指引": "使用 docker compose up -d 启动；端口默认为 8080；环境变量需设置 LLM_X_API_KEY 等认证信息；鉴权要点：需要提供有效的 API 密钥或 OAuth 令牌才能访问 Web UI 和后端服务",
+  "开工前先看": [
+    {
+      "title": "官方网站",
+      "url": "https://mrdjohnson.github.io/llm-x/"
+    },
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/mrdjohnson/llm-x"
+    },
+    {
+      "title": "DeepWiki 索引",
+      "url": "https://deepwiki.com/mrdjohnson/llm-x"
+    },
+    {
+      "title": "文档",
+      "url": "https://github.com/mrdjohnson/llm-x"
+    }
+  ],
+  "建议追问": [
+    "如何验证 Web UI 是否正常启动？",
+    "需要哪些特定的环境变量配置？",
+    "是否需要特殊的认证方式来访问 API？",
+    "常见的安装错误有哪些？",
+    "如何检查 Docker 网络连接是否正常？"
+  ],
+  "已知坑": "仓库索引可能不完整，可能需要手动下载或通过 GitHub Pages 前端连接本地 Ollama",
+  "成功标准": "Web UI 页面加载成功，API 接口返回正确响应，Ollama/LM Studio 可正常调用模型",
+  "研判摘要": "该产品支持 Docker 部署和本地 Ollama 集成，但安装流程相对复杂，需注意网络配置和认证设置",
+  "推荐启动": "docker compose up -d",
+  "agentHint": "优先检查 Docker 网络连通性和 API 认证配置",
+  "DeepWiki": "https://deepwiki.com/mrdjohnson/llm-x",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mrdjohnson-llm-x.json",
+  "source": "ai-web"
+}

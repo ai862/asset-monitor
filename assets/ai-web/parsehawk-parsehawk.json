@@ -1,0 +1,55 @@
+{
+  "产品": "ParseHawk",
+  "厂商": "parsehawk",
+  "状态": "可下",
+  "类型": "知识库",
+  "语言": "Python",
+  "Stars": 64,
+  "GitHub": "https://github.com/parsehawk/parsehawk",
+  "官网": "https://docs.parsehawk.com",
+  "文档": "https://docs.parsehawk.com",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "git clone + uv tool install --editable .；默认本地 Web UI/CLI/API",
+  "去重键": "parsehawk-parsehawk",
+  "备注": "本地文档 AI：PDF/图→ Markdown 或 JSON Schema，带 Web UI。",
+  "资产号": 10,
+  "首次写入": "2026-09-03",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-22T02:21:36+08:00",
+  "DeepWiki": "https://deepwiki.com/parsehawk/parsehawk",
+  "搭建难度": "未知",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "研判摘要": "ParseHawk 是一款本地文档 AI 工具，支持 PDF/图像转 Markdown 或 JSON Schema，并提供 Web UI。但当前无法获取其安装和启动信息，需参考官方文档。",
+  "启动指引": "暂无官方文档或仓库内容支持，无法确定安装命令、端口或环境变量。建议访问 https://docs.parsehawk.com 或 https://github.com/parsehawk/parsehawk 查看最新安装说明。",
+  "开工前先看": [
+    {
+      "title": "ParseHawk 官方文档",
+      "url": "https://docs.parsehawk.com"
+    },
+    {
+      "title": "ParseHawk GitHub 仓库",
+      "url": "https://github.com/parsehawk/parsehawk"
+    },
+    {
+      "title": "DeepWiki 解析",
+      "url": "https://deepwiki.com/parsehawk/parsehawk"
+    }
+  ],
+  "建议追问": [
+    "ParseHawk 的推荐安装方式是 Docker 还是源码部署？",
+    "Web UI 和 API 的默认端口是多少？",
+    "是否需要配置任何 API 密钥或环境变量才能启动？",
+    "如何验证 ParseHawk 服务是否成功运行？",
+    "Docker 部署时是否有官方镜像或 docker-compose 示例？"
+  ],
+  "已知坑": "仓库资料未能获取，可能是仓库未公开或尚未被 DeepWiki 索引，无法确认安装流程和常见问题。",
+  "成功标准": "暂无法定义具体检测步骤，请在获取官方文档后补充验证方法。",
+  "agentHint": "请先访问官方文档获取安装与启动信息。",
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/parsehawk-parsehawk.json",
+  "source": "ai-web"
+}
