@@ -5,12 +5,14 @@
     "ai-web": { key: "类型", label: "类型" },
     ics: { key: "行业", label: "行业" },
     xinchuang: { key: "层", label: "层" },
+    intel: { key: "类型", label: "类型" },
   };
 
   const ICON_IDS = {
     "ai-web": "i-ai-web",
     ics: "i-ics",
     xinchuang: "i-xinchuang",
+    intel: "i-intel",
   };
 
   const LINK_ICON_IDS = {
@@ -53,8 +55,9 @@
 
   function statusClass(s) {
     if (!s) return "badge-other";
-    if (s === "可下") return "badge-ok";
-    if (s === "待核") return "badge-warn";
+    if (s === "可下" || s === "SRC速报") return "badge-ok";
+    if (s === "待核" || s === "赏金技巧") return "badge-warn";
+    if (s === "推荐流") return "badge-other";
     if (
       s.includes("跳过") ||
       s.includes("商务") ||
@@ -208,6 +211,9 @@
         r["去重键"],
         r["资产号"],
         r["备注"],
+        r["实用价值"],
+        r["类型"],
+        r["批次"],
         r["研判摘要"],
         r["启动指引"],
         r["推荐启动"],
@@ -313,6 +319,9 @@
     if (src === "ics") {
       return { head: "<th>行业</th><th>地区</th><th>Web</th><th>部署</th>", cols: 7 };
     }
+    if (src === "intel") {
+      return { head: "<th>类型</th><th>批次</th><th>要点</th>", cols: 6 };
+    }
     return { head: "<th>层</th><th>内核系</th><th>Web</th><th>统信</th>", cols: 7 };
   }
 
@@ -333,6 +342,12 @@
         <td class="cell-muted">${esc(r["地区"] || "—")}</td>
         <td>${fmtBool(r["Web服务"])}</td>
         <td>${fmtDeploy(r["部署方式"])}</td>`;
+    } else if (src === "intel") {
+      const tip = String(r["备注"] || "");
+      const tipShort = tip.slice(0, 80) + (tip.length > 80 ? "…" : "");
+      cols = `<td>${esc(r["类型"] || "—")}</td>
+        <td class="cell-muted">${esc(r["批次"] || "—")}</td>
+        <td class="cell-muted" title="${esc(tip)}">${esc(tipShort || "—")}</td>`;
     } else {
       cols = `<td>${esc(r["层"] || "—")}</td>
         <td class="cell-muted">${esc(r["内核系"] || "—")}</td>
@@ -441,10 +456,13 @@
           }`;
         } else if (src === "ics") {
           meta = `${esc(r["行业"] || "—")} · ${esc(r["地区"] || "—")}`;
+        } else if (src === "intel") {
+          meta = `${esc(r["类型"] || "—")} · ${esc(r["批次"] || "—")}`;
         } else {
           meta = `${esc(r["层"] || "—")} · ${esc(r["内核系"] || "—")}`;
         }
-        const note = r["下载条件"] || r["备注"] || "";
+        const note = src === "intel" ? r["备注"] || "" : r["下载条件"] || r["备注"] || "";
+        const value = src === "intel" ? r["实用价值"] || "" : "";
         const snippet = r["研判摘要"] || "";
         const triageRow =
           src === "ai-web"
@@ -458,6 +476,25 @@
                   : ""
               }`
             : "";
+        const bodyTop =
+          src === "intel"
+            ? `${
+                note
+                  ? `<div class="row">${esc(note).slice(0, 200)}${note.length > 200 ? "…" : ""}</div>`
+                  : ""
+              }${
+                value
+                  ? `<div class="row cell-muted">实用：${esc(value).slice(0, 120)}${value.length > 120 ? "…" : ""}</div>`
+                  : ""
+              }`
+            : `<div class="row">Web：${fmtBool(r["Web服务"])}${
+                src === "xinchuang" ? ` · 统信：${fmtBool(r["统信清单"])}` : ""
+              }</div>
+            ${
+              note
+                ? `<div class="row">${esc(note).slice(0, 160)}${note.length > 160 ? "…" : ""}</div>`
+                : ""
+            }`;
         return `<article class="card">
           <div class="card-top">
             <div>
@@ -469,14 +506,7 @@
           <div class="card-meta">${meta}</div>
           ${triageRow}
           <div class="card-body">
-            <div class="row">Web：${fmtBool(r["Web服务"])}${
-          src === "xinchuang" ? ` · 统信：${fmtBool(r["统信清单"])}` : ""
-        }</div>
-            ${
-              note
-                ? `<div class="row">${esc(note).slice(0, 160)}${note.length > 160 ? "…" : ""}</div>`
-                : ""
-            }
+            ${bodyTop}
             <div class="row mono">${esc(r["去重键"] || "")}</div>
           </div>
           <div class="card-footer">${linkPills(r)}</div>
@@ -524,7 +554,17 @@
 
   function applySourceChrome(src, { pushHash }) {
     setAccent(src.accent);
-    $("notion-edit").href = src.notion;
+    const notionBtn = $("notion-edit");
+    const notionUrl = (src.notion || "").trim();
+    if (notionUrl) {
+      notionBtn.href = notionUrl;
+      notionBtn.classList.remove("hidden");
+      notionBtn.removeAttribute("aria-hidden");
+    } else {
+      notionBtn.href = "#";
+      notionBtn.classList.add("hidden");
+      notionBtn.setAttribute("aria-hidden", "true");
+    }
     if (pushHash) {
       const hash = `#${src.id}`;
       if (location.hash !== hash) history.replaceState(null, "", hash);

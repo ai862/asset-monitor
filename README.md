@@ -1,6 +1,6 @@
 # 资产监控中心
 
-把 Notion 里的 **AI Web / 工控 Web / 信创 Web** 三张资产表镜像成静态页，方便国内网络快速浏览。数据在 `data/*.json`，配置在 `config.json`，无构建步骤。
+把 Notion 里的 **AI Web / 工控 Web / 信创 Web** 三张资产表镜像成静态页，并附带 **每日情报**（SRC 速报 / 赏金技巧 / 推荐流）页签。数据在 `data/*.json`，配置在 `config.json`，无构建步骤。
 
 线上：https://ai862.github.io/asset-monitor/
 
@@ -87,6 +87,22 @@ curl -sL https://ai862.github.io/asset-monitor/assets/ai-web/rikyz90-shibaclaw.j
 - 每周日 15:00 UTC 低流量自动跑一轮。
 - 本地：`export OPENROUTER_API_KEY=…` 后执行 `python3 scripts/find_downloads.py --source xinchuang --keys nfschina-browser --limit 1`（勿提交 key）。无 Playwright 时回退 urllib。
 
+
+## 每日情报
+
+Grok Bot 每日汇总的 SRC 24h 速报、X 赏金技巧与推荐流条目，同步进 `data/intel.json`，在页面页签 **每日情报** 浏览。
+
+- 线上：https://ai862.github.io/asset-monitor/#intel
+- 状态枚举：`SRC速报` | `赏金技巧` | `推荐流`
+- 字段：`产品`（标题）、`厂商`（@账号）、`类型`、`备注`、`实用价值`、`官网`（原帖）、`文档`（额外资源）、`去重键`（status id）、`批次`
+
+增量写入（按 `去重键` 合并，新覆盖旧，并刷新 `config.json` 的 `updatedAt`）：
+
+```bash
+python3 scripts/upsert_intel.py --file /tmp/items.json
+# 或：cat items.json | python3 scripts/upsert_intel.py
+```
+
 ## 扩展新监控源
 
 1. 在 `data/` 新增 JSON 数组（字段名与现有表风格一致即可，至少含 `产品`、`厂商`、`状态`、`去重键`）。
@@ -109,5 +125,5 @@ curl -sL https://ai862.github.io/asset-monitor/assets/ai-web/rikyz90-shibaclaw.j
 
 - Checkbox 字段已转为布尔值（`true` / `false`）。
 - `部署方式` 多为字符串数组。
-- 页面只读；改资产请回 Notion，再重新导出 JSON。
+- 页面只读；改资产请回 Notion，再重新导出 JSON。每日情报无 Notion，用 `scripts/upsert_intel.py` 写入。
 - AI Web 的 v2 研判字段由 Actions 写入；页面侧栏只读展示。
