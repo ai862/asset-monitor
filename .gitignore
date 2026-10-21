@@ -15,3 +15,8 @@ __pycache__/
 **/openrouter/*.env
 
 .playwright-mcp/
+
+# Xcode / mac client local build
+mac/AssetMonitor/DerivedData/
+mac/**/xcuserdata/
+*.xcuserstate

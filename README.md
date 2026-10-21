@@ -4,6 +4,15 @@
 
 线上：https://ai862.github.io/asset-monitor/
 
+
+## macOS 原生客户端
+
+低内存 SwiftUI 应用（无 WKWebView / Electron），直接拉本站 JSON：
+
+- 工程：[`mac/AssetMonitor/`](mac/AssetMonitor/) — 在 Mac 上用 Xcode 打开 `AssetMonitor.xcodeproj`，`⌘R` 运行
+- 说明：[`mac/README.md`](mac/README.md)
+
+
 ## 本地预览
 
 必须用 HTTP 服务打开（`file://` 下 `fetch` JSON 会被浏览器拦截）：
