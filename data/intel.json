@@ -1,5 +1,57 @@
 [
   {
+    "产品": "LiteLLM 网关劫持风险复盘",
+    "厂商": "@wunderwuzzi23",
+    "状态": "SRC速报",
+    "类型": "实战复盘",
+    "备注": "管理员密钥失控时可改路由、窃取供应商密钥并伪造响应/工具调用；当日有供应链滥用与 LLMJacking 相关动态。",
+    "实用价值": "测 AI 网关/代理类目标时优先查管理面与密钥暴露面。",
+    "官网": "https://x.com/wunderwuzzi23/status/2112991486593912926",
+    "文档": "https://embracethered.com/blog/posts/2026/hijacking-litellm-for-fun-and-profit/",
+    "去重键": "2112991486593912926",
+    "首次写入": "2026-10-22",
+    "批次": "2026-10-22"
+  },
+  {
+    "产品": "Burp 上线 PHP2Shell 检测",
+    "厂商": "@Burp_Suite",
+    "状态": "SRC速报",
+    "类型": "工具推荐",
+    "备注": "Burp Pro/DAST 可用 ActiveScan++ v2.0.13、Bambda、BChecks 检测 CVE-2026-109618/109619；面向未认证 PHP RCE 面的资产扫描。",
+    "实用价值": "PHP 站与 CMS 资产清单阶段可直接挂扫描，缩短手工探活。",
+    "官网": "https://x.com/Burp_Suite/status/2112927436119687209",
+    "文档": "https://portswigger.net/bappstore/3123d5b5f25c4128894d97ea1acc4976",
+    "去重键": "2112927436119687209",
+    "首次写入": "2026-10-22",
+    "批次": "2026-10-22"
+  },
+  {
+    "产品": "deepseek-flash 做安全分析 Agent",
+    "厂商": "@evilcos",
+    "状态": "SRC速报",
+    "类型": "技巧分享",
+    "备注": "安全分析 Agent 走 gpt-6-astra 会触发 OpenAI cybersecurity risk 风控；改用 deepseek-flash 优化敏感操作后不再触发，分析质量未明显下降。",
+    "实用价值": "自建情报/审计 Agent 时可选模型与脱敏策略参考。",
+    "官网": "https://x.com/evilcos/status/2112823791118389474",
+    "文档": "",
+    "去重键": "2112823791118389474",
+    "首次写入": "2026-10-22",
+    "批次": "2026-10-22"
+  },
+  {
+    "产品": "CSPT 等赏金 writeup 合集",
+    "厂商": "@bountywriteups",
+    "状态": "SRC速报",
+    "类型": "技巧分享",
+    "备注": "合集含 Client-Side Path Traversal（前端发错请求可致 CSRF/缓存欺骗/接管）、反射 XSS、GraphQL 关 introspection 等实战文。",
+    "实用价值": "SPA/前端路由类目标可优先看 CSPT 与 GraphQL 链路。",
+    "官网": "https://x.com/bountywriteups/status/2112795026279506162",
+    "文档": "https://medium.com/@raksharoot/client-side-path-traversal-when-your-frontend-sends-the-wrong-request-6a27120e8730",
+    "去重键": "2112795026279506162",
+    "首次写入": "2026-10-22",
+    "批次": "2026-10-22"
+  },
+  {
     "产品": "JFrog Security：PHP2Shell 双 RCE 应对清单（补丁 14:00 UTC）",
     "厂商": "@JFrogSecurity",
     "状态": "推荐流",
