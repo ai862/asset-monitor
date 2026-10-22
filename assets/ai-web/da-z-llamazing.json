@@ -1,0 +1,57 @@
+{
+  "产品": "LLaMazing",
+  "厂商": "da-z",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "TypeScript",
+  "Stars": 83,
+  "GitHub": "https://github.com/da-z/llamazing",
+  "官网": "https://github.com/da-z/llamazing",
+  "文档": "https://github.com/da-z/llamazing",
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "npm",
+    "二进制"
+  ],
+  "下载条件": "pnpm i && pnpm dev --open；也有 Tauri 桌面发行",
+  "去重键": "da-z-llamazing",
+  "备注": "Ollama 轻量 Web 前端，本地 Web UI + 可选独立 app。",
+  "资产号": 3,
+  "首次写入": "2026-09-03",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-23T02:17:18+08:00",
+  "启动指引": "资料未成功索引，暂无法确认默认端口、环境变量和鉴权要求。按资产信息最短路径可能是 pnpm i && pnpm dev --open；需本地运行 Ollama，并以实际启动输出访问本地 Web UI。",
+  "开工前先看": [
+    {
+      "title": "LLaMazing GitHub 仓库",
+      "url": "https://github.com/da-z/llamazing"
+    },
+    {
+      "title": "LLaMazing DeepWiki",
+      "url": "https://deepwiki.com/da-z/llamazing"
+    },
+    {
+      "title": "LLaMazing 文档",
+      "url": "https://github.com/da-z/llamazing"
+    }
+  ],
+  "建议追问": [
+    "LLaMazing 的 pnpm dev 默认监听哪个端口？",
+    "Ollama 模型和连接地址需要配置哪些环境变量？",
+    "是否有 token 或鉴权机制需要设置？",
+    "Tauri 桌面版和 Web 版启动有什么区别？",
+    "如何验证 LLaMazing 成功启动并完成一次对话？"
+  ],
+  "已知坑": "DeepWiki 查询返回 Repository not found，仓库资料未成功索引，不能据此可靠编造端口、命令或环境变量。",
+  "成功标准": "能通过 pnpm i && pnpm dev --open 启动前端，并在本地浏览器完成一次 Ollama 对话；端口以实际启动输出为准。",
+  "研判摘要": "LLaMazing 定位为 Ollama 轻量 Web 前端，本地 Web UI 加可选独立 app；当前资料未能索引，安装与运行细节未确认。",
+  "推荐启动": "pnpm i && pnpm dev --open",
+  "agentHint": "先查阅 GitHub 仓库 README，再运行 pnpm i && pnpm dev --open，并核对 Ollama 端口、环境变量和鉴权。",
+  "DeepWiki": "https://deepwiki.com/da-z/llamazing",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/da-z-llamazing.json",
+  "source": "ai-web"
+}

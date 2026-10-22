@@ -1364,7 +1364,7 @@
     "资产号": 47,
     "首次写入": "2026-09-03",
     "研判状态": "未研判",
-    "研判时间": "2026-10-22T02:25:44+08:00",
+    "研判时间": "2026-10-23T02:15:33+08:00",
     "DeepWiki": "https://deepwiki.com/biao994/DocPaws",
     "搭建难度": "未知",
     "研判来源": "openrouter+deepwiki",
@@ -1453,7 +1453,38 @@
     "去重键": "dartvauder-neurosandboxwebui",
     "备注": "Gradio 本地多模态控制台：LLM/图/视频/3D/音频。",
     "资产号": 14,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-23T02:16:57+08:00",
+    "启动指引": "仓库提供 install.sh (Linux/macOS) 和 install.bat (Windows) 安装脚本，运行后启动 Gradio WebUI。Gradio 默认端口 7860，需 Python 环境（建议 3.10+），可能需 GPU 支持以加速多模态模型。未发现环境变量或鉴权配置文档，建议先执行安装脚本再查看生成的启动命令或 README。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库主页",
+        "url": "https://github.com/Dartvauder/NeuroSandboxWebUI"
+      },
+      {
+        "title": "DeepWiki 索引页（可能需先索引）",
+        "url": "https://deepwiki.com/Dartvauder/NeuroSandboxWebUI"
+      }
+    ],
+    "建议追问": [
+      "安装脚本具体执行了哪些步骤（依赖、模型下载、权限）？",
+      "是否需要预先下载 LLM/视频/3D/音频模型权重，存放路径如何配置？",
+      "Gradio 启动参数（端口、share、auth）是否可通过环境变量或命令行覆盖？",
+      "最低 Python 版本、CUDA 版本及显存要求是多少？",
+      "是否支持 Docker 部署或提供 Dockerfile？",
+      "多模态推理是否需额外系统依赖（ffmpeg、libgl 等）？"
+    ],
+    "已知坑": "DeepWiki 未收录该仓库，官方文档缺失；Gradio 默认端口 7860 易冲突；多模态模型体积大，首次启动可能需下载数 GB 权重；Windows 下 install.bat 可能需管理员权限或启用长路径支持。",
+    "成功标准": "浏览器访问 http://localhost:7860 出现 Gradio 界面，控制台无报错，能加载并运行至少一个多模态示例（如文生图或视频推理）。",
+    "研判摘要": "NeuroSandboxWebUI 是基于 Gradio 的本地多模态控制台，涵盖 LLM、图像、视频、3D、音频，通过 install.sh/bat 一键部署，但公开文档极少，需直接阅读仓库源码与脚本确认细节。",
+    "推荐启动": "bash install.sh  # 或双击 install.bat，随后按脚本提示运行 Gradio 启动命令",
+    "agentHint": "先克隆仓库阅读 install.sh/bat 与主入口 Python 文件，确认依赖、模型路径与启动参数。",
+    "DeepWiki": "https://deepwiki.com/Dartvauder/NeuroSandboxWebUI",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/dartvauder-neurosandboxwebui.json"
   },
   {
     "产品": "LLaMazing",
@@ -1475,7 +1506,41 @@
     "去重键": "da-z-llamazing",
     "备注": "Ollama 轻量 Web 前端，本地 Web UI + 可选独立 app。",
     "资产号": 3,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-23T02:17:18+08:00",
+    "启动指引": "资料未成功索引，暂无法确认默认端口、环境变量和鉴权要求。按资产信息最短路径可能是 pnpm i && pnpm dev --open；需本地运行 Ollama，并以实际启动输出访问本地 Web UI。",
+    "开工前先看": [
+      {
+        "title": "LLaMazing GitHub 仓库",
+        "url": "https://github.com/da-z/llamazing"
+      },
+      {
+        "title": "LLaMazing DeepWiki",
+        "url": "https://deepwiki.com/da-z/llamazing"
+      },
+      {
+        "title": "LLaMazing 文档",
+        "url": "https://github.com/da-z/llamazing"
+      }
+    ],
+    "建议追问": [
+      "LLaMazing 的 pnpm dev 默认监听哪个端口？",
+      "Ollama 模型和连接地址需要配置哪些环境变量？",
+      "是否有 token 或鉴权机制需要设置？",
+      "Tauri 桌面版和 Web 版启动有什么区别？",
+      "如何验证 LLaMazing 成功启动并完成一次对话？"
+    ],
+    "已知坑": "DeepWiki 查询返回 Repository not found，仓库资料未成功索引，不能据此可靠编造端口、命令或环境变量。",
+    "成功标准": "能通过 pnpm i && pnpm dev --open 启动前端，并在本地浏览器完成一次 Ollama 对话；端口以实际启动输出为准。",
+    "研判摘要": "LLaMazing 定位为 Ollama 轻量 Web 前端，本地 Web UI 加可选独立 app；当前资料未能索引，安装与运行细节未确认。",
+    "推荐启动": "pnpm i && pnpm dev --open",
+    "agentHint": "先查阅 GitHub 仓库 README，再运行 pnpm i && pnpm dev --open，并核对 Ollama 端口、环境变量和鉴权。",
+    "DeepWiki": "https://deepwiki.com/da-z/llamazing",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/da-z-llamazing.json"
   },
   {
     "产品": "Local Multimodal AI Chat",
@@ -1496,7 +1561,45 @@
     "去重键": "leon-sander-local-multimodal-ai-chat",
     "备注": "Streamlit 多模态聊天：text/PDF RAG/图片/Whisper，Ollama 本地。",
     "资产号": 6,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-23T02:17:35+08:00",
+    "启动指引": "最短启动路径：docker compose up（未经核实）；端口：http://0.0.0.0:8501（来自下载条件）；环境变量：未知；鉴权要点：未知，需以实际仓库文件为准。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/Leon-Sander/Local-Multimodal-AI-Chat"
+      },
+      {
+        "title": "官网",
+        "url": "https://github.com/Leon-Sander/Local-Multimodal-AI-Chat"
+      },
+      {
+        "title": "文档",
+        "url": "https://github.com/Leon-Sander/Local-Multimodal-AI-Chat"
+      },
+      {
+        "title": "DeepWiki",
+        "url": "https://deepwiki.com/Leon-Sander/Local-Multimodal-AI-Chat"
+      }
+    ],
+    "建议追问": [
+      "该 GitHub 仓库目前是否可访问？",
+      "Docker Compose 的完整配置文件和默认端口是什么？",
+      "必需环境变量和 Ollama 模型默认值有哪些？",
+      "是否有内置或可选鉴权 / Token 机制？",
+      "如何验证 PDF RAG、图片理解和 Whisper 功能？"
+    ],
+    "已知坑": "DeepWiki 检索返回 Repository not found，启动命令、端口、环境变量不能编造，需以官方仓库实际内容核实。",
+    "成功标准": "按官方/下载条件可访问 http://0.0.0.0:8501；Streamlit 页面加载成功；基础文本聊天可用。",
+    "研判摘要": "该产品定位为本地多模态 AI 聊天，主流程为 Streamlit、Ollama 本地模型和 Whisper；当前仓库资料查询失败，无法确认实现细节。",
+    "推荐启动": "docker compose up",
+    "agentHint": "资料未索引成功，先核实官方仓库文件，避免编造启动命令和端口。",
+    "DeepWiki": "https://deepwiki.com/Leon-Sander/Local-Multimodal-AI-Chat",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/leon-sander-local-multimodal-ai-chat.json"
   },
   {
     "产品": "Libre Chat",
@@ -1517,7 +1620,62 @@
     "去重键": "vemonet-libre-chat",
     "备注": "自托聊天 Web+API，兼文档 RAG；langchain+llama.cpp，YAML 一键起。项目标 WIP。",
     "资产号": 1,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-23T02:18:51+08:00",
+    "启动指引": "最短启动路径：执行 `docker run -p 8000:8000 ghcr.io/vemonet/libre-chat:main`，服务运行于 http://localhost:8000。环境变量：主要需设置 `LIBRECHAT_WORKERS`（默认1）控制Gunicorn工作进程数；反向代理时需配置 `VIRTUAL_HOST`、`LETSENCRYPT_HOST`、`VIRTUAL_PORT`。鉴权：通过 `admin_pass` 保护 `/documents` 和 `/config` 端点，OAuth 功能尚在开发中（TODO）。",
+    "开工前先看": [
+      {
+        "title": "官方文档与安装指南",
+        "url": "http://vemonet.github.io/libre-chat"
+      },
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/vemonet/libre-chat"
+      },
+      {
+        "title": "DeepWiki 概览",
+        "url": "https://deepwiki.com/vemonet/libre-chat"
+      },
+      {
+        "title": "安装与启动（含 pip/docker 命令）",
+        "url": "https://deepwiki.com/vemonet/libre-chat#3.1"
+      },
+      {
+        "title": "快速入门示例",
+        "url": "https://deepwiki.com/vemonet/libre-chat#3.3"
+      },
+      {
+        "title": "API 层说明",
+        "url": "https://deepwiki.com/vemonet/libre-chat#2.3"
+      },
+      {
+        "title": "测试与验证",
+        "url": "https://deepwiki.com/vemonet/libre-chat#7.1"
+      },
+      {
+        "title": "常见问题与鉴权配置",
+        "url": "https://deepwiki.com/vemonet/libre-chat"
+      }
+    ],
+    "建议追问": [
+      "如何配置多个模型或切换后端 LLM？",
+      "chat.yml 中 vector 设置的具体格式和示例？",
+      "Docker 部署时如何持久化模型和向量库文件？",
+      "admin_pass 的鉴权机制是如何实现的？是否支持多用户角色？",
+      "项目 roadmap 中 OAuth 和其他认证方式的完成计划？",
+      "如何通过 Python 脚本以编程方式调用 libre_chat 包？"
+    ],
+    "已知坑": "模型下载可能超时，需提前用 scripts/download.sh 预下载；Docker 卷挂载权限问题；内存不足导致大模型加载失败；GPU 未检测到时需配置 docker-compose 的 CUDA 环境；模型加载耗时较长（可能数分钟）；OAuth 鉴权功能尚未完成，当前仅 admin_pass 可用。",
+    "成功标准": "1. 服务启动后日志显示 gunicorn 成功监听 8000 端口；2. 浏览器访问 http://localhost:8000 能看到聊天界面；3. 访问 http://localhost:8000/docs 能打开 API 文档；4. 通过 POST /prompt 能获得 LLM 响应；5. 若配置了 admin_pass，则受保护端点需正确传递凭据才能访问。",
+    "研判摘要": "Libre Chat 是一个基于 langchain + llama.cpp 的自托管聊天 Web 与 API 服务，支持文档 RAG，提供 Docker 和 pip 两种部署方式，当前为 WIP 状态，功能逐步完善中。",
+    "推荐启动": "docker run -d -p 8000:8000 --name libre-chat ghcr.io/vemonet/libre-chat:main",
+    "agentHint": "注意模型预下载与 Docker 权限，鉴权功能尚不完善，建议先以最小配置体验核心功能。",
+    "DeepWiki": "https://deepwiki.com/vemonet/libre-chat",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/vemonet-libre-chat.json"
   },
   {
     "产品": "Elmo",
@@ -1538,7 +1696,57 @@
     "去重键": "elmohq-elmo",
     "备注": "自托 AEO/GEO 仪表盘，跟 ChatGPT 等引用你的品牌。",
     "资产号": 29,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-23T02:20:02+08:00",
+    "启动指引": "安装 Elmo CLI：`npm i -g @elmohq/cli`。运行初始化向导：`elmo init`，设置配置目录、数据库和 AI 提供商 API 密钥（如 OPENAI_API_KEY、BRIGHTDATA_API_TOKEN 等）。初始化后启动服务：`elmo compose up -d`。服务将监听 `http://localhost:1515`。核心环境变量包括 DATABASE_URL、BETTER_AUTH_SECRET、SCRAPE_TARGETS、DEPLOYMENT_ID 及各 AI 提供商密钥。认证使用 Better‑Auth 会话密钥，管理员 API 调用需在 Authorization 头中添加 Bearer 令牌。",
+    "开工前先看": [
+      {
+        "title": "Elmo 官方文档 - 快速入门",
+        "url": "https://www.elmohq.com/docs/getting-started"
+      },
+      {
+        "title": "Elmo CLI 初始化向导与命令",
+        "url": "https://deepwiki.com/search/how-do-i-install-and-start-elm_77243e84-d467-463b-9c87-f62e05f01e2c"
+      },
+      {
+        "title": "常见问题与认证设置",
+        "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_f9e7ef04-0381-4dfd-b0c3-7e67856f960f"
+      },
+      {
+        "title": "Web 界面与 API 端点概览",
+        "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_03adbce9-13de-4374-a49e-531c33a50f73"
+      },
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/elmohq/elmo"
+      },
+      {
+        "title": "官网与产品介绍",
+        "url": "https://www.elmohq.com"
+      },
+      {
+        "title": "DeepWiki 知识库",
+        "url": "https://deepwiki.com/elmohq/elmo"
+      }
+    ],
+    "建议追问": [
+      "如何在 elmo init 期间安全地输入 AI 提供商 API 密钥并存储在 .env 文件中？",
+      "如果希望通过公网访问 Elmo 界面，如何配置反向代理或端口映射？",
+      "如何查看实时日志以诊断启动失败的问题？",
+      "修改 .env 文件后如何使新环境变量生效？",
+      "如何禁用遥测并确认已禁用？"
+    ],
+    "已知坑": "缺少 Docker 或 Docker Compose 导致服务无法启动；.env 文件覆盖不慎丢失原配置；必需的环境变量（如 DATABASE_URL、BETTER_AUTH_SECRET）缺失或格式错误；健康检查超时（可能由资源不足引起）；端口 1515 被占用或防火墙阻止访问。",
+    "成功标准": "1. 通过 `elmo compose ps` 确认 web 和 worker 服务状态为 healthy。\n2. 浏览器访问 `http://localhost:1515` 成功加载 Elmo 界面。\n3. 调用 `/api/setup-status` 返回 `{ \"ready\": true }`。\n4. 日志中无错误，服务持续运行。",
+    "研判摘要": "Elmo 是一个自托管的 AEO/GEO 仪表盘，采用 Docker + Node 架构，通过交互式 CLI 初始化并通过 Docker Compose 启动，主要监听端口 1515，需配置数据库和 AI 提供商密钥。",
+    "推荐启动": "npm i -g @elmohq/cli && elmo init && elmo compose up -d",
+    "agentHint": "使用 elmo init 生成 .env 配置，然后 elmo compose up -d 启动服务；确保 Docker、Node 及必需的 API 密钥就位；验证服务通过 http://localhost:1515 和 /api/setup-status。",
+    "DeepWiki": "https://deepwiki.com/elmohq/elmo",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/elmohq-elmo.json"
   },
   {
     "产品": "NekoImageGallery",
@@ -1559,7 +1767,53 @@
     "去重键": "hv0905-nekoimagegallery",
     "备注": "CLIP+Qdrant 图搜 Web UI，镜像 edgeneko/neko-image-gallery。",
     "资产号": 49,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-23T02:21:10+08:00",
+    "启动指引": "最短启动路径：下载docker-compose.yml并执行`APP_WITH_FRONTEND=True docker compose up`（需提前安装Docker）。默认端口8000。必须配置环境变量：APP_QDRANT__HOST=qdrant-database（Docker模式）、APP_DEVICE（cuda/cpu）、APP_ACCESS_TOKEN和APP_ADMIN_TOKEN（若开启认证）。鉴权要点：访问保护需设置APP_ACCESS_PROTECTED=True并通过X-Access-Token头传递令牌；管理员API需APP_ADMIN_API_ENABLE=True并通过X-Admin-Token头传递。",
+    "开工前先看": [
+      {
+        "title": "安装与部署指南",
+        "url": "https://github.com/hv0905/NekoImageGallery#deployment"
+      },
+      {
+        "title": "Docker Hub 镜像页面",
+        "url": "https://hub.docker.com/r/edgeneko/neko-image-gallery"
+      },
+      {
+        "title": "认证系统说明",
+        "url": "https://github.com/hv0905/NekoImageGallery/wiki/Authentication-System"
+      },
+      {
+        "title": "API 参考文档",
+        "url": "https://github.com/hv0905/NekoImageGallery/wiki/API-Reference"
+      },
+      {
+        "title": "配置文件示例",
+        "url": "https://github.com/hv0905/NekoImageGallery/blob/master/config/default.env"
+      },
+      {
+        "title": "DeepWiki 概述",
+        "url": "https://deepwiki.com/hv0905/NekoImageGallery"
+      }
+    ],
+    "建议追问": [
+      "如何选择正确的PyTorch CUDA版本（12.4/11.8/CPU）？",
+      "Qdrant数据库的持久化卷如何挂载和备份？",
+      "内置前端启用后，API路径前缀变化对现有客户端的影响如何处理？",
+      "CLIP模型文件应从何处下载或是否自动加载？",
+      "Docker部署中如何动态修改环境变量而不重建镜像？"
+    ],
+    "已知坑": "1. PyTorch依赖必须匹配硬件环境，错误安装导致启动失败；2. 启用内置前端后API路径变为/api前缀，可能影响反向代理配置；3. 认证令牌需同时设置环境变量并在请求头中正确传递；4. Docker模式需确保宿主机端口未被占用；5. 模型文件路径配置错误会引发运行时异常。",
+    "成功标准": "1. 浏览器访问http://localhost:8000显示欢迎页面且authorization状态为passed（若开启认证需带令牌）；2. 通过`curl -H \"X-Access-Token: <token>\" http://localhost:8000/api/server_info`获取服务器信息；3. Docker容器`neko-image-gallery`和`qdrant-database`均处于运行状态；4. 上传测试图片后能通过文本或图像搜索返回结果。",
+    "研判摘要": "NekoImageGallery提供Docker和源码两种部署方式，基于CLIP+Qdrant实现图搜功能。Docker部署较为便捷但需注意环境变量配置和认证设置，源码部署需额外处理依赖。建议优先使用Docker方式快速验证。",
+    "推荐启动": "wget https://raw.githubusercontent.com/hv0905/NekoImageGallery/master/docker-compose.yml && APP_WITH_FRONTEND=True docker compose up -d",
+    "agentHint": "重点关注环境变量前缀APP_的配置格式及认证令牌的传递方式。",
+    "DeepWiki": "https://deepwiki.com/hv0905/NekoImageGallery",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/hv0905-nekoimagegallery.json"
   },
   {
     "产品": "WebOllama",
@@ -1581,7 +1835,61 @@
     "去重键": "dkruyt-webollama",
     "备注": "Flask+Bootstrap 管 Ollama 模型/聊天，有截图。",
     "资产号": 40,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-23T02:21:38+08:00",
+    "启动指引": "启动路径：docker-compose up -d 或 python app.py；默认端口：127.0.0.1:5000。环境变量与鉴权要点需查阅仓库源码或文档确认，资料中未提供具体配置。",
+    "开工前先看": [
+      {
+        "title": "仓库主页",
+        "url": "https://github.com/dkruyt/webollama"
+      },
+      {
+        "title": "DeepWiki 索引",
+        "url": "https://deepwiki.com/dkruyt/webollama"
+      },
+      {
+        "title": "项目说明",
+        "url": "https://github.com/dkruyt/webollama"
+      },
+      {
+        "title": "Docker 部署文件",
+        "url": "https://github.com/dkruyt/webollama"
+      },
+      {
+        "title": "源码结构",
+        "url": "https://github.com/dkruyt/webollama"
+      },
+      {
+        "title": "Flask 应用入口",
+        "url": "https://github.com/dkruyt/webollama"
+      },
+      {
+        "title": "前端模板",
+        "url": "https://github.com/dkruyt/webollama"
+      },
+      {
+        "title": "Ollama 集成配置",
+        "url": "https://github.com/dkruyt/webollama"
+      }
+    ],
+    "建议追问": [
+      "该项目默认是否需要运行 Ollama 服务？",
+      "项目是否内置了鉴权机制，还是需要额外配置？",
+      "环境变量中是否有必须设置的参数？",
+      "Docker 部署时是否需要挂载本地模型目录？",
+      "前端界面是否支持自定义主题或样式修改？"
+    ],
+    "已知坑": "仓库官方资料未返回有效内容，暂无已知坑信息。",
+    "成功标准": "访问 http://127.0.0.1:5000 能看到 Web UI 页面，且能正常发起聊天请求。",
+    "研判摘要": "WebOllama 是一个基于 Flask+Bootstrap 的 Ollama Web 管理界面，部署方式简单，但当前提供的仓库资料未能获取到具体的启动细节、环境变量和鉴权配置，需进一步查阅源码确认。",
+    "推荐启动": "docker-compose up -d",
+    "agentHint": "注意：仓库资料未返回有效内容，启动指引中的环境变量和鉴权要点无法确认，请勿编造。",
+    "DeepWiki": "https://deepwiki.com/dkruyt/webollama",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/dkruyt-webollama.json"
   },
   {
     "产品": "Weam",

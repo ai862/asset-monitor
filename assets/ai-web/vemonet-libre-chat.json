@@ -1,0 +1,77 @@
+{
+  "产品": "Libre Chat",
+  "厂商": "vemonet",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "Python",
+  "Stars": 170,
+  "GitHub": "https://github.com/vemonet/libre-chat",
+  "官网": "http://vemonet.github.io/libre-chat",
+  "文档": "http://vemonet.github.io/libre-chat",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "pip"
+  ],
+  "下载条件": "pip install libre-chat 或 docker run -p 8000:8000 ghcr.io/vemonet/libre-chat:main",
+  "去重键": "vemonet-libre-chat",
+  "备注": "自托聊天 Web+API，兼文档 RAG；langchain+llama.cpp，YAML 一键起。项目标 WIP。",
+  "资产号": 1,
+  "首次写入": "2026-09-03",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-23T02:18:51+08:00",
+  "启动指引": "最短启动路径：执行 `docker run -p 8000:8000 ghcr.io/vemonet/libre-chat:main`，服务运行于 http://localhost:8000。环境变量：主要需设置 `LIBRECHAT_WORKERS`（默认1）控制Gunicorn工作进程数；反向代理时需配置 `VIRTUAL_HOST`、`LETSENCRYPT_HOST`、`VIRTUAL_PORT`。鉴权：通过 `admin_pass` 保护 `/documents` 和 `/config` 端点，OAuth 功能尚在开发中（TODO）。",
+  "开工前先看": [
+    {
+      "title": "官方文档与安装指南",
+      "url": "http://vemonet.github.io/libre-chat"
+    },
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/vemonet/libre-chat"
+    },
+    {
+      "title": "DeepWiki 概览",
+      "url": "https://deepwiki.com/vemonet/libre-chat"
+    },
+    {
+      "title": "安装与启动（含 pip/docker 命令）",
+      "url": "https://deepwiki.com/vemonet/libre-chat#3.1"
+    },
+    {
+      "title": "快速入门示例",
+      "url": "https://deepwiki.com/vemonet/libre-chat#3.3"
+    },
+    {
+      "title": "API 层说明",
+      "url": "https://deepwiki.com/vemonet/libre-chat#2.3"
+    },
+    {
+      "title": "测试与验证",
+      "url": "https://deepwiki.com/vemonet/libre-chat#7.1"
+    },
+    {
+      "title": "常见问题与鉴权配置",
+      "url": "https://deepwiki.com/vemonet/libre-chat"
+    }
+  ],
+  "建议追问": [
+    "如何配置多个模型或切换后端 LLM？",
+    "chat.yml 中 vector 设置的具体格式和示例？",
+    "Docker 部署时如何持久化模型和向量库文件？",
+    "admin_pass 的鉴权机制是如何实现的？是否支持多用户角色？",
+    "项目 roadmap 中 OAuth 和其他认证方式的完成计划？",
+    "如何通过 Python 脚本以编程方式调用 libre_chat 包？"
+  ],
+  "已知坑": "模型下载可能超时，需提前用 scripts/download.sh 预下载；Docker 卷挂载权限问题；内存不足导致大模型加载失败；GPU 未检测到时需配置 docker-compose 的 CUDA 环境；模型加载耗时较长（可能数分钟）；OAuth 鉴权功能尚未完成，当前仅 admin_pass 可用。",
+  "成功标准": "1. 服务启动后日志显示 gunicorn 成功监听 8000 端口；2. 浏览器访问 http://localhost:8000 能看到聊天界面；3. 访问 http://localhost:8000/docs 能打开 API 文档；4. 通过 POST /prompt 能获得 LLM 响应；5. 若配置了 admin_pass，则受保护端点需正确传递凭据才能访问。",
+  "研判摘要": "Libre Chat 是一个基于 langchain + llama.cpp 的自托管聊天 Web 与 API 服务，支持文档 RAG，提供 Docker 和 pip 两种部署方式，当前为 WIP 状态，功能逐步完善中。",
+  "推荐启动": "docker run -d -p 8000:8000 --name libre-chat ghcr.io/vemonet/libre-chat:main",
+  "agentHint": "注意模型预下载与 Docker 权限，鉴权功能尚不完善，建议先以最小配置体验核心功能。",
+  "DeepWiki": "https://deepwiki.com/vemonet/libre-chat",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/vemonet-libre-chat.json",
+  "source": "ai-web"
+}

@@ -1,0 +1,68 @@
+{
+  "产品": "NekoImageGallery",
+  "厂商": "hv0905",
+  "状态": "可下",
+  "类型": "搜索",
+  "语言": "Python",
+  "Stars": 194,
+  "GitHub": "https://github.com/hv0905/NekoImageGallery",
+  "官网": "https://hub.docker.com/r/edgeneko/neko-image-gallery",
+  "文档": "https://github.com/hv0905/NekoImageGallery",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "wget docker-compose.yml && APP_WITH_FRONTEND=True docker compose up；或 uv run main.py --port 8000",
+  "去重键": "hv0905-nekoimagegallery",
+  "备注": "CLIP+Qdrant 图搜 Web UI，镜像 edgeneko/neko-image-gallery。",
+  "资产号": 49,
+  "首次写入": "2026-09-03",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-23T02:21:10+08:00",
+  "启动指引": "最短启动路径：下载docker-compose.yml并执行`APP_WITH_FRONTEND=True docker compose up`（需提前安装Docker）。默认端口8000。必须配置环境变量：APP_QDRANT__HOST=qdrant-database（Docker模式）、APP_DEVICE（cuda/cpu）、APP_ACCESS_TOKEN和APP_ADMIN_TOKEN（若开启认证）。鉴权要点：访问保护需设置APP_ACCESS_PROTECTED=True并通过X-Access-Token头传递令牌；管理员API需APP_ADMIN_API_ENABLE=True并通过X-Admin-Token头传递。",
+  "开工前先看": [
+    {
+      "title": "安装与部署指南",
+      "url": "https://github.com/hv0905/NekoImageGallery#deployment"
+    },
+    {
+      "title": "Docker Hub 镜像页面",
+      "url": "https://hub.docker.com/r/edgeneko/neko-image-gallery"
+    },
+    {
+      "title": "认证系统说明",
+      "url": "https://github.com/hv0905/NekoImageGallery/wiki/Authentication-System"
+    },
+    {
+      "title": "API 参考文档",
+      "url": "https://github.com/hv0905/NekoImageGallery/wiki/API-Reference"
+    },
+    {
+      "title": "配置文件示例",
+      "url": "https://github.com/hv0905/NekoImageGallery/blob/master/config/default.env"
+    },
+    {
+      "title": "DeepWiki 概述",
+      "url": "https://deepwiki.com/hv0905/NekoImageGallery"
+    }
+  ],
+  "建议追问": [
+    "如何选择正确的PyTorch CUDA版本（12.4/11.8/CPU）？",
+    "Qdrant数据库的持久化卷如何挂载和备份？",
+    "内置前端启用后，API路径前缀变化对现有客户端的影响如何处理？",
+    "CLIP模型文件应从何处下载或是否自动加载？",
+    "Docker部署中如何动态修改环境变量而不重建镜像？"
+  ],
+  "已知坑": "1. PyTorch依赖必须匹配硬件环境，错误安装导致启动失败；2. 启用内置前端后API路径变为/api前缀，可能影响反向代理配置；3. 认证令牌需同时设置环境变量并在请求头中正确传递；4. Docker模式需确保宿主机端口未被占用；5. 模型文件路径配置错误会引发运行时异常。",
+  "成功标准": "1. 浏览器访问http://localhost:8000显示欢迎页面且authorization状态为passed（若开启认证需带令牌）；2. 通过`curl -H \"X-Access-Token: <token>\" http://localhost:8000/api/server_info`获取服务器信息；3. Docker容器`neko-image-gallery`和`qdrant-database`均处于运行状态；4. 上传测试图片后能通过文本或图像搜索返回结果。",
+  "研判摘要": "NekoImageGallery提供Docker和源码两种部署方式，基于CLIP+Qdrant实现图搜功能。Docker部署较为便捷但需注意环境变量配置和认证设置，源码部署需额外处理依赖。建议优先使用Docker方式快速验证。",
+  "推荐启动": "wget https://raw.githubusercontent.com/hv0905/NekoImageGallery/master/docker-compose.yml && APP_WITH_FRONTEND=True docker compose up -d",
+  "agentHint": "重点关注环境变量前缀APP_的配置格式及认证令牌的传递方式。",
+  "DeepWiki": "https://deepwiki.com/hv0905/NekoImageGallery",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/hv0905-nekoimagegallery.json",
+  "source": "ai-web"
+}

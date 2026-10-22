@@ -1,0 +1,60 @@
+{
+  "产品": "Local Multimodal AI Chat",
+  "厂商": "Leon-Sander",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "Python",
+  "Stars": 205,
+  "GitHub": "https://github.com/Leon-Sander/Local-Multimodal-AI-Chat",
+  "官网": "https://github.com/Leon-Sander/Local-Multimodal-AI-Chat",
+  "文档": "https://github.com/Leon-Sander/Local-Multimodal-AI-Chat",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "docker compose up → http://0.0.0.0:8501",
+  "去重键": "leon-sander-local-multimodal-ai-chat",
+  "备注": "Streamlit 多模态聊天：text/PDF RAG/图片/Whisper，Ollama 本地。",
+  "资产号": 6,
+  "首次写入": "2026-09-03",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-23T02:17:35+08:00",
+  "启动指引": "最短启动路径：docker compose up（未经核实）；端口：http://0.0.0.0:8501（来自下载条件）；环境变量：未知；鉴权要点：未知，需以实际仓库文件为准。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/Leon-Sander/Local-Multimodal-AI-Chat"
+    },
+    {
+      "title": "官网",
+      "url": "https://github.com/Leon-Sander/Local-Multimodal-AI-Chat"
+    },
+    {
+      "title": "文档",
+      "url": "https://github.com/Leon-Sander/Local-Multimodal-AI-Chat"
+    },
+    {
+      "title": "DeepWiki",
+      "url": "https://deepwiki.com/Leon-Sander/Local-Multimodal-AI-Chat"
+    }
+  ],
+  "建议追问": [
+    "该 GitHub 仓库目前是否可访问？",
+    "Docker Compose 的完整配置文件和默认端口是什么？",
+    "必需环境变量和 Ollama 模型默认值有哪些？",
+    "是否有内置或可选鉴权 / Token 机制？",
+    "如何验证 PDF RAG、图片理解和 Whisper 功能？"
+  ],
+  "已知坑": "DeepWiki 检索返回 Repository not found，启动命令、端口、环境变量不能编造，需以官方仓库实际内容核实。",
+  "成功标准": "按官方/下载条件可访问 http://0.0.0.0:8501；Streamlit 页面加载成功；基础文本聊天可用。",
+  "研判摘要": "该产品定位为本地多模态 AI 聊天，主流程为 Streamlit、Ollama 本地模型和 Whisper；当前仓库资料查询失败，无法确认实现细节。",
+  "推荐启动": "docker compose up",
+  "agentHint": "资料未索引成功，先核实官方仓库文件，避免编造启动命令和端口。",
+  "DeepWiki": "https://deepwiki.com/Leon-Sander/Local-Multimodal-AI-Chat",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/leon-sander-local-multimodal-ai-chat.json",
+  "source": "ai-web"
+}

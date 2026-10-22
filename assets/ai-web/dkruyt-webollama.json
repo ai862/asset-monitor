@@ -1,0 +1,77 @@
+{
+  "产品": "WebOllama",
+  "厂商": "dkruyt",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "Python",
+  "Stars": 82,
+  "GitHub": "https://github.com/dkruyt/webollama",
+  "官网": "https://github.com/dkruyt/webollama",
+  "文档": "https://github.com/dkruyt/webollama",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码",
+    "pip"
+  ],
+  "下载条件": "docker-compose up -d 或 python app.py → 127.0.0.1:5000",
+  "去重键": "dkruyt-webollama",
+  "备注": "Flask+Bootstrap 管 Ollama 模型/聊天，有截图。",
+  "资产号": 40,
+  "首次写入": "2026-09-03",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-23T02:21:38+08:00",
+  "启动指引": "启动路径：docker-compose up -d 或 python app.py；默认端口：127.0.0.1:5000。环境变量与鉴权要点需查阅仓库源码或文档确认，资料中未提供具体配置。",
+  "开工前先看": [
+    {
+      "title": "仓库主页",
+      "url": "https://github.com/dkruyt/webollama"
+    },
+    {
+      "title": "DeepWiki 索引",
+      "url": "https://deepwiki.com/dkruyt/webollama"
+    },
+    {
+      "title": "项目说明",
+      "url": "https://github.com/dkruyt/webollama"
+    },
+    {
+      "title": "Docker 部署文件",
+      "url": "https://github.com/dkruyt/webollama"
+    },
+    {
+      "title": "源码结构",
+      "url": "https://github.com/dkruyt/webollama"
+    },
+    {
+      "title": "Flask 应用入口",
+      "url": "https://github.com/dkruyt/webollama"
+    },
+    {
+      "title": "前端模板",
+      "url": "https://github.com/dkruyt/webollama"
+    },
+    {
+      "title": "Ollama 集成配置",
+      "url": "https://github.com/dkruyt/webollama"
+    }
+  ],
+  "建议追问": [
+    "该项目默认是否需要运行 Ollama 服务？",
+    "项目是否内置了鉴权机制，还是需要额外配置？",
+    "环境变量中是否有必须设置的参数？",
+    "Docker 部署时是否需要挂载本地模型目录？",
+    "前端界面是否支持自定义主题或样式修改？"
+  ],
+  "已知坑": "仓库官方资料未返回有效内容，暂无已知坑信息。",
+  "成功标准": "访问 http://127.0.0.1:5000 能看到 Web UI 页面，且能正常发起聊天请求。",
+  "研判摘要": "WebOllama 是一个基于 Flask+Bootstrap 的 Ollama Web 管理界面，部署方式简单，但当前提供的仓库资料未能获取到具体的启动细节、环境变量和鉴权配置，需进一步查阅源码确认。",
+  "推荐启动": "docker-compose up -d",
+  "agentHint": "注意：仓库资料未返回有效内容，启动指引中的环境变量和鉴权要点无法确认，请勿编造。",
+  "DeepWiki": "https://deepwiki.com/dkruyt/webollama",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/dkruyt-webollama.json",
+  "source": "ai-web"
+}

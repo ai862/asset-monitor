@@ -1,0 +1,72 @@
+{
+  "产品": "Elmo",
+  "厂商": "elmohq",
+  "状态": "可下",
+  "类型": "搜索",
+  "语言": "TypeScript",
+  "Stars": 291,
+  "GitHub": "https://github.com/elmohq/elmo",
+  "官网": "https://www.elmohq.com",
+  "文档": "https://www.elmohq.com/docs/getting-started",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "npm"
+  ],
+  "下载条件": "npm i -g @elmohq/cli && elmo init && elmo compose up -d → localhost:1515",
+  "去重键": "elmohq-elmo",
+  "备注": "自托 AEO/GEO 仪表盘，跟 ChatGPT 等引用你的品牌。",
+  "资产号": 29,
+  "首次写入": "2026-09-03",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-23T02:20:02+08:00",
+  "启动指引": "安装 Elmo CLI：`npm i -g @elmohq/cli`。运行初始化向导：`elmo init`，设置配置目录、数据库和 AI 提供商 API 密钥（如 OPENAI_API_KEY、BRIGHTDATA_API_TOKEN 等）。初始化后启动服务：`elmo compose up -d`。服务将监听 `http://localhost:1515`。核心环境变量包括 DATABASE_URL、BETTER_AUTH_SECRET、SCRAPE_TARGETS、DEPLOYMENT_ID 及各 AI 提供商密钥。认证使用 Better‑Auth 会话密钥，管理员 API 调用需在 Authorization 头中添加 Bearer 令牌。",
+  "开工前先看": [
+    {
+      "title": "Elmo 官方文档 - 快速入门",
+      "url": "https://www.elmohq.com/docs/getting-started"
+    },
+    {
+      "title": "Elmo CLI 初始化向导与命令",
+      "url": "https://deepwiki.com/search/how-do-i-install-and-start-elm_77243e84-d467-463b-9c87-f62e05f01e2c"
+    },
+    {
+      "title": "常见问题与认证设置",
+      "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_f9e7ef04-0381-4dfd-b0c3-7e67856f960f"
+    },
+    {
+      "title": "Web 界面与 API 端点概览",
+      "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_03adbce9-13de-4374-a49e-531c33a50f73"
+    },
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/elmohq/elmo"
+    },
+    {
+      "title": "官网与产品介绍",
+      "url": "https://www.elmohq.com"
+    },
+    {
+      "title": "DeepWiki 知识库",
+      "url": "https://deepwiki.com/elmohq/elmo"
+    }
+  ],
+  "建议追问": [
+    "如何在 elmo init 期间安全地输入 AI 提供商 API 密钥并存储在 .env 文件中？",
+    "如果希望通过公网访问 Elmo 界面，如何配置反向代理或端口映射？",
+    "如何查看实时日志以诊断启动失败的问题？",
+    "修改 .env 文件后如何使新环境变量生效？",
+    "如何禁用遥测并确认已禁用？"
+  ],
+  "已知坑": "缺少 Docker 或 Docker Compose 导致服务无法启动；.env 文件覆盖不慎丢失原配置；必需的环境变量（如 DATABASE_URL、BETTER_AUTH_SECRET）缺失或格式错误；健康检查超时（可能由资源不足引起）；端口 1515 被占用或防火墙阻止访问。",
+  "成功标准": "1. 通过 `elmo compose ps` 确认 web 和 worker 服务状态为 healthy。\n2. 浏览器访问 `http://localhost:1515` 成功加载 Elmo 界面。\n3. 调用 `/api/setup-status` 返回 `{ \"ready\": true }`。\n4. 日志中无错误，服务持续运行。",
+  "研判摘要": "Elmo 是一个自托管的 AEO/GEO 仪表盘，采用 Docker + Node 架构，通过交互式 CLI 初始化并通过 Docker Compose 启动，主要监听端口 1515，需配置数据库和 AI 提供商密钥。",
+  "推荐启动": "npm i -g @elmohq/cli && elmo init && elmo compose up -d",
+  "agentHint": "使用 elmo init 生成 .env 配置，然后 elmo compose up -d 启动服务；确保 Docker、Node 及必需的 API 密钥就位；验证服务通过 http://localhost:1515 和 /api/setup-status。",
+  "DeepWiki": "https://deepwiki.com/elmohq/elmo",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/elmohq-elmo.json",
+  "source": "ai-web"
+}

@@ -1,0 +1,52 @@
+{
+  "产品": "NeuroSandboxWebUI",
+  "厂商": "Dartvauder",
+  "状态": "可下",
+  "类型": "其它",
+  "语言": "Python",
+  "Stars": 106,
+  "GitHub": "https://github.com/Dartvauder/NeuroSandboxWebUI",
+  "官网": "https://github.com/Dartvauder/NeuroSandboxWebUI",
+  "文档": "https://github.com/Dartvauder/NeuroSandboxWebUI",
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "install.sh / install.bat 后 Gradio WebUI",
+  "去重键": "dartvauder-neurosandboxwebui",
+  "备注": "Gradio 本地多模态控制台：LLM/图/视频/3D/音频。",
+  "资产号": 14,
+  "首次写入": "2026-09-03",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-23T02:16:57+08:00",
+  "启动指引": "仓库提供 install.sh (Linux/macOS) 和 install.bat (Windows) 安装脚本，运行后启动 Gradio WebUI。Gradio 默认端口 7860，需 Python 环境（建议 3.10+），可能需 GPU 支持以加速多模态模型。未发现环境变量或鉴权配置文档，建议先执行安装脚本再查看生成的启动命令或 README。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库主页",
+      "url": "https://github.com/Dartvauder/NeuroSandboxWebUI"
+    },
+    {
+      "title": "DeepWiki 索引页（可能需先索引）",
+      "url": "https://deepwiki.com/Dartvauder/NeuroSandboxWebUI"
+    }
+  ],
+  "建议追问": [
+    "安装脚本具体执行了哪些步骤（依赖、模型下载、权限）？",
+    "是否需要预先下载 LLM/视频/3D/音频模型权重，存放路径如何配置？",
+    "Gradio 启动参数（端口、share、auth）是否可通过环境变量或命令行覆盖？",
+    "最低 Python 版本、CUDA 版本及显存要求是多少？",
+    "是否支持 Docker 部署或提供 Dockerfile？",
+    "多模态推理是否需额外系统依赖（ffmpeg、libgl 等）？"
+  ],
+  "已知坑": "DeepWiki 未收录该仓库，官方文档缺失；Gradio 默认端口 7860 易冲突；多模态模型体积大，首次启动可能需下载数 GB 权重；Windows 下 install.bat 可能需管理员权限或启用长路径支持。",
+  "成功标准": "浏览器访问 http://localhost:7860 出现 Gradio 界面，控制台无报错，能加载并运行至少一个多模态示例（如文生图或视频推理）。",
+  "研判摘要": "NeuroSandboxWebUI 是基于 Gradio 的本地多模态控制台，涵盖 LLM、图像、视频、3D、音频，通过 install.sh/bat 一键部署，但公开文档极少，需直接阅读仓库源码与脚本确认细节。",
+  "推荐启动": "bash install.sh  # 或双击 install.bat，随后按脚本提示运行 Gradio 启动命令",
+  "agentHint": "先克隆仓库阅读 install.sh/bat 与主入口 Python 文件，确认依赖、模型路径与启动参数。",
+  "DeepWiki": "https://deepwiki.com/Dartvauder/NeuroSandboxWebUI",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/dartvauder-neurosandboxwebui.json",
+  "source": "ai-web"
+}
