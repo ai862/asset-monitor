@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-shot / maintenance: split intel.json X items into data/x-daily/ + prune intel."""
+"""One-shot / maintenance: split intel.json into data/x-daily/ (all statuses) + prune intel."""
 from __future__ import annotations
 
 import argparse
@@ -7,15 +7,14 @@ import json
 import sys
 from pathlib import Path
 
-# Reuse helpers from upsert_intel
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from upsert_intel import (  # noqa: E402
     CONFIG,
     INTEL,
     INTEL_KEEP_DAYS,
+    STATUS_OK,
     X_DAILY,
-    X_STATUSES,
     item_date,
     prune_intel,
     rebuild_x_daily_index,
@@ -26,7 +25,7 @@ from upsert_intel import (  # noqa: E402
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Rebuild data/x-daily from intel.json")
+    ap = argparse.ArgumentParser(description="Rebuild data/x-daily from intel.json (full daily archive)")
     ap.add_argument(
         "--prune-intel",
         action="store_true",
@@ -52,23 +51,25 @@ def main() -> None:
     by_day: dict[str, list[dict]] = {}
     skipped = 0
     for item in rows:
-        if item.get("状态") not in X_STATUSES:
-            continue
         day = item_date(item)
         if not day:
             skipped += 1
-            print(f"warn: skip X item without date: {item.get('去重键')}", file=sys.stderr)
+            print(f"warn: skip item without date: {item.get('去重键')}", file=sys.stderr)
             continue
+        st = item.get("状态")
+        if st not in STATUS_OK:
+            print(
+                f"warn: archiving unexpected 状态 {st!r} for {item.get('去重键')}",
+                file=sys.stderr,
+            )
         by_day.setdefault(day, []).append(item)
 
     X_DAILY.mkdir(parents=True, exist_ok=True)
-    # Clear old day files that we will rewrite; keep unrelated? rewrite all from intel.
     for old in X_DAILY.glob("????-??-??.json"):
         old.unlink()
 
     for day, items in sorted(by_day.items()):
         merged, _, _ = upsert_rows([], items)
-        merged = [r for r in merged if r.get("状态") in X_STATUSES]
         merged.sort(
             key=lambda r: (str(r.get("首次写入") or ""), str(r.get("去重键") or "")),
             reverse=True,
@@ -94,7 +95,8 @@ def main() -> None:
     )
     for e in index:
         print(
-            f"  {e['date']} 赏金技巧={e['赏金技巧']} 推荐流={e['推荐流']} total={e['total']}"
+            f"  {e['date']} SRC速报={e['SRC速报']} 赏金技巧={e['赏金技巧']} "
+            f"推荐流={e['推荐流']} other={e['other']} total={e['total']}"
         )
 
 

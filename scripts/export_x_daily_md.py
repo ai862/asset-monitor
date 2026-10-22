@@ -11,6 +11,8 @@ ROOT = Path(__file__).resolve().parents[1]
 X_DAILY = ROOT / "data" / "x-daily"
 EXPORTS = ROOT / "exports"
 
+ORDER = ("SRC速报", "赏金技巧", "推荐流")
+
 
 def main() -> None:
     ap = argparse.ArgumentParser(description="Export x-daily day to markdown")
@@ -30,11 +32,14 @@ def main() -> None:
     if not isinstance(rows, list):
         raise SystemExit("day file must be a JSON array")
 
-    lines = [f"# X 日归档 · {day}", "", f"共 {len(rows)} 条", ""]
-    for st in ("赏金技巧", "推荐流"):
+    lines = [f"# 当日 X 监控归档 · {day}", "", f"共 {len(rows)} 条", ""]
+    seen: set[int] = set()
+    for st in ORDER:
         group = [r for r in rows if r.get("状态") == st]
         if not group:
             continue
+        for r in group:
+            seen.add(id(r))
         lines.append(f"## {st}（{len(group)}）")
         lines.append("")
         for r in group:
@@ -48,6 +53,22 @@ def main() -> None:
                 lines.append(f"- {title}" + (f" — {vendor}" if vendor else ""))
             if note:
                 lines.append(f"  - {note}")
+        lines.append("")
+
+    other = [r for r in rows if id(r) not in seen]
+    if other:
+        lines.append(f"## 其他（{len(other)}）")
+        lines.append("")
+        for r in other:
+            title = r.get("产品") or "—"
+            url = r.get("官网") or ""
+            st = r.get("状态") or ""
+            vendor = r.get("厂商") or ""
+            suffix = f" [{st}]" if st else ""
+            if url:
+                lines.append(f"- [{title}]({url}){suffix}" + (f" — {vendor}" if vendor else ""))
+            else:
+                lines.append(f"- {title}{suffix}" + (f" — {vendor}" if vendor else ""))
         lines.append("")
 
     text = "\n".join(lines).rstrip() + "\n"

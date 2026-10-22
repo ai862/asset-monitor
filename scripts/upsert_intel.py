@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Merge daily intel items into data/intel.json + data/x-daily/; prune intel to 14 days."""
+"""Merge daily intel items into data/intel.json + data/x-daily/; prune intel to 14 days.
+
+x-daily is a loose full daily archive of all X-sourced intel (SRC速报 / 赏金技巧 /
+推荐流 / any future 状态). Unknown statuses are kept in day files (soft-warn only).
+Extra item keys are always preserved on merge.
+"""
 from __future__ import annotations
 
 import argparse
@@ -14,8 +19,10 @@ INTEL = ROOT / "data" / "intel.json"
 X_DAILY = ROOT / "data" / "x-daily"
 CONFIG = ROOT / "config.json"
 
+# Soft-known statuses for warn-only checks. Day archive accepts any 状态.
 STATUS_OK = {"SRC速报", "赏金技巧", "推荐流"}
-X_STATUSES = {"赏金技巧", "推荐流"}
+# All intel is X-sourced; archive every item that has a calendar date.
+X_STATUSES = STATUS_OK  # kept for import compatibility; day archive no longer filters by this
 TZ = ZoneInfo("Asia/Shanghai")
 INTEL_KEEP_DAYS = 14
 
@@ -36,7 +43,6 @@ def item_date(item: dict) -> str | None:
         raw = str(item.get(key) or "").strip()
         if not raw:
             continue
-        # Take leading YYYY-MM-DD
         day = raw[:10]
         if len(day) == 10 and day[4] == "-" and day[7] == "-":
             try:
@@ -59,10 +65,11 @@ def load_items(path: Path | None) -> list[dict]:
 
 
 def normalize(item: dict) -> dict:
+    """Require 去重键; preserve every extra key (loose schema)."""
     key = str(item.get("去重键") or "").strip()
     if not key:
         raise SystemExit(f"item missing 去重键: {item.get('产品')!r}")
-    out = dict(item)
+    out = dict(item)  # shallow copy — keep unknown fields
     out["去重键"] = key
     st = out.get("状态") or "SRC速报"
     if st not in STATUS_OK:
@@ -74,11 +81,12 @@ def normalize(item: dict) -> dict:
 
 
 def upsert_rows(existing: list[dict], incoming: list[dict]) -> tuple[list[dict], int, int]:
+    """Merge by 去重键; incoming wins on overlapping keys; preserve extras from either side."""
     by_key: dict[str, dict] = {}
     for row in existing:
         k = str(row.get("去重键") or "").strip()
         if k:
-            by_key[k] = row
+            by_key[k] = dict(row)
 
     added = updated = 0
     for item in incoming:
@@ -91,7 +99,7 @@ def upsert_rows(existing: list[dict], incoming: list[dict]) -> tuple[list[dict],
             by_key[k] = merged
             updated += 1
         else:
-            by_key[k] = item
+            by_key[k] = dict(item)
             added += 1
 
     rows = list(by_key.values())
@@ -114,6 +122,20 @@ def load_day_file(path: Path) -> list[dict]:
     return data if isinstance(data, list) else []
 
 
+def day_counts(rows: list[dict]) -> dict:
+    n_src = sum(1 for r in rows if r.get("状态") == "SRC速报")
+    n_skill = sum(1 for r in rows if r.get("状态") == "赏金技巧")
+    n_feed = sum(1 for r in rows if r.get("状态") == "推荐流")
+    n_other = len(rows) - n_src - n_skill - n_feed
+    return {
+        "SRC速报": n_src,
+        "赏金技巧": n_skill,
+        "推荐流": n_feed,
+        "other": n_other,
+        "total": len(rows),
+    }
+
+
 def rebuild_x_daily_index() -> list[dict]:
     """Scan all YYYY-MM-DD.json under x-daily and write index.json (newest first)."""
     X_DAILY.mkdir(parents=True, exist_ok=True)
@@ -125,14 +147,11 @@ def rebuild_x_daily_index() -> list[dict]:
         except ValueError:
             continue
         rows = load_day_file(path)
-        n_skill = sum(1 for r in rows if r.get("状态") == "赏金技巧")
-        n_feed = sum(1 for r in rows if r.get("状态") == "推荐流")
+        counts = day_counts(rows)
         entries.append(
             {
                 "date": day,
-                "赏金技巧": n_skill,
-                "推荐流": n_feed,
-                "total": len(rows),
+                **counts,
                 "file": path.name,
             }
         )
@@ -141,18 +160,22 @@ def rebuild_x_daily_index() -> list[dict]:
 
 
 def upsert_x_daily(incoming: list[dict]) -> list[str]:
-    """Upsert X items (赏金技巧/推荐流) into per-day files. Returns touched dates."""
+    """Upsert all dated intel items into per-day files. Returns touched dates."""
     by_day: dict[str, list[dict]] = {}
     for item in incoming:
-        if item.get("状态") not in X_STATUSES:
-            continue
         day = item_date(item)
         if not day:
             print(
-                f"warn: X item missing date (批次/首次写入): {item.get('去重键')}",
+                f"warn: item missing date (批次/首次写入): {item.get('去重键')}",
                 file=sys.stderr,
             )
             continue
+        st = item.get("状态")
+        if st not in STATUS_OK:
+            print(
+                f"warn: archiving unexpected 状态 {st!r} for {item.get('去重键')}",
+                file=sys.stderr,
+            )
         by_day.setdefault(day, []).append(item)
 
     touched: list[str] = []
@@ -160,8 +183,7 @@ def upsert_x_daily(incoming: list[dict]) -> list[str]:
         path = X_DAILY / f"{day}.json"
         existing = load_day_file(path)
         rows, _a, _u = upsert_rows(existing, items)
-        # Keep only X statuses in day files
-        rows = [r for r in rows if r.get("状态") in X_STATUSES]
+        # Keep all statuses (loose daily archive); do not filter
         rows.sort(
             key=lambda r: (str(r.get("首次写入") or ""), str(r.get("去重键") or "")),
             reverse=True,

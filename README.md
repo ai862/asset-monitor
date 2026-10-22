@@ -87,14 +87,27 @@ curl -sL https://ai862.github.io/asset-monitor/assets/ai-web/rikyz90-shibaclaw.j
 
 人类深链（自动打开侧栏）：`?source=ai-web&id=rikyz90-shibaclaw`。研判流水线结束时会运行 `scripts/export_guidance_assets.py` 同步这些文件。
 
-## 工控 / 信创 下载页补链（浏览器 + OpenRouter）
+## 工控 / 信创 下载页补链 + 直连填充
 
-对 **工控 Web**、**信创 Web** 中「待核 / 下载页为空 / 下载页仅官网首页」的条目，用公开网页抓取 + 免费大模型判断官方下载中心或试用页，写回 `data/ics.json`、`data/xinchuang.json`（字段：`下载页`、`下载条件`、`状态`，并带 `下载核验时间` / `下载核验来源`）。**不会**编造安装包直链；仅商务预约则标「商务墙」。
+对 **工控 Web**、**信创 Web** 中「待核 / 下载页为空 / 下载页仅官网首页」的条目，用公开网页抓取 + 免费大模型判断官方下载中心或试用页，写回 `data/ics.json`、`data/xinchuang.json`（字段：`下载页`、`下载条件`、`状态`，并带 `下载核验时间` / `下载核验来源`）。仅商务预约则标「商务墙」。
 
-- 密钥同上：仓库 Secret `OPENROUTER_API_KEY`（与 AI Web 研判共用）。
-- Actions → **Find Downloads (ICS / 信创)** → Run workflow；可选 `source`（ics / xinchuang / both）、`dedupe_keys`、`limit`（默认 3，最大 8）、`force`、`max_steps`。
-- 每周日 15:00 UTC 低流量自动跑一轮。
-- 本地：`export OPENROUTER_API_KEY=…` 后执行 `python3 scripts/find_downloads.py --source xinchuang --keys nfschina-browser --limit 1`（勿提交 key）。无 Playwright 时回退 urllib。
+另可选填充 **公开直连**（不编造 URL）：
+
+| 字段 | 说明 |
+|------|------|
+| `直连下载` | 单个 URL 字符串，或若干候选 URL 的数组；亦可为 `docker pull image:tag` 文本 |
+| `直连核验时间` | Asia/Shanghai ISO 时间 |
+| `Drive路径` | 可选，上传后形如 `厂商/产品/filename` |
+| `Drive文件ID` | 可选，Drive 条目 id |
+
+- 密钥同上：仓库 Secret `OPENROUTER_API_KEY`（与 AI Web 研判共用）。Actions **不**跑 OpenCode。
+- Actions → **Find Downloads (ICS / 信创)** → Run workflow；可选 `source`、`dedupe_keys`、`limit`（默认 3，最大 8）、`force`、`max_steps`、`fill_direct`（默认 true）、`direct_only`。
+- 每天 15:00 UTC（约北京时间 23:00）自动跑：先核下载页，再填 `直连下载`（HTML / GitHub Releases，**只写 URL，不下载大包**）。
+- 本地页核验：`export OPENROUTER_API_KEY=…` 后 `python3 scripts/find_downloads.py --source xinchuang --keys … --limit 1`（勿提交 key）。
+- 只填直连：`python3 scripts/fill_direct_downloads.py --source ics --keys apache-iotdb-web-workbench --limit 1`
+- 经 `find_downloads` 一并填直连：加 `--direct` 或 `--direct-only`。
+- **OpenCode 辅助**（本机 / Grok Bot 例行）：`python3 scripts/fill_direct_downloads.py --opencode --keys … --limit 1`。助手脚本 `scripts/opencode_find_direct.sh` 调 `/home/box/.opencode/bin/opencode`；失败则回退 HTML 路径。OpenCode 只许列出公开文档中的直链，禁止臆造。
+- **Drive 上传**（可选，默认关闭）：`--upload-drive` 会把 ≤200MB 的包下到 `/tmp` 并写入 `Drive路径` 元数据；真正的 Google Drive MCP 上传由例行完成。更大文件需 `--force-large`。
 
 
 ## 每日情报
@@ -102,23 +115,23 @@ curl -sL https://ai862.github.io/asset-monitor/assets/ai-web/rikyz90-shibaclaw.j
 Grok Bot 每日汇总的 SRC 24h 速报、X 赏金技巧与推荐流条目，在页面页签 **每日情报** 浏览。
 
 - 线上：https://ai862.github.io/asset-monitor/#intel
-- 状态枚举：`SRC速报` | `赏金技巧` | `推荐流`
-- 字段：`产品`（标题）、`厂商`（@账号）、`类型`、`备注`、`实用价值`、`官网`（原帖）、`文档`（额外资源）、`去重键`（status id）、`批次`
+- 状态枚举：`SRC速报` | `赏金技巧` | `推荐流`（未知状态会 soft-warn，但仍写入日归档）
+- 字段宽松：至少含 `去重键`；合并时**保留**任意额外键，JSON `indent=2` / `ensure_ascii=False`
 
 ### 数据布局
 
 ```
 data/
   ai-web.json / ics.json / xinchuang.json   # 三类资产（照常推送）
-  intel.json                                # 近 14 天滚动视图（Asia/Shanghai，含 SRC + X）
+  intel.json                                # 近 14 天滚动视图（Asia/Shanghai）
   x-daily/
-    index.json                              # 日期索引（最新在前）
-    YYYY-MM-DD.json                         # 当日 X 归档（仅 赏金技巧 / 推荐流）
+    index.json                              # 日期索引：SRC速报 / 赏金技巧 / 推荐流 / other / total
+    YYYY-MM-DD.json                         # 当日 X 监控全文归档（宽松 schema）
 ```
 
-- **X 监控**（赏金技巧、推荐流）按 `批次`（或回退 `首次写入`）写入 `data/x-daily/YYYY-MM-DD.json`，长期保留在 Git。
-- **SRC 速报**与三类资产一样走常规 upsert；`intel.json` 只保留近 **14** 天（按 Asia/Shanghai 日历日），更早的 SRC 仍可在 git 历史里找回。
-- 网页「每日情报」默认看近 14 天合并；可切日期条浏览 **X 日归档**（不含 SRC）。
+- **`data/x-daily/`** = 完整的每日 X 监控归档（SRC 速报 + 赏金技巧 + 推荐流，以及日后新增状态），按 `批次`（或回退 `首次写入`）落盘，长期保留在 Git；schema 宽松，勿随意删字段。
+- **`intel.json`** 只保留近 **14** 天合并视图，供网页 / Mac 客户端默认加载。
+- 网页「每日情报」默认近 14 天；点日期条看 **当日 X 监控归档**。
 
 增量写入（按 `去重键` 合并，并同步 x-daily、刷新 `config.json` 的 `updatedAt`）：
 
@@ -130,7 +143,7 @@ python3 scripts/upsert_intel.py --file /tmp/items.json
 维护 / 迁移：
 
 ```bash
-python3 scripts/rebuild_x_daily.py          # 从 intel.json 重建 x-daily + 默认 prune
+python3 scripts/rebuild_x_daily.py          # 从 intel.json 重建全日归档 + 默认 prune
 python3 scripts/export_x_daily_md.py --date 2026-10-22
 ```
 
@@ -156,5 +169,5 @@ python3 scripts/export_x_daily_md.py --date 2026-10-22
 
 - Checkbox 字段已转为布尔值（`true` / `false`）。
 - `部署方式` 多为字符串数组。
-- 页面只读；改资产请回 Notion，再重新导出 JSON。每日情报无 Notion，用 `scripts/upsert_intel.py` 写入（X 同时落入 `data/x-daily/`）。
+- 页面只读；改资产请回 Notion，再重新导出 JSON。每日情报无 Notion，用 `scripts/upsert_intel.py` 写入（全部状态落入 `data/x-daily/` 宽松日归档）。
 - AI Web 的 v2 研判字段由 Actions 写入；页面侧栏只读展示。

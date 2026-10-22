@@ -49,7 +49,7 @@
     tableBuilt: false,
     resetScroll: false,
     guideKey: null,
-    /** null = 近14天合并视图；YYYY-MM-DD = X 日归档 */
+    /** null = 近14天合并视图；YYYY-MM-DD = 当日 X 监控归档 */
     intelDate: null,
     /** 原始 data/intel.json（近14天合并，含 SRC） */
     intelMerged: null,
@@ -338,10 +338,10 @@
 
     if (state.intelDate) {
       hint.textContent =
-        `X 日归档 · ${state.intelDate}（仅赏金技巧与推荐流；SRC 见近14天合并视图）`;
+        `当日 X 监控归档 · ${state.intelDate}（含 SRC速报 / 赏金技巧 / 推荐流）`;
     } else {
       hint.textContent =
-        "按日归档仅含赏金技巧与推荐流；SRC 见近14天合并视图";
+        "近14天合并视图；点日期可看当日 X 监控归档（含 SRC速报 / 赏金技巧 / 推荐流）";
     }
   }
 
@@ -365,7 +365,7 @@
     $("error").classList.add("hidden");
     try {
       const res = await fetch(`data/x-daily/${encodeURIComponent(dateKey)}.json`);
-      if (!res.ok) throw new Error(`加载 X 日归档 ${dateKey} 失败 (${res.status})`);
+      if (!res.ok) throw new Error(`加载当日 X 监控归档 ${dateKey} 失败 (${res.status})`);
       const rows = await res.json();
       state.intelDate = dateKey;
       state.cache.intel = Array.isArray(rows) ? rows : [];
