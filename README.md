@@ -99,17 +99,39 @@ curl -sL https://ai862.github.io/asset-monitor/assets/ai-web/rikyz90-shibaclaw.j
 
 ## 每日情报
 
-Grok Bot 每日汇总的 SRC 24h 速报、X 赏金技巧与推荐流条目，同步进 `data/intel.json`，在页面页签 **每日情报** 浏览。
+Grok Bot 每日汇总的 SRC 24h 速报、X 赏金技巧与推荐流条目，在页面页签 **每日情报** 浏览。
 
 - 线上：https://ai862.github.io/asset-monitor/#intel
 - 状态枚举：`SRC速报` | `赏金技巧` | `推荐流`
 - 字段：`产品`（标题）、`厂商`（@账号）、`类型`、`备注`、`实用价值`、`官网`（原帖）、`文档`（额外资源）、`去重键`（status id）、`批次`
 
-增量写入（按 `去重键` 合并，新覆盖旧，并刷新 `config.json` 的 `updatedAt`）：
+### 数据布局
+
+```
+data/
+  ai-web.json / ics.json / xinchuang.json   # 三类资产（照常推送）
+  intel.json                                # 近 14 天滚动视图（Asia/Shanghai，含 SRC + X）
+  x-daily/
+    index.json                              # 日期索引（最新在前）
+    YYYY-MM-DD.json                         # 当日 X 归档（仅 赏金技巧 / 推荐流）
+```
+
+- **X 监控**（赏金技巧、推荐流）按 `批次`（或回退 `首次写入`）写入 `data/x-daily/YYYY-MM-DD.json`，长期保留在 Git。
+- **SRC 速报**与三类资产一样走常规 upsert；`intel.json` 只保留近 **14** 天（按 Asia/Shanghai 日历日），更早的 SRC 仍可在 git 历史里找回。
+- 网页「每日情报」默认看近 14 天合并；可切日期条浏览 **X 日归档**（不含 SRC）。
+
+增量写入（按 `去重键` 合并，并同步 x-daily、刷新 `config.json` 的 `updatedAt`）：
 
 ```bash
 python3 scripts/upsert_intel.py --file /tmp/items.json
 # 或：cat items.json | python3 scripts/upsert_intel.py
+```
+
+维护 / 迁移：
+
+```bash
+python3 scripts/rebuild_x_daily.py          # 从 intel.json 重建 x-daily + 默认 prune
+python3 scripts/export_x_daily_md.py --date 2026-10-22
 ```
 
 ## 扩展新监控源
@@ -134,5 +156,5 @@ python3 scripts/upsert_intel.py --file /tmp/items.json
 
 - Checkbox 字段已转为布尔值（`true` / `false`）。
 - `部署方式` 多为字符串数组。
-- 页面只读；改资产请回 Notion，再重新导出 JSON。每日情报无 Notion，用 `scripts/upsert_intel.py` 写入。
+- 页面只读；改资产请回 Notion，再重新导出 JSON。每日情报无 Notion，用 `scripts/upsert_intel.py` 写入（X 同时落入 `data/x-daily/`）。
 - AI Web 的 v2 研判字段由 Actions 写入；页面侧栏只读展示。

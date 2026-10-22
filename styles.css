@@ -533,3 +533,23 @@ tr.v-row:hover td { background: #f0f4fa; }
   font-family: var(--mono); font-size: .75rem;
   background: var(--bg-soft); padding: 1px 5px; border-radius: 4px;
 }
+
+/* Intel date archive strip */
+.intel-hint {
+  margin: 2px 0 0 46px;
+  color: var(--faint);
+  font-size: .75rem;
+  line-height: 1.4;
+}
+.chip.chip-archive {
+  border-style: dashed;
+}
+.chip.chip-archive.active {
+  border-style: solid;
+}
+.chip .chip-tag {
+  margin-left: 4px;
+  font-size: .68rem;
+  opacity: .85;
+  font-weight: 600;
+}

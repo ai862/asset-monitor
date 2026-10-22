@@ -7,6 +7,8 @@
 - 最低系统：macOS 14 Sonoma
 - 数据源：`https://ai862.github.io/asset-monitor/config.json` 及各 `data/*.json`
 
+> **X 日归档**：完整按日历史在仓库 `data/x-daily/`；本客户端目前仍只读近 14 天的 `data/intel.json`（含 SRC）。日后若要按日浏览可再拉 `x-daily/index.json`。
+
 ## 在 Mac 上运行（约 1 分钟）
 
 1. 把本仓库里的 `mac/AssetMonitor/` 拷到 Mac（或直接 clone 整个 `monitor-hub`）。

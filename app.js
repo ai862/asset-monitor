@@ -49,6 +49,12 @@
     tableBuilt: false,
     resetScroll: false,
     guideKey: null,
+    /** null = 近14天合并视图；YYYY-MM-DD = X 日归档 */
+    intelDate: null,
+    /** 原始 data/intel.json（近14天合并，含 SRC） */
+    intelMerged: null,
+    /** data/x-daily/index.json */
+    xDailyIndex: null,
   };
 
   const $ = (id) => document.getElementById(id);
@@ -229,7 +235,7 @@
     const el = $("tabs");
     el.innerHTML = state.config.sources
       .map((s) => {
-        const n = state.cache[s.id]?.length ?? "…";
+        const n = sourceCount(s.id) ?? "…";
         const active = s.id === state.sourceId ? " active" : "";
         const icon = iconUse(ICON_IDS[s.id], 15);
         return `<button type="button" class="tab${active}" role="tab" data-id="${esc(s.id)}" aria-selected="${
@@ -252,17 +258,22 @@
       btn.setAttribute("aria-selected", on ? "true" : "false");
       const count = btn.querySelector(".count");
       if (count) {
-        const n = state.cache[btn.dataset.id]?.length;
+        const n = sourceCount(btn.dataset.id);
         if (n != null) count.textContent = String(n);
       }
     }
+  }
+
+  function sourceCount(id) {
+    if (id === "intel" && state.intelMerged) return state.intelMerged.length;
+    return state.cache[id]?.length;
   }
 
   function refreshTabCounts() {
     const el = $("tabs");
     for (const btn of el.querySelectorAll(".tab")) {
       const count = btn.querySelector(".count");
-      const n = state.cache[btn.dataset.id]?.length;
+      const n = sourceCount(btn.dataset.id);
       if (count && n != null) count.textContent = String(n);
     }
   }
@@ -281,6 +292,97 @@
     container.innerHTML = chips.join("");
   }
 
+
+  async function ensureXDailyIndex() {
+    if (state.xDailyIndex) return state.xDailyIndex;
+    try {
+      const res = await fetch("data/x-daily/index.json");
+      if (!res.ok) throw new Error(`index ${res.status}`);
+      const data = await res.json();
+      state.xDailyIndex = Array.isArray(data) ? data : [];
+    } catch {
+      state.xDailyIndex = [];
+    }
+    return state.xDailyIndex;
+  }
+
+  function renderDateChips() {
+    const wrap = $("date-filters");
+    const chipsEl = $("date-chips");
+    const hint = $("intel-hint");
+    if (!wrap || !chipsEl || !hint) return;
+
+    if (state.sourceId !== "intel") {
+      wrap.classList.add("hidden");
+      hint.classList.add("hidden");
+      hint.textContent = "";
+      return;
+    }
+
+    wrap.classList.remove("hidden");
+    hint.classList.remove("hidden");
+    const index = state.xDailyIndex || [];
+    const mergedN = state.intelMerged?.length ?? state.cache.intel?.length ?? 0;
+    const parts = [
+      `<button type="button" class="chip${!state.intelDate ? " active" : ""}" data-date="__merged__">近14天（合并）<span class="n">${mergedN}</span></button>`,
+    ];
+    for (const e of index) {
+      const on = state.intelDate === e.date;
+      parts.push(
+        `<button type="button" class="chip chip-archive${on ? " active" : ""}" data-date="${esc(e.date)}">${esc(
+          e.date
+        )}<span class="n">${e.total ?? 0}</span><span class="chip-tag">X</span></button>`
+      );
+    }
+    chipsEl.innerHTML = parts.join("");
+
+    if (state.intelDate) {
+      hint.textContent =
+        `X 日归档 · ${state.intelDate}（仅赏金技巧与推荐流；SRC 见近14天合并视图）`;
+    } else {
+      hint.textContent =
+        "按日归档仅含赏金技巧与推荐流；SRC 见近14天合并视图";
+    }
+  }
+
+  async function selectIntelDate(dateKey) {
+    if (state.sourceId !== "intel") return;
+
+    if (dateKey === "__merged__" || !dateKey) {
+      state.intelDate = null;
+      if (state.intelMerged) state.cache.intel = state.intelMerged;
+      state.status = new Set();
+      state.tableBuilt = false;
+      state.resetScroll = true;
+      renderDateChips();
+      renderFilters(state.cache.intel || []);
+      render({ resetScroll: true });
+      return;
+    }
+
+    $("loading").classList.remove("hidden");
+    $("empty").classList.add("hidden");
+    $("error").classList.add("hidden");
+    try {
+      const res = await fetch(`data/x-daily/${encodeURIComponent(dateKey)}.json`);
+      if (!res.ok) throw new Error(`加载 X 日归档 ${dateKey} 失败 (${res.status})`);
+      const rows = await res.json();
+      state.intelDate = dateKey;
+      state.cache.intel = Array.isArray(rows) ? rows : [];
+      state.status = new Set();
+      state.tableBuilt = false;
+      state.resetScroll = true;
+      $("loading").classList.add("hidden");
+      renderDateChips();
+      renderFilters(state.cache.intel);
+      render({ resetScroll: true });
+    } catch (err) {
+      $("loading").classList.add("hidden");
+      $("error").classList.remove("hidden");
+      $("error").textContent = String(err.message || err);
+    }
+  }
+
   function renderFilters(rows) {
     renderChips($("status-chips"), uniqueValues(rows, "状态"), state.status, "全部");
     const extra = EXTRA_FIELD[state.sourceId];
@@ -295,18 +397,19 @@
     const diffWrap = $("diff-filters");
     if (state.sourceId !== "ai-web") {
       diffWrap.classList.add("hidden");
-      return;
+    } else {
+      diffWrap.classList.remove("hidden");
+      // Normalize empty 搭建难度 → 未知 for chip counts
+      const norm = rows.map((r) => ({
+        ...r,
+        搭建难度: r["搭建难度"] || "未知",
+      }));
+      const order = ["易", "中", "难", "未知"];
+      const counts = uniqueValues(norm, "搭建难度");
+      counts.sort((a, b) => order.indexOf(a[0]) - order.indexOf(b[0]) || b[1] - a[1]);
+      renderChips($("diff-chips"), counts, state.difficulty, "全部");
     }
-    diffWrap.classList.remove("hidden");
-    // Normalize empty 搭建难度 → 未知 for chip counts
-    const norm = rows.map((r) => ({
-      ...r,
-      搭建难度: r["搭建难度"] || "未知",
-    }));
-    const order = ["易", "中", "难", "未知"];
-    const counts = uniqueValues(norm, "搭建难度");
-    counts.sort((a, b) => order.indexOf(a[0]) - order.indexOf(b[0]) || b[1] - a[1]);
-    renderChips($("diff-chips"), counts, state.difficulty, "全部");
+    renderDateChips();
   }
 
   function headExtraAndCount(src) {
@@ -585,11 +688,25 @@
       state.tableBuilt = false;
       state.resetScroll = true;
       closeGuide();
+      // Leaving or entering intel: restore merged view
+      if (id === "intel" && state.intelMerged) {
+        state.intelDate = null;
+        state.cache.intel = state.intelMerged;
+      } else if (id !== "intel") {
+        state.intelDate = null;
+      }
     }
 
     applySourceChrome(src, { pushHash });
 
+    if (id === "intel") {
+      await ensureXDailyIndex();
+    }
+
     if (state.cache[id]) {
+      if (id === "intel" && !state.intelMerged) {
+        state.intelMerged = state.cache.intel;
+      }
       renderFilters(state.cache[id]);
       render({ resetScroll: !same });
       return;
@@ -605,6 +722,10 @@
       const res = await fetch(src.data);
       if (!res.ok) throw new Error(`加载 ${src.data} 失败 (${res.status})`);
       state.cache[id] = await res.json();
+      if (id === "intel") {
+        state.intelMerged = state.cache.intel;
+        state.intelDate = null;
+      }
       refreshTabCounts();
       renderFilters(state.cache[id]);
       render({ resetScroll: true });
@@ -764,6 +885,12 @@
       loadSource(btn.dataset.id);
     });
 
+    $("date-chips").addEventListener("click", (e) => {
+      const btn = e.target.closest(".chip");
+      if (!btn || !btn.dataset.date) return;
+      selectIntelDate(btn.dataset.date);
+    });
+
     $("status-chips").addEventListener("click", (e) => {
       const btn = e.target.closest(".chip");
       if (!btn) return;
@@ -913,6 +1040,11 @@
         })
       );
 
+      if (state.cache.intel && !state.intelMerged) {
+        state.intelMerged = state.cache.intel;
+      }
+      // Prefetch x-daily index (non-blocking if intel not first tab)
+      ensureXDailyIndex().catch(() => {});
       buildTabs();
       bind();
       const params = new URLSearchParams(location.search);

@@ -20,6 +20,7 @@ enum RemoteStoreError: LocalizedError {
 final class RemoteStore: ObservableObject {
     static let shared = RemoteStore()
 
+    /// Pages root. Intel rolling view: data/intel.json; full X history by day: data/x-daily/ (not loaded yet).
     let baseURL = URL(string: "https://ai862.github.io/asset-monitor/")!
 
     @Published private(set) var config: AppConfig?
