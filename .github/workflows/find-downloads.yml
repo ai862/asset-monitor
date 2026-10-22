@@ -1,6 +1,7 @@
-# 工控 / 信创：自动查找官方下载页（浏览器抓取 + OpenRouter）
+# 工控 / 信创：自动查找官方下载页（浏览器抓取 + OpenRouter），并填充公开直连下载 URL。
 # 密钥：仅使用仓库 Secrets 中的 OPENROUTER_API_KEY。
 # 切勿把 API key 粘贴进 workflow inputs、日志或提交到仓库。
+# OpenCode 直连辅助仅在本地 / Grok Bot 例行使用；Actions 走 HTML + GitHub Releases 解析。
 
 name: Find Downloads (ICS / 信创)
 
@@ -36,8 +37,18 @@ on:
         required: false
         type: number
         default: 6
+      fill_direct:
+        description: "同时从下载页/GitHub Releases 填充 直连下载（默认开）"
+        required: false
+        type: boolean
+        default: true
+      direct_only:
+        description: "跳过 OpenRouter 页核验，只填 直连下载"
+        required: false
+        type: boolean
+        default: false
   schedule:
-    # 每天 15:00 UTC ≈ 23:00 Asia/Shanghai — 扫待核/空下载页
+    # 每天 15:00 UTC ≈ 23:00 Asia/Shanghai — 扫待核/空下载页 + 直连
     - cron: "0 15 * * *"
 
 concurrency:
@@ -70,12 +81,13 @@ jobs:
           echo "::add-mask::$OPENROUTER_API_KEY"
 
       - name: Install Playwright Chromium
+        if: ${{ github.event_name == 'schedule' || github.event.inputs.direct_only != 'true' }}
         run: |
           set -euo pipefail
           pip install --quiet playwright
           playwright install --with-deps chromium
 
-      - name: Find downloads
+      - name: Find downloads (+ optional 直连)
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
@@ -90,12 +102,27 @@ jobs:
           if [ -z "$MAX_STEPS" ]; then MAX_STEPS=6; fi
           KEYS="${{ github.event.inputs.dedupe_keys }}"
           FORCE="${{ github.event.inputs.force }}"
+          FILL_DIRECT="${{ github.event.inputs.fill_direct }}"
+          DIRECT_ONLY="${{ github.event.inputs.direct_only }}"
+          # schedule defaults: fill direct on
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            FILL_DIRECT=true
+            DIRECT_ONLY=false
+          fi
+          if [ -z "$FILL_DIRECT" ]; then FILL_DIRECT=true; fi
+          if [ -z "$DIRECT_ONLY" ]; then DIRECT_ONLY=false; fi
+
           ARGS=(--source "$SOURCE" --limit "$LIMIT" --max-steps "$MAX_STEPS")
           if [ -n "$KEYS" ]; then
             ARGS+=(--keys "$KEYS")
           fi
           if [ "$FORCE" = "true" ]; then
             ARGS+=(--force)
+          fi
+          if [ "$DIRECT_ONLY" = "true" ]; then
+            ARGS+=(--direct-only)
+          elif [ "$FILL_DIRECT" = "true" ]; then
+            ARGS+=(--direct)
           fi
           python3 scripts/find_downloads.py "${ARGS[@]}"
 
@@ -109,7 +136,7 @@ jobs:
             echo "No data changes to commit."
             exit 0
           fi
-          git commit -m "chore(downloads): update ICS / 信创 download pages"
+          git commit -m "chore(downloads): update ICS / 信创 download pages + 直连"
           git fetch origin main
           if git rebase origin/main; then
             git push origin HEAD:main

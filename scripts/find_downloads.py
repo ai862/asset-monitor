@@ -3,6 +3,9 @@
 
 Reads OPENROUTER_API_KEY from the environment only. Never prints the key.
 Never invents package URLs — only catalogs public product / download-center pages.
+
+With --direct, after page discovery (or alone via scripts/fill_direct_downloads.py),
+also extract publicly linked package URLs into 直连下载.
 """
 
 from __future__ import annotations
@@ -679,6 +682,16 @@ def main() -> int:
     ap.add_argument("--force", action="store_true", help="Re-check even if already 可下")
     ap.add_argument("--max-steps", type=int, default=6, help="Max browse steps per asset")
     ap.add_argument("--dry-run", action="store_true", help="Select targets only")
+    ap.add_argument(
+        "--direct",
+        action="store_true",
+        help="After page find, also fill 直连下载 via scripts/fill_direct_downloads.py",
+    )
+    ap.add_argument(
+        "--direct-only",
+        action="store_true",
+        help="Skip OpenRouter page find; only run fill_direct_downloads",
+    )
     args = ap.parse_args()
 
     limit = max(1, min(int(args.limit), 8))
@@ -689,13 +702,16 @@ def main() -> int:
     if api_key and os.environ.get("GITHUB_ACTIONS"):
         print(f"::add-mask::{api_key}", flush=True)
 
-    if not args.dry_run and not api_key:
-        log("ERROR: OPENROUTER_API_KEY missing")
-        return 1
-
     sources = ["ics", "xinchuang"] if args.source == "both" else [args.source]
     total_changed = 0
     summary_lines: list[str] = []
+
+    if args.direct_only:
+        return _run_direct_fill(args, keys, limit)
+
+    if not args.dry_run and not api_key:
+        log("ERROR: OPENROUTER_API_KEY missing")
+        return 1
 
     log(f"browser backend: {'playwright' if has_playwright() else 'urllib'}")
 
@@ -714,6 +730,8 @@ def main() -> int:
         log("dry-run complete (no write)")
         for line in summary_lines:
             log(line)
+        if args.direct:
+            log("(dry-run) would also run --direct fill")
         return 0
 
     if total_changed:
@@ -724,7 +742,34 @@ def main() -> int:
     for line in summary_lines:
         log(line)
     log(f"total rows changed: {total_changed}")
+
+    if args.direct:
+        rc = _run_direct_fill(args, keys, limit)
+        if rc != 0:
+            return rc
     return 0
+
+
+def _run_direct_fill(args: argparse.Namespace, keys: list[str] | None, limit: int) -> int:
+    """Invoke fill_direct_downloads.py as subprocess (same interpreter)."""
+    script = ROOT / "scripts" / "fill_direct_downloads.py"
+    cmd = [
+        sys.executable,
+        str(script),
+        "--source",
+        args.source,
+        "--limit",
+        str(limit),
+    ]
+    if keys:
+        cmd.extend(["--keys", ",".join(keys)])
+    if args.force:
+        cmd.append("--force")
+    if args.dry_run:
+        cmd.append("--dry-run")
+    log(f"run direct fill: {' '.join(cmd)}")
+    proc = __import__("subprocess").run(cmd)
+    return int(proc.returncode)
 
 
 if __name__ == "__main__":
