@@ -15,7 +15,13 @@
     "去重键": "herodb",
     "备注": "HeroAdmin 为 B/S 管理端。下载页含 aarch64/loongarch64/mips64el。",
     "资产号": 1,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "直连下载": [
+      "https://www.herobigdata.com/static/download/herodb-std-13-setup.exe",
+      "https://www.herobigdata.com/static/download/herodb7t-std-13-10.el7.x86_64.rpm",
+      "https://www.herobigdata.com/static/download/herodb7t-std-13-10.mips64el.rpm"
+    ],
+    "直连核验时间": "2026-10-23T15:04:50+08:00"
   },
   {
     "产品": "UXDB 社区版",
@@ -33,7 +39,13 @@
     "去重键": "uxdb",
     "备注": "包名写明 KylinOS/UOS；x86 海光/兆芯，ARM 鲲鹏/飞腾。",
     "资产号": 2,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "直连下载": [
+      "https://dl.uxdb.net.cn:5443/downloads/install/uxdb/V2.1/2125B/.gw_sy/uxdb-std-linux7-x86_64-v2.1.2.5B.run",
+      "https://dl.uxdb.net.cn:5443/downloads/install/uxdb/V2.1/2125B/.gw_sy/uxdb-std-linux7-arm64-v2.1.2.5B.run",
+      "https://dl.uxdb.net.cn:5443/downloads/install/uxdb/V2.1/2123/%e9%a9%b1%e5%8a%a8%e6%96%87%e4%bb%b6/1%20X86_64/NCI/uxdb-nci-12-1.0.tar.gz"
+    ],
+    "直连核验时间": "2026-10-23T15:04:52+08:00"
   },
   {
     "产品": "XuguDB 个人试用版",
@@ -47,11 +59,12 @@
     "Web服务": true,
     "统信清单": false,
     "适配信号": "银河麒麟 V10；Linux ARM64",
-    "下载条件": "个人试用约360天，非生产",
+    "下载条件": "个人试用约360天，非生产；直连：fetch fail: 'ascii' codec can't encode characters in position 5-8: ordinal not in range(128)",
     "去重键": "xugudb",
-    "备注": "Linux x86_64 与 ARM64 均可下。",
+    "备注": "Linux x86_64 与 ARM64 均可下。；fetch fail: 'ascii' codec can't encode characters in position 5-8: ordinal not i",
     "资产号": 3,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "直连核验时间": "2026-10-23T15:04:55+08:00"
   },
   {
     "产品": "IvorySQL",
