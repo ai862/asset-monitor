@@ -1,0 +1,77 @@
+{
+  "产品": "Weam",
+  "厂商": "weam-ai",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "TypeScript",
+  "Stars": 222,
+  "GitHub": "https://github.com/weam-ai/weam",
+  "官网": "https://opensource.weam.ai/",
+  "文档": "https://opensource.weam.ai/docs/",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "git clone 后 bash build.sh && docker-compose up --build",
+  "去重键": "weam-ai-weam",
+  "备注": "团队 LLM 平台（Brains/智能体/应用），Next.js+Node。SaaS 部署要商业许可。",
+  "资产号": 46,
+  "首次写入": "2026-09-03",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-24T02:05:57+08:00",
+  "启动指引": "最短启动路径：克隆仓库 -> 复制.env.example为.env -> 配置环境变量 -> 执行bash build.sh（macOS/Linux）或bash winbuild.sh（Windows）-> docker-compose up -d。默认端口：前端3000，Node.js API 4050，Python Gateway 9089，MCP Server 8000，MongoDB 27017，Qdrant 6333，MinIO API 9000，MinIO Console 9001。必需环境变量：包括数据库连接（MONOGODB_URI）、存储凭证（AWS_ACCESS_KEY_ID等）、AI服务密钥（OPENAI_API_KEY等）、鉴权密钥（JWT_SECRET等）。鉴权要点：使用JWT，需配置JWT_SECRET、JWT_REFRESH_SECRET等；API访问支持基本认证，需配置API.BASIC_AUTH_USERNAME和API.BASIC_AUTH_PASSWORD。",
+  "开工前先看": [
+    {
+      "title": "官方文档首页",
+      "url": "https://opensource.weam.ai/docs/"
+    },
+    {
+      "title": "GitHub仓库",
+      "url": "https://github.com/weam-ai/weam"
+    },
+    {
+      "title": "系统要求",
+      "url": "https://deepwiki.com/weam-ai/weam#1.2"
+    },
+    {
+      "title": "快速入门",
+      "url": "https://deepwiki.com/weam-ai/weam#2"
+    },
+    {
+      "title": "服务概览",
+      "url": "https://deepwiki.com/weam-ai/weam#3.1"
+    },
+    {
+      "title": "后端服务",
+      "url": "https://deepwiki.com/weam-ai/weam#5"
+    },
+    {
+      "title": "Python网关",
+      "url": "https://deepwiki.com/weam-ai/weam#5.2"
+    },
+    {
+      "title": "配置与工具",
+      "url": "https://deepwiki.com/weam-ai/weam#8"
+    }
+  ],
+  "建议追问": [
+    "是否需要特定的Docker版本或操作系统要求？",
+    "环境变量中哪些是必须的，哪些是可选的？",
+    "如何配置AI模型提供商的API密钥？",
+    "商业许可的获取方式是什么？",
+    "是否有现成的docker-compose文件用于生产环境？",
+    "如何备份和恢复数据？"
+  ],
+  "已知坑": "环境变量配置错误或缺失可能导致服务启动失败；CORS配置不当可能引起跨域问题；数据库连接字符串错误会导致服务无法启动；JWT令牌过期时间配置不当可能导致用户频繁登出；CSRF保护配置错误可能引发403错误。",
+  "成功标准": "1. 所有Docker容器状态为Up；2. 前端可通过http://localhost:3000访问；3. Node.js API健康检查端点/napi/health返回200；4. Python Gateway的/ping端点返回pong；5. MCP Server的/health端点返回健康状态；6. 可以使用配置的账号登录系统。",
+  "研判摘要": "Weam是一个团队LLM平台，采用Next.js和Node.js构建，使用Docker Compose进行服务编排。部署需要配置多个环境变量，包括数据库、存储、AI服务密钥等。平台提供Web UI、Node.js API和Python Gateway等多层服务，支持智能体和应用构建。注意，SaaS部署需要商业许可。",
+  "推荐启动": "git clone https://github.com/weam-ai/weam && cd weam && cp .env.example .env && bash build.sh && docker-compose up -d",
+  "agentHint": "注意配置环境变量和鉴权密钥，确保服务正常启动。",
+  "DeepWiki": "https://deepwiki.com/weam-ai/weam",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/weam-ai-weam.json",
+  "source": "ai-web"
+}

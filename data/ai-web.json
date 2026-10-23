@@ -1363,13 +1363,45 @@
     "备注": "中文 FastAPI+Vue3 RAG：知识库/PDF 引用/检索拒答。",
     "资产号": 47,
     "首次写入": "2026-09-03",
-    "研判状态": "未研判",
-    "研判时间": "2026-10-23T02:15:33+08:00",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-24T02:04:29+08:00",
     "DeepWiki": "https://deepwiki.com/biao994/DocPaws",
-    "搭建难度": "未知",
+    "搭建难度": "中",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "研判摘要": "OpenRouter 未能生成有效 JSON。"
+    "研判摘要": "DocPaws 是基于 FastAPI+Vue3 的中文 RAG 知识库系统，支持 PDF 引用与检索拒答，需配合 Docker Compose 启动 PG/Redis/MinIO 基础设施，再分别运行后端 uvicorn 与前端 dev server，依赖 LLM/Embedding API Key 与会话 Cookie 鉴权。",
+    "启动指引": "1. 启动基础设施：docker compose up -d（启动 PostgreSQL:5432、Redis:6379、MinIO:9000/9001）。2. 后端：进入 backend 目录，pip install -r requirements.txt，复制 .env.example 为 .env 并配置 DEEPSEEK_API_KEY/OPENAI_API_KEY、EMBEDDING_API_KEY、SECRET_KEY（≥32位随机字符串）、CORS_ORIGINS（默认 http://localhost:3000）等；启动 uvicorn docpaws.main:app --reload --port 8000。3. 前端：进入 frontend 目录，npm install，npm run dev（监听 :3000）。4. 鉴权：通过 /api/v1/auth/register 和 /api/v1/auth/login 注册登录，会话 Cookie 由 SECRET_KEY 签名。",
+    "开工前先看": [
+      {
+        "title": "DocPaws Overview",
+        "url": "https://deepwiki.com/biao994/DocPaws#1"
+      },
+      {
+        "title": "Getting Started & Deployment",
+        "url": "https://deepwiki.com/biao994/DocPaws#1.1"
+      },
+      {
+        "title": "System Architecture & Layering",
+        "url": "https://deepwiki.com/biao994/DocPaws#1.2"
+      },
+      {
+        "title": "GitHub Repository",
+        "url": "https://github.com/biao994/DocPaws"
+      }
+    ],
+    "建议追问": [
+      "如何配置多环境（生产/测试）的数据库与对象存储连接？",
+      "Celery 异步索引任务的worker如何部署与监控？",
+      "RETRIEVAL_MAX_DISTANCE 的合理取值范围与调优策略是什么？",
+      "前端开发代理与生产环境反向代理（如Nginx）的具体配置示例？",
+      "如何备份与迁移知识库中的文档与向量数据？",
+      "基于会话的鉴权如何扩展为JWT或OAuth2？"
+    ],
+    "已知坑": "1. 缺少 DEEPSEEK_API_KEY 或 OPENAI_API_KEY 会导致 RAG 功能不可用。2. RETRIEVAL_MAX_DISTANCE 设置不当（过小导致频繁拒答，过大导致幻觉）。3. Celery worker 未启动时 PDF 索引任务会堆积。4. CORS_ORIGINS 未包含前端实际域名会触发跨域错误。5. SECRET_KEY 过短或重复使用会导致会话 cookie 被伪造。6. 默认使用 SQLite，生产环境需配置 DATABASE_URL 到 PostgreSQL。",
+    "成功标准": "1. docker compose ps 显示 PG/Redis/MinIO 均 healthy。2. curl http://localhost:8000/healthz 返回 {\"status\":\"ok\"}。3. 浏览器访问 http://localhost:3000 能进入登录页。4. 调用 /api/v1/auth/register 注册用户成功。5. 上传 PDF 后能在 /kb 知识库中看到并成功检索引用。",
+    "推荐启动": "docker compose up -d && cd backend && cp .env.example .env && pip install -r requirements.txt && uvicorn docpaws.main:app --reload --port 8000 & cd ../frontend && npm install && npm run dev",
+    "agentHint": "启动前务必先配置 .env 中的 API Key 与 SECRET_KEY，并确认 Celery worker 已开启以支持异步索引。",
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/biao994-docpaws.json"
   },
   {
     "产品": "Arkloop",
@@ -1910,7 +1942,62 @@
     "去重键": "weam-ai-weam",
     "备注": "团队 LLM 平台（Brains/智能体/应用），Next.js+Node。SaaS 部署要商业许可。",
     "资产号": 46,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-24T02:05:57+08:00",
+    "启动指引": "最短启动路径：克隆仓库 -> 复制.env.example为.env -> 配置环境变量 -> 执行bash build.sh（macOS/Linux）或bash winbuild.sh（Windows）-> docker-compose up -d。默认端口：前端3000，Node.js API 4050，Python Gateway 9089，MCP Server 8000，MongoDB 27017，Qdrant 6333，MinIO API 9000，MinIO Console 9001。必需环境变量：包括数据库连接（MONOGODB_URI）、存储凭证（AWS_ACCESS_KEY_ID等）、AI服务密钥（OPENAI_API_KEY等）、鉴权密钥（JWT_SECRET等）。鉴权要点：使用JWT，需配置JWT_SECRET、JWT_REFRESH_SECRET等；API访问支持基本认证，需配置API.BASIC_AUTH_USERNAME和API.BASIC_AUTH_PASSWORD。",
+    "开工前先看": [
+      {
+        "title": "官方文档首页",
+        "url": "https://opensource.weam.ai/docs/"
+      },
+      {
+        "title": "GitHub仓库",
+        "url": "https://github.com/weam-ai/weam"
+      },
+      {
+        "title": "系统要求",
+        "url": "https://deepwiki.com/weam-ai/weam#1.2"
+      },
+      {
+        "title": "快速入门",
+        "url": "https://deepwiki.com/weam-ai/weam#2"
+      },
+      {
+        "title": "服务概览",
+        "url": "https://deepwiki.com/weam-ai/weam#3.1"
+      },
+      {
+        "title": "后端服务",
+        "url": "https://deepwiki.com/weam-ai/weam#5"
+      },
+      {
+        "title": "Python网关",
+        "url": "https://deepwiki.com/weam-ai/weam#5.2"
+      },
+      {
+        "title": "配置与工具",
+        "url": "https://deepwiki.com/weam-ai/weam#8"
+      }
+    ],
+    "建议追问": [
+      "是否需要特定的Docker版本或操作系统要求？",
+      "环境变量中哪些是必须的，哪些是可选的？",
+      "如何配置AI模型提供商的API密钥？",
+      "商业许可的获取方式是什么？",
+      "是否有现成的docker-compose文件用于生产环境？",
+      "如何备份和恢复数据？"
+    ],
+    "已知坑": "环境变量配置错误或缺失可能导致服务启动失败；CORS配置不当可能引起跨域问题；数据库连接字符串错误会导致服务无法启动；JWT令牌过期时间配置不当可能导致用户频繁登出；CSRF保护配置错误可能引发403错误。",
+    "成功标准": "1. 所有Docker容器状态为Up；2. 前端可通过http://localhost:3000访问；3. Node.js API健康检查端点/napi/health返回200；4. Python Gateway的/ping端点返回pong；5. MCP Server的/health端点返回健康状态；6. 可以使用配置的账号登录系统。",
+    "研判摘要": "Weam是一个团队LLM平台，采用Next.js和Node.js构建，使用Docker Compose进行服务编排。部署需要配置多个环境变量，包括数据库、存储、AI服务密钥等。平台提供Web UI、Node.js API和Python Gateway等多层服务，支持智能体和应用构建。注意，SaaS部署需要商业许可。",
+    "推荐启动": "git clone https://github.com/weam-ai/weam && cd weam && cp .env.example .env && bash build.sh && docker-compose up -d",
+    "agentHint": "注意配置环境变量和鉴权密钥，确保服务正常启动。",
+    "DeepWiki": "https://deepwiki.com/weam-ai/weam",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/weam-ai-weam.json"
   },
   {
     "产品": "BookWith",
@@ -1930,7 +2017,14 @@
     "去重键": "shutootaki-bookwith",
     "备注": "AI 对话式电子书 Web，ePub+实时问答+播客。",
     "资产号": 36,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "研判状态": "未研判",
+    "研判时间": "2026-10-24T02:07:00+08:00",
+    "DeepWiki": "https://deepwiki.com/shutootaki/bookwith",
+    "搭建难度": "未知",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "研判摘要": "OpenRouter 未能生成有效 JSON。"
   },
   {
     "产品": "sd.cpp-webui",
@@ -1950,7 +2044,42 @@
     "去重键": "daniandtheweb-sd-cpp-webui",
     "备注": "轻量 Gradio 图生成 UI，不依赖 PyTorch。",
     "资产号": 30,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-24T02:08:06+08:00",
+    "启动指引": "运行 ./sdcpp_webui.sh --autostart（Linux/macOS）或 .\\sdcpp_webui_windows.ps1 --autostart（Windows）。默认端口 7860，访问 http://localhost:7860/。无需认证，可选环境变量如 GGML_VK_VISIBLE_DEVICES、CUDA_VISIBLE_DEVICES 等用于 GPU 选择。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/daniandtheweb/sd.cpp-webui"
+      },
+      {
+        "title": "DeepWiki 文档",
+        "url": "https://deepwiki.com/daniandtheweb/sd.cpp-webui"
+      },
+      {
+        "title": "项目 Wiki 首页",
+        "url": "https://github.com/daniandtheweb/sd.cpp-webui/wiki/Overview"
+      }
+    ],
+    "建议追问": [
+      "如何获取 stable-diffusion.cpp 的二进制文件（编译或下载）？",
+      "如何在 Windows 上设置 PowerShell 执行策略以运行启动脚本？",
+      "需要配置哪些环境变量来指定 GPU？",
+      "如何修改模型和输出目录路径？",
+      "启动后如何验证 UI 是否正常工作？",
+      "是否有支持的 Python 版本要求？"
+    ],
+    "已知坑": "未放置 stable-diffusion.cpp 二进制文件导致启动失败；Windows 上 Python 版本不匹配或 PowerShell 执行策略限制。",
+    "成功标准": "启动脚本运行成功后，控制台显示 Gradio 应用正在运行的提示，浏览器访问 http://localhost:7860/ 可加载 UI 界面并执行生成任务。",
+    "研判摘要": "sd.cpp-webui 是一个轻量级 Gradio 图形化界面，封装 stable-diffusion.cpp 模型，无需 PyTorch 环境，通过端口 7860 提供本地 Web 生成服务。",
+    "推荐启动": "./sdcpp_webui.sh --autostart",
+    "agentHint": "确保 stable-diffusion.cpp 可执行文件（sd 或 sd.exe）已放置在仓库根目录，否则启动会失败。",
+    "DeepWiki": "https://deepwiki.com/daniandtheweb/sd.cpp-webui",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/daniandtheweb-sd-cpp-webui.json"
   },
   {
     "产品": "HanaVerse",
@@ -1971,7 +2100,42 @@
     "去重键": "ashish-patnaik-hanaverse",
     "备注": "Ollama 聊天 Web UI + Live2D 角色，Flask localhost:5000。",
     "资产号": 11,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-24T02:08:40+08:00",
+    "启动指引": "1. 克隆仓库并进入目录。2. 安装依赖：pip install -r requirements.txt。3. 确保 Ollama 服务已在本地运行（默认端口 11434）。4. 启动应用：python server.py。应用将在 http://localhost:5000 启动。无需额外环境变量，但需确保 Ollama 可访问。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/Ashish-Patnaik/HanaVerse"
+      },
+      {
+        "title": "官网演示",
+        "url": "https://hanaverse.vercel.app/"
+      },
+      {
+        "title": "DeepWiki 索引（可能未就绪）",
+        "url": "https://deepwiki.com/Ashish-Patnaik/HanaVerse"
+      }
+    ],
+    "建议追问": [
+      "如何指定使用的 Ollama 模型？",
+      "Live2D 角色资源如何替换或扩展？",
+      "是否支持用户认证或多用户隔离？",
+      "生产环境下如何配置反向代理与 HTTPS？",
+      "是否有 Docker 镜像或 docker-compose 示例？",
+      "依赖的 Python 版本最低要求是多少？"
+    ],
+    "已知坑": "DeepWiki 未索引该仓库，文档可能不全；需自行确认 Ollama 版本兼容性；Live2D 资源加载可能需额外配置。",
+    "成功标准": "浏览器访问 http://localhost:5000 显示聊天界面，能与 Ollama 模型对话，Live2D 角色正常渲染。",
+    "研判摘要": "HanaVerse 是基于 Flask 的 Ollama 聊天 Web UI，集成 Live2D 角色，启动简单，适合本地快速体验。",
+    "推荐启动": "pip install -r requirements.txt && python server.py",
+    "agentHint": "确保 Ollama 服务已启动并拉取所需模型。",
+    "DeepWiki": "https://deepwiki.com/Ashish-Patnaik/HanaVerse",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ashish-patnaik-hanaverse.json"
   },
   {
     "产品": "OvertChat",
@@ -1991,7 +2155,27 @@
     "去重键": "yoloyash-overtchat",
     "备注": "自托 Open WebUI 替代品：聊天 + 编码 Agent 控制，MIT。",
     "资产号": 37,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-24T02:11:20+08:00",
+    "启动指引": "克隆仓库并进入目录后复制环境变量模板，生成认证秘钥并启动 Docker Compose：git clone https://github.com/yoloyash/overtchat && cd overtchat && cp .env.example .env && echo 'BETTER_AUTH_SECRET=$(openssl rand -hex 32)' >> .env && echo 'SEARXNG_SECRET=$(openssl rand -hex 32)' >> .env && docker compose up -d --build。默认端口 4718（映射自内部 4717）。必需环境变量：BETTER_AUTH_SECRET, SEARXNG_SECRET, BETTER_AUTH_URL（建议设置为 http://<lan-ip>:4718 实现局域网访问）。鉴权要点：BETTER_AUTH_URL 必须与浏览器看到的域名端口一致，否则将导致登录后循环回登录页。",
+    "建议追问": [
+      "如何配置 BETTER_AUTH_URL 以支持局域网内的设备访问？",
+      "Docker Compose 中如需自定义外部端口，应如何通过环境变量修改？",
+      "SEARXNG_SECRET 的生成和配置对整体功能的具体影响是什么？",
+      "如果 LLM 服务部署在宿主机，如何通过 host.docker.internal 进行跨容访问配置？",
+      "Cloudflare Tunnel (cloudflared) 启用后，原有的 BETTER_AUTH_URL 设置是否需要调整？"
+    ],
+    "已知坑": "BETTER_AUTH_URL 配置不当导致登录循环；端口 4718 冲突导致容器启动失败；Docker 未重建导致 schema 迁移失效；LLM 代理地址配置错误导致上游调用超时。",
+    "成功标准": "浏览器访问 http://localhost:4718 可正常打开登录页；curl -I http://localhost:4718 返回 307 重定向；Docker 容器运行无报错退出；BETTER_AUTH_SECRET 与 SEARXNG_SECRET 已在 .env 中正确设置。",
+    "研判摘要": "OvertChat 是一个基于 Docker 的开源聊天与编码 Agent 控制平台，部署流程相对简便，核心挑战在于认证秘钥管理与跨容 LLM 连通性的配置。",
+    "推荐启动": "docker compose up -d --build",
+    "agentHint": "请优先核实 BETTER_AUTH_URL 与实际访问地址的一致性。",
+    "DeepWiki": "https://deepwiki.com/yoloyash/overtchat",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/yoloyash-overtchat.json"
   },
   {
     "产品": "Video-Analyzer WebUI",
@@ -2012,7 +2196,41 @@
     "去重键": "lza6-video-to-txt",
     "备注": "byjlw/video-analyzer 二开 Gradio：视频分析+Whisper，本地 Ollama。",
     "资产号": 50,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-24T02:11:39+08:00",
+    "启动指引": "运行 python app.py 或 start_windows.bat，即可启动 Gradio WebUI，监听地址为 127.0.0.1:8001。需确保 Python 环境已安装所有依赖（如 gradio, whisper, ollama）。目前无认证要求，如需安全可通过反向代理添加鉴权。",
+    "开工前先看": [
+      {
+        "title": "项目主页",
+        "url": "https://github.com/lza6/video-to-txt"
+      },
+      {
+        "title": "深度维基",
+        "url": "https://deepwiki.com/lza6/video-to-txt"
+      },
+      {
+        "title": "文档/阅读指南",
+        "url": "https://github.com/lza6/video-to-txt"
+      }
+    ],
+    "建议追问": [
+      "需要安装哪些 Python 包和系统依赖？",
+      "如何配置本地 Ollama 服务和 Whisper 模型？",
+      "WebUI 是否需要认证（token、API key）？",
+      "如何通过反向代理（如 Nginx）暴露 Gradio 服务？",
+      "API 端点有哪些，各自的功能是什么？"
+    ],
+    "已知坑": "常见问题包括：缺少 Python 依赖导致导入失败；端口 8001 被占用；Ollama 服务未运行导致分析结果为空；视频文件过大导致内存不足；Windows 批处理文件路径不正确。",
+    "成功标准": "确认 Gradio UI 可访问（http://127.0.0.1:8001），健康检查端点返回正常，上传视频后能获得转录文本和分析结果。",
+    "研判摘要": "基于 Gradio 的视频分析工具，结合 Whisper 和 Ollama 实现本地视频转文本及智能洞察，启动简便。",
+    "推荐启动": "python app.py",
+    "agentHint": "重点说明安装步骤、环境变量设置及如何验证 Gradio 服务已正常启动。",
+    "DeepWiki": "https://deepwiki.com/lza6/video-to-txt",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lza6-video-to-txt.json"
   },
   {
     "产品": "DeepSeek-OCR Dashboard",
@@ -2034,7 +2252,38 @@
     "去重键": "cross2pro-deepseek-ocr-dashboard",
     "备注": "本地 OCR Web：FastAPI+Vue，PDF/图上传与布局框可视化。",
     "资产号": 9,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-24T02:12:07+08:00",
+    "启动指引": "运行项目根目录下的 ./start.sh 脚本，可一键启动后端 FastAPI 服务（默认端口 :8000）与前端 Vite 开发服务器（默认端口 :5173）。环境变量与鉴权配置未在资料中说明，需查阅仓库 README 或代码目录中的 .env 示例文件。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库主页",
+        "url": "https://github.com/Cross2pro/DeepSeek-OCR-Dashboard"
+      },
+      {
+        "title": "DeepWiki 索引页（可能尚未收录）",
+        "url": "https://deepwiki.com/Cross2pro/DeepSeek-OCR-Dashboard"
+      }
+    ],
+    "建议追问": [
+      "您的操作系统是 Windows、macOS 还是 Linux？是否支持当前脚本的执行环境？",
+      "项目是否依赖 GPU 加速？对 CUDA 版本或显存有无要求？",
+      "除默认的 8000/5173 端口外，是否需要修改配置以适配代理或容器化部署？",
+      "是否已有 DeepSeek 模型权重文件？需要放在哪个目录？",
+      "是否需要额外安装系统依赖（如 poppler、tesseract 等）？",
+      "鉴权机制是通过环境变量传递 Token，还是使用默认的无认证本地访问？"
+    ],
+    "已知坑": "仓库资料未能成功索引，常见坑点未知。一般需注意：Python 版本兼容性、Node 版本与 Vite 构建差异、模型文件路径配置、以及 start.sh 脚本的权限设置。",
+    "成功标准": "在浏览器中访问 http://localhost:5173 可正常加载 Dashboard 页面；通过页面上传 PDF 或图片后，能实时显示 OCR 识别结果与布局框可视化；后端 API http://localhost:8000/docs 可查看 FastAPI 自动生成的接口文档。",
+    "研判摘要": "DeepSeek-OCR Dashboard 是一个本地运行的 OCR Web 应用，采用 FastAPI + Vue 技术栈，提供图片/PDF 上传与布局框可视化功能。通过 start.sh 脚本可快速启动开发环境，但环境变量、鉴权等细节需进一步从仓库中确认。",
+    "推荐启动": "cd DeepSeek-OCR-Dashboard && chmod +x start.sh && ./start.sh",
+    "agentHint": "由于 DeepWiki 未索引该仓库，建议直接访问 GitHub README 或 clone 后查看项目内的配置文件与脚本注释，以获取准确的依赖安装与启动步骤。",
+    "DeepWiki": "https://deepwiki.com/Cross2pro/DeepSeek-OCR-Dashboard",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/cross2pro-deepseek-ocr-dashboard.json"
   },
   {
     "产品": "ChatterMate",

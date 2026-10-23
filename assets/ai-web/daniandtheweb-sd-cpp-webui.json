@@ -1,0 +1,56 @@
+{
+  "产品": "sd.cpp-webui",
+  "厂商": "daniandtheweb",
+  "状态": "可下",
+  "类型": "图像",
+  "语言": "Python",
+  "Stars": 149,
+  "GitHub": "https://github.com/daniandtheweb/sd.cpp-webui",
+  "官网": "https://github.com/daniandtheweb/sd.cpp-webui",
+  "文档": "https://github.com/daniandtheweb/sd.cpp-webui",
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "./sdcpp_webui.sh → localhost:7860（Gradio 包 stable-diffusion.cpp，非 A1111）",
+  "去重键": "daniandtheweb-sd-cpp-webui",
+  "备注": "轻量 Gradio 图生成 UI，不依赖 PyTorch。",
+  "资产号": 30,
+  "首次写入": "2026-09-03",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-24T02:08:06+08:00",
+  "启动指引": "运行 ./sdcpp_webui.sh --autostart（Linux/macOS）或 .\\sdcpp_webui_windows.ps1 --autostart（Windows）。默认端口 7860，访问 http://localhost:7860/。无需认证，可选环境变量如 GGML_VK_VISIBLE_DEVICES、CUDA_VISIBLE_DEVICES 等用于 GPU 选择。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/daniandtheweb/sd.cpp-webui"
+    },
+    {
+      "title": "DeepWiki 文档",
+      "url": "https://deepwiki.com/daniandtheweb/sd.cpp-webui"
+    },
+    {
+      "title": "项目 Wiki 首页",
+      "url": "https://github.com/daniandtheweb/sd.cpp-webui/wiki/Overview"
+    }
+  ],
+  "建议追问": [
+    "如何获取 stable-diffusion.cpp 的二进制文件（编译或下载）？",
+    "如何在 Windows 上设置 PowerShell 执行策略以运行启动脚本？",
+    "需要配置哪些环境变量来指定 GPU？",
+    "如何修改模型和输出目录路径？",
+    "启动后如何验证 UI 是否正常工作？",
+    "是否有支持的 Python 版本要求？"
+  ],
+  "已知坑": "未放置 stable-diffusion.cpp 二进制文件导致启动失败；Windows 上 Python 版本不匹配或 PowerShell 执行策略限制。",
+  "成功标准": "启动脚本运行成功后，控制台显示 Gradio 应用正在运行的提示，浏览器访问 http://localhost:7860/ 可加载 UI 界面并执行生成任务。",
+  "研判摘要": "sd.cpp-webui 是一个轻量级 Gradio 图形化界面，封装 stable-diffusion.cpp 模型，无需 PyTorch 环境，通过端口 7860 提供本地 Web 生成服务。",
+  "推荐启动": "./sdcpp_webui.sh --autostart",
+  "agentHint": "确保 stable-diffusion.cpp 可执行文件（sd 或 sd.exe）已放置在仓库根目录，否则启动会失败。",
+  "DeepWiki": "https://deepwiki.com/daniandtheweb/sd.cpp-webui",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/daniandtheweb-sd-cpp-webui.json",
+  "source": "ai-web"
+}

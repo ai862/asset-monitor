@@ -1,0 +1,54 @@
+{
+  "产品": "DeepSeek-OCR Dashboard",
+  "厂商": "Cross2pro",
+  "状态": "可下",
+  "类型": "图像",
+  "语言": "Python",
+  "Stars": 127,
+  "GitHub": "https://github.com/Cross2pro/DeepSeek-OCR-Dashboard",
+  "官网": "https://github.com/Cross2pro/DeepSeek-OCR-Dashboard",
+  "文档": "https://github.com/Cross2pro/DeepSeek-OCR-Dashboard",
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "pip",
+    "npm"
+  ],
+  "下载条件": "./start.sh；FastAPI :8000 + Vite :5173",
+  "去重键": "cross2pro-deepseek-ocr-dashboard",
+  "备注": "本地 OCR Web：FastAPI+Vue，PDF/图上传与布局框可视化。",
+  "资产号": 9,
+  "首次写入": "2026-09-03",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-24T02:12:07+08:00",
+  "启动指引": "运行项目根目录下的 ./start.sh 脚本，可一键启动后端 FastAPI 服务（默认端口 :8000）与前端 Vite 开发服务器（默认端口 :5173）。环境变量与鉴权配置未在资料中说明，需查阅仓库 README 或代码目录中的 .env 示例文件。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库主页",
+      "url": "https://github.com/Cross2pro/DeepSeek-OCR-Dashboard"
+    },
+    {
+      "title": "DeepWiki 索引页（可能尚未收录）",
+      "url": "https://deepwiki.com/Cross2pro/DeepSeek-OCR-Dashboard"
+    }
+  ],
+  "建议追问": [
+    "您的操作系统是 Windows、macOS 还是 Linux？是否支持当前脚本的执行环境？",
+    "项目是否依赖 GPU 加速？对 CUDA 版本或显存有无要求？",
+    "除默认的 8000/5173 端口外，是否需要修改配置以适配代理或容器化部署？",
+    "是否已有 DeepSeek 模型权重文件？需要放在哪个目录？",
+    "是否需要额外安装系统依赖（如 poppler、tesseract 等）？",
+    "鉴权机制是通过环境变量传递 Token，还是使用默认的无认证本地访问？"
+  ],
+  "已知坑": "仓库资料未能成功索引，常见坑点未知。一般需注意：Python 版本兼容性、Node 版本与 Vite 构建差异、模型文件路径配置、以及 start.sh 脚本的权限设置。",
+  "成功标准": "在浏览器中访问 http://localhost:5173 可正常加载 Dashboard 页面；通过页面上传 PDF 或图片后，能实时显示 OCR 识别结果与布局框可视化；后端 API http://localhost:8000/docs 可查看 FastAPI 自动生成的接口文档。",
+  "研判摘要": "DeepSeek-OCR Dashboard 是一个本地运行的 OCR Web 应用，采用 FastAPI + Vue 技术栈，提供图片/PDF 上传与布局框可视化功能。通过 start.sh 脚本可快速启动开发环境，但环境变量、鉴权等细节需进一步从仓库中确认。",
+  "推荐启动": "cd DeepSeek-OCR-Dashboard && chmod +x start.sh && ./start.sh",
+  "agentHint": "由于 DeepWiki 未索引该仓库，建议直接访问 GitHub README 或 clone 后查看项目内的配置文件与脚本注释，以获取准确的依赖安装与启动步骤。",
+  "DeepWiki": "https://deepwiki.com/Cross2pro/DeepSeek-OCR-Dashboard",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/cross2pro-deepseek-ocr-dashboard.json",
+  "source": "ai-web"
+}

@@ -1,0 +1,41 @@
+{
+  "产品": "OvertChat",
+  "厂商": "yoloyash",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "TypeScript",
+  "Stars": 79,
+  "GitHub": "https://github.com/yoloyash/overtchat",
+  "官网": "https://overtchat.com/",
+  "文档": "https://github.com/yoloyash/overtchat/blob/main/docs/deploy.md",
+  "Web服务": true,
+  "部署方式": [
+    "Docker"
+  ],
+  "下载条件": "curl -fsSL https://overtchat.com/install | sh （Docker 一键安装，默认 4718）",
+  "去重键": "yoloyash-overtchat",
+  "备注": "自托 Open WebUI 替代品：聊天 + 编码 Agent 控制，MIT。",
+  "资产号": 37,
+  "首次写入": "2026-09-03",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-24T02:11:20+08:00",
+  "启动指引": "克隆仓库并进入目录后复制环境变量模板，生成认证秘钥并启动 Docker Compose：git clone https://github.com/yoloyash/overtchat && cd overtchat && cp .env.example .env && echo 'BETTER_AUTH_SECRET=$(openssl rand -hex 32)' >> .env && echo 'SEARXNG_SECRET=$(openssl rand -hex 32)' >> .env && docker compose up -d --build。默认端口 4718（映射自内部 4717）。必需环境变量：BETTER_AUTH_SECRET, SEARXNG_SECRET, BETTER_AUTH_URL（建议设置为 http://<lan-ip>:4718 实现局域网访问）。鉴权要点：BETTER_AUTH_URL 必须与浏览器看到的域名端口一致，否则将导致登录后循环回登录页。",
+  "建议追问": [
+    "如何配置 BETTER_AUTH_URL 以支持局域网内的设备访问？",
+    "Docker Compose 中如需自定义外部端口，应如何通过环境变量修改？",
+    "SEARXNG_SECRET 的生成和配置对整体功能的具体影响是什么？",
+    "如果 LLM 服务部署在宿主机，如何通过 host.docker.internal 进行跨容访问配置？",
+    "Cloudflare Tunnel (cloudflared) 启用后，原有的 BETTER_AUTH_URL 设置是否需要调整？"
+  ],
+  "已知坑": "BETTER_AUTH_URL 配置不当导致登录循环；端口 4718 冲突导致容器启动失败；Docker 未重建导致 schema 迁移失效；LLM 代理地址配置错误导致上游调用超时。",
+  "成功标准": "浏览器访问 http://localhost:4718 可正常打开登录页；curl -I http://localhost:4718 返回 307 重定向；Docker 容器运行无报错退出；BETTER_AUTH_SECRET 与 SEARXNG_SECRET 已在 .env 中正确设置。",
+  "研判摘要": "OvertChat 是一个基于 Docker 的开源聊天与编码 Agent 控制平台，部署流程相对简便，核心挑战在于认证秘钥管理与跨容 LLM 连通性的配置。",
+  "推荐启动": "docker compose up -d --build",
+  "agentHint": "请优先核实 BETTER_AUTH_URL 与实际访问地址的一致性。",
+  "DeepWiki": "https://deepwiki.com/yoloyash/overtchat",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/yoloyash-overtchat.json",
+  "source": "ai-web"
+}

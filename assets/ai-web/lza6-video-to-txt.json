@@ -1,0 +1,56 @@
+{
+  "产品": "Video-Analyzer WebUI",
+  "厂商": "lza6",
+  "状态": "可下",
+  "类型": "视频",
+  "语言": "Python",
+  "Stars": 103,
+  "GitHub": "https://github.com/lza6/video-to-txt",
+  "官网": "https://github.com/lza6/video-to-txt",
+  "文档": "https://github.com/lza6/video-to-txt",
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "pip"
+  ],
+  "下载条件": "python app.py 或 start_windows.bat → 127.0.0.1:8001（Gradio）",
+  "去重键": "lza6-video-to-txt",
+  "备注": "byjlw/video-analyzer 二开 Gradio：视频分析+Whisper，本地 Ollama。",
+  "资产号": 50,
+  "首次写入": "2026-09-03",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-24T02:11:39+08:00",
+  "启动指引": "运行 python app.py 或 start_windows.bat，即可启动 Gradio WebUI，监听地址为 127.0.0.1:8001。需确保 Python 环境已安装所有依赖（如 gradio, whisper, ollama）。目前无认证要求，如需安全可通过反向代理添加鉴权。",
+  "开工前先看": [
+    {
+      "title": "项目主页",
+      "url": "https://github.com/lza6/video-to-txt"
+    },
+    {
+      "title": "深度维基",
+      "url": "https://deepwiki.com/lza6/video-to-txt"
+    },
+    {
+      "title": "文档/阅读指南",
+      "url": "https://github.com/lza6/video-to-txt"
+    }
+  ],
+  "建议追问": [
+    "需要安装哪些 Python 包和系统依赖？",
+    "如何配置本地 Ollama 服务和 Whisper 模型？",
+    "WebUI 是否需要认证（token、API key）？",
+    "如何通过反向代理（如 Nginx）暴露 Gradio 服务？",
+    "API 端点有哪些，各自的功能是什么？"
+  ],
+  "已知坑": "常见问题包括：缺少 Python 依赖导致导入失败；端口 8001 被占用；Ollama 服务未运行导致分析结果为空；视频文件过大导致内存不足；Windows 批处理文件路径不正确。",
+  "成功标准": "确认 Gradio UI 可访问（http://127.0.0.1:8001），健康检查端点返回正常，上传视频后能获得转录文本和分析结果。",
+  "研判摘要": "基于 Gradio 的视频分析工具，结合 Whisper 和 Ollama 实现本地视频转文本及智能洞察，启动简便。",
+  "推荐启动": "python app.py",
+  "agentHint": "重点说明安装步骤、环境变量设置及如何验证 Gradio 服务已正常启动。",
+  "DeepWiki": "https://deepwiki.com/lza6/video-to-txt",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lza6-video-to-txt.json",
+  "source": "ai-web"
+}

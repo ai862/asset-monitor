@@ -1,0 +1,61 @@
+{
+  "产品": "DocPaws",
+  "厂商": "biao994",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 195,
+  "GitHub": "https://github.com/biao994/DocPaws",
+  "官网": "https://github.com/biao994/DocPaws",
+  "文档": "https://github.com/biao994/DocPaws",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "docker compose up -d 起 PG/Redis/MinIO；后端 uvicorn :8000 + 前端 npm run dev :3000",
+  "去重键": "biao994-docpaws",
+  "备注": "中文 FastAPI+Vue3 RAG：知识库/PDF 引用/检索拒答。",
+  "资产号": 47,
+  "首次写入": "2026-09-03",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-24T02:04:29+08:00",
+  "DeepWiki": "https://deepwiki.com/biao994/DocPaws",
+  "搭建难度": "中",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "研判摘要": "DocPaws 是基于 FastAPI+Vue3 的中文 RAG 知识库系统，支持 PDF 引用与检索拒答，需配合 Docker Compose 启动 PG/Redis/MinIO 基础设施，再分别运行后端 uvicorn 与前端 dev server，依赖 LLM/Embedding API Key 与会话 Cookie 鉴权。",
+  "启动指引": "1. 启动基础设施：docker compose up -d（启动 PostgreSQL:5432、Redis:6379、MinIO:9000/9001）。2. 后端：进入 backend 目录，pip install -r requirements.txt，复制 .env.example 为 .env 并配置 DEEPSEEK_API_KEY/OPENAI_API_KEY、EMBEDDING_API_KEY、SECRET_KEY（≥32位随机字符串）、CORS_ORIGINS（默认 http://localhost:3000）等；启动 uvicorn docpaws.main:app --reload --port 8000。3. 前端：进入 frontend 目录，npm install，npm run dev（监听 :3000）。4. 鉴权：通过 /api/v1/auth/register 和 /api/v1/auth/login 注册登录，会话 Cookie 由 SECRET_KEY 签名。",
+  "开工前先看": [
+    {
+      "title": "DocPaws Overview",
+      "url": "https://deepwiki.com/biao994/DocPaws#1"
+    },
+    {
+      "title": "Getting Started & Deployment",
+      "url": "https://deepwiki.com/biao994/DocPaws#1.1"
+    },
+    {
+      "title": "System Architecture & Layering",
+      "url": "https://deepwiki.com/biao994/DocPaws#1.2"
+    },
+    {
+      "title": "GitHub Repository",
+      "url": "https://github.com/biao994/DocPaws"
+    }
+  ],
+  "建议追问": [
+    "如何配置多环境（生产/测试）的数据库与对象存储连接？",
+    "Celery 异步索引任务的worker如何部署与监控？",
+    "RETRIEVAL_MAX_DISTANCE 的合理取值范围与调优策略是什么？",
+    "前端开发代理与生产环境反向代理（如Nginx）的具体配置示例？",
+    "如何备份与迁移知识库中的文档与向量数据？",
+    "基于会话的鉴权如何扩展为JWT或OAuth2？"
+  ],
+  "已知坑": "1. 缺少 DEEPSEEK_API_KEY 或 OPENAI_API_KEY 会导致 RAG 功能不可用。2. RETRIEVAL_MAX_DISTANCE 设置不当（过小导致频繁拒答，过大导致幻觉）。3. Celery worker 未启动时 PDF 索引任务会堆积。4. CORS_ORIGINS 未包含前端实际域名会触发跨域错误。5. SECRET_KEY 过短或重复使用会导致会话 cookie 被伪造。6. 默认使用 SQLite，生产环境需配置 DATABASE_URL 到 PostgreSQL。",
+  "成功标准": "1. docker compose ps 显示 PG/Redis/MinIO 均 healthy。2. curl http://localhost:8000/healthz 返回 {\"status\":\"ok\"}。3. 浏览器访问 http://localhost:3000 能进入登录页。4. 调用 /api/v1/auth/register 注册用户成功。5. 上传 PDF 后能在 /kb 知识库中看到并成功检索引用。",
+  "推荐启动": "docker compose up -d && cd backend && cp .env.example .env && pip install -r requirements.txt && uvicorn docpaws.main:app --reload --port 8000 & cd ../frontend && npm install && npm run dev",
+  "agentHint": "启动前务必先配置 .env 中的 API Key 与 SECRET_KEY，并确认 Celery worker 已开启以支持异步索引。",
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/biao994-docpaws.json",
+  "source": "ai-web"
+}
