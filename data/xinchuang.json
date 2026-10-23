@@ -2058,25 +2058,6 @@
     "资产号": 113
   },
   {
-    "产品": "Apache APISIX",
-    "厂商": "Apache / 支流科技",
-    "状态": "可下",
-    "层": "网关",
-    "内核系": "自研",
-    "官网": "https://apisix.apache.org/zh/",
-    "下载页": "https://apisix.apache.org/zh/downloads/",
-    "文档": "https://apisix.apache.org/zh/docs/apisix/getting-started/",
-    "Web服务": true,
-    "统信清单": false,
-    "适配信号": "支流科技 API7（基于 APISIX）通过麒麟 NeoCertify、统信软件产品互认；开源版官方提供源码/Docker",
-    "下载条件": "Apache 官方 downloads 源码包 + Docker；Dashboard 提供 Web 控制台",
-    "去重键": "apisix",
-    "备注": "横切 API 网关。企业版 API7 另册；本条记开源 APISIX。",
-    "首次写入": "2026-10-23",
-    "直连下载": "https://downloads.apache.org/apisix/3.19.0/apache-apisix-3.19.0-src.tgz",
-    "资产号": 114
-  },
-  {
     "产品": "达梦数据库 DM8 开发版",
     "厂商": "武汉达梦",
     "状态": "可下",
@@ -2131,24 +2112,6 @@
     "资产号": 117
   },
   {
-    "产品": "AIRoute AI 网关",
-    "厂商": "jaccen / 社区",
-    "状态": "待核",
-    "层": "网关",
-    "内核系": "自研",
-    "官网": "https://github.com/jaccen/AIRoute",
-    "下载页": "https://github.com/jaccen/AIRoute",
-    "文档": "https://github.com/jaccen/AIRoute",
-    "Web服务": true,
-    "统信清单": false,
-    "适配信号": "README 写「信创适配」国产大模型（盘古/百炼/混元/千帆）与国内合规；未见 CPU/OS 互认证书",
-    "下载条件": "npm/源码可下；仪表盘 Web；信创硬件互认待补",
-    "去重键": "airoute",
-    "备注": "AI 网关横切。适配信号偏模型/合规，故待核。",
-    "首次写入": "2026-10-23",
-    "资产号": 118
-  },
-  {
     "产品": "瀚高数据库",
     "厂商": "瀚高基础软件",
     "状态": "待核",
@@ -2165,24 +2128,6 @@
     "备注": "数据库横切。有下载中心但流程待核。",
     "首次写入": "2026-10-23",
     "资产号": 119
-  },
-  {
-    "产品": "Apache ShenYu",
-    "厂商": "Apache ShenYu",
-    "状态": "待核",
-    "层": "网关",
-    "内核系": "JavaEE",
-    "官网": "https://shenyu.apache.org/zh/",
-    "下载页": "https://shenyu.apache.org/zh/docs/index",
-    "文档": "https://shenyu.apache.org/zh/docs/index",
-    "Web服务": true,
-    "统信清单": false,
-    "适配信号": "国产团队发起的 Apache 网关，Admin Web 控制台；官方页未见麒麟/统信互认证书",
-    "下载条件": "源码/Docker/阿里云镜像可下；信创互认待补证",
-    "去重键": "shenyu",
-    "备注": "横切网关。开源可下但适配信号不足，故待核。",
-    "首次写入": "2026-10-23",
-    "资产号": 120
   },
   {
     "产品": "织信 Informat 低代码",
