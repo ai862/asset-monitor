@@ -176,7 +176,10 @@ def extract_hrefs(html: str, base: str) -> list[str]:
 
 
 def score_candidate(url: str) -> int:
-    path = urlparse(url).path.lower()
+    try:
+        path = urlparse(url).path.lower()
+    except ValueError:
+        return -100
     score = 0
     if BINARY_EXT.search(path) or BINARY_EXT.search(url):
         score += 50
@@ -251,7 +254,11 @@ def candidates_from_page(page_url: str) -> tuple[list[str], str]:
     hrefs = extract_hrefs(html, final)
     found: list[str] = []
     for u in hrefs:
-        if BINARY_EXT.search(urlparse(u).path or "") or BINARY_EXT.search(u):
+        try:
+            path = urlparse(u).path or ""
+        except ValueError:
+            continue
+        if BINARY_EXT.search(path) or BINARY_EXT.search(u):
             found.append(u)
     found.extend(github_release_assets(page_url))
     found.extend(github_release_assets(final))
@@ -337,8 +344,33 @@ def run_opencode(row: dict) -> list[str]:
             u = m.group(0).rstrip(").,;]")
             if BINARY_EXT.search(u) or "github.com" in u:
                 urls.append(u)
-    # never invent: only keep http(s) / docker pull
-    return [u for u in urls if u.startswith("http") or u.lower().startswith("docker pull ")][:8]
+    def _looks_direct(u: str) -> bool:
+        lu = u.lower()
+        if lu.startswith("docker pull "):
+            return True
+        if not u.startswith("http"):
+            return False
+        if BINARY_EXT.search(u):
+            return True
+        if "/releases/download/" in lu:
+            return True
+        if "api.github.com" in lu and ("tarball" in lu or "zipball" in lu):
+            return True
+        # reject bare HTML pages / download centers
+        path = urlparse(u).path.lower()
+        if path.endswith((".html", ".htm", ".php", ".aspx", "/")) or path.endswith("index"):
+            return False
+        return False
+
+    # never invent: only keep package-like http(s) / docker pull
+    out: list[str] = []
+    for u in urls:
+        try:
+            if _looks_direct(u):
+                out.append(u)
+        except ValueError:
+            continue
+    return out[:8]
 
 
 def pick_best(cands: list[str]) -> str | list[str] | None:
@@ -470,26 +502,35 @@ def process_source(
         if dry_run:
             log("  dry-run: skip network")
             continue
-        cands, note = candidates_from_page(page)
-        if not cands and use_opencode:
-            log("  HTML empty → try OpenCode")
-            cands = run_opencode(row)
-            if cands:
-                note = "via OpenCode"
-        best = pick_best(cands)
-        if best:
-            log(f"  → 直连={best if isinstance(best, str) else best[:3]}")
-            if apply_direct(
-                row, best, note, upload_drive=upload_drive, force_large=force_large
-            ):
-                filled += 1
-                touched += 1
-        else:
-            log(f"  → no direct ({note})")
-            if apply_direct(
-                row, None, note, upload_drive=False, force_large=force_large
-            ):
-                touched += 1
+        try:
+            cands, note = candidates_from_page(page)
+            if not cands and use_opencode:
+                log("  HTML empty → try OpenCode")
+                cands = run_opencode(row)
+                if cands:
+                    note = "via OpenCode"
+            best = pick_best(cands)
+            if best:
+                log(f"  → 直连={best if isinstance(best, str) else best[:3]}")
+                if apply_direct(
+                    row, best, note, upload_drive=upload_drive, force_large=force_large
+                ):
+                    filled += 1
+                    touched += 1
+                    if not dry_run:
+                        write_json(path, rows)
+                        log(f"  checkpoint wrote {path.relative_to(ROOT)}")
+            else:
+                log(f"  → no direct ({note})")
+                if apply_direct(
+                    row, None, note, upload_drive=False, force_large=force_large
+                ):
+                    touched += 1
+                    if not dry_run:
+                        write_json(path, rows)
+        except Exception as e:
+            log(f"  ERROR {key}: {e}")
+            continue
 
     if not dry_run and touched:
         write_json(path, rows)

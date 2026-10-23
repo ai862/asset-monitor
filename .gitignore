@@ -20,3 +20,4 @@ __pycache__/
 mac/AssetMonitor/DerivedData/
 mac/**/xcuserdata/
 *.xcuserstate
+opencode.json

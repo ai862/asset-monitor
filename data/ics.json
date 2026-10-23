@@ -41,14 +41,14 @@
       "安装包",
       "ISO"
     ],
-    "下载条件": "需在西门子支持站注册登录后方可下载试用版，可能需要审核；直连：fetch fail: <urlopen error timed out>",
+    "下载条件": "需在西门子支持站注册登录后方可下载试用版，可能需要审核；直连：fetch fail: <urlopen error timed out>；直连：fetch fail: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
     "去重键": "siemens-wincc-unified-trial",
-    "备注": "Unified 支持 Web 客户端；组态+PC Runtime 试用包分链下载；fetch fail: <urlopen error timed out>",
+    "备注": "Unified 支持 Web 客户端；组态+PC Runtime 试用包分链下载；fetch fail: <urlopen error timed out>；fetch fail: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in v",
     "资产号": 16,
     "首次写入": "2026-09-09",
     "下载核验时间": "2026-10-20T14:34:09+08:00",
     "下载核验来源": "openrouter+browser",
-    "直连核验时间": "2026-10-23T03:09:28+08:00"
+    "直连核验时间": "2026-10-23T10:30:07+08:00"
   },
   {
     "产品": "NDS6000 配电监控平台",
@@ -87,7 +87,7 @@
     "备注": "垂直：楼宇自控 BMS；Sedona 编程工具+控制器内置 Web 配置页；非独立 SCADA 服务器；页面疑似登录/留资墙，未见公开直链",
     "资产号": 86,
     "首次写入": "2026-09-09",
-    "直连核验时间": "2026-10-23T03:09:29+08:00"
+    "直连核验时间": "2026-10-23T10:30:11+08:00"
   },
   {
     "产品": "EasyCVR",
@@ -110,7 +110,7 @@
     "首次写入": "2026-09-09",
     "下载核验时间": "2026-10-21T02:54:40+08:00",
     "下载核验来源": "openrouter+browser",
-    "直连核验时间": "2026-10-23T03:09:30+08:00"
+    "直连核验时间": "2026-10-23T10:30:17+08:00"
   },
   {
     "产品": "ThingsBoard CE",
@@ -129,7 +129,9 @@
     "去重键": "thingsboard-ce",
     "备注": "IoT 平台 Web UI :8080；非纯 SCADA，工业物联网常用",
     "资产号": 7,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "直连下载": "docker pull thingsboard/tb-node",
+    "直连核验时间": "2026-10-23T10:29:10+08:00"
   },
   {
     "产品": "Advantech WebAccess/SCADA",
@@ -144,11 +146,12 @@
     "部署方式": [
       "安装包"
     ],
-    "下载条件": "试用全功能限时 2 小时；研华硬件平台可申 75 点无限时授权",
+    "下载条件": "试用全功能限时 2 小时；研华硬件平台可申 75 点无限时授权；直连：页面疑似登录/留资墙，未见公开直链",
     "去重键": "advantech-webaccess",
-    "备注": "浏览器原生 HMI/SCADA；可能需研华账号登录后下包",
+    "备注": "浏览器原生 HMI/SCADA；可能需研华账号登录后下包；页面疑似登录/留资墙，未见公开直链",
     "资产号": 14,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "直连核验时间": "2026-10-23T10:30:21+08:00"
   },
   {
     "产品": "motionEye",
@@ -169,7 +172,9 @@
     "去重键": "motioneye",
     "备注": "motion 守护进程 Web 前端 :8765；轻量 NVR/监控",
     "资产号": 50,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "直连下载": "https://github.com/motioneye-project/motioneye/archive/dev.tar.gz",
+    "直连核验时间": "2026-10-23T10:30:22+08:00"
   },
   {
     "产品": "XDPPro",
@@ -188,7 +193,9 @@
     "去重键": "xinje-xdppro",
     "备注": "XD/XG/XL 系列 PLC 编程软件；桌面工具无 Web 控制台",
     "资产号": 43,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "直连下载": null,
+    "直连核验时间": "2026-10-23T10:30:31+08:00"
   },
   {
     "产品": "VOLTTRON AEMS",
@@ -204,11 +211,12 @@
       "Docker",
       "源码"
     ],
-    "下载条件": "开源；Docker Compose 一键部署 Web UI+API+Historian+edge agents",
+    "下载条件": "开源；Docker Compose 一键部署 Web UI+API+Historian+edge agents；直连：页面疑似登录/留资墙，未见公开直链",
     "去重键": "volttron-aems",
-    "备注": "垂直：电力/能源+楼宇暖通；建筑能源管理 AEMS，BACnet 驱动，Web UI",
+    "备注": "垂直：电力/能源+楼宇暖通；建筑能源管理 AEMS，BACnet 驱动，Web UI；页面疑似登录/留资墙，未见公开直链",
     "资产号": 85,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "直连核验时间": "2026-10-23T10:30:37+08:00"
   },
   {
     "产品": "Eclipse NeoSCADA",
@@ -224,11 +232,12 @@
       "源码",
       "安装包"
     ],
-    "下载条件": "Eclipse 归档二进制/源码可下；项目已 archived",
+    "下载条件": "Eclipse 归档二进制/源码可下；项目已 archived；直连：页面疑似登录/留资墙，未见公开直链",
     "去重键": "eclipse-neoscada",
-    "备注": "归档开源 ICS/SCADA；末版 0.5.0(2018)；含 HMI；仅作研究资产",
+    "备注": "归档开源 ICS/SCADA；末版 0.5.0(2018)；含 HMI；仅作研究资产；页面疑似登录/留资墙，未见公开直链",
     "资产号": 24,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "直连核验时间": "2026-10-23T10:30:49+08:00"
   },
   {
     "产品": "ForceControl / FWebSCADA",
@@ -239,13 +248,13 @@
     "官网": "http://www.sunwayland.com/",
     "下载页": "http://www.sunwayland.com/software_download.html",
     "文档": "http://www.sunwayland.com/",
-    "Web服务": true,
+    "Web服务": "FWebSCADA 支持浏览器访问的 Web 监控，但具体默认端口与访问路径未公开统一标准，通常随 IIS/Web 服务或组态工程部署而定；不确定，故留空相关确切端口。",
     "部署方式": [
       "安装包"
     ],
-    "下载条件": "需注册/登录后下载（部分包可能免登录）",
+    "下载条件": "可从力控官网下载页面获取试用/正式安装包；具体是否需要注册账号或走商务流程获取授权，未公开明确统一标准，需在官网下载通道再行确认。",
     "去重键": "forcecontrol-sunwayland",
-    "备注": "力控组态/FWebSCADA 网页监控；下载通道需再点验是否免登录",
+    "备注": "ForceControl是力控科技（Sunwayland）推出的工业组态监控软件，主要用于HMI/SCADA场景，面向工厂自动化、过程控制、能源与基础设施监控等工控领域。它提供图形化组态、实时数据采集、趋势曲线、报警管理、报表等功能，可连接多种PLC/DCS/仪表设备。FWebSCADA则提供基于Web的监控能力，使操作员可通过浏览器远程查看和控制现场数据，属于力控组态体系中的Web化方案。产品通常包含工程开发环境与运行监控环境两大组成部分。；Web控制台：FWebSCADA 支持浏览器访问的 Web 监控，但具体默认端口与访问路径未公开统一标准，通常随 IIS/Web 服务或组态工程部署而定；不确定，故留空相关确切端口。；安装：以安装包方式部署，官方提供 Windows 平台的安装程序。常规流程为下载安装包后进行安装、授权（加密狗/授权文件）激活，并在组态开发环境中新建工程、配置设备驱动与 IO 点表。具体安装参数、依赖组件与运行环境要求以官方安装向导和随附说明为准，此处不臆造细节。；下载条件：可从力控官网下载页面获取试用/正式安装包；具体是否需要注册账号或走商务流程获取授权，未公开明确统一标准，需在官网下载通道再行确认。；文档：官方资料入口为力控科技官网（www.sunwayland.com），提供产品介绍与下载页面；更多产品手册、组态使用帮助以官网文档中心为准。；信息充实时间：2026-10-23T10:33:47+08:00；来源：OpenCode/IMKAI；原备注：力控组态/FWebSCADA 网页监控；下载通道需再点验是否免登录",
     "资产号": 6,
     "首次写入": "2026-09-09",
     "下载核验时间": "2026-10-20T14:44:22+08:00",
@@ -546,16 +555,18 @@
     "官网": "https://www.openhab.org/",
     "下载页": "https://www.openhab.org/docs/installation/",
     "文档": "https://www.openhab.org/docs/installation/docker.html",
-    "Web服务": true,
+    "Web服务": "Main UI 默认监听 TCP 8080 端口，浏览器访问 http://<主机>:8080 即可进入 Web 管理/控制界面。",
     "部署方式": [
       "Docker",
       "安装包"
     ],
     "下载条件": "EPL 开源；官方 Docker Hub openhab/openhab",
     "去重键": "openhab",
-    "备注": "开源智能家居/IoT 集成平台；Main UI :8080",
+    "备注": "openHAB（Open Home Automation Bus）是 openHAB Foundation 维护的开源智能家居与物联网（IoT）集成平台，采用 OSGi/Java 技术栈，可跨厂商统一接入 Zigbee、Z-Wave、MQTT、KNX、Modbus 等数千种协议与设备。典型场景包括智能家居自动化、楼宇能源管理和工业物联网监控。平台原生提供基于 Web 的 Main UI（默认端口 8080）和 REST API，可直接作为可视化控制台与人机界面使用。；Web控制台：Main UI 默认监听 TCP 8080 端口，浏览器访问 http://<主机>:8080 即可进入 Web 管理/控制界面。；安装：官方提供 Docker、deb/rpm 软件包、Windows/macOS 安装包等多种部署方式。Docker 部署需挂载 openhab-conf、openhab-addons、openhab-userdata 等数据卷，默认端口为 8080。声明 Java 17 运行时环境，安装前需确认满足版本要求并对外开放相应端口。；文档：官方文档中心位于 openhab.org/docs，提供安装说明（含 Docker 部署页）、基础配置、Add-ons 扩展、UI/自动化及 REST API 参考；用户与开发者文档分别覆盖日常使用与二次开发。；信息充实时间：2026-10-23T10:32:45+08:00；来源：OpenCode/IMKAI；原备注：开源智能家居/IoT 集成平台；Main UI :8080",
     "资产号": 58,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "直连下载": "docker pull openhab/openhab:latest",
+    "直连核验时间": "2026-10-23T10:32:45+08:00"
   },
   {
     "产品": "Xeoma Trial",
@@ -566,13 +577,13 @@
     "官网": "https://felenasoft.com/xeoma/en/",
     "下载页": "https://felenasoft.com/xeoma/en/download/",
     "文档": "https://felenasoft.com/xeoma/en/trial/",
-    "Web服务": true,
+    "Web服务": "Xeoma 自带管理控制台默认监听 10090 端口；内置的 Web 服务器模块可启用 HTTP(s)，用于浏览器访问实时画面与回放，具体端口可在配置中自定义（常见为 80/8080，需以公开部署页为准）。",
     "部署方式": [
       "安装包"
     ],
-    "下载条件": "官方各 OS 安装包直下；默认进入 Trial",
+    "下载条件": "官网提供 Trial 版本免费下载，无需预先付费即可尝试近全功能；试用许可数量/通道数有限制。完整版需购买正式许可证（License）解锁全部通道与功能。",
     "去重键": "xeoma-trial",
-    "备注": "自托管监控；Trial 功能近全；含 Web 远程访问模块",
+    "备注": "Xeoma 是 Felenasoft 推出的跨平台视频监控软件，支持从家用小型项目到企业级大规模部署，可运行于 Windows、Linux、macOS 及各类嵌入式/云端环境。其 Trial 版本功能接近完整，内置模块化架构（图像分析、运动检测、录像存档等）。软件自带可自定义端口的管理控制台，并内置 Web 远程访问模块，用户可通过浏览器查看实时画面与回放，承担 Web 控制台/HMI 角色。典型场景包括安防监控、门店与办公场所的可视化值守以及远程视频巡查。；Web控制台：Xeoma 自带管理控制台默认监听 10090 端口；内置的 Web 服务器模块可启用 HTTP(s)，用于浏览器访问实时画面与回放，具体端口可在配置中自定义（常见为 80/8080，需以公开部署页为准）。；安装：Trial 版以安装包方式分发，支持 Windows、Linux、macOS 等平台；Linux 下提供对应架构的安装包/二进制。安装后需通过授权（License）激活完整功能，Trial 在激活前即提供近全功能体验。Web 远程访问需在设置中启用对应模块并配置端口与访问权限。具体命令行安装与配置细节以官方安装向导及文档为准。；下载条件：官网提供 Trial 版本免费下载，无需预先付费即可尝试近全功能；试用许可数量/通道数有限制。完整版需购买正式许可证（License）解锁全部通道与功能。；文档：官方提供 Trial 介绍与使用页面（https://felenasoft.com/xeoma/en/trial/），以及功能模块、安装与配置的相关文档与在线帮助，覆盖模块化功能、摄像接入、录像、告警与 Web 访问等关键能力。；信息充实时间：2026-10-23T10:33:12+08:00；来源：OpenCode/IMKAI；原备注：自托管监控；Trial 功能近全；含 Web 远程访问模块",
     "资产号": 31,
     "首次写入": "2026-09-09"
   },
@@ -625,7 +636,7 @@
     "官网": "https://fhem.de/",
     "下载页": "https://fhem.de/",
     "文档": "https://wiki.fhem.de/",
-    "Web服务": true,
+    "Web服务": "默认通过 http://<主机>:8083/fhem/ 访问 FHEMWEB 前端；此外还提供 Telnet 端口（默认 7072）与多种后端接口。",
     "部署方式": [
       "Docker",
       "源码",
@@ -633,11 +644,16 @@
     ],
     "下载条件": "开源免费，官方网站提供 tar.gz/deb 安装包，或拉取 ghcr.io/fhem/fhem Docker 镜像",
     "去重键": "fhem",
-    "备注": "垂直：楼宇自控相关开源家居/楼宇自动化；行业标其它",
+    "备注": "FHEM 是一个以 Perl 编写的开源家居/楼宇自动化服务器，常作为 Raspberry Pi 等平台上的中心节点，用于连接和控制大量传感器、执行器与不同厂商的智能家居设备。它既是楼宇自控（BACS）相关开源方案，也被广泛用于构建家庭自动化 HMI。FHEM 自带 Web 控制台（FHEMWEB）用于查看状态、下发指令和配置系统。；Web控制台：默认通过 http://<主机>:8083/fhem/ 访问 FHEMWEB 前端；此外还提供 Telnet 端口（默认 7072）与多种后端接口。；安装：提供适用于 Debian/Ubuntu/Raspbian 的 deb 安装包及 setup 安装脚本；支持以源码方式从 GitHub 检出运行，也支持 Docker 容器方式部署。安装后须打开防火墙相应端口（如 8083、7072），并设置访问密码以确保 Web/Telnet 安全。；文档：官方 Wiki（wiki.fhem.de）提供完整的命令参考、各模块/设备驱动说明、安装配置教程与故障排查手册，是主要文档入口。；信息充实时间：2026-10-23T10:31:59+08:00；来源：OpenCode/IMKAI；原备注：垂直：楼宇自控相关开源家居/楼宇自动化；行业标其它",
     "资产号": 83,
     "首次写入": "2026-09-09",
     "下载核验时间": "2026-10-23T03:04:06+08:00",
-    "下载核验来源": "openrouter+browser"
+    "下载核验来源": "openrouter+browser",
+    "直连下载": [
+      "docker pull fhem/fhem:latest",
+      "https://github.com/fhem/fhem/archive/refs/heads/master.tar.gz"
+    ],
+    "直连核验时间": "2026-10-23T10:31:59+08:00"
   },
   {
     "产品": "UniLogic Studio",
@@ -802,16 +818,18 @@
     "官网": "https://zoneminder.com/",
     "下载页": "https://github.com/ZoneMinder/zoneminder",
     "文档": "https://zoneminder.readthedocs.io/",
-    "Web服务": true,
+    "Web服务": "默认通过 HTTP 端口 80 访问（如 http://<host>/zm 或 http://<host>/），由 Apache/Nginx + PHP 提供服务；具体端口随部署方式略有差异，亦可配置 HTTPS。",
     "部署方式": [
       "Docker",
       "源码"
     ],
     "下载条件": "开源；Docker/源码",
     "去重键": "zoneminder",
-    "备注": "经典开源 NVR/监控，浏览器管理界面",
+    "备注": "ZoneMinder 是一款经典的开源视频监控系统（NVR/VMS），采用 Linux 平台，支持多路 IP 摄像头与本地/模拟摄像机的接入、录制、运动检测与告警。它提供基于浏览器的 Web 管理界面，可实时预览、回放录像、配置摄像头与规则。典型应用于家庭或中小型安防监控部署，是自托管 NVR 领域成熟且历史悠久的方案。Web 控制台是其主要的 HMI/管理入口。；Web控制台：默认通过 HTTP 端口 80 访问（如 http://<host>/zm 或 http://<host>/），由 Apache/Nginx + PHP 提供服务；具体端口随部署方式略有差异，亦可配置 HTTPS。；安装：官方支持从源码编译安装，以及通过 Debian/Ubuntu 官方仓库或第三方仓库以软件包方式安装；提供 ZoneMinder Docker 镜像便于容器化部署。典型依赖包括 LAMP/LNMP 环境、MySQL/MariaDB、PHP 以及 ffmpeg/zmu 等媒体处理组件。部署后需初始化数据库并配置时间区、摄像头路径与事件存储目录。；文档：官方文档位于 zoneminder.readthedocs.io，涵盖安装、配置、摄像头设置、运动检测、事件回放及故障排查；另有社区 Wiki 与论坛提供补充资料。；信息充实时间：2026-10-23T10:34:17+08:00；来源：OpenCode/IMKAI；原备注：经典开源 NVR/监控，浏览器管理界面",
     "资产号": 11,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "直连下载": "docker pull zoneminder/zoneminder:latest",
+    "直连核验时间": "2026-10-23T10:34:17+08:00"
   },
   {
     "产品": "C-more CM5 Programming Software",
@@ -879,16 +897,18 @@
     "官网": "https://www.iobroker.net/",
     "下载页": "https://hub.docker.com/r/buanet/iobroker",
     "文档": "https://docs.buanet.de/iobroker-docker-image/docs/",
-    "Web服务": true,
+    "Web服务": "默认管理界面 Admin Web 监听 8081 端口，可通过 http://<主机IP>:8081 访问；可视化界面通常基于私有云或本地端口提供服务。",
     "部署方式": [
       "Docker",
       "安装包"
     ],
     "下载条件": "开源；官方 Docker 镜像 buanet/iobroker",
     "去重键": "iobroker",
-    "备注": "JS IoT 集成平台；Admin Web :8081；适配器生态",
+    "备注": "ioBroker 是一个基于 JavaScript 的开源物联网（IoT）集成平台，用于连接、控制和自动化家庭及楼宇中的各类智能设备与系统，支持丰富的协议适配器（如 Modbus、KNX、MQTT、Zigbee、BACnet 等）。它广泛用于智能家居、楼宇自动化和工业物联网（IIoT）数据采集场景。平台自带基于 Web 的 Admin 控制台和 HMI/可视化界面（vis），可通过浏览器访问和管理设备与流程。；Web控制台：默认管理界面 Admin Web 监听 8081 端口，可通过 http://<主机IP>:8081 访问；可视化界面通常基于私有云或本地端口提供服务。；安装：推荐通过 Docker 部署 ioBroker 镜像，也可使用官方安装脚本在 Linux 系统上安装。Docker 部署需映射必要的端口（如 Admin 8081）和持久化数据卷以保留配置与实例状态。官方提供基于 Debian 的精简 Docker 镜像，部分第三方镜像（如 buanet/ioBroker）也支持容器化运行。；文档：官方文档入口为 https://www.iobroker.net/ 及 GitHub 仓库（ioBroker/ioBroker），提供安装指南、适配器（Adapter）开发与使用文档；第三方镜像（buanet）在 https://docs.buanet.de/ioBroker-docker-image/ 提供 Docker 镜像部署说明，镜像位于 https://hub.docker.com/r/buanet/iobroker。；信息充实时间：2026-10-23T10:33:54+08:00；来源：OpenCode/IMKAI；原备注：JS IoT 集成平台；Admin Web :8081；适配器生态",
     "资产号": 60,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "直连下载": "docker pull buanet/iobroker",
+    "直连核验时间": "2026-10-23T10:33:54+08:00"
   },
   {
     "产品": "CODESYS WebVisu / HMI SL",
@@ -1092,16 +1112,18 @@
     "官网": "https://www.taosdata.com/",
     "下载页": "https://tdengine.com/downloads/",
     "文档": "https://docs.tdengine.com/reference/components/explorer/",
-    "Web服务": true,
+    "Web服务": "默认监听 TCP 6060 端口，浏览器访问 http://:<主机IP>:6060 进入管理界面",
     "部署方式": [
       "安装包",
       "Docker"
     ],
-    "下载条件": "随 TDengine 开源安装包免费附带（非单独开源组件）",
+    "下载条件": "可在官网/下载页直接下载安装包或 Docker 镜像，无需单独注册即可下载二进制；部分企业级版本能力可能涉及商务授权。",
     "去重键": "tdengine-explorer",
-    "备注": "时序库可视化管理 Web :6060；工业物联网数据侧常用",
+    "备注": "TDengine Explorer（taosExplorer）是涛思数据时序数据库 TDengine 自带的 Web 可视化管理系统，用于对数据库、超级表、子表、数据同步及应用和任务进行可视化管理与监控。它面向工业物联网、车联网、能源电力等时序数据场景，为运维和开发人员提供无需命令行即可管理数据与查看运行状态的图形化界面，属于 TDengine 服务的内置 Web 控制台/HMI。；Web控制台：默认监听 TCP 6060 端口，浏览器访问 http://:<主机IP>:6060 进入管理界面；安装：集成在 TDengine 安装包内，随服务端（taosd 与 taosadapter）一起安装启动；兼容 Linux 各发行版、macOS 与 Windows，官方也提供 Docker 镜像部署方式；需先启动 TDengine 服务端后通过 6060 端口访问。；下载条件：可在官网/下载页直接下载安装包或 Docker 镜像，无需单独注册即可下载二进制；部分企业级版本能力可能涉及商务授权。；文档：官方文档提供 Explorer 组件说明，涵盖登录、数据库/超级表管理、监控面板、数据同步及应用管理等功能入口；文档入口见 docs 站点中 Explorer 组件章节。；信息充实时间：2026-10-23T10:32:52+08:00；来源：OpenCode/IMKAI；原备注：时序库可视化管理 Web :6060；工业物联网数据侧常用",
     "资产号": 61,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "直连下载": "docker pull tdengine/tdengine:latest",
+    "直连核验时间": "2026-10-23T10:32:52+08:00"
   },
   {
     "产品": "Node-RED",
@@ -1112,16 +1134,18 @@
     "官网": "https://nodered.org/",
     "下载页": "https://nodered.org/docs/getting-started/",
     "文档": "https://nodered.org/docs/getting-started/",
-    "Web服务": true,
+    "Web服务": "默认 Web 编辑器与运行时监听于 HTTP 端口 1880，浏览器访问 http://<host>:1880 即可打开流编辑器；dashboard 类页面通常挂载于 1880 下的子路径。",
     "部署方式": [
       "Docker",
       "源码"
     ],
     "下载条件": "开源；npm/Docker",
     "去重键": "node-red",
-    "备注": "流程编排/工控边缘常见；Web 编辑器 :1880",
+    "备注": "Node-RED 是 OpenJS Foundation 托管的开源低代码流程编排平台，基于 Node.js 实现，通过可视化的拖拽式 Web 编辑器将设备、API 与在线服务连接成流（flow）。在工业物联网与工控边缘场景中常用于边缘网关的数据采集、协议转换和规则编排。其官方插件生态覆盖 OPC-UA、MQTT、Modbus、S7 等工控协议，适合快速搭建边缘计算与设备接入逻辑。原生自带基于浏览器访问的 Web 控制台/HMI（编辑器），可用 Node-RED Dashboard 模块扩展出可视化监控面板。；Web控制台：默认 Web 编辑器与运行时监听于 HTTP 端口 1880，浏览器访问 http://<host>:1880 即可打开流编辑器；dashboard 类页面通常挂载于 1880 下的子路径。；安装：官方提供可通过 npm 全局安装或 Docker 部署的多种方式（源码运行经由 npm 安装；容器方式使用官方镜像并向容器映射 1880 端口）。推荐首选 LTS 版 Node.js 环境。首次启动会在用户目录生成 settings.js 配置文件用于监听地址、端口与认证设置。生产部署建议启用登录认证（adminAuth）并仅向可信网络开放 1880。板级镜像（基于树莓派等）亦有专门构建。正式部署方式以官方文档 get started 为准。；文档：官方文档入口为 https://nodered.org/docs/getting-started/，涵盖安装、配置、首次流开发与用户手册；Node-RED 核心模块已内置常用节点，支持通过 Manage Palette 安装第三方库及在 Node-RED dashboard 中构建可视化界面。；信息充实时间：2026-10-23T10:32:18+08:00；来源：OpenCode/IMKAI；原备注：流程编排/工控边缘常见；Web 编辑器 :1880",
     "资产号": 12,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "直连下载": "docker pull nodered/node-red",
+    "直连核验时间": "2026-10-23T10:32:18+08:00"
   },
   {
     "产品": "PcVue",
@@ -1229,13 +1253,13 @@
     "官网": "https://inductiveautomation.com/ignition/maker-edition",
     "下载页": "https://inductiveautomation.com/downloads/",
     "文档": "https://www.docs.inductiveautomation.com/docs/8.3/getting-started/startup-guide/downloading-and-installing-ignition",
-    "Web服务": true,
+    "Web服务": "默认网关 Web 服务运行在 8088 端口，浏览器访问 http://<host>:8088 进入系统管理控制台与 Web Launcher。",
     "部署方式": [
       "安装包"
     ],
-    "下载条件": "Maker Edition 个人非商用免费；商用需正式版",
+    "下载条件": "Maker Edition 免费，通常只需简单提供邮箱即可下载，无需申请商业许可，但功能/授权规模受限，适用于非生产场景。",
     "去重键": "ignition-maker",
-    "备注": "Web-based SCADA/HMI 网关；研究向常用",
+    "备注": "Ignition Maker Edition 是 Inductive Automation 推出的 Ignition SCADA 平台的免费授权版本，面向个人开发者、教育和小规模研究使用。它以 Java 编写，作为常驻后台的 Web 网关运行，采用模块化架构，内置 Web 控制台和 HMI 设计器，可通过浏览器访问和构建人机界面。常见用途包括原型验证、课程教学、工业协议对接试制与 IIoT 实验，是工业控制领域较常用的研究工具。；Web控制台：默认网关 Web 服务运行在 8088 端口，浏览器访问 http://<host>:8088 进入系统管理控制台与 Web Launcher。；安装：支持 Windows 与 Linux 的图形化安装向导，会安装为后台服务（Linux 下为 systemd 服务 ignition）。需安装 Java 运行时，安装完成后在浏览器打开 Web Launcher 继续初始化网关配置，包括设置管理员账户。安装过程与 Scripting 模块、Vision/Web 模块等一同安装，后期可通过网页管理界面管理模块。；下载条件：Maker Edition 免费，通常只需简单提供邮箱即可下载，无需申请商业许可，但功能/授权规模受限，适用于非生产场景。；文档：官方文档入口为 docs.inductiveautomation.com，包含 Getting Started 入门指南、Downloading and Installing Ignition 安装章节，以及模块开发、内置脚本（Python）、HMI 设计与工业协议连接等能力说明。；信息充实时间：2026-10-23T10:32:29+08:00；来源：OpenCode/IMKAI；原备注：Web-based SCADA/HMI 网关；研究向常用",
     "资产号": 15,
     "首次写入": "2026-09-09"
   },
@@ -1716,15 +1740,15 @@
     "官网": "https://www.domoticz.com/",
     "下载页": "https://www.domoticz.com/",
     "文档": "https://wiki.domoticz.com/",
-    "Web服务": true,
+    "Web服务": "默认 HTTP 端口 8080，WEB 界面路径为对应 host:8080；默认登录账号 admin，密码在首次安装或配置文件中设定",
     "部署方式": [
       "Docker",
       "安装包",
       "源码"
     ],
-    "下载条件": "GPL 开源；一键脚本/Windows 安装包/源码",
+    "下载条件": "开源免费，源码位于 GitHub，无需注册或付费即可下载；正式发布版亦可从官网下载页获取。",
     "去重键": "domoticz",
-    "备注": "轻量本地自动化；HTML5 Web UI :8080；无云依赖",
+    "备注": "Domoticz 是一款轻量级、基于 Web 的开源家庭/本地自动化平台，可在 Raspberry Pi、NAS 及多种小型 Linux 设备上运行，并以 HTML5 Web UI 作为主要控制界面（默认端口 8080）。它支持接入大量传感器、开关、温湿度计及 Z-Wave、MQTT、433MHz 等 IoT 设备，常用于本地自动化系统的集中监控与控制。整个系统无云依赖、数据本地保存，典型应用场景包括家庭/办公室/小型环境的设备监控与场景联动。；Web控制台：默认 HTTP 端口 8080，WEB 界面路径为对应 host:8080；默认登录账号 admin，密码在首次安装或配置文件中设定；安装：官方提供 Windows、Linux 安装包及源码编译；Linux 用户推荐从官方源码仓库 clone 后编译安装，常见依赖包括 CMake、Boost、OpenSSL、Curl、SQLite 等；也提供官方 Docker 镜像（domoticz/domoticz）便于容器化部署。具体步骤以官方下载页和论坛安装指南为准，勿照搬未经验证的命令。；下载条件：开源免费，源码位于 GitHub，无需注册或付费即可下载；正式发布版亦可从官网下载页获取。；文档：官方 Wiki（wiki.domoticz.com）是主要文档入口，涵盖安装指南、用户界面说明、设备/协议接入（如 Z-Wave、MQTT、433MHz）、脚本与事件（dzVents、Lua）、API 及数据库升级等能力说明。；信息充实时间：2026-10-23T10:33:29+08:00；来源：OpenCode/IMKAI；原备注：轻量本地自动化；HTML5 Web UI :8080；无云依赖",
     "资产号": 59,
     "首次写入": "2026-09-09"
   },
