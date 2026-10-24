@@ -1,0 +1,69 @@
+{
+  "产品": "ChatterMate",
+  "厂商": "chattermate",
+  "状态": "可下",
+  "类型": "其它",
+  "语言": "Python",
+  "Stars": 100,
+  "GitHub": "https://github.com/chattermate/chattermate.chat",
+  "官网": "https://chattermate.chat",
+  "文档": "https://docs.chattermate.chat",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "npm"
+  ],
+  "下载条件": "npm i -g chattermate-deploy && chattermate-deploy init && chattermate-deploy start → localhost/",
+  "去重键": "chattermate-chattermate-chat",
+  "备注": "开源客服 AI 平台：管理台+嵌入 widget+工作流。主推托管，但有官方 Docker 自托。",
+  "资产号": 45,
+  "首次写入": "2026-09-03",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-25T01:11:34+08:00",
+  "启动指引": "最短路径：`npm i -g chattermate-cli && chattermate init my-project && cd my-project && chattermate start`。端口：前端 3000(dev)/80(prod)、后端 8000、PostgreSQL 5432、Redis 6379。环境变量：DATABASE_URL、REDIS_URL、JWT_SECRET_KEY、CONVERSATION_SECRET_KEY、CORS_ORIGINS、DEBUG、ENVIRONMENT。鉴权要点：后端用 Widget API Key (wak_ 前缀) 调用 /api/v1/generate-token 生成 Conversation Token，前端通过 window.chattermateToken 传给 Widget，Token 存 localStorage 键 ctid。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/chattermate/chattermate.chat"
+    },
+    {
+      "title": "官网",
+      "url": "https://chattermate.chat"
+    },
+    {
+      "title": "官方文档",
+      "url": "https://docs.chattermate.chat"
+    },
+    {
+      "title": "DeepWiki 概览",
+      "url": "https://deepwiki.com/chattermate/chattermate.chat#1"
+    },
+    {
+      "title": "安全与认证详解",
+      "url": "https://deepwiki.com/chattermate/chattermate.chat#9"
+    },
+    {
+      "title": "数据加密说明",
+      "url": "https://deepwiki.com/chattermate/chattermate.chat#9.4"
+    }
+  ],
+  "建议追问": [
+    "生产环境如何配置 HTTPS 与自定义域名？",
+    "如何对接现有 PostgreSQL/Redis 而非内置容器？",
+    "Widget API Key 与 Conversation Token 的轮换/撤销策略？",
+    "多租户/组织隔离的数据权限模型细节？",
+    "知识库向量化与检索流程的可观测性指标？",
+    "CI/CD 推荐流水线与镜像构建最佳实践？"
+  ],
+  "已知坑": "1) 切勿将 Widget API Key 暴露在前端；2) 调用 /api/v1/generate-token 必须带 `Bearer <API_KEY>` 头；3) ttl_seconds 必须在 60~86400 秒；4) 校验 Token 时 widget_id 必须与载荷一致；5) Token 被撤销后会立即失效，需重新生成。",
+  "成功标准": "浏览器访问 http://localhost/ 能打开管理台；后端 /health 返回 200；/api/v1/widgets/{id} 返回 200 且写入 localStorage.ctid；WebSocket 连接建立并拉取到聊天历史；/api/v1/verify-token 返回 {\"valid\": true}。",
+  "研判摘要": "ChatterMate 是开源客服 AI 平台，提供管理台、嵌入式 Widget 与工作流，主推托管但提供官方 Docker 自托管方案，CLI 工具可一键拉起全栈服务。",
+  "推荐启动": "npm i -g chattermate-cli && chattermate init my-project && cd my-project && chattermate start",
+  "agentHint": "优先用 CLI 走 Docker Compose 路径，注意区分 Widget API Key(后端) 与 Conversation Token(前端) 两套鉴权体系。",
+  "DeepWiki": "https://deepwiki.com/chattermate/chattermate.chat",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/chattermate-chattermate-chat.json",
+  "source": "ai-web"
+}

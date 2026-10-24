@@ -1,0 +1,56 @@
+{
+  "产品": "LLMinator",
+  "厂商": "Aesthisia",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "Python",
+  "Stars": 99,
+  "GitHub": "https://github.com/Aesthisia/LLMinator",
+  "官网": "https://github.com/Aesthisia/LLMinator",
+  "文档": "https://github.com/Aesthisia/LLMinator",
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "pip"
+  ],
+  "下载条件": "git clone && pip install -r requirements.txt",
+  "去重键": "aesthisia-llminator",
+  "备注": "Gradio 本地拉 HuggingFace LLM 测试，带 chatbot 页。",
+  "资产号": 15,
+  "首次写入": "2026-09-03",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-25T01:14:29+08:00",
+  "启动指引": "1. 克隆仓库: git clone https://github.com/Aesthisia/LLMinator\n2. 安装依赖: pip install -r requirements.txt\n3. 启动Web UI: 需确认端口（未指定）\n4. 认证点: 需要HuggingFace LLM认证Token",
+  "开工前先看": [
+    {
+      "title": "官方仓库",
+      "url": "https://github.com/Aesthisia/LLMinator"
+    },
+    {
+      "title": "文档",
+      "url": "https://github.com/Aesthisia/LLMinator"
+    },
+    {
+      "title": "DeepWiki页面",
+      "url": "https://deepwiki.com/Aesthisia/LLMinator"
+    }
+  ],
+  "建议追问": [
+    "是否需要配置HuggingFace API Token进行认证？",
+    "Web UI的默认端口是多少？",
+    "安装过程中是否会遇到依赖冲突？",
+    "如何验证LLM模型加载成功？",
+    "是否需要特殊的环境变量配置？"
+  ],
+  "已知坑": "仓库信息显示下载条件为git clone && pip install -r requirements.txt，但实际安装过程中可能遇到依赖问题或认证失败。",
+  "成功标准": "成功启动后能访问Web UI并正常调用API接口，模型加载无误。",
+  "研判摘要": "LLMinator是一个基于HuggingFace LLM的本地测试项目，支持Gradio Web UI，安装相对简单但需注意认证配置。",
+  "推荐启动": "git clone https://github.com/Aesthisia/LLMinator && pip install -r requirements.txt",
+  "agentHint": "检查是否需要HuggingFace token认证",
+  "DeepWiki": "https://deepwiki.com/Aesthisia/LLMinator",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/aesthisia-llminator.json",
+  "source": "ai-web"
+}

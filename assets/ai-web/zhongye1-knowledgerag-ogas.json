@@ -1,0 +1,72 @@
+{
+  "产品": "RAG-F",
+  "厂商": "Zhongye1",
+  "状态": "可下",
+  "类型": "知识库",
+  "语言": "其它",
+  "Stars": 144,
+  "GitHub": "https://github.com/Zhongye1/KnowledgeRAG-OGAS",
+  "官网": "https://github.com/Zhongye1/KnowledgeRAG-OGAS",
+  "文档": "https://github.com/Zhongye1/KnowledgeRAG-OGAS",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "docker compose up -d → localhost:8089；或 ./start.sh / 前端 npm run dev :5173",
+  "去重键": "zhongye1-knowledgerag-ogas",
+  "备注": "中文 Vue3+FastAPI 知识库，一键 Docker。README 里 clone 地址也写过 KnowledgeRAG-GZHU 叉。",
+  "资产号": 42,
+  "首次写入": "2026-09-03",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-25T01:14:26+08:00",
+  "启动指引": "最短启动路径: docker compose up -d; 端口: 8089; 环境变量: 需配置（如去重键 zhongye1-knowledgerag-ogas）; 鉴权要点: 认证密钥可能需要设置",
+  "开工前先看": [
+    {
+      "title": "产品信息",
+      "url": "https://github.com/Zhongye1/KnowledgeRAG-OGAS"
+    },
+    {
+      "title": "官网",
+      "url": "https://github.com/Zhongye1/KnowledgeRAG-OGAS"
+    },
+    {
+      "title": "文档",
+      "url": "https://github.com/Zhongye1/KnowledgeRAG-OGAS"
+    },
+    {
+      "title": "DeepWiki 索引",
+      "url": "https://deepwiki.com/Zhongye1/KnowledgeRAG-OGAS"
+    },
+    {
+      "title": "下载条件",
+      "url": "https://github.com/Zhongye1/KnowledgeRAG-OGAS"
+    },
+    {
+      "title": "部署方式",
+      "url": "https://github.com/Zhongye1/KnowledgeRAG-OGAS"
+    },
+    {
+      "title": "备注",
+      "url": "https://github.com/Zhongye1/KnowledgeRAG-OGAS"
+    }
+  ],
+  "建议追问": [
+    "如何配置环境变量以确保正常启动？",
+    "需要哪些认证凭证或令牌？",
+    "如何验证服务是否成功启动？",
+    "部署时是否需要特定的网络配置？",
+    "如何处理多版本知识库（RAG-F 和 KnowledgeRAG-GZHU）？"
+  ],
+  "已知坑": "需配置 Docker 环境、环境变量、认证密钥；多版本知识库可能存在冲突",
+  "成功标准": "服务在 localhost:8089 可访问，前端在 :5173 可访问，无启动错误",
+  "研判摘要": "该产品支持 Docker 部署，提供两种启动方式（Docker Compose 或本地脚本），前端端口为 5173，需注意环境变量和认证密钥配置。",
+  "推荐启动": "docker compose up -d",
+  "agentHint": "重点关注 Docker 环境配置和认证密钥",
+  "DeepWiki": "https://deepwiki.com/Zhongye1/KnowledgeRAG-OGAS",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zhongye1-knowledgerag-ogas.json",
+  "source": "ai-web"
+}

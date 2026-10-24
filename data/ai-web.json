@@ -2018,13 +2018,44 @@
     "备注": "AI 对话式电子书 Web，ePub+实时问答+播客。",
     "资产号": 36,
     "首次写入": "2026-09-03",
-    "研判状态": "未研判",
-    "研判时间": "2026-10-24T02:07:00+08:00",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-25T01:09:54+08:00",
     "DeepWiki": "https://deepwiki.com/shutootaki/bookwith",
-    "搭建难度": "未知",
+    "搭建难度": "中",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "研判摘要": "OpenRouter 未能生成有效 JSON。"
+    "研判摘要": "BookWith 是一款基于 AI 的电子书 Web 应用，支持 ePub 阅读、实时问答及播客生成功能。其架构包括 Next.js 前端、FastAPI 后端及 Docker 化的 Weaviate 与 GCS 模拟器等服务。",
+    "启动指引": "1. 克隆仓库并安装依赖：`git clone https://github.com/shutootaki/bookwith.git && cd bookwith && pnpm install`；2. 安装后端依赖：`cd apps/api && make configure`；3. 配置环境变量：`cp src/config/.env.example src/config/.env`，并填写 `OPENAI_API_KEY`、`DATABASE_URL` 等必要参数；4. 启动 Docker 服务（Weaviate 和 GCS 模拟器）：`make docker.up`；5. 启动后端 API：`make run`（默认端口 8000）；6. 启动前端：`cd ../reader && pnpm dev`（默认端口 7127）。",
+    "开工前先看": [
+      {
+        "title": "开发指南",
+        "url": "https://github.com/shutootaki/bookwith/blob/main/docs/DEVELOPMENT_GUIDE.md"
+      },
+      {
+        "title": "DeepWiki 首页",
+        "url": "https://deepwiki.com/shutootaki/bookwith"
+      },
+      {
+        "title": "FastAPI 文档",
+        "url": "http://localhost:8000/docs"
+      },
+      {
+        "title": "Weaviate 状态检查",
+        "url": "http://localhost:8080/v1/meta"
+      }
+    ],
+    "建议追问": [
+      "如何配置 Supabase 数据库连接？",
+      "是否支持使用其他向量数据库替代 Weaviate？",
+      "前端如何切换为生产模式构建？",
+      "部署时是否需要配置反向代理？",
+      "如何处理多用户场景下的隔离问题？"
+    ],
+    "已知坑": "需确保 Docker 服务正常运行，否则 API 无法连接 Weaviate 或 GCS 模拟器；环境变量未正确配置会导致启动失败；pnpm 版本不一致可能引发依赖安装问题。",
+    "成功标准": "访问 `http://localhost:7127` 可正常加载页面，并能拖拽上传 ePub 文件；访问 `http://localhost:8000/docs` 显示 FastAPI 文档；Weaviate 服务可通过 `http://localhost:8080/v1/meta` 正常响应。",
+    "推荐启动": "pnpm dev",
+    "agentHint": "请先完成环境变量配置和 Docker 服务启动，再依次启动后端与前端服务。",
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/shutootaki-bookwith.json"
   },
   {
     "产品": "sd.cpp-webui",
@@ -2304,7 +2335,54 @@
     "去重键": "chattermate-chattermate-chat",
     "备注": "开源客服 AI 平台：管理台+嵌入 widget+工作流。主推托管，但有官方 Docker 自托。",
     "资产号": 45,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-25T01:11:34+08:00",
+    "启动指引": "最短路径：`npm i -g chattermate-cli && chattermate init my-project && cd my-project && chattermate start`。端口：前端 3000(dev)/80(prod)、后端 8000、PostgreSQL 5432、Redis 6379。环境变量：DATABASE_URL、REDIS_URL、JWT_SECRET_KEY、CONVERSATION_SECRET_KEY、CORS_ORIGINS、DEBUG、ENVIRONMENT。鉴权要点：后端用 Widget API Key (wak_ 前缀) 调用 /api/v1/generate-token 生成 Conversation Token，前端通过 window.chattermateToken 传给 Widget，Token 存 localStorage 键 ctid。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/chattermate/chattermate.chat"
+      },
+      {
+        "title": "官网",
+        "url": "https://chattermate.chat"
+      },
+      {
+        "title": "官方文档",
+        "url": "https://docs.chattermate.chat"
+      },
+      {
+        "title": "DeepWiki 概览",
+        "url": "https://deepwiki.com/chattermate/chattermate.chat#1"
+      },
+      {
+        "title": "安全与认证详解",
+        "url": "https://deepwiki.com/chattermate/chattermate.chat#9"
+      },
+      {
+        "title": "数据加密说明",
+        "url": "https://deepwiki.com/chattermate/chattermate.chat#9.4"
+      }
+    ],
+    "建议追问": [
+      "生产环境如何配置 HTTPS 与自定义域名？",
+      "如何对接现有 PostgreSQL/Redis 而非内置容器？",
+      "Widget API Key 与 Conversation Token 的轮换/撤销策略？",
+      "多租户/组织隔离的数据权限模型细节？",
+      "知识库向量化与检索流程的可观测性指标？",
+      "CI/CD 推荐流水线与镜像构建最佳实践？"
+    ],
+    "已知坑": "1) 切勿将 Widget API Key 暴露在前端；2) 调用 /api/v1/generate-token 必须带 `Bearer <API_KEY>` 头；3) ttl_seconds 必须在 60~86400 秒；4) 校验 Token 时 widget_id 必须与载荷一致；5) Token 被撤销后会立即失效，需重新生成。",
+    "成功标准": "浏览器访问 http://localhost/ 能打开管理台；后端 /health 返回 200；/api/v1/widgets/{id} 返回 200 且写入 localStorage.ctid；WebSocket 连接建立并拉取到聊天历史；/api/v1/verify-token 返回 {\"valid\": true}。",
+    "研判摘要": "ChatterMate 是开源客服 AI 平台，提供管理台、嵌入式 Widget 与工作流，主推托管但提供官方 Docker 自托管方案，CLI 工具可一键拉起全栈服务。",
+    "推荐启动": "npm i -g chattermate-cli && chattermate init my-project && cd my-project && chattermate start",
+    "agentHint": "优先用 CLI 走 Docker Compose 路径，注意区分 Widget API Key(后端) 与 Conversation Token(前端) 两套鉴权体系。",
+    "DeepWiki": "https://deepwiki.com/chattermate/chattermate.chat",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/chattermate-chattermate-chat.json"
   },
   {
     "产品": "Alpaca WebUI",
@@ -2326,7 +2404,14 @@
     "去重键": "mmo80-alpaca-webui",
     "备注": "Next.js 多厂商聊天 + RAG 上传，镜像 forloopse/alpaca-webui。",
     "资产号": 38,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "研判状态": "未研判",
+    "研判时间": "2026-10-25T01:11:40+08:00",
+    "DeepWiki": "https://deepwiki.com/mmo80/alpaca-webui",
+    "搭建难度": "未知",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "研判摘要": "OpenRouter 未能生成有效 JSON。"
   },
   {
     "产品": "Claude Code Web",
@@ -2347,7 +2432,27 @@
     "去重键": "heng1234-claude-web",
     "备注": "Claude Code 本地 Web GUI，SSE 展示工具/思考/文件改动。",
     "资产号": 17,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-25T01:14:20+08:00",
+    "启动指引": "最短路径：pip install claude-web-ui && claude-web；默认端口 8765；环境变量 PORT(自定义端口)、CLAUDE_WEB_DATA_DIR(数据目录)；鉴权要点：无内置用户认证，Chrome extension 需 32 字节 hex token 通过 X-Claude-Web-Extension-Token 头验证，暴露 0.0.0.0 将无认证风险",
+    "建议追问": [
+      "是否计划在局域网或公网暴露服务？",
+      "Chrome extension token 是否已生成并正确配置？",
+      "数据持久化目录 CLAUDE_WEB_DATA_DIR 是否已持久化配置？",
+      "是否需要自定义端口或 host 参数？默认 8765 是否冲突或受限？",
+      "大文件/文档上传中的 SSRF 协议限制是否已了解？"
+    ],
+    "已知坑": "暴露至 0.0.0.0 将无认证直接暴露至局域网/公网；Chrome extension 若 token 未配置或失效将返回 403/401；缺乏内置用户认证，慎在多用户环境部署；/api/fetch-url 受 SSRF 限制但仍需谨慎。",
+    "成功标准": "控制台输出显示 'Listening on http://127.0.0.1:8765'；浏览器访问 http://127.0.0.1:8765 成功加载 Claude Web UI；Chrome extension 通过 /api/extension/status 返回 token_configured:true。",
+    "研判摘要": "Claude Code Web 为 Claude Code CLI 提供本地 Web GUI，默认端口 8765，通过 pip 快速部署，无内置认证机制，主要通过 Chrome extension HMAC token 实现扩展交互，适合本地单用户开发调试，暴露网络风险显著。",
+    "推荐启动": "pip install claude-web-ui && claude-web --open",
+    "agentHint": "部署前确认是否需要网络暴露，默认即为局域网仅模式，且需妥善配置 extension token 以避免扩展失效。",
+    "DeepWiki": "https://deepwiki.com/heng1234/claude-web",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/heng1234-claude-web.json"
   },
   {
     "产品": "RAG-F",
@@ -2368,7 +2473,57 @@
     "去重键": "zhongye1-knowledgerag-ogas",
     "备注": "中文 Vue3+FastAPI 知识库，一键 Docker。README 里 clone 地址也写过 KnowledgeRAG-GZHU 叉。",
     "资产号": 42,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-25T01:14:26+08:00",
+    "启动指引": "最短启动路径: docker compose up -d; 端口: 8089; 环境变量: 需配置（如去重键 zhongye1-knowledgerag-ogas）; 鉴权要点: 认证密钥可能需要设置",
+    "开工前先看": [
+      {
+        "title": "产品信息",
+        "url": "https://github.com/Zhongye1/KnowledgeRAG-OGAS"
+      },
+      {
+        "title": "官网",
+        "url": "https://github.com/Zhongye1/KnowledgeRAG-OGAS"
+      },
+      {
+        "title": "文档",
+        "url": "https://github.com/Zhongye1/KnowledgeRAG-OGAS"
+      },
+      {
+        "title": "DeepWiki 索引",
+        "url": "https://deepwiki.com/Zhongye1/KnowledgeRAG-OGAS"
+      },
+      {
+        "title": "下载条件",
+        "url": "https://github.com/Zhongye1/KnowledgeRAG-OGAS"
+      },
+      {
+        "title": "部署方式",
+        "url": "https://github.com/Zhongye1/KnowledgeRAG-OGAS"
+      },
+      {
+        "title": "备注",
+        "url": "https://github.com/Zhongye1/KnowledgeRAG-OGAS"
+      }
+    ],
+    "建议追问": [
+      "如何配置环境变量以确保正常启动？",
+      "需要哪些认证凭证或令牌？",
+      "如何验证服务是否成功启动？",
+      "部署时是否需要特定的网络配置？",
+      "如何处理多版本知识库（RAG-F 和 KnowledgeRAG-GZHU）？"
+    ],
+    "已知坑": "需配置 Docker 环境、环境变量、认证密钥；多版本知识库可能存在冲突",
+    "成功标准": "服务在 localhost:8089 可访问，前端在 :5173 可访问，无启动错误",
+    "研判摘要": "该产品支持 Docker 部署，提供两种启动方式（Docker Compose 或本地脚本），前端端口为 5173，需注意环境变量和认证密钥配置。",
+    "推荐启动": "docker compose up -d",
+    "agentHint": "重点关注 Docker 环境配置和认证密钥",
+    "DeepWiki": "https://deepwiki.com/Zhongye1/KnowledgeRAG-OGAS",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zhongye1-knowledgerag-ogas.json"
   },
   {
     "产品": "LLMinator",
@@ -2389,7 +2544,41 @@
     "去重键": "aesthisia-llminator",
     "备注": "Gradio 本地拉 HuggingFace LLM 测试，带 chatbot 页。",
     "资产号": 15,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-25T01:14:29+08:00",
+    "启动指引": "1. 克隆仓库: git clone https://github.com/Aesthisia/LLMinator\n2. 安装依赖: pip install -r requirements.txt\n3. 启动Web UI: 需确认端口（未指定）\n4. 认证点: 需要HuggingFace LLM认证Token",
+    "开工前先看": [
+      {
+        "title": "官方仓库",
+        "url": "https://github.com/Aesthisia/LLMinator"
+      },
+      {
+        "title": "文档",
+        "url": "https://github.com/Aesthisia/LLMinator"
+      },
+      {
+        "title": "DeepWiki页面",
+        "url": "https://deepwiki.com/Aesthisia/LLMinator"
+      }
+    ],
+    "建议追问": [
+      "是否需要配置HuggingFace API Token进行认证？",
+      "Web UI的默认端口是多少？",
+      "安装过程中是否会遇到依赖冲突？",
+      "如何验证LLM模型加载成功？",
+      "是否需要特殊的环境变量配置？"
+    ],
+    "已知坑": "仓库信息显示下载条件为git clone && pip install -r requirements.txt，但实际安装过程中可能遇到依赖问题或认证失败。",
+    "成功标准": "成功启动后能访问Web UI并正常调用API接口，模型加载无误。",
+    "研判摘要": "LLMinator是一个基于HuggingFace LLM的本地测试项目，支持Gradio Web UI，安装相对简单但需注意认证配置。",
+    "推荐启动": "git clone https://github.com/Aesthisia/LLMinator && pip install -r requirements.txt",
+    "agentHint": "检查是否需要HuggingFace token认证",
+    "DeepWiki": "https://deepwiki.com/Aesthisia/LLMinator",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/aesthisia-llminator.json"
   },
   {
     "产品": "chatgpt-webui",
@@ -2410,7 +2599,43 @@
     "去重键": "shibing624-chatgpt-webui",
     "备注": "简化版川虎 Chat：LLM 对话+RAG，可本地模型。",
     "资产号": 24,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-25T01:14:43+08:00",
+    "启动指引": "未知",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/shibing624/chatgpt-webui"
+      },
+      {
+        "title": "官方文档",
+        "url": "https://github.com/shibing624/chatgpt-webui/wiki"
+      },
+      {
+        "title": "DeepWiki 页面",
+        "url": "https://deepwiki.com/shibing624/chatgpt-webui"
+      },
+      {
+        "title": "pip install requirements",
+        "url": "https://github.com/shibing624/chatgpt-webui"
+      }
+    ],
+    "建议追问": [
+      "如何设置鉴权 token？",
+      "默认使用的端口是多少？",
+      "本地模型加载的具体步骤是什么？",
+      "RAG 配置需要哪些环境变量？"
+    ],
+    "已知坑": "未知",
+    "成功标准": "未知",
+    "研判摘要": "该项目为简化版川虎 Chat，提供本地模型对话与 RAG 功能，但缺乏官方文档索引，具体部署步骤不明。",
+    "agentHint": "需先确认仓库地址是否可访问，否则无法获取完整部署信息。",
+    "DeepWiki": "https://deepwiki.com/shibing624/chatgpt-webui",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/shibing624-chatgpt-webui.json"
   },
   {
     "产品": "OpenDocuments",
@@ -2432,7 +2657,42 @@
     "去重键": "joungminsung-opendocuments",
     "备注": "自托 RAG：GitHub/Notion/Drive/本地文件，Web UI+HTTP+MCP。",
     "资产号": 23,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-25T01:15:17+08:00",
+    "启动指引": "通过 npm 全局安装：`npm i -g opendocuments && opendocuments init`；或使用 Docker Compose：`docker compose --profile with-ollama up -d`。默认端口、环境变量及鉴权配置请参考项目文档，当前资料未提供具体信息。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/joungminsung/OpenDocuments"
+      },
+      {
+        "title": "npm 包页面",
+        "url": "https://www.npmjs.com/package/opendocuments"
+      },
+      {
+        "title": "DeepWiki 文档",
+        "url": "https://deepwiki.com/joungminsung/OpenDocuments"
+      }
+    ],
+    "建议追问": [
+      "OpenDocuments 的默认 Web UI 端口是多少？",
+      "需要配置哪些环境变量（如数据库连接、API 密钥）？",
+      "如何接入 GitHub、Notion、Google Drive 等数据源？",
+      "是否支持反向代理和 HTTPS 部署？",
+      "认证鉴权机制是什么（API Key、OAuth、JWT）？",
+      "如何验证 RAG 检索和生成是否正常工作？"
+    ],
+    "已知坑": "暂无公开已知坑，建议实测时关注依赖版本冲突、Ollama 模型下载及存储权限问题。",
+    "成功标准": "Web UI 可访问，API 健康检查返回 200，能成功导入文档并进行问答检索。",
+    "研判摘要": "OpenDocuments 是一个自托管 RAG 工具，支持多种数据源，提供 Web UI、HTTP API 和 MCP 接口，通过 npm 或 Docker 部署，但详细配置文档缺失，需进一步探索。",
+    "推荐启动": "npm i -g opendocuments && opendocuments init",
+    "agentHint": "优先尝试 npm 全局安装初始化，若需 GPU 加速可用 Docker Compose with-ollama 配置。",
+    "DeepWiki": "https://deepwiki.com/joungminsung/OpenDocuments",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/joungminsung-opendocuments.json"
   },
   {
     "产品": "docGPT-langchain",

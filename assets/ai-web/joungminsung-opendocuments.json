@@ -1,0 +1,58 @@
+{
+  "产品": "OpenDocuments",
+  "厂商": "joungminsung",
+  "状态": "可下",
+  "类型": "知识库",
+  "语言": "TypeScript",
+  "Stars": 112,
+  "GitHub": "https://github.com/joungminsung/OpenDocuments",
+  "官网": "https://www.npmjs.com/package/opendocuments",
+  "文档": "https://github.com/joungminsung/OpenDocuments",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "npm",
+    "源码"
+  ],
+  "下载条件": "npm i -g opendocuments && opendocuments init；或 docker compose --profile with-ollama up -d",
+  "去重键": "joungminsung-opendocuments",
+  "备注": "自托 RAG：GitHub/Notion/Drive/本地文件，Web UI+HTTP+MCP。",
+  "资产号": 23,
+  "首次写入": "2026-09-03",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-25T01:15:17+08:00",
+  "启动指引": "通过 npm 全局安装：`npm i -g opendocuments && opendocuments init`；或使用 Docker Compose：`docker compose --profile with-ollama up -d`。默认端口、环境变量及鉴权配置请参考项目文档，当前资料未提供具体信息。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/joungminsung/OpenDocuments"
+    },
+    {
+      "title": "npm 包页面",
+      "url": "https://www.npmjs.com/package/opendocuments"
+    },
+    {
+      "title": "DeepWiki 文档",
+      "url": "https://deepwiki.com/joungminsung/OpenDocuments"
+    }
+  ],
+  "建议追问": [
+    "OpenDocuments 的默认 Web UI 端口是多少？",
+    "需要配置哪些环境变量（如数据库连接、API 密钥）？",
+    "如何接入 GitHub、Notion、Google Drive 等数据源？",
+    "是否支持反向代理和 HTTPS 部署？",
+    "认证鉴权机制是什么（API Key、OAuth、JWT）？",
+    "如何验证 RAG 检索和生成是否正常工作？"
+  ],
+  "已知坑": "暂无公开已知坑，建议实测时关注依赖版本冲突、Ollama 模型下载及存储权限问题。",
+  "成功标准": "Web UI 可访问，API 健康检查返回 200，能成功导入文档并进行问答检索。",
+  "研判摘要": "OpenDocuments 是一个自托管 RAG 工具，支持多种数据源，提供 Web UI、HTTP API 和 MCP 接口，通过 npm 或 Docker 部署，但详细配置文档缺失，需进一步探索。",
+  "推荐启动": "npm i -g opendocuments && opendocuments init",
+  "agentHint": "优先尝试 npm 全局安装初始化，若需 GPU 加速可用 Docker Compose with-ollama 配置。",
+  "DeepWiki": "https://deepwiki.com/joungminsung/OpenDocuments",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/joungminsung-opendocuments.json",
+  "source": "ai-web"
+}

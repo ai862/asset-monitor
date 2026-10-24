@@ -1,0 +1,42 @@
+{
+  "产品": "Claude Code Web",
+  "厂商": "heng1234",
+  "状态": "可下",
+  "类型": "代码助手",
+  "语言": "Python",
+  "Stars": 74,
+  "GitHub": "https://github.com/heng1234/claude-web",
+  "官网": "https://github.com/heng1234/claude-web",
+  "文档": "https://github.com/heng1234/claude-web",
+  "Web服务": true,
+  "部署方式": [
+    "pip",
+    "源码"
+  ],
+  "下载条件": "pip install --upgrade claude-web-ui && claude-web --open",
+  "去重键": "heng1234-claude-web",
+  "备注": "Claude Code 本地 Web GUI，SSE 展示工具/思考/文件改动。",
+  "资产号": 17,
+  "首次写入": "2026-09-03",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-25T01:14:20+08:00",
+  "启动指引": "最短路径：pip install claude-web-ui && claude-web；默认端口 8765；环境变量 PORT(自定义端口)、CLAUDE_WEB_DATA_DIR(数据目录)；鉴权要点：无内置用户认证，Chrome extension 需 32 字节 hex token 通过 X-Claude-Web-Extension-Token 头验证，暴露 0.0.0.0 将无认证风险",
+  "建议追问": [
+    "是否计划在局域网或公网暴露服务？",
+    "Chrome extension token 是否已生成并正确配置？",
+    "数据持久化目录 CLAUDE_WEB_DATA_DIR 是否已持久化配置？",
+    "是否需要自定义端口或 host 参数？默认 8765 是否冲突或受限？",
+    "大文件/文档上传中的 SSRF 协议限制是否已了解？"
+  ],
+  "已知坑": "暴露至 0.0.0.0 将无认证直接暴露至局域网/公网；Chrome extension 若 token 未配置或失效将返回 403/401；缺乏内置用户认证，慎在多用户环境部署；/api/fetch-url 受 SSRF 限制但仍需谨慎。",
+  "成功标准": "控制台输出显示 'Listening on http://127.0.0.1:8765'；浏览器访问 http://127.0.0.1:8765 成功加载 Claude Web UI；Chrome extension 通过 /api/extension/status 返回 token_configured:true。",
+  "研判摘要": "Claude Code Web 为 Claude Code CLI 提供本地 Web GUI，默认端口 8765，通过 pip 快速部署，无内置认证机制，主要通过 Chrome extension HMAC token 实现扩展交互，适合本地单用户开发调试，暴露网络风险显著。",
+  "推荐启动": "pip install claude-web-ui && claude-web --open",
+  "agentHint": "部署前确认是否需要网络暴露，默认即为局域网仅模式，且需妥善配置 extension token 以避免扩展失效。",
+  "DeepWiki": "https://deepwiki.com/heng1234/claude-web",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/heng1234-claude-web.json",
+  "source": "ai-web"
+}

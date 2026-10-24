@@ -1,0 +1,59 @@
+{
+  "产品": "BookWith",
+  "厂商": "shutootaki",
+  "状态": "可下",
+  "类型": "其它",
+  "语言": "TypeScript",
+  "Stars": 307,
+  "GitHub": "https://github.com/shutootaki/bookwith",
+  "官网": "https://github.com/shutootaki/bookwith",
+  "文档": "https://github.com/shutootaki/bookwith/blob/main/docs/DEVELOPMENT_GUIDE.md",
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "按 docs/DEVELOPMENT_GUIDE.md 本地起 Web",
+  "去重键": "shutootaki-bookwith",
+  "备注": "AI 对话式电子书 Web，ePub+实时问答+播客。",
+  "资产号": 36,
+  "首次写入": "2026-09-03",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-25T01:09:54+08:00",
+  "DeepWiki": "https://deepwiki.com/shutootaki/bookwith",
+  "搭建难度": "中",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "研判摘要": "BookWith 是一款基于 AI 的电子书 Web 应用，支持 ePub 阅读、实时问答及播客生成功能。其架构包括 Next.js 前端、FastAPI 后端及 Docker 化的 Weaviate 与 GCS 模拟器等服务。",
+  "启动指引": "1. 克隆仓库并安装依赖：`git clone https://github.com/shutootaki/bookwith.git && cd bookwith && pnpm install`；2. 安装后端依赖：`cd apps/api && make configure`；3. 配置环境变量：`cp src/config/.env.example src/config/.env`，并填写 `OPENAI_API_KEY`、`DATABASE_URL` 等必要参数；4. 启动 Docker 服务（Weaviate 和 GCS 模拟器）：`make docker.up`；5. 启动后端 API：`make run`（默认端口 8000）；6. 启动前端：`cd ../reader && pnpm dev`（默认端口 7127）。",
+  "开工前先看": [
+    {
+      "title": "开发指南",
+      "url": "https://github.com/shutootaki/bookwith/blob/main/docs/DEVELOPMENT_GUIDE.md"
+    },
+    {
+      "title": "DeepWiki 首页",
+      "url": "https://deepwiki.com/shutootaki/bookwith"
+    },
+    {
+      "title": "FastAPI 文档",
+      "url": "http://localhost:8000/docs"
+    },
+    {
+      "title": "Weaviate 状态检查",
+      "url": "http://localhost:8080/v1/meta"
+    }
+  ],
+  "建议追问": [
+    "如何配置 Supabase 数据库连接？",
+    "是否支持使用其他向量数据库替代 Weaviate？",
+    "前端如何切换为生产模式构建？",
+    "部署时是否需要配置反向代理？",
+    "如何处理多用户场景下的隔离问题？"
+  ],
+  "已知坑": "需确保 Docker 服务正常运行，否则 API 无法连接 Weaviate 或 GCS 模拟器；环境变量未正确配置会导致启动失败；pnpm 版本不一致可能引发依赖安装问题。",
+  "成功标准": "访问 `http://localhost:7127` 可正常加载页面，并能拖拽上传 ePub 文件；访问 `http://localhost:8000/docs` 显示 FastAPI 文档；Weaviate 服务可通过 `http://localhost:8080/v1/meta` 正常响应。",
+  "推荐启动": "pnpm dev",
+  "agentHint": "请先完成环境变量配置和 Docker 服务启动，再依次启动后端与前端服务。",
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/shutootaki-bookwith.json",
+  "source": "ai-web"
+}
