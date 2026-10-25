@@ -1,0 +1,52 @@
+{
+  "产品": "chatgpt_webui",
+  "厂商": "dotmet",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "Python",
+  "Stars": 71,
+  "GitHub": "https://github.com/dotmet/chatgpt_webui",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "pip"
+  ],
+  "下载条件": "clone + pip install -r requirements.txt；Gradio + revChatGPT",
+  "去重键": "dotmet-chatgpt_webui",
+  "备注": "Gradio ChatGPT WebUI（多登录方式）",
+  "资产号": 54,
+  "首次写入": "2026-09-04",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-26T01:27:26+08:00",
+  "启动指引": "1. 克隆仓库：git clone https://github.com/dotmet/chatgpt_webui\n2. 安装依赖：pip install -r requirements.txt\n3. 根据仓库 README 或源码确定入口脚本（常见为 app.py 或 main.py）并运行，例如 python app.py\n4. 若需配置认证，请在代码或环境变量中设置 OpenAI API Key 或 revChatGPT 登录凭据\n5. 启动后通过浏览器访问 Gradio 默认地址（通常为 http://localhost:7860，以实际输出为准）",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/dotmet/chatgpt_webui"
+    },
+    {
+      "title": "DeepWiki 索引（当前不可用）",
+      "url": "https://deepwiki.com/dotmet/chatgpt_webui"
+    }
+  ],
+  "建议追问": [
+    "仓库的具体启动入口脚本是什么？",
+    "revChatGPT 认证方式是否支持当前 OpenAI API？",
+    "是否需要额外配置代理或浏览器登录 Cookie？",
+    "依赖库版本是否有冲突？",
+    "是否提供 Dockerfile 或 docker-compose 支持？",
+    "如何在生产环境下通过反向代理部署？"
+  ],
+  "已知坑": "revChatGPT 库已停止维护，可能因 OpenAI 接口变更导致登录失败；Gradio 版本升级可能破坏界面兼容性；缺乏官方文档，需自行阅读源码调试。",
+  "成功标准": "浏览器打开 Web UI 界面，输入消息后能收到 ChatGPT 回复，控制台无报错。",
+  "研判摘要": "基于 Gradio 的 ChatGPT WebUI，依赖 revChatGPT 库，部署文档缺失，认证方式需自行探索，建议先阅读源码确认启动入口与配置项。",
+  "agentHint": "先克隆仓库阅读 README 与源码确定入口与认证配置。",
+  "DeepWiki": "https://deepwiki.com/dotmet/chatgpt_webui",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/dotmet-chatgpt_webui.json",
+  "source": "ai-web"
+}

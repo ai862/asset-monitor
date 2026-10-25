@@ -1,0 +1,63 @@
+{
+  "产品": "Facet",
+  "厂商": "ncoevoet",
+  "状态": "可下",
+  "类型": "图像",
+  "语言": "Python",
+  "Stars": 214,
+  "GitHub": "https://github.com/ncoevoet/facet",
+  "官网": "https://github.com/ncoevoet/facet",
+  "文档": "https://github.com/ncoevoet/facet",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "docker compose up -d → localhost:5000",
+  "去重键": "ncoevoet-facet",
+  "备注": "本地相片打分/筛选 Web gallery，FastAPI+Angular，无云。",
+  "资产号": 25,
+  "首次写入": "2026-09-03",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-26T01:26:13+08:00",
+  "启动指引": "docker compose up -d → 访问 http://localhost:5000，端口 5000，无需额外环境变量，使用 JWT 令牌登录 (/api/auth/login) 进行鉴权",
+  "开工前先看": [
+    {
+      "title": "Getting Started Wiki",
+      "url": "https://github.com/ncoevoet/facet/wiki/Getting-Started"
+    },
+    {
+      "title": "Multi-User Support Wiki",
+      "url": "https://github.com/ncoevoet/facet/wiki/Multi-User-Support"
+    },
+    {
+      "title": "Deployment Documentation",
+      "url": "https://github.com/ncoevoet/facet/wiki/DEPLOYMENT"
+    },
+    {
+      "title": "Viewer Documentation",
+      "url": "https://github.com/ncoevoet/facet/wiki/VIEWER"
+    },
+    {
+      "title": "DeepWiki Search",
+      "url": "https://deepwiki.com/ncoevoet/facet"
+    }
+  ],
+  "建议追问": [
+    "如何在多用户模式下创建用户？",
+    "Docker 部署时需要哪些卷映射？",
+    "JWT 令牌的默认有效期是多少？",
+    "如何导出轻量数据库用于 NAS 部署？",
+    "单用户模式下如何设置观众密码？"
+  ],
+  "已知坑": "缺少 users 键导致单用户模式；密码_hash 格式错误；端口冲突；Uvicorn 工作进程不足；角色权限不匹配；目录路径不一致",
+  "成功标准": "启动 viewer.py 后在浏览器访问 http://localhost:5000，登录后能看到相册，且 /api/auth/status 返回 authenticated:true",
+  "推荐启动": "docker compose up -d",
+  "agentHint": "使用 Docker Compose 快速启动，端口 5000，登录后即可使用",
+  "DeepWiki": "https://deepwiki.com/ncoevoet/facet",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ncoevoet-facet.json",
+  "source": "ai-web"
+}

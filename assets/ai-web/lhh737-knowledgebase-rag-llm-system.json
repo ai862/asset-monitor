@@ -1,0 +1,50 @@
+{
+  "产品": "KnowledgeBase RAG LLM",
+  "厂商": "lhh737",
+  "状态": "可下",
+  "类型": "知识库",
+  "语言": "Python",
+  "Stars": 253,
+  "GitHub": "https://github.com/lhh737/KnowledgeBase-RAG-LLM-System",
+  "官网": "https://github.com/lhh737/KnowledgeBase-RAG-LLM-System",
+  "文档": "https://github.com/lhh737/KnowledgeBase-RAG-LLM-System",
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "pip"
+  ],
+  "下载条件": "pip install -r requirements.txt；streamlit 分别跑 app_upload.py / app_chat.py",
+  "去重键": "lhh737-knowledgebase-rag-llm-system",
+  "备注": "Streamlit 本地知识库上传+RAG 问答学习项，Chroma+Qwen。",
+  "资产号": 5,
+  "首次写入": "2026-09-03",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-26T01:23:10+08:00",
+  "启动指引": "未知",
+  "开工前先看": [
+    {
+      "title": "GitHub 代码页",
+      "url": "https://github.com/lhh737/KnowledgeBase-RAG-LLM-System"
+    },
+    {
+      "title": "DeepWiki 文档",
+      "url": "https://deepwiki.com/lhh737/KnowledgeBase-RAG-LLM-System"
+    }
+  ],
+  "建议追问": [
+    "如何安装必需的 Python 依赖？",
+    "启动 Streamlit 应用时需要设置哪些环境变量？",
+    "默认情况下会使用哪个端口？",
+    "是否需要进行鉴权或 token 认证？"
+  ],
+  "已知坑": "未知",
+  "成功标准": "Streamlit 页面能在浏览器打开且能正常接受并回答问题",
+  "推荐启动": "pip install -r requirements.txt && streamlit run app_upload.py",
+  "agentHint": "先确认仓库可访问，再按下载条件安装依赖并启动 Streamlit 应用",
+  "DeepWiki": "https://deepwiki.com/lhh737/KnowledgeBase-RAG-LLM-System",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lhh737-knowledgebase-rag-llm-system.json",
+  "source": "ai-web"
+}

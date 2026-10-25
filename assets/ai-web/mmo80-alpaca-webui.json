@@ -1,0 +1,58 @@
+{
+  "产品": "Alpaca WebUI",
+  "厂商": "mmo80",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "TypeScript",
+  "Stars": 91,
+  "GitHub": "https://github.com/mmo80/alpaca-webui",
+  "官网": "https://hub.docker.com/r/forloopse/alpaca-webui",
+  "文档": "https://github.com/mmo80/alpaca-webui",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "npm",
+    "源码"
+  ],
+  "下载条件": "docker compose up --detach → localhost:3033；或 npm run dev :3000",
+  "去重键": "mmo80-alpaca-webui",
+  "备注": "Next.js 多厂商聊天 + RAG 上传，镜像 forloopse/alpaca-webui。",
+  "资产号": 38,
+  "首次写入": "2026-09-03",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-26T01:22:01+08:00",
+  "DeepWiki": "https://deepwiki.com/mmo80/alpaca-webui",
+  "搭建难度": "未知",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "研判摘要": "Alpaca WebUI 是一个 Next.js 驱动的多厂商聊天及 RAG 上传工具，支持 Docker 和 npm 两种部署方式，但具体认证、环境变量及端口配置细节尚待进一步确认。",
+  "启动指引": "Docker: 执行 `docker compose up --detach`，默认监听 3033 端口。npm: 执行 `npm run dev :3000`，监听 3000 端口。启动前请参考仓库文档设置必需的环境变量（如 API 密钥、RAG 配置等）并完成认证设置。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/mmo80/alpaca-webui"
+    },
+    {
+      "title": "Docker Hub 镜像",
+      "url": "https://hub.docker.com/r/forloopse/alpaca-webui"
+    },
+    {
+      "title": "项目文档",
+      "url": "https://github.com/mmo80/alpaca-webui"
+    }
+  ],
+  "建议追问": [
+    "认证及令牌如何配置以支持多厂商接入？",
+    "RAG 上传功能需要哪些环境变量或配置？",
+    "是否有推荐的反向代理设置以暴露 WebUI 及 API？",
+    "启动后如何验证服务健康状态及访问 API 端点？",
+    "Docker 镜像与源码部署在端口映射上有何差异？",
+    "是否存在已知部署或运行时的常见问题？"
+  ],
+  "已知坑": "Docker 镜像启动时需确保端口 3033/3000 未被占用，并正确设置必需的环境变量；npm 开发模式下需关闭防火墙或端口冲突。",
+  "成功标准": "访问 http://localhost:3033（Docker）或 http://localhost:3000（npm）可正常加载 WebUI 页面；API 健康检查端点返回 200；RAG 上传及聊天功能正常响应。",
+  "推荐启动": "docker compose up --detach   # 启动后访问 http://localhost:3033",
+  "agentHint": "请重点询问认证配置、必需环境变量及 API 端点信息。",
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mmo80-alpaca-webui.json",
+  "source": "ai-web"
+}

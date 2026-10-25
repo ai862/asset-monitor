@@ -1,0 +1,53 @@
+{
+  "产品": "docGPT-langchain",
+  "厂商": "Lin-jun-xiang",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 260,
+  "GitHub": "https://github.com/Lin-jun-xiang/docGPT-langchain",
+  "官网": "https://github.com/Lin-jun-xiang/docGPT-langchain",
+  "文档": "https://github.com/Lin-jun-xiang/docGPT-langchain",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "docker-compose up 或本地源码",
+  "去重键": "lin-jun-xiang-docgpt-langchain",
+  "备注": "PDF/WORD/CSV/TXT 文档聊天 Web，免费 GPT-3.5 路径。",
+  "资产号": 16,
+  "首次写入": "2026-09-03",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-26T01:22:34+08:00",
+  "启动指引": "使用 docker-compose up 启动（需本地有 docker-compose.yml），或按源码方式安装依赖后运行。未见明确端口、环境变量、鉴权说明，请先查阅仓库 README 或 docker-compose.yml。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/Lin-jun-xiang/docGPT-langchain"
+    },
+    {
+      "title": "DeepWiki 索引",
+      "url": "https://deepwiki.com/Lin-jun-xiang/docGPT-langchain"
+    }
+  ],
+  "建议追问": [
+    "docker-compose.yml 中暴露的端口是多少？",
+    "是否需要配置 OPENAI_API_KEY 等环境变量？",
+    "源码启动的入口脚本和依赖安装命令是什么？",
+    "Web UI 访问路径和默认账号密码（如有）？",
+    "支持哪些文档格式的上传与解析？",
+    "如何切换或配置模型（如免费 GPT-3.5 路径）？"
+  ],
+  "已知坑": "仓库在 DeepWiki 未被索引，缺乏详细部署文档，可能需自行阅读源码或 docker-compose 文件。",
+  "成功标准": "容器启动无报错，浏览器访问 Web UI 能上传文档并进行对话。",
+  "研判摘要": "docGPT-langchain 是一个基于 LangChain 的文档聊天 Web 应用，支持 Docker 与源码部署，但公开文档极少，需直接查阅仓库细节。",
+  "推荐启动": "docker-compose up -d",
+  "agentHint": "先 clone 仓库检查 docker-compose.yml 与 README，确认端口、环境变量与模型配置。",
+  "DeepWiki": "https://deepwiki.com/Lin-jun-xiang/docGPT-langchain",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lin-jun-xiang-docgpt-langchain.json",
+  "source": "ai-web"
+}
