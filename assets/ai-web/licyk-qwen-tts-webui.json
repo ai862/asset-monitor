@@ -1,0 +1,40 @@
+{
+  "产品": "Qwen TTS WebUI",
+  "厂商": "licyk",
+  "状态": "可下",
+  "类型": "其它",
+  "语言": "Python",
+  "Stars": 341,
+  "GitHub": "https://github.com/licyk/qwen-tts-webui",
+  "官网": "https://github.com/licyk/qwen-tts-webui",
+  "文档": "https://github.com/licyk/qwen-tts-webui",
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "./start.sh 或 python launch.py；Windows 有整合包",
+  "去重键": "licyk-qwen-tts-webui",
+  "备注": "基于 Qwen3 TTS 的本地 WebUI+可选 API。",
+  "资产号": 32,
+  "首次写入": "2026-09-03",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-26T02:44:42+08:00",
+  "DeepWiki": "https://deepwiki.com/licyk/qwen-tts-webui",
+  "搭建难度": "中",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "研判摘要": "Qwen TTS WebUI是一个基于Qwen3 TTS模型的本地Web界面，提供语音合成功能和可选API服务，部署方式为源码，启动门槛中等。",
+  "启动指引": "执行 ./start.sh 或 python launch.py 启动 WebUI，启动后请查看控制台输出的访问地址和端口，环境变量请参考start.sh中的设置，如需使用API模式请配置有效的访问令牌",
+  "建议追问": [
+    "是否需要下载Qwen3 TTS模型文件才能正常启动？",
+    "如何配置或获取使用API模式的访问令牌？",
+    "启动脚本中是否需要手动指定模型的存放路径？",
+    "是否支持在无GPU环境下运行或使用CPU生成？"
+  ],
+  "已知坑": "若未下载Qwen3 TTS模型或未配置访问令牌，启动可能报错或无法生成语音，请先确保模型文件路径和令牌配置正确。",
+  "成功标准": "WebUI界面成功加载，输入任意文本后可成功合成并播放Qwen3 TTS语音，无报错信息。",
+  "推荐启动": "./start.sh",
+  "agentHint": "优先验证模型路径和访问令牌的配置情况。",
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/licyk-qwen-tts-webui.json",
+  "source": "ai-web"
+}

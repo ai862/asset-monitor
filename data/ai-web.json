@@ -2842,13 +2842,25 @@
     "备注": "基于 Qwen3 TTS 的本地 WebUI+可选 API。",
     "资产号": 32,
     "首次写入": "2026-09-03",
-    "研判状态": "未研判",
-    "研判时间": "2026-10-26T01:23:15+08:00",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-26T02:44:42+08:00",
     "DeepWiki": "https://deepwiki.com/licyk/qwen-tts-webui",
-    "搭建难度": "未知",
+    "搭建难度": "中",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "研判摘要": "OpenRouter 未能生成有效 JSON。"
+    "研判摘要": "Qwen TTS WebUI是一个基于Qwen3 TTS模型的本地Web界面，提供语音合成功能和可选API服务，部署方式为源码，启动门槛中等。",
+    "启动指引": "执行 ./start.sh 或 python launch.py 启动 WebUI，启动后请查看控制台输出的访问地址和端口，环境变量请参考start.sh中的设置，如需使用API模式请配置有效的访问令牌",
+    "建议追问": [
+      "是否需要下载Qwen3 TTS模型文件才能正常启动？",
+      "如何配置或获取使用API模式的访问令牌？",
+      "启动脚本中是否需要手动指定模型的存放路径？",
+      "是否支持在无GPU环境下运行或使用CPU生成？"
+    ],
+    "已知坑": "若未下载Qwen3 TTS模型或未配置访问令牌，启动可能报错或无法生成语音，请先确保模型文件路径和令牌配置正确。",
+    "成功标准": "WebUI界面成功加载，输入任意文本后可成功合成并播放Qwen3 TTS语音，无报错信息。",
+    "推荐启动": "./start.sh",
+    "agentHint": "优先验证模型路径和访问令牌的配置情况。",
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/licyk-qwen-tts-webui.json"
   },
   {
     "产品": "Nexior",
@@ -3001,13 +3013,52 @@
     "备注": "中文 Vue+FastAPI：问答/知识库/工作流/智能体编排。语言实际是 Vue。",
     "资产号": 48,
     "首次写入": "2026-09-03",
-    "研判状态": "未研判",
-    "研判时间": "2026-10-26T01:27:04+08:00",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-26T02:45:49+08:00",
     "DeepWiki": "https://deepwiki.com/lkpAgent/openAgent",
-    "搭建难度": "未知",
+    "搭建难度": "中",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "研判摘要": "OpenRouter 未能生成有效 JSON。"
+    "研判摘要": "openAgent 是中文 Vue+FastAPI 架构，需 PostgreSQL+pgvector、后端 FastAPI、前端 Vue。核心端口后端 8000、前端 3000、库 5432；启动依赖数据库、LLM/embedding API Key、JWT 配置。",
+    "启动指引": "最短启动：docker-compose 起 PostgreSQL(pgvector)；后端 pip install -r requirements.txt，cp .env.example .env，配置 DATABASE_URL、VECTOR_DB_TYPE=pgvector、LLM_PROVIDER、EMBEDDING_PROVIDER 及对应 API Key；cd backend && python -m uvicorn open_agent.main:app --reload --host 0.0.0.0 --port 8000；前端 cd frontend && npm install && cp .env.example .env，设置 VITE_API_BASE_URL=http://localhost:8000 && npm run dev。端口：后端 8000，前端 3000，库 5432。鉴权：后端 JWT，Bearer Token；默认测试账号 test@example.com / 123456；接口 /register /login /refresh /me，中间件排除 /docs /api/auth/login /health。",
+    "开工前先看": [
+      {
+        "title": "openAgent GitHub",
+        "url": "https://github.com/lkpAgent/openAgent"
+      },
+      {
+        "title": "openAgent DeepWiki Overview",
+        "url": "https://deepwiki.com/lkpAgent/openAgent"
+      },
+      {
+        "title": "Installation and Setup",
+        "url": "https://github.com/lkpAgent/openAgent"
+      },
+      {
+        "title": "AI Integration",
+        "url": "https://deepwiki.com/lkpAgent/openAgent#4.3"
+      },
+      {
+        "title": "Configuration Management",
+        "url": "https://deepwiki.com/lkpAgent/openAgent#4.4"
+      },
+      {
+        "title": "Overview",
+        "url": "https://deepwiki.com/lkpAgent/openAgent#1"
+      }
+    ],
+    "建议追问": [
+      "如何配置 PostgreSQL 与 pgvector 的 DATABASE_URL？",
+      "LLM_PROVIDER 和 EMBEDDING_PROVIDER 需要哪些 API Key？",
+      "JWT SECRET_KEY 和默认登录账号是什么？",
+      "前端 VITE_API_BASE_URL 应指向什么地址？",
+      "如何配置 CORS 和反向代理？"
+    ],
+    "已知坑": "环境变量错误、pgvector 扩展未启用、未执行 init_db.py、CORS 未配置、JWT SECRET_KEY 弱或默认。",
+    "成功标准": "后端 /health 返回 healthy，/ 返回 Chat Agent API is running，前端 localhost:3000 可打开登录页，用 test@example.com/123456 登录成功，或 /docs 可用。",
+    "推荐启动": "docker-compose up -d && cd backend && python -m uvicorn open_agent.main:app --reload --host 0.0.0.0 --port 8000",
+    "agentHint": "先起 PostgreSQL pgvector 和后端，再配 .env 和 API Key，最后起前端；验证 /health 与登录。",
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lkpagent-openagent.json"
   },
   {
     "产品": "chatgpt_webui",
@@ -3079,7 +3130,46 @@
     "去重键": "rizwankaka-deepseek-r1-chat",
     "备注": "本地 Gradio 编程助手",
     "资产号": 51,
-    "首次写入": "2026-09-04"
+    "首次写入": "2026-09-04",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-26T02:46:38+08:00",
+    "启动指引": "最短路径：git clone https://github.com/Rizwankaka/deepseek-r1-chat.git && cd deepseek-r1-chat && pip install -r requirements.txt && ollama pull deepseek-r1:1.5b && ollama serve & python app.py。默认端口 7860 (Gradio)，Ollama 本地端口 11434。无需环境变量，无鉴权，纯本地运行。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/Rizwankaka/deepseek-r1-chat"
+      },
+      {
+        "title": "DeepWiki 安装指引",
+        "url": "https://deepwiki.com/search/how-do-i-install-and-start-dee_2f03cb95-a44a-4e83-bc1b-2ecd9db40e57"
+      },
+      {
+        "title": "DeepWiki 常见坑与验证",
+        "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_a33cf8c8-0ce9-455e-8d80-0956b03e2c79"
+      },
+      {
+        "title": "DeepWiki Web UI 与 API",
+        "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_5b81e6c3-4181-4bed-b972-6f108aae05f3"
+      }
+    ],
+    "建议追问": [
+      "是否支持切换不同规格的 DeepSeek-r1 模型（如 3b、7b）？",
+      "Gradio 界面是否支持多用户或并发会话？",
+      "能否通过环境变量自定义 Ollama base_url 或 Gradio 端口？",
+      "是否有 Dockerfile 或 docker-compose 示例？",
+      "如何在无 GPU 环境下评估推理速度？",
+      "是否计划增加对话历史持久化或导出功能？"
+    ],
+    "已知坑": "1) 未启动 ollama serve 会报连接错误；2) 未执行 ollama pull deepseek-r1:1.5b 会提示模型不存在；3) 端口 7860 被占用需修改 app.py 中 demo.launch(server_port=...)；4) 仅支持本地 Ollama，无远程 API 调用配置。",
+    "成功标准": "浏览器打开 http://127.0.0.1:7860 出现 “DeepSeek Code Companion” 标题与聊天界面，且能发送消息收到模型回复。",
+    "研判摘要": "基于 Gradio + LangChain + 本地 Ollama 的轻量级编程助手，零配置、纯本地、隐私优先，适合快速体验 DeepSeek-r1 小模型。",
+    "推荐启动": "git clone https://github.com/Rizwankaka/deepseek-r1-chat.git && cd deepseek-r1-chat && pip install -r requirements.txt && ollama pull deepseek-r1:1.5b && ollama serve & python app.py",
+    "agentHint": "纯本地 Gradio 应用，核心依赖 Ollama 服务与 deepseek-r1 模型，端口冲突只需改 app.py 即可。",
+    "DeepWiki": "https://deepwiki.com/Rizwankaka/deepseek-r1-chat",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/rizwankaka-deepseek-r1-chat.json"
   },
   {
     "产品": "pytldr-oss",
@@ -3099,7 +3189,38 @@
     "去重键": "mlc-delgado-pytldr-oss",
     "备注": "Docker 自托管 RAG chatbot",
     "资产号": 55,
-    "首次写入": "2026-09-04"
+    "首次写入": "2026-09-04",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-26T02:47:10+08:00",
+    "启动指引": "使用 Docker Compose 启动，提供 cuda/rocm 两套 yml；需自行准备 GPU 环境与镜像，启动后通过 Gradio Web UI 访问 RAG 聊天服务，具体端口、环境变量、鉴权方式未在公开资料中说明，请先阅读仓库中的 docker-compose*.yml 与 README。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/mlc-delgado/pytldr-oss"
+      },
+      {
+        "title": "DeepWiki 索引页",
+        "url": "https://deepwiki.com/mlc-delgado/pytldr-oss"
+      }
+    ],
+    "建议追问": [
+      "仓库中是否包含 docker-compose.cuda.yml 与 docker-compose.rocm.yml 两个文件？",
+      "Gradio 服务默认监听哪个端口？是否需通过反向代理暴露？",
+      "必须设置哪些环境变量（如模型路径、向量库连接、API Key）？",
+      "是否需要提前下载或挂载模型权重、嵌入模型、向量数据库数据？",
+      "鉴权机制是什么（无鉴权 / 简单密码 / OAuth / API Token）？",
+      "是否提供健康检查或就绪探针端点供编排系统使用？"
+    ],
+    "已知坑": "公开文档缺失，DeepWiki 尚未索引；需自行阅读 compose 文件与源码推断启动细节，GPU 驱动/镜像版本不匹配易导致容器起不来。",
+    "成功标准": "docker compose up -d 后，容器状态为 healthy/running，浏览器访问 Gradio 端口能打开聊天界面并能完成一轮 RAG 问答。",
+    "研判摘要": "pytldr-oss 是一个基于 Docker Compose 的自托管 RAG 聊天机器人，提供 CUDA/ROCm 两套编排，缺乏官方文档，需通过阅读 compose 与源码自行摸索启动细节。",
+    "推荐启动": "docker compose -f docker-compose.cuda.yml up -d  # 或 rocm 版本",
+    "agentHint": "文档缺失，先 clone 仓库阅读 compose 文件与入口脚本，确认端口、环境变量、模型挂载路径。",
+    "DeepWiki": "https://deepwiki.com/mlc-delgado/pytldr-oss",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mlc-delgado-pytldr-oss.json"
   },
   {
     "产品": "LLMChat",
@@ -3120,7 +3241,49 @@
     "去重键": "c0sogi-llmchat",
     "备注": "全栈聊天：FastAPI API + Flutter Web UI",
     "资产号": 52,
-    "首次写入": "2026-09-04"
+    "首次写入": "2026-09-04",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-26T02:48:10+08:00",
+    "启动指引": "使用Docker Compose启动：克隆仓库后，配置.env文件（包括MySQL、Redis、Qdrant、JWT_SECRET、OPENAI_API_KEY等环境变量），然后执行'docker-compose -f docker-compose-local.yaml up'。默认端口：API服务8000，MySQL 3306，Redis 6379，Qdrant 6333/6334。鉴权：API服务端点使用API Key认证，其他端点使用JWT Token认证。注意：启动前确保Docker和Docker Compose已安装。",
+    "开工前先看": [
+      {
+        "title": "LLMChat GitHub仓库",
+        "url": "https://github.com/c0sogi/LLMChat"
+      },
+      {
+        "title": "LLMChat DeepWiki",
+        "url": "https://deepwiki.com/c0sogi/LLMChat"
+      },
+      {
+        "title": "系统架构",
+        "url": "https://deepwiki.com/c0sogi/LLMChat#2"
+      },
+      {
+        "title": "部署和配置",
+        "url": "https://deepwiki.com/c0sogi/LLMChat#7"
+      },
+      {
+        "title": "API端点",
+        "url": "https://deepwiki.com/c0sogi/LLMChat#6"
+      }
+    ],
+    "建议追问": [
+      "如何配置子模块（Exllama或llama.cpp）以支持本地模型？",
+      "OpenAI API Key的获取和使用有什么限制？",
+      "如何修改默认端口，比如将API端口从8000改为其他？",
+      "生产环境使用Traefik反向代理，本地开发如何模拟？",
+      "如何重置数据库或修改数据库配置？"
+    ],
+    "已知坑": "常见问题包括：1. 环境变量配置错误，特别是数据库密码、Redis密码和JWT_SECRET；2. 数据库连接失败，需检查MySQL和Redis服务是否正常运行；3. 在非Docker环境下运行时，需要设置DOCKER_MODE为False，否则端口和主机名配置可能错误；4. 确保所有依赖已安装，特别是Python 3.11；5. 如果使用OpenAI模型，需要有效的OpenAI API Key。",
+    "成功标准": "启动后，控制台应输出'MySQL DB connected!'和'Redis CACHE connected!'日志。通过浏览器访问http://localhost:8000/docs可查看API文档，访问http://localhost:8000/chat可进入聊天界面。健康检查端点/health返回'ok'。",
+    "研判摘要": "LLMChat是一个全栈聊天应用，使用FastAPI作为后端和Flutter Web作为前端。通过Docker Compose可以快速启动，但需要正确配置多个环境变量。项目提供了详细的文档和日志，便于调试。",
+    "推荐启动": "docker-compose -f docker-compose-local.yaml up",
+    "agentHint": "启动前务必配置好.env文件，并确保Docker服务正在运行。",
+    "DeepWiki": "https://deepwiki.com/c0sogi/LLMChat",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/c0sogi-llmchat.json"
   },
   {
     "产品": "PDF-RAG-with-Llama2-and-Gradio",
@@ -3141,7 +3304,37 @@
     "去重键": "niez-gharbi-pdf-rag-with-llama2-and-gradio",
     "备注": "Gradio PDF 问答",
     "资产号": 53,
-    "首次写入": "2026-09-04"
+    "首次写入": "2026-09-04",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-26T02:48:44+08:00",
+    "启动指引": "资料检索失败，DeepWiki 返回 Repository not found；最短启动路径、端口、环境变量和鉴权要点均无法确认，不能编造。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库 Niez-Gharbi/PDF-RAG-with-Llama2-and-Gradio",
+        "url": "https://github.com/Niez-Gharbi/PDF-RAG-with-Llama2-and-Gradio"
+      },
+      {
+        "title": "DeepWiki 文档 Niez-Gharbi/PDF-RAG-with-Llama2-and-Gradio",
+        "url": "https://deepwiki.com/Niez-Gharbi/PDF-RAG-with-Llama2-and-Gradio"
+      }
+    ],
+    "建议追问": [
+      "该 GitHub 仓库目前是否公开可访问？",
+      "README 中最短的启动命令是什么？",
+      "Gradio 默认端口和启动方式是什么？",
+      "所需环境变量、模型路径和下载来源是什么？",
+      "是否需要 Hugging Face token 或其他 API key？",
+      "GPU 资源要求和 CPU 回退方案是什么？"
+    ],
+    "已知坑": "DeepWiki 检索返回 Repository not found，导致无法确认依赖版本、模型下载、启动步骤和鉴权方式。",
+    "成功标准": "在确认启动命令和端口后，可自测：依赖安装成功、Gradio 服务启动、浏览器可访问 PDF RAG 聊天界面、PDF 问答流程可用。",
+    "研判摘要": "该资产为基于 Llama2 和 Gradio 的 PDF RAG 问答项目；当前仓库资料检索失败，关键启动、端口、环境变量和鉴权信息不足。",
+    "agentHint": "资料未命中，先获取 README 和启动文档后再执行。",
+    "DeepWiki": "https://deepwiki.com/Niez-Gharbi/PDF-RAG-with-Llama2-and-Gradio",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/niez-gharbi-pdf-rag-with-llama2-and-gradio.json"
   },
   {
     "产品": "langchain-chatbot",
@@ -3162,7 +3355,36 @@
     "去重键": "shashankdeshpande-langchain-chatbot",
     "备注": "多页 Streamlit Langchain 聊天示例，含 Docker",
     "资产号": 58,
-    "首次写入": "2026-09-05"
+    "首次写入": "2026-09-05",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-26T02:49:08+08:00",
+    "启动指引": "最短启动路径：streamlit run Home.py；端口：8501；环境变量：无需额外配置；鉴权要点：无。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库主页",
+        "url": "https://github.com/shashankdeshpande/langchain-chatbot"
+      },
+      {
+        "title": "DeepWiki 索引",
+        "url": "https://deepwiki.com/shashankdeshpande/langchain-chatbot"
+      }
+    ],
+    "建议追问": [
+      "该仓库是否包含完整的依赖文件及 Dockerfile？",
+      "是否需要配置特定的 LLM API Key 或 Provider 地址？",
+      "多页界面的路由逻辑是如何实现的？",
+      "Docker 镜像的具体构建步骤和来源是什么？"
+    ],
+    "已知坑": "仓库未索引，无法确认具体坑点；常见 Streamlit+Langchain 项目需注意依赖安装顺序与 LLM Provider 配置。",
+    "成功标准": "浏览器访问 http://localhost:8501 能看到聊天界面；输入消息后能收到 LLM 回复。",
+    "研判摘要": "该资产为基于 Streamlit 的 Langchain 聊天示例项目，Docker 与源码部署均可，搭建难度较低，但仓库未索引导致详细配置信息缺失。",
+    "推荐启动": "streamlit run Home.py",
+    "agentHint": "注意：仓库未索引，启动指引仅基于资产元数据，建议优先使用 streamlit 源码模式启动。",
+    "DeepWiki": "https://deepwiki.com/shashankdeshpande/langchain-chatbot",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/shashankdeshpande-langchain-chatbot.json"
   },
   {
     "产品": "keras-llm-robot",
@@ -3182,7 +3404,36 @@
     "去重键": "smalltong02-keras-llm-robot",
     "备注": "Streamlit WebUI；本地多模型/RAG/Agent",
     "资产号": 59,
-    "首次写入": "2026-09-05"
+    "首次写入": "2026-09-05",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-26T02:49:25+08:00",
+    "启动指引": "运行 `python webgui_server.py --webui`，默认端口 8818，无需额外环境变量，默认无鉴权",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/smalltong02/keras-llm-robot"
+      },
+      {
+        "title": "DeepWiki 文档",
+        "url": "https://deepwiki.com/smalltong02/keras-llm-robot"
+      }
+    ],
+    "建议追问": [
+      "如何安装必需的 Python 依赖？",
+      "是否需要配置模型文件路径或其他环境变量？",
+      "端口 8818 是否可被外部访问或需要防火墙设置？",
+      "如何进行模型加载或切换？",
+      "是否支持鉴权或 token 认证？"
+    ],
+    "已知坑": "文档缺失导致依赖缺失、端口冲突、模型路径配置错误、缺少鉴权设置",
+    "成功标准": "启动后在浏览器访问 http://localhost:8818 并能正常加载 Web UI 界面",
+    "推荐启动": "python webgui_server.py --webui",
+    "agentHint": "先确认仓库可达并安装依赖，再运行指定命令启动 Web UI。",
+    "DeepWiki": "https://deepwiki.com/smalltong02/keras-llm-robot",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/smalltong02-keras-llm-robot.json"
   },
   {
     "产品": "LangChain-ReAct-Agent",

@@ -1,0 +1,51 @@
+{
+  "产品": "langchain-chatbot",
+  "厂商": "shashankdeshpande",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "Python",
+  "Stars": 278,
+  "GitHub": "https://github.com/shashankdeshpande/langchain-chatbot",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "docker run -p 8501:8501 或 streamlit run Home.py",
+  "去重键": "shashankdeshpande-langchain-chatbot",
+  "备注": "多页 Streamlit Langchain 聊天示例，含 Docker",
+  "资产号": 58,
+  "首次写入": "2026-09-05",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-26T02:49:08+08:00",
+  "启动指引": "最短启动路径：streamlit run Home.py；端口：8501；环境变量：无需额外配置；鉴权要点：无。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库主页",
+      "url": "https://github.com/shashankdeshpande/langchain-chatbot"
+    },
+    {
+      "title": "DeepWiki 索引",
+      "url": "https://deepwiki.com/shashankdeshpande/langchain-chatbot"
+    }
+  ],
+  "建议追问": [
+    "该仓库是否包含完整的依赖文件及 Dockerfile？",
+    "是否需要配置特定的 LLM API Key 或 Provider 地址？",
+    "多页界面的路由逻辑是如何实现的？",
+    "Docker 镜像的具体构建步骤和来源是什么？"
+  ],
+  "已知坑": "仓库未索引，无法确认具体坑点；常见 Streamlit+Langchain 项目需注意依赖安装顺序与 LLM Provider 配置。",
+  "成功标准": "浏览器访问 http://localhost:8501 能看到聊天界面；输入消息后能收到 LLM 回复。",
+  "研判摘要": "该资产为基于 Streamlit 的 Langchain 聊天示例项目，Docker 与源码部署均可，搭建难度较低，但仓库未索引导致详细配置信息缺失。",
+  "推荐启动": "streamlit run Home.py",
+  "agentHint": "注意：仓库未索引，启动指引仅基于资产元数据，建议优先使用 streamlit 源码模式启动。",
+  "DeepWiki": "https://deepwiki.com/shashankdeshpande/langchain-chatbot",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/shashankdeshpande-langchain-chatbot.json",
+  "source": "ai-web"
+}

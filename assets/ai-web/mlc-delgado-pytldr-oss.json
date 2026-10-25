@@ -1,0 +1,52 @@
+{
+  "产品": "pytldr-oss",
+  "厂商": "mlc-delgado",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 60,
+  "GitHub": "https://github.com/mlc-delgado/pytldr-oss",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker"
+  ],
+  "下载条件": "docker compose（cuda/rocm yml）；自托管 Gradio 向 RAG 聊天",
+  "去重键": "mlc-delgado-pytldr-oss",
+  "备注": "Docker 自托管 RAG chatbot",
+  "资产号": 55,
+  "首次写入": "2026-09-04",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-26T02:47:10+08:00",
+  "启动指引": "使用 Docker Compose 启动，提供 cuda/rocm 两套 yml；需自行准备 GPU 环境与镜像，启动后通过 Gradio Web UI 访问 RAG 聊天服务，具体端口、环境变量、鉴权方式未在公开资料中说明，请先阅读仓库中的 docker-compose*.yml 与 README。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/mlc-delgado/pytldr-oss"
+    },
+    {
+      "title": "DeepWiki 索引页",
+      "url": "https://deepwiki.com/mlc-delgado/pytldr-oss"
+    }
+  ],
+  "建议追问": [
+    "仓库中是否包含 docker-compose.cuda.yml 与 docker-compose.rocm.yml 两个文件？",
+    "Gradio 服务默认监听哪个端口？是否需通过反向代理暴露？",
+    "必须设置哪些环境变量（如模型路径、向量库连接、API Key）？",
+    "是否需要提前下载或挂载模型权重、嵌入模型、向量数据库数据？",
+    "鉴权机制是什么（无鉴权 / 简单密码 / OAuth / API Token）？",
+    "是否提供健康检查或就绪探针端点供编排系统使用？"
+  ],
+  "已知坑": "公开文档缺失，DeepWiki 尚未索引；需自行阅读 compose 文件与源码推断启动细节，GPU 驱动/镜像版本不匹配易导致容器起不来。",
+  "成功标准": "docker compose up -d 后，容器状态为 healthy/running，浏览器访问 Gradio 端口能打开聊天界面并能完成一轮 RAG 问答。",
+  "研判摘要": "pytldr-oss 是一个基于 Docker Compose 的自托管 RAG 聊天机器人，提供 CUDA/ROCm 两套编排，缺乏官方文档，需通过阅读 compose 与源码自行摸索启动细节。",
+  "推荐启动": "docker compose -f docker-compose.cuda.yml up -d  # 或 rocm 版本",
+  "agentHint": "文档缺失，先 clone 仓库阅读 compose 文件与入口脚本，确认端口、环境变量、模型挂载路径。",
+  "DeepWiki": "https://deepwiki.com/mlc-delgado/pytldr-oss",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mlc-delgado-pytldr-oss.json",
+  "source": "ai-web"
+}

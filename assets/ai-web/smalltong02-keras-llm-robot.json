@@ -1,0 +1,50 @@
+{
+  "产品": "keras-llm-robot",
+  "厂商": "smalltong02",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "Python",
+  "Stars": 252,
+  "GitHub": "https://github.com/smalltong02/keras-llm-robot",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "python webgui_server.py --webui → :8818",
+  "去重键": "smalltong02-keras-llm-robot",
+  "备注": "Streamlit WebUI；本地多模型/RAG/Agent",
+  "资产号": 59,
+  "首次写入": "2026-09-05",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-26T02:49:25+08:00",
+  "启动指引": "运行 `python webgui_server.py --webui`，默认端口 8818，无需额外环境变量，默认无鉴权",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/smalltong02/keras-llm-robot"
+    },
+    {
+      "title": "DeepWiki 文档",
+      "url": "https://deepwiki.com/smalltong02/keras-llm-robot"
+    }
+  ],
+  "建议追问": [
+    "如何安装必需的 Python 依赖？",
+    "是否需要配置模型文件路径或其他环境变量？",
+    "端口 8818 是否可被外部访问或需要防火墙设置？",
+    "如何进行模型加载或切换？",
+    "是否支持鉴权或 token 认证？"
+  ],
+  "已知坑": "文档缺失导致依赖缺失、端口冲突、模型路径配置错误、缺少鉴权设置",
+  "成功标准": "启动后在浏览器访问 http://localhost:8818 并能正常加载 Web UI 界面",
+  "推荐启动": "python webgui_server.py --webui",
+  "agentHint": "先确认仓库可达并安装依赖，再运行指定命令启动 Web UI。",
+  "DeepWiki": "https://deepwiki.com/smalltong02/keras-llm-robot",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/smalltong02-keras-llm-robot.json",
+  "source": "ai-web"
+}

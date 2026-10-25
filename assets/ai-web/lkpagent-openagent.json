@@ -1,0 +1,68 @@
+{
+  "产品": "openAgent",
+  "厂商": "lkpAgent",
+  "状态": "可下",
+  "类型": "工作流",
+  "语言": "其它",
+  "Stars": 229,
+  "GitHub": "https://github.com/lkpAgent/openAgent",
+  "官网": "https://github.com/lkpAgent/openAgent",
+  "文档": "https://github.com/lkpAgent/openAgent",
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "pgvector compose 后 uvicorn :8000；前端 npm run dev → localhost:3000",
+  "去重键": "lkpagent-openagent",
+  "备注": "中文 Vue+FastAPI：问答/知识库/工作流/智能体编排。语言实际是 Vue。",
+  "资产号": 48,
+  "首次写入": "2026-09-03",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-26T02:45:49+08:00",
+  "DeepWiki": "https://deepwiki.com/lkpAgent/openAgent",
+  "搭建难度": "中",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "研判摘要": "openAgent 是中文 Vue+FastAPI 架构，需 PostgreSQL+pgvector、后端 FastAPI、前端 Vue。核心端口后端 8000、前端 3000、库 5432；启动依赖数据库、LLM/embedding API Key、JWT 配置。",
+  "启动指引": "最短启动：docker-compose 起 PostgreSQL(pgvector)；后端 pip install -r requirements.txt，cp .env.example .env，配置 DATABASE_URL、VECTOR_DB_TYPE=pgvector、LLM_PROVIDER、EMBEDDING_PROVIDER 及对应 API Key；cd backend && python -m uvicorn open_agent.main:app --reload --host 0.0.0.0 --port 8000；前端 cd frontend && npm install && cp .env.example .env，设置 VITE_API_BASE_URL=http://localhost:8000 && npm run dev。端口：后端 8000，前端 3000，库 5432。鉴权：后端 JWT，Bearer Token；默认测试账号 test@example.com / 123456；接口 /register /login /refresh /me，中间件排除 /docs /api/auth/login /health。",
+  "开工前先看": [
+    {
+      "title": "openAgent GitHub",
+      "url": "https://github.com/lkpAgent/openAgent"
+    },
+    {
+      "title": "openAgent DeepWiki Overview",
+      "url": "https://deepwiki.com/lkpAgent/openAgent"
+    },
+    {
+      "title": "Installation and Setup",
+      "url": "https://github.com/lkpAgent/openAgent"
+    },
+    {
+      "title": "AI Integration",
+      "url": "https://deepwiki.com/lkpAgent/openAgent#4.3"
+    },
+    {
+      "title": "Configuration Management",
+      "url": "https://deepwiki.com/lkpAgent/openAgent#4.4"
+    },
+    {
+      "title": "Overview",
+      "url": "https://deepwiki.com/lkpAgent/openAgent#1"
+    }
+  ],
+  "建议追问": [
+    "如何配置 PostgreSQL 与 pgvector 的 DATABASE_URL？",
+    "LLM_PROVIDER 和 EMBEDDING_PROVIDER 需要哪些 API Key？",
+    "JWT SECRET_KEY 和默认登录账号是什么？",
+    "前端 VITE_API_BASE_URL 应指向什么地址？",
+    "如何配置 CORS 和反向代理？"
+  ],
+  "已知坑": "环境变量错误、pgvector 扩展未启用、未执行 init_db.py、CORS 未配置、JWT SECRET_KEY 弱或默认。",
+  "成功标准": "后端 /health 返回 healthy，/ 返回 Chat Agent API is running，前端 localhost:3000 可打开登录页，用 test@example.com/123456 登录成功，或 /docs 可用。",
+  "推荐启动": "docker-compose up -d && cd backend && python -m uvicorn open_agent.main:app --reload --host 0.0.0.0 --port 8000",
+  "agentHint": "先起 PostgreSQL pgvector 和后端，再配 .env 和 API Key，最后起前端；验证 /health 与登录。",
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lkpagent-openagent.json",
+  "source": "ai-web"
+}

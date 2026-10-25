@@ -1,0 +1,61 @@
+{
+  "产品": "deepseek-r1-chat",
+  "厂商": "Rizwankaka",
+  "状态": "可下",
+  "类型": "代码助手",
+  "语言": "Python",
+  "Stars": 312,
+  "GitHub": "https://github.com/Rizwankaka/deepseek-r1-chat",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "pip"
+  ],
+  "下载条件": "clone + pip install -r requirements.txt；需本地 Ollama/DeepSeek-r1；Gradio Web UI",
+  "去重键": "rizwankaka-deepseek-r1-chat",
+  "备注": "本地 Gradio 编程助手",
+  "资产号": 51,
+  "首次写入": "2026-09-04",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-26T02:46:38+08:00",
+  "启动指引": "最短路径：git clone https://github.com/Rizwankaka/deepseek-r1-chat.git && cd deepseek-r1-chat && pip install -r requirements.txt && ollama pull deepseek-r1:1.5b && ollama serve & python app.py。默认端口 7860 (Gradio)，Ollama 本地端口 11434。无需环境变量，无鉴权，纯本地运行。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/Rizwankaka/deepseek-r1-chat"
+    },
+    {
+      "title": "DeepWiki 安装指引",
+      "url": "https://deepwiki.com/search/how-do-i-install-and-start-dee_2f03cb95-a44a-4e83-bc1b-2ecd9db40e57"
+    },
+    {
+      "title": "DeepWiki 常见坑与验证",
+      "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_a33cf8c8-0ce9-455e-8d80-0956b03e2c79"
+    },
+    {
+      "title": "DeepWiki Web UI 与 API",
+      "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_5b81e6c3-4181-4bed-b972-6f108aae05f3"
+    }
+  ],
+  "建议追问": [
+    "是否支持切换不同规格的 DeepSeek-r1 模型（如 3b、7b）？",
+    "Gradio 界面是否支持多用户或并发会话？",
+    "能否通过环境变量自定义 Ollama base_url 或 Gradio 端口？",
+    "是否有 Dockerfile 或 docker-compose 示例？",
+    "如何在无 GPU 环境下评估推理速度？",
+    "是否计划增加对话历史持久化或导出功能？"
+  ],
+  "已知坑": "1) 未启动 ollama serve 会报连接错误；2) 未执行 ollama pull deepseek-r1:1.5b 会提示模型不存在；3) 端口 7860 被占用需修改 app.py 中 demo.launch(server_port=...)；4) 仅支持本地 Ollama，无远程 API 调用配置。",
+  "成功标准": "浏览器打开 http://127.0.0.1:7860 出现 “DeepSeek Code Companion” 标题与聊天界面，且能发送消息收到模型回复。",
+  "研判摘要": "基于 Gradio + LangChain + 本地 Ollama 的轻量级编程助手，零配置、纯本地、隐私优先，适合快速体验 DeepSeek-r1 小模型。",
+  "推荐启动": "git clone https://github.com/Rizwankaka/deepseek-r1-chat.git && cd deepseek-r1-chat && pip install -r requirements.txt && ollama pull deepseek-r1:1.5b && ollama serve & python app.py",
+  "agentHint": "纯本地 Gradio 应用，核心依赖 Ollama 服务与 deepseek-r1 模型，端口冲突只需改 app.py 即可。",
+  "DeepWiki": "https://deepwiki.com/Rizwankaka/deepseek-r1-chat",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/rizwankaka-deepseek-r1-chat.json",
+  "source": "ai-web"
+}

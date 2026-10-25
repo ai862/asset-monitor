@@ -1,0 +1,52 @@
+{
+  "产品": "PDF-RAG-with-Llama2-and-Gradio",
+  "厂商": "Niez-Gharbi",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 82,
+  "GitHub": "https://github.com/Niez-Gharbi/PDF-RAG-with-Llama2-and-Gradio",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "pip"
+  ],
+  "下载条件": "pip install -r requirements.txt；Gradio PDF RAG 聊天",
+  "去重键": "niez-gharbi-pdf-rag-with-llama2-and-gradio",
+  "备注": "Gradio PDF 问答",
+  "资产号": 53,
+  "首次写入": "2026-09-04",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-26T02:48:44+08:00",
+  "启动指引": "资料检索失败，DeepWiki 返回 Repository not found；最短启动路径、端口、环境变量和鉴权要点均无法确认，不能编造。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库 Niez-Gharbi/PDF-RAG-with-Llama2-and-Gradio",
+      "url": "https://github.com/Niez-Gharbi/PDF-RAG-with-Llama2-and-Gradio"
+    },
+    {
+      "title": "DeepWiki 文档 Niez-Gharbi/PDF-RAG-with-Llama2-and-Gradio",
+      "url": "https://deepwiki.com/Niez-Gharbi/PDF-RAG-with-Llama2-and-Gradio"
+    }
+  ],
+  "建议追问": [
+    "该 GitHub 仓库目前是否公开可访问？",
+    "README 中最短的启动命令是什么？",
+    "Gradio 默认端口和启动方式是什么？",
+    "所需环境变量、模型路径和下载来源是什么？",
+    "是否需要 Hugging Face token 或其他 API key？",
+    "GPU 资源要求和 CPU 回退方案是什么？"
+  ],
+  "已知坑": "DeepWiki 检索返回 Repository not found，导致无法确认依赖版本、模型下载、启动步骤和鉴权方式。",
+  "成功标准": "在确认启动命令和端口后，可自测：依赖安装成功、Gradio 服务启动、浏览器可访问 PDF RAG 聊天界面、PDF 问答流程可用。",
+  "研判摘要": "该资产为基于 Llama2 和 Gradio 的 PDF RAG 问答项目；当前仓库资料检索失败，关键启动、端口、环境变量和鉴权信息不足。",
+  "agentHint": "资料未命中，先获取 README 和启动文档后再执行。",
+  "DeepWiki": "https://deepwiki.com/Niez-Gharbi/PDF-RAG-with-Llama2-and-Gradio",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/niez-gharbi-pdf-rag-with-llama2-and-gradio.json",
+  "source": "ai-web"
+}
