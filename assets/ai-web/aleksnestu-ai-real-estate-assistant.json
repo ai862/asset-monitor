@@ -1,0 +1,42 @@
+{
+  "产品": "ai-real-estate-assistant",
+  "厂商": "AleksNeStu",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "Python",
+  "Stars": 309,
+  "GitHub": "https://github.com/AleksNeStu/ai-real-estate-assistant",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "Docker / 源码；FastAPI + Next.js",
+  "去重键": "aleksnestu-ai-real-estate-assistant",
+  "备注": "房产检索对话平台；本地 Docker demo",
+  "资产号": 57,
+  "首次写入": "2026-09-05",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-27T03:45:46+08:00",
+  "启动指引": "最短启动路径: 使用 Docker 脚本 ./utils/run_docker.sh；默认端口: 8501（Streamlit 典型端口，非固定，系统自动分配）；必需环境变量: OPENAI_API_KEY（在项目根目录 .env 中配置）；鉴权要点: 必须提供有效 OpenAI API Key，无 key 将在 UI 中显示警告或功能受限。",
+  "建议追问": [
+    "Docker 部署时是否需要自行配置端口映射？",
+    "V1 和 V2 在数据 CSV 格式上有何不同？",
+    "如果没有 OpenAI API Key，是否可以使用本地模型运行？",
+    "Streamlit 默认端口 8501 可被修改吗？如何在反向代理中配置？",
+    "CSV 数据 URL 失效时，应如何更换或备份？"
+  ],
+  "已知坑": "缺失 OPENAI_API_KEY 导致启动报错；CSV 数据URL不可达或格式错误会导致数据加载失败；V2 版本若无有效 CSV URL 将停止执行；存在 'db freeze' 重处理性能瓶颈；Poetry 与 Python 版本不匹配可能导致依赖安装失败。",
+  "成功标准": "Streamlit 界面成功打开且无报错警告；输入有效 OpenAI API Key 后可正常生成响应；V1 中成功加载 CSV 并显示 'Data loaded successfully.' 与行数；V2 中侧栏显示已加载的 CSV Data Sets 且聊天输入框可用；查询返回内容并附带来源文档弹窗。",
+  "研判摘要": "ai-real-estate-assistant 是一个基于 Streamlit 的房产检索对话平台，提供 V1（Pandas DataFrame Agent）和 V2（RAG 对话）两个版本，支持 Docker 与源码双部署，核心依赖 OpenAI API Key 与 CSV 数据源。",
+  "推荐启动": "./utils/run_docker.sh",
+  "agentHint": "请先在项目根目录创建 .env 并配置有效的 OPENAI_API_KEY。",
+  "DeepWiki": "https://deepwiki.com/AleksNeStu/ai-real-estate-assistant",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/aleksnestu-ai-real-estate-assistant.json",
+  "source": "ai-web"
+}

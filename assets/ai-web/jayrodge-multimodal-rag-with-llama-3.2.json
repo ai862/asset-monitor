@@ -1,0 +1,42 @@
+{
+  "产品": "Multimodal-RAG-with-Llama-3.2",
+  "厂商": "jayrodge",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 135,
+  "GitHub": "https://github.com/jayrodge/Multimodal-RAG-with-Llama-3.2",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "pip + Milvus docker + streamlit run app.py",
+  "去重键": "jayrodge-multimodal-rag-with-llama-3.2",
+  "备注": "Streamlit 多模态 RAG；Llama 3.2 + Milvus",
+  "资产号": 61,
+  "首次写入": "2026-09-05",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-27T03:48:01+08:00",
+  "启动指引": "克隆仓库后使用pip安装依赖，导出NVIDIA_API_KEY环境变量，使用docker compose启动Milvus（默认端口19530），随后运行streamlit run app.py（默认端口8501），系统将在浏览器中打开多模态RAG界面。需确保NVIDIA API key有效，否则图表处理将失败。",
+  "建议追问": [
+    "是否已获取并配置了NVIDIA API Key？",
+    "Milvus Docker是否正确启动并暴露19530端口？",
+    "是否需要自定义Streamlit默认端口8501？",
+    "大文件上传或目录处理的最大限制是多少？",
+    "是否计划在生产环境中部署反向代理或Gateway？"
+  ],
+  "已知坑": "未设置NVIDIA_API_KEY会导致ValueError，Milvus容器未运行将阻止向量存储创建，GPU加速需在app.py中显式配置gpu_id。",
+  "成功标准": "Milvus容器在docker ps中显示运行，Streamlit应用无报错启动并打开浏览器，上传文件或指定目录后出现‘Files processed and index created!’成功消息。",
+  "研判摘要": "多模态RAG系统，Llama 3.2 文视觉模型结合Milvus向量数据库，前端采用Streamlit。部署需NVIDIA API Key及Docker Milvus环境，整体搭建难度中等，适合快速原型开发。",
+  "推荐启动": "streamlit run app.py",
+  "agentHint": "请先验证NVIDIA_API_KEY环境变量和Milvus容器状态，再运行Streamlit应用。",
+  "DeepWiki": "https://deepwiki.com/jayrodge/Multimodal-RAG-with-Llama-3.2",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/jayrodge-multimodal-rag-with-llama-3.2.json",
+  "source": "ai-web"
+}

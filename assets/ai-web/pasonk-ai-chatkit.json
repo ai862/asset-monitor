@@ -1,0 +1,63 @@
+{
+  "产品": "ai-chatkit",
+  "厂商": "pasonk",
+  "状态": "可下",
+  "类型": "Agent",
+  "语言": "Python",
+  "Stars": 118,
+  "GitHub": "https://github.com/pasonk/ai-chatkit",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "backend FastAPI + frontend NextJS 源码启动",
+  "去重键": "pasonk-ai-chatkit",
+  "备注": "LangGraph Agent 聊天模板；支持 RAG/多 Agent",
+  "资产号": 63,
+  "首次写入": "2026-09-05",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-27T03:48:58+08:00",
+  "启动指引": "1. 克隆仓库并进入目录；2. 后端：cd backend && pip install uv && uv sync --frozen && source .venv/bin/activate && cp .env.example .env（配置 OPENAI_API_KEY/DEEPSEEK_API_KEY/DASHSCOPE_API_KEY、DEFAULT_MODEL、EMBEDDING_MODEL=bge-m3）；3. 安装 Ollama 并执行 ollama pull bge-m3（用于 RAG）；4. 启动后端：python app/run_server.py（默认端口 8000）；5. 前端：cd ../frontend && pnpm install && pnpm dev（默认端口 3000）；6. 访问 http://localhost:3000 使用聊天界面，http://localhost:8000/docs 查看 API 文档。",
+  "开工前先看": [
+    {
+      "title": "AI-CHATKIT Overview",
+      "url": "https://deepwiki.com/pasonk/ai-chatkit"
+    },
+    {
+      "title": "Getting Started",
+      "url": "https://deepwiki.com/pasonk/ai-chatkit"
+    },
+    {
+      "title": "Configuration",
+      "url": "https://deepwiki.com/pasonk/ai-chatkit"
+    },
+    {
+      "title": "Backend System",
+      "url": "https://deepwiki.com/pasonk/ai-chatkit"
+    },
+    {
+      "title": "Frontend System",
+      "url": "https://deepwiki.com/pasonk/ai-chatkit"
+    }
+  ],
+  "建议追问": [
+    "如何配置多个 LLM 提供商的 API 密钥？",
+    "RAG 功能需要如何部署和配置 ChromaDB？",
+    "如何自定义 LangGraph Agent？",
+    "前端与后端的通信方式是什么？",
+    "如何进行数据库迁移或更换为 MySQL？"
+  ],
+  "已知坑": "1. 未正确配置 .env 文件中的 API 密钥会导致模型调用失败；2. 未安装 Ollama 或拉取 bge-m3 模型会导致 RAG 功能不可用；3. 使用错误的依赖管理工具（如直接使用 pip 安装 Python 依赖）可能引发版本冲突；4. DATABASE_URL 配置错误会影响数据库连接。",
+  "成功标准": "1. 访问 http://localhost:8000/docs 显示 FastAPI 文档；2. 使用 /chat/invoke 接口返回正常响应；3. 访问 http://localhost:3000 聊天界面加载成功；4. 切换代理并发送消息获得流式响应；5. 选择 OA-ASSISTANT 并提问返回知识库内容。",
+  "研判摘要": "AI-CHATKIT 是一个基于 LangGraph 的多 Agent 聊天应用，包含 FastAPI 后端和 Next.js 前端，支持 RAG 和多种 LLM 提供商，需分别配置环境变量和本地模型。",
+  "推荐启动": "cd backend && uv sync --frozen && source .venv/bin/activate && python app/run_server.py & cd ../frontend && pnpm install && pnpm dev",
+  "agentHint": "记得配置 .env 文件并安装 Ollama 模型，否则 RAG 功能无法使用。",
+  "DeepWiki": "https://deepwiki.com/pasonk/ai-chatkit",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/pasonk-ai-chatkit.json",
+  "source": "ai-web"
+}

@@ -1,0 +1,63 @@
+{
+  "产品": "agent-os",
+  "厂商": "saadnvd1",
+  "状态": "可下",
+  "类型": "代码助手",
+  "语言": "TypeScript",
+  "Stars": 168,
+  "GitHub": "https://github.com/saadnvd1/agent-os",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "npm",
+    "源码"
+  ],
+  "下载条件": "npm i -g @saadnvd1/agent-os; agent-os start; or npm run dev :3011",
+  "去重键": "saadnvd1-agent-os",
+  "备注": "Mobile-first web UI for AI coding CLIs",
+  "资产号": 68,
+  "首次写入": "2026-09-06",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-27T03:50:24+08:00",
+  "启动指引": "最短启动路径：确保系统已安装 Node.js 20+、tmux、git 和 ripgrep，然后执行 `npm install -g @saadnvd1/agent-os` 安装全局包，接着运行 `agent-os install` 安装依赖并配置 AI CLI，最后执行 `agent-os start` 启动服务。默认运行端口为 `3011`，可通过 `AGENT_OS_PORT` 环境变量修改；默认数据根目录为 `~/.agent-os`，可通过 `AGENT_OS_HOME` 修改。鉴权要点：安装过程中需配置 AI 编码 CLI（如 Claude Code 需运行 `claude auth login` 完成网页登录，Codex 需配置 `OPENAI_API_KEY` 环境变量）。启动后可通过 `agent-os status` 查看运行状态及本地/Tailscale 访问地址。",
+  "开工前先看": [
+    {
+      "title": "AgentOS 概述与架构",
+      "url": "https://deepwiki.com/saadnvd1/agent-os#1"
+    },
+    {
+      "title": "安装与快速入门指南",
+      "url": "https://deepwiki.com/saadnvd1/agent-os#1.1"
+    },
+    {
+      "title": "核心架构设计",
+      "url": "https://deepwiki.com/saadnvd1/agent-os#2"
+    },
+    {
+      "title": "API 端点与会话管理",
+      "url": "https://deepwiki.com/saadnvd1/agent-os"
+    },
+    {
+      "title": "GitHub 仓库主页",
+      "url": "https://github.com/saadnvd1/agent-os"
+    }
+  ],
+  "建议追问": [
+    "你的开发环境是否已经安装了 Node.js 20+、tmux、git 和 ripgrep 这些前置依赖？",
+    "你打算主要接入哪款 AI 编码 CLI（如 Claude Code、Codex 或 Aider）？是否已准备好了相应的 API Key 或登录凭证？",
+    "默认的 3011 端口在你的当前环境下是否已被占用？如果被占用，你希望自定义端口吗？",
+    "对于远程安全访问，你计划直接暴露在公网，还是使用 Tailscale VPN 或 Nginx 反向代理进行安全隔离？"
+  ],
+  "已知坑": "1. 端口冲突：默认端口 `3011` 易与本地其他服务冲突，必须通过 `AGENT_OS_PORT` 提前规划。2. tmux 会话卡死：并行任务或异常退出可能导致 tmux 会话残留，需定期调用 `POST /api/tmux/kill-all` 清理。3. 构建缓存问题：开发或更新时若遇到构建失败，需手动删除 `~/.agent-os/repo` 目录下的 `node_modules` 和 `.next` 文件夹以恢复干净安装。4. AI CLI 认证缺失：若未在安装阶段交互式地完成 Claude 或 Codex 等工具的登录认证，部分 Agent 功能将无法正常工作。",
+  "成功标准": "1. 执行 `agent-os status` 命令能够看到 `Status: Running`，并输出可用的本地 URL（如 http://localhost:3011）。2. 在本地或 Tailscale 网络内，使用浏览器成功加载 agent-os 的 Mobile-first Web UI 界面。3. 通过 WebSocket 端点 `/ws/terminal` 成功建立终端连接，能向 AI CLI 发送指令并实时回显输出。4. 至少成功配置并运行一个 AI 编码代理（如 Claude Code），能正常创建和管理会话。",
+  "研判摘要": "agent-os 是一个基于 Next.js + tmux 的移动端优先 AI 编码 CLI 管理面板，通过将多个 AI 编码工具（如 Claude、Aider、Codex）会话可视化，提供统一的终端 Web 操作界面。它依赖 Node.js 和常用命令行工具，安装流程较为成熟，但对 AI 工具的鉴权和环境依赖较多，适合团队或多设备场景下结合 Tailscale 安全部署。",
+  "推荐启动": "curl -fsSL https://raw.githubusercontent.com/saadnvd1/agent-os/main/scripts/install.sh | bash && agent-os start",
+  "agentHint": "该应用强依赖 tmux 和 ripgrep，请在安装前确保系统已装好这些工具；安装过程中会引导交互式 AI CLI 鉴权，请提前准备好 API Key。",
+  "DeepWiki": "https://deepwiki.com/saadnvd1/agent-os",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/saadnvd1-agent-os.json",
+  "source": "ai-web"
+}

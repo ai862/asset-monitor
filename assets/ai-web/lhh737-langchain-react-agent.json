@@ -1,0 +1,41 @@
+{
+  "产品": "LangChain-ReAct-Agent",
+  "厂商": "lhh737",
+  "状态": "可下",
+  "类型": "Agent",
+  "语言": "Python",
+  "Stars": 349,
+  "GitHub": "https://github.com/lhh737/LangChain-ReAct-Agent",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "git clone + streamlit；Streamlit 聊天 UI",
+  "去重键": "lhh737-langchain-react-agent",
+  "备注": "Streamlit ReAct Agent + RAG；面向智能客服",
+  "资产号": 56,
+  "首次写入": "2026-09-05",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-27T03:43:46+08:00",
+  "启动指引": "克隆仓库后，使用 pip 安装依赖，设置 DASHSCOPE_API_KEY 环境变量，确保 config/ 目录下的 YAML 配置文件和 data/ 目录中的知识库文档就绪，然后运行 streamlit run app.py，默认端口 8501，完成后可通过 http://localhost:8501 访问。需配置阿里云 DashScope API Key 方可正常使用 LLM 和 Embedding 服务。",
+  "建议追问": [
+    "DASHSCOPE_API_KEY 未配置时会报什么具体错误？",
+    "config/ 目录下 YAML 文件缺失会如何影响 Agent 的功能？",
+    "知识库文档放错目录或格式错误时的表现是什么？",
+    "Streamlit 端口冲突时应如何切换或指定端口？",
+    "ReactAgent 的工具调用失败时的排查思路"
+  ],
+  "已知坑": "未正确配置 DASHSCOPE_API_KEY 或缺少 config/ 目录下的必要 YAML 配置文件，知识库文档未放置在 data/ 目录下会导致 RAG 功能失效。",
+  "成功标准": "在 Streamlit UI 中提问扫地机器人有哪些主要功能并获得正常回答，或执行生成个性化使用报告并成功输出内容。",
+  "研判摘要": "本项目为基于 Streamlit 的 LangChain ReAct 智能客服代理，集成了 RAG 与 DashScope (Qwen) LLM，搭建需配置 API Key 与 YAML 配置，整体流程清晰但需注意环境变量与配置文件的完整性。",
+  "推荐启动": "streamlit run app.py",
+  "agentHint": "关键核对 DASHSCOPE_API_KEY 是否有效以及 config/ 目录下的 YAML 文件是否完整。",
+  "DeepWiki": "https://deepwiki.com/lhh737/LangChain-ReAct-Agent",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lhh737-langchain-react-agent.json",
+  "source": "ai-web"
+}

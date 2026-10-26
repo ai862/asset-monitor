@@ -1,0 +1,51 @@
+{
+  "产品": "Clouds-Coder",
+  "厂商": "FonaTech",
+  "状态": "可下",
+  "类型": "代码助手",
+  "语言": "Python",
+  "Stars": 294,
+  "GitHub": "https://github.com/FonaTech/Clouds-Coder",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "pip"
+  ],
+  "下载条件": "pip install clouds-coder; local Web UI + IDE ports P / P+5",
+  "去重键": "fonatech-clouds-coder",
+  "备注": "Local-first coding agent platform with browser IDE",
+  "资产号": 67,
+  "首次写入": "2026-09-06",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-27T03:49:13+08:00",
+  "启动指引": "资料不足：官方仓库与 DeepWiki 均返回 Repository not found，无法确认最短启动路径、默认端口、环境变量和鉴权要点。下载条件仅提示 pip install clouds-coder；本地 Web UI + IDE ports P / P+5，但 P 不明确。",
+  "开工前先看": [
+    {
+      "title": "Clouds-Coder GitHub 仓库",
+      "url": "https://github.com/FonaTech/Clouds-Coder"
+    },
+    {
+      "title": "Clouds-Coder DeepWiki 索引",
+      "url": "https://deepwiki.com/FonaTech/Clouds-Coder"
+    }
+  ],
+  "建议追问": [
+    "该 GitHub 仓库当前是否可访问或已迁移？",
+    "pip install clouds-coder 是否是当前推荐安装方式？",
+    "本地 Web UI 和 IDE 默认监听端口是什么？",
+    "所需环境变量和鉴权 token 如何配置？",
+    "是否支持 Docker 部署？"
+  ],
+  "已知坑": "DeepWiki 查询返回 Repository not found，说明该仓库可能暂不可索引或地址不可访问，导致安装、端口、鉴权等关键信息无法核实。",
+  "成功标准": "执行 pip install clouds-coder；按官方文档确认的启动命令启动；检查本地 Web UI 是否可访问；检查 IDE 端口是否可访问；检查鉴权 token 是否生效。",
+  "研判摘要": "Clouds-Coder 定位为本地优先 coding agent platform with browser IDE，部署主路径为 pip，但官方文档与仓库索引均不清晰，关键启动和鉴权信息不足。",
+  "推荐启动": "pip install clouds-coder",
+  "agentHint": "先不要编造端口和启动命令，等待官方文档或仓库确认。",
+  "DeepWiki": "https://deepwiki.com/FonaTech/Clouds-Coder",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/fonatech-clouds-coder.json",
+  "source": "ai-web"
+}
