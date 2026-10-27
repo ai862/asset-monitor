@@ -1,0 +1,64 @@
+{
+  "产品": "Akcio",
+  "厂商": "zilliztech",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 258,
+  "GitHub": "https://github.com/zilliztech/akcio",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "FastAPI backend + Gradio demo; clone and follow wiki Deployment",
+  "去重键": "zilliztech-akcio",
+  "备注": "RAG chatbot CVP stack; Towhee/LangChain",
+  "资产号": 64,
+  "首次写入": "2026-09-06",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-28T03:12:38+08:00",
+  "启动指引": "1. 克隆仓库：git clone https://github.com/zilliztech/akcio.git && cd akcio\n2. 安装依赖：pip install -r requirements.txt\n3. 配置必需环境变量：\n   - LLM_OPTION（如 openai）\n   - OPENAI_API_KEY（或其他 LLM 对应的密钥）\n   - ZILLIZ_URI（向量库地址）\n   - ZILLIZ_TOKEN（向量库 token）\n   - SQL_URI（记忆库，默认 sqlite:///./sqlite.db）\n   - 可选：USE_SCALAR=true 时需 ES_CLOUD_ID、ES_USER、ES_PASSWORD\n4. 选择平台启动（二选一）：\n   - Towhee：python main.py --towhee\n   - LangChain：python main.py --langchain\n5. 服务默认监听 0.0.0.0:8900，访问 http://localhost:8900/docs 验证 API 文档",
+  "开工前先看": [
+    {
+      "title": "Overview",
+      "url": "https://deepwiki.com/zilliztech/akcio#1"
+    },
+    {
+      "title": "Service Architecture",
+      "url": "https://deepwiki.com/zilliztech/akcio#3"
+    },
+    {
+      "title": "DeepWiki 搜索：安装与启动",
+      "url": "https://deepwiki.com/search/how-do-i-install-and-start-akc_0dd24257-0b4a-4192-ad60-8418f1e3fda2"
+    },
+    {
+      "title": "DeepWiki 搜索：常见坑与鉴权",
+      "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_728f61ee-8d78-4a71-bba4-eacf8e6f4a5c"
+    },
+    {
+      "title": "DeepWiki 搜索：Web UI / API 端点",
+      "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_e9566422-f729-4d7d-8017-0bbe263a87ca"
+    }
+  ],
+  "建议追问": [
+    "是否有 Dockerfile 或 docker-compose 示例用于容器化部署？",
+    "Gradio 界面与 FastAPI 同端口 8900 如何共存，生产环境建议如何反向代理？",
+    "支持哪些 LLM 选项（LLM_OPTION 取值）及对应的环境变量命名规范？",
+    "向量库除 Zilliz/Milvus 外是否支持其他（如 Chroma、PGVector）？",
+    "如何在启用 --monitor 后对接 Prometheus/Grafana 监控？",
+    "项目是否提供数据迁移/备份脚本或多租户隔离方案？"
+  ],
+  "已知坑": "1. 必须先启动并授权好向量库、记忆库（需写入/建表权限），再启动 Akcio，否则报连接错。\n2. 环境变量名大小写敏感，漏设或拼写错误会导致 LLM/向量库/标量库连接失败。\n3. USE_SCALAR=true 时若 Elasticsearch 未就绪，服务会报错无法启动。\n4. 官方未提供 Docker/npm 一键部署，仅支持源码 pip 运行，生产环境需自行容器化。\n5. Gradio 与 FastAPI 共用 8900 端口，若需同时对外暴露需在反向代理层做路由分离。",
+  "成功标准": "1. 浏览器打开 http://localhost:8900/docs 显示 FastAPI Swagger 文档。\n2. curl http://localhost:8900/ 返回 {\"status\": true, \"msg\": \"ok\"}。\n3. 启用 --monitor 时，访问 /metrics 能看到 Prometheus 指标输出。\n4. Gradio 界面（同端口根路径或 /gradio 路径）能正常加载项目管理与聊天交互。",
+  "研判摘要": "Akcio 是基于 FastAPI + Gradio 的 RAG 聊天机器人 CVP 栈，支持 Towhee/LangChain 双后端，默认端口 8900，需配置 LLM、向量库、记忆库等多组环境变量，源码部署难度中等，生产化需自行解决容器化与反向代理。",
+  "推荐启动": "python main.py --langchain",
+  "agentHint": "重点检查 ZILLIZ_URI/TOKEN 与 OPENAI_API_KEY 是否已注入环境，再跑 python main.py --langchain 验证 /docs 与 / 端点。",
+  "DeepWiki": "https://deepwiki.com/zilliztech/akcio",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zilliztech-akcio.json",
+  "source": "ai-web"
+}

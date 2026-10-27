@@ -1,0 +1,48 @@
+{
+  "产品": "chat_with_your_docs",
+  "厂商": "jorge-armando-navarro-flores",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 160,
+  "GitHub": "https://github.com/jorge-armando-navarro-flores/chat_with_your_docs",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "Gradio app; git clone + conda/pip; needs Ollama",
+  "去重键": "jorge-armando-navarro-flores-chat_with_your_docs",
+  "备注": "Chat with PDF/web/YouTube via Gradio",
+  "资产号": 65,
+  "首次写入": "2026-09-06",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-28T03:11:23+08:00",
+  "启动指引": "未知",
+  "开工前先看": [
+    {
+      "title": "DeepWiki",
+      "url": "https://deepwiki.com/jorge-armando-navarro-flores/chat_with_your_docs"
+    },
+    {
+      "title": "GitHub",
+      "url": "https://github.com/jorge-armando-navarro-flores/chat_with_your_docs"
+    }
+  ],
+  "建议追问": [
+    "如何安装和启动该 Gradio 应用？",
+    "需要哪些环境变量以及如何设置 Ollama？",
+    "默认端口是多少以及如何访问 Web UI？",
+    "成功启动后如何验证服务是否正常工作？"
+  ],
+  "已知坑": "未知",
+  "成功标准": "未知",
+  "agentHint": "需先获取仓库内容再评估部署",
+  "DeepWiki": "https://deepwiki.com/jorge-armando-navarro-flores/chat_with_your_docs",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/jorge-armando-navarro-flores-chat_with_your_docs.json",
+  "source": "ai-web"
+}

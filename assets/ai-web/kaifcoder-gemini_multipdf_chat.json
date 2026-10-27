@@ -1,0 +1,56 @@
+{
+  "产品": "gemini_multipdf_chat",
+  "厂商": "kaifcoder",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 222,
+  "GitHub": "https://github.com/kaifcoder/gemini_multipdf_chat",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "docker compose up --build → :8501；或 streamlit run main.py",
+  "去重键": "kaifcoder-gemini_multipdf_chat",
+  "备注": "Streamlit PDF 多文档聊天；需 Google API key",
+  "资产号": 60,
+  "首次写入": "2026-09-05",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-28T03:11:00+08:00",
+  "DeepWiki": "https://deepwiki.com/kaifcoder/gemini_multipdf_chat",
+  "搭建难度": "易",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "研判摘要": "基于 Streamlit 的多 PDF 聊天 Demo，依赖 Google Gemini API，部署极简（Docker/源码双路径），适合快速验证 RAG 流程，生产化需自行加鉴权、持久化与反代配置。",
+  "启动指引": "最短路径：docker compose up --build → 访问 http://localhost:8501；本地源码：pip install -r requirements.txt → streamlit run app.py。必须在项目根目录创建 .env 并写入 GOOGLE_API_KEY=你的密钥；应用默认占用 8501 端口，鉴权完全依赖 Google Gemini API Key。",
+  "开工前先看": [
+    {
+      "title": "项目概览",
+      "url": "https://deepwiki.com/kaifcoder/gemini_multipdf_chat#1"
+    },
+    {
+      "title": "Docker 部署指南",
+      "url": "https://deepwiki.com/kaifcoder/gemini_multipdf_chat#2.2"
+    },
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/kaifcoder/gemini_multipdf_chat"
+    }
+  ],
+  "建议追问": [
+    "是否支持多模型切换或仅限 Gemini？",
+    "PDF 向量存储是否持久化，重启后是否保留？",
+    "能否在反向代理后关闭 CORS/XSRF 保护？",
+    "是否有最低显存/内存要求？",
+    "支持哪些 PDF 解析库，复杂排版表现如何？"
+  ],
+  "已知坑": "缺少或错误的 GOOGLE_API_KEY 会导致容器立即退出；宿主机 8501 端口被占用会启动失败；Streamlit 默认开启 CORS/XSRF 保护，反向代理需注意关闭或配置对应头。",
+  "成功标准": "浏览器打开 http://localhost:8501 出现 Streamlit 界面，侧边栏可上传 PDF，输入问题后能返回 Gemini 生成的回答且无报错。",
+  "推荐启动": "docker compose up --build",
+  "agentHint": "仅需准备 Google API Key 即可一键跑通，适合作为 RAG 原型基线。",
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/kaifcoder-gemini_multipdf_chat.json",
+  "source": "ai-web"
+}

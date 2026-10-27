@@ -1,0 +1,76 @@
+{
+  "产品": "ompweb",
+  "厂商": "kahme247",
+  "状态": "可下",
+  "类型": "代码助手",
+  "语言": "TypeScript",
+  "Stars": 139,
+  "GitHub": "https://github.com/kahme247/ompweb",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "npm"
+  ],
+  "下载条件": "npx @kahme247/ompweb@latest; http://127.0.0.1:30177",
+  "去重键": "kahme247-ompweb",
+  "备注": "Web UI for oh-my-pi coding agent",
+  "资产号": 69,
+  "首次写入": "2026-09-06",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-28T03:14:31+08:00",
+  "启动指引": "最短路径：安装 Node.js >= 22.19.0 并确保 `omp` 在 PATH 中，然后运行 `npx @kahme247/ompweb@latest`。默认端口 30177，访问 http://127.0.0.1:30177。关键环境变量：OMP_WEB_OMP_BIN（指定 omp 二进制路径）、OMP_WEB_PASSWORD（启用 Web 密码）、OMP_WEB_HOSTNAME（绑定地址，默认 127.0.0.1）、PORT（端口）、OMP_WEB_NO_OPEN=1（禁止自动开浏览器）。鉴权要点：绑定非回环地址必须设置密码；OAuth 由 omp CLI 完成，Web 仅做代理；API Key 仅读取不写入。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/kahme247/ompweb"
+    },
+    {
+      "title": "DeepWiki 文档首页",
+      "url": "https://deepwiki.com/kahme247/ompweb"
+    },
+    {
+      "title": "快速开始与配置",
+      "url": "https://deepwiki.com/kahme247/ompweb#1.1"
+    },
+    {
+      "title": "CLI 与服务引导",
+      "url": "https://deepwiki.com/kahme247/ompweb#8.1"
+    },
+    {
+      "title": "模型、提供商与认证",
+      "url": "https://deepwiki.com/kahme247/ompweb#7.2"
+    },
+    {
+      "title": "Agent HTTP 与 SSE API",
+      "url": "https://deepwiki.com/kahme247/ompweb#4.3"
+    },
+    {
+      "title": "平台服务与托盘",
+      "url": "https://deepwiki.com/kahme247/ompweb#8.2"
+    },
+    {
+      "title": "测试与贡献",
+      "url": "https://deepwiki.com/kahme247/ompweb#8.5"
+    }
+  ],
+  "建议追问": [
+    "omp 代理的安装路径如何确认？",
+    "如何在无头服务器上以 systemd/launchd 方式常驻运行？",
+    "OAuth 登录回调地址需配置为何值？",
+    "Web 密码与 omp 自身 API Key 的关系是什么？",
+    "如何自定义 agent 工作目录（PI_CODING_AGENT_DIR）？",
+    "反向代理下如何正确传递 Host 与 X-Forwarded-* 头？"
+  ],
+  "已知坑": "1) 绑定 0.0.0.0 等非回环地址未设密码会直接拒绝启动；2) 端口被占用会报错退出，需手动指定 --port 或释放端口；3) omp 二进制不在 PATH 且未设 OMP_WEB_OMP_BIN 会导致无法启动 agent；4) API Key 管理仅读不写，需通过 omp CLI 或环境变量配置；5) 自动打开浏览器在无头环境会卡住，需加 --no-open 或 OMP_WEB_NO_OPEN=1。",
+  "成功标准": "控制台输出显示 omp 版本就绪、监听地址与端口（如 Listening on http://127.0.0.1:30177）、浏览器自动打开并渲染 Web UI、/api/agent/new 能创建会话并返回 SSE 事件流。",
+  "研判摘要": "ompweb 是 oh-my-pi 编码代理的轻量 Web 前端，依赖 Node.js 与已安装的 omp CLI，通过 npx 即可零安装启动，内置密码保护与 OAuth 代理，适合本地或内网快速可视化调试。",
+  "推荐启动": "npx @kahme247/ompweb@latest --no-open",
+  "agentHint": "先确认 omp 在 PATH，再用 npx 启动；需对外暴露时务必设 OMP_WEB_PASSWORD 并配合反向代理 HTTPS。",
+  "DeepWiki": "https://deepwiki.com/kahme247/ompweb",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/kahme247-ompweb.json",
+  "source": "ai-web"
+}

@@ -1,0 +1,52 @@
+{
+  "产品": "pdf-analyze-streamlit",
+  "厂商": "mehmetba",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 107,
+  "GitHub": "https://github.com/mehmetba/pdf-analyze-streamlit",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "pip install -r requirements.txt && streamlit run qa_app.py",
+  "去重键": "mehmetba-pdf-analyze-streamlit",
+  "备注": "Streamlit PDF/TXT 问答",
+  "资产号": 76,
+  "首次写入": "2026-09-13",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-28T03:18:41+08:00",
+  "启动指引": "使用 pip 安装依赖：pip install -r requirements.txt，然后运行 Streamlit 应用：streamlit run qa_app.py。应用默认监听 0.0.0.0:8501，如需修改端口可通过 --server.port 指定。当前无认证要求。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/mehmetba/pdf-analyze-streamlit"
+    },
+    {
+      "title": "DeepWiki 文档",
+      "url": "https://deepwiki.com/mehmetba/pdf-analyze-streamlit"
+    }
+  ],
+  "建议追问": [
+    "如何在 Windows/macOS/Linux 上安装并运行该应用？",
+    "是否有必需的环境变量配置？",
+    "应用的 Web UI 地址和端口是什么？",
+    "是否存在身份验证或令牌设置？",
+    "运行时可能遇到哪些常见问题？",
+    "如何验证应用已成功启动并正常工作？"
+  ],
+  "已知坑": "可能遇到依赖缺失导致导入错误，端口 8501 被占用导致启动失败，以及大文件处理时内存不足。确保已安装所有 Python 依赖，且端口可用。",
+  "成功标准": "访问 http://localhost:8501，页面正常加载，用户可以上传 PDF/TXT 文件并提问，系统返回回答即表示应用运行正常。",
+  "研判摘要": "这是一个使用 Streamlit 构建的 PDF/TXT 问答应用，支持通过网页界面上传文件并进行智能问答。",
+  "推荐启动": "streamlit run qa_app.py",
+  "agentHint": "请提醒用户确保已安装 Streamlit 环境，并检查端口 8501 是否被其他服务占用。",
+  "DeepWiki": "https://deepwiki.com/mehmetba/pdf-analyze-streamlit",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mehmetba-pdf-analyze-streamlit.json",
+  "source": "ai-web"
+}

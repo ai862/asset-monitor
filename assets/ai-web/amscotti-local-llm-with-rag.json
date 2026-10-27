@@ -1,0 +1,50 @@
+{
+  "产品": "local-LLM-with-RAG",
+  "厂商": "amscotti",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 286,
+  "GitHub": "https://github.com/amscotti/local-LLM-with-RAG",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "uv sync && uv run streamlit run interfaces/streamlit_app.py（需 Ollama）",
+  "去重键": "amscotti-local-llm-with-rag",
+  "备注": "Streamlit 本地 RAG；agentic 检索文档聊天",
+  "资产号": 70,
+  "首次写入": "2026-09-13",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-28T03:19:00+08:00",
+  "启动指引": "使用 uv 安装依赖后，运行 `uv run streamlit run interfaces/streamlit_app.py`。需要 Ollama 服务运行并确保已拉取所需模型。端口和具体环境变量请参考项目文档。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/amscotti/local-LLM-with-RAG"
+    },
+    {
+      "title": "DeepWiki 文档",
+      "url": "https://deepwiki.com/amscotti/local-LLM-with-RAG"
+    }
+  ],
+  "建议追问": [
+    "如何安装和配置 Ollama 以供本地 LLM 使用？",
+    "启动应用时需要设置哪些环境变量？",
+    "Streamlit 界面的默认访问地址和端口是什么？",
+    "遇到依赖冲突时如何排查？"
+  ],
+  "已知坑": "忘记启动 Ollama 服务或未拉取所需模型，导致应用无法生成回复。",
+  "成功标准": "Streamlit 应用成功启动并显示 RAG 聊天界面，且能通过界面查询 Ollama 模型返回结果。",
+  "研判摘要": "一个结合 Ollama 的本地 RAG 聊天应用，使用 Streamlit 提供网页界面。",
+  "推荐启动": "uv sync && uv run streamlit run interfaces/streamlit_app.py",
+  "agentHint": "确保 Ollama 运行并已拉取模型，然后执行 uv 命令启动 Streamlit 应用。",
+  "DeepWiki": "https://deepwiki.com/amscotti/local-LLM-with-RAG",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/amscotti-local-llm-with-rag.json",
+  "source": "ai-web"
+}

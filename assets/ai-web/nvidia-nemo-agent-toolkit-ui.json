@@ -1,0 +1,54 @@
+{
+  "产品": "NeMo-Agent-Toolkit-UI",
+  "厂商": "NVIDIA",
+  "状态": "可下",
+  "类型": "Agent",
+  "语言": "TypeScript",
+  "Stars": 109,
+  "GitHub": "https://github.com/NVIDIA/NeMo-Agent-Toolkit-UI",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "npm"
+  ],
+  "下载条件": "npm ci / docker run -p 3000:3000; needs NeMo Agent Toolkit backend",
+  "去重键": "nvidia-nemo-agent-toolkit-ui",
+  "备注": "Next.js frontend; localhost:3000",
+  "资产号": 66,
+  "首次写入": "2026-09-06",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-28T03:16:20+08:00",
+  "启动指引": "使用 npm：git clone https://github.com/NVIDIA/NeMo-Agent-Toolkit-UI.git，cd 目录，npm ci，npm run dev，默认端口 3000（http://localhost:3000）。若使用 Docker：docker build -t AIQ Toolkit-UI .，docker run --env-file .env -p 3000:3000 AIQ Toolkit-UI，需在 .env 中设置 NODE_ENV=production、PORT=3000、HOSTNAME=0.0.0.0，并在 UI 设置 Domain URL 与 Consent Prompt Key 进行鉴权。",
+  "开工前先看": [
+    {
+      "title": "项目概览",
+      "url": "https://deepwiki.com/search/how-do-i-install-and-start-nem_f8239ace-351b-4ec0-a452-b3b74a929240"
+    },
+    {
+      "title": "核心架构",
+      "url": "https://deepwiki.com/wiki/NVIDIA/NeMo-Agent-Toolkit-UI#2"
+    },
+    {
+      "title": "聊天界面组件",
+      "url": "https://deepwiki.com/wiki/NVIDIA/NeMo-Agent-Toolkit-UI#3.1"
+    }
+  ],
+  "建议追问": [
+    "需要在 .env 中配置哪些必填环境变量？",
+    "UI 认证页面的 Domain URL 与 Consent Prompt Key 如何获取？",
+    "Docker 镜像构建时常见的依赖缺失错误如何处理？",
+    "如何在本地通过 npm 调试 WebSocket 连接？"
+  ],
+  "已知坑": "缺少或错误的 WebSocket URL 导致连接失败；ChatCompletion URL 或 WebSocket URL 未填写导致保存失败；服务器返回非 200 响应或 HTML 错误页面解析异常；Docker 运行时未挂载 .env 文件或端口映射错误；认证时 Domain URL 不可达或 Consent Prompt Key 错误。",
+  "成功标准": "启动后能在浏览器访问 http://localhost:3000 且出现 WebSocket 连接成功的提示 toast、绿色认证成功横幅，且无错误 toast。",
+  "推荐启动": "docker run --env-file .env -p 3000:3000 AIQ Toolkit-UI",
+  "agentHint": "确认端口 3000 可达并检查 UI 设置的 WebSocket 与 ChatCompletion URL 是否正确。",
+  "DeepWiki": "https://deepwiki.com/NVIDIA/NeMo-Agent-Toolkit-UI",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/nvidia-nemo-agent-toolkit-ui.json",
+  "source": "ai-web"
+}

@@ -3586,13 +3586,40 @@
     "备注": "Streamlit PDF 多文档聊天；需 Google API key",
     "资产号": 60,
     "首次写入": "2026-09-05",
-    "研判状态": "未研判",
-    "研判时间": "2026-10-27T03:46:18+08:00",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-28T03:11:00+08:00",
     "DeepWiki": "https://deepwiki.com/kaifcoder/gemini_multipdf_chat",
-    "搭建难度": "未知",
+    "搭建难度": "易",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "研判摘要": "OpenRouter 未能生成有效 JSON。"
+    "研判摘要": "基于 Streamlit 的多 PDF 聊天 Demo，依赖 Google Gemini API，部署极简（Docker/源码双路径），适合快速验证 RAG 流程，生产化需自行加鉴权、持久化与反代配置。",
+    "启动指引": "最短路径：docker compose up --build → 访问 http://localhost:8501；本地源码：pip install -r requirements.txt → streamlit run app.py。必须在项目根目录创建 .env 并写入 GOOGLE_API_KEY=你的密钥；应用默认占用 8501 端口，鉴权完全依赖 Google Gemini API Key。",
+    "开工前先看": [
+      {
+        "title": "项目概览",
+        "url": "https://deepwiki.com/kaifcoder/gemini_multipdf_chat#1"
+      },
+      {
+        "title": "Docker 部署指南",
+        "url": "https://deepwiki.com/kaifcoder/gemini_multipdf_chat#2.2"
+      },
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/kaifcoder/gemini_multipdf_chat"
+      }
+    ],
+    "建议追问": [
+      "是否支持多模型切换或仅限 Gemini？",
+      "PDF 向量存储是否持久化，重启后是否保留？",
+      "能否在反向代理后关闭 CORS/XSRF 保护？",
+      "是否有最低显存/内存要求？",
+      "支持哪些 PDF 解析库，复杂排版表现如何？"
+    ],
+    "已知坑": "缺少或错误的 GOOGLE_API_KEY 会导致容器立即退出；宿主机 8501 端口被占用会启动失败；Streamlit 默认开启 CORS/XSRF 保护，反向代理需注意关闭或配置对应头。",
+    "成功标准": "浏览器打开 http://localhost:8501 出现 Streamlit 界面，侧边栏可上传 PDF，输入问题后能返回 Gemini 生成的回答且无报错。",
+    "推荐启动": "docker compose up --build",
+    "agentHint": "仅需准备 Google API Key 即可一键跑通，适合作为 RAG 原型基线。",
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/kaifcoder-gemini_multipdf_chat.json"
   },
   {
     "产品": "Multimodal-RAG-with-Llama-3.2",
@@ -3827,7 +3854,34 @@
     "去重键": "jorge-armando-navarro-flores-chat_with_your_docs",
     "备注": "Chat with PDF/web/YouTube via Gradio",
     "资产号": 65,
-    "首次写入": "2026-09-06"
+    "首次写入": "2026-09-06",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-28T03:11:23+08:00",
+    "启动指引": "未知",
+    "开工前先看": [
+      {
+        "title": "DeepWiki",
+        "url": "https://deepwiki.com/jorge-armando-navarro-flores/chat_with_your_docs"
+      },
+      {
+        "title": "GitHub",
+        "url": "https://github.com/jorge-armando-navarro-flores/chat_with_your_docs"
+      }
+    ],
+    "建议追问": [
+      "如何安装和启动该 Gradio 应用？",
+      "需要哪些环境变量以及如何设置 Ollama？",
+      "默认端口是多少以及如何访问 Web UI？",
+      "成功启动后如何验证服务是否正常工作？"
+    ],
+    "已知坑": "未知",
+    "成功标准": "未知",
+    "agentHint": "需先获取仓库内容再评估部署",
+    "DeepWiki": "https://deepwiki.com/jorge-armando-navarro-flores/chat_with_your_docs",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/jorge-armando-navarro-flores-chat_with_your_docs.json"
   },
   {
     "产品": "Akcio",
@@ -3847,7 +3901,50 @@
     "去重键": "zilliztech-akcio",
     "备注": "RAG chatbot CVP stack; Towhee/LangChain",
     "资产号": 64,
-    "首次写入": "2026-09-06"
+    "首次写入": "2026-09-06",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-28T03:12:38+08:00",
+    "启动指引": "1. 克隆仓库：git clone https://github.com/zilliztech/akcio.git && cd akcio\n2. 安装依赖：pip install -r requirements.txt\n3. 配置必需环境变量：\n   - LLM_OPTION（如 openai）\n   - OPENAI_API_KEY（或其他 LLM 对应的密钥）\n   - ZILLIZ_URI（向量库地址）\n   - ZILLIZ_TOKEN（向量库 token）\n   - SQL_URI（记忆库，默认 sqlite:///./sqlite.db）\n   - 可选：USE_SCALAR=true 时需 ES_CLOUD_ID、ES_USER、ES_PASSWORD\n4. 选择平台启动（二选一）：\n   - Towhee：python main.py --towhee\n   - LangChain：python main.py --langchain\n5. 服务默认监听 0.0.0.0:8900，访问 http://localhost:8900/docs 验证 API 文档",
+    "开工前先看": [
+      {
+        "title": "Overview",
+        "url": "https://deepwiki.com/zilliztech/akcio#1"
+      },
+      {
+        "title": "Service Architecture",
+        "url": "https://deepwiki.com/zilliztech/akcio#3"
+      },
+      {
+        "title": "DeepWiki 搜索：安装与启动",
+        "url": "https://deepwiki.com/search/how-do-i-install-and-start-akc_0dd24257-0b4a-4192-ad60-8418f1e3fda2"
+      },
+      {
+        "title": "DeepWiki 搜索：常见坑与鉴权",
+        "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_728f61ee-8d78-4a71-bba4-eacf8e6f4a5c"
+      },
+      {
+        "title": "DeepWiki 搜索：Web UI / API 端点",
+        "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_e9566422-f729-4d7d-8017-0bbe263a87ca"
+      }
+    ],
+    "建议追问": [
+      "是否有 Dockerfile 或 docker-compose 示例用于容器化部署？",
+      "Gradio 界面与 FastAPI 同端口 8900 如何共存，生产环境建议如何反向代理？",
+      "支持哪些 LLM 选项（LLM_OPTION 取值）及对应的环境变量命名规范？",
+      "向量库除 Zilliz/Milvus 外是否支持其他（如 Chroma、PGVector）？",
+      "如何在启用 --monitor 后对接 Prometheus/Grafana 监控？",
+      "项目是否提供数据迁移/备份脚本或多租户隔离方案？"
+    ],
+    "已知坑": "1. 必须先启动并授权好向量库、记忆库（需写入/建表权限），再启动 Akcio，否则报连接错。\n2. 环境变量名大小写敏感，漏设或拼写错误会导致 LLM/向量库/标量库连接失败。\n3. USE_SCALAR=true 时若 Elasticsearch 未就绪，服务会报错无法启动。\n4. 官方未提供 Docker/npm 一键部署，仅支持源码 pip 运行，生产环境需自行容器化。\n5. Gradio 与 FastAPI 共用 8900 端口，若需同时对外暴露需在反向代理层做路由分离。",
+    "成功标准": "1. 浏览器打开 http://localhost:8900/docs 显示 FastAPI Swagger 文档。\n2. curl http://localhost:8900/ 返回 {\"status\": true, \"msg\": \"ok\"}。\n3. 启用 --monitor 时，访问 /metrics 能看到 Prometheus 指标输出。\n4. Gradio 界面（同端口根路径或 /gradio 路径）能正常加载项目管理与聊天交互。",
+    "研判摘要": "Akcio 是基于 FastAPI + Gradio 的 RAG 聊天机器人 CVP 栈，支持 Towhee/LangChain 双后端，默认端口 8900，需配置 LLM、向量库、记忆库等多组环境变量，源码部署难度中等，生产化需自行解决容器化与反向代理。",
+    "推荐启动": "python main.py --langchain",
+    "agentHint": "重点检查 ZILLIZ_URI/TOKEN 与 OPENAI_API_KEY 是否已注入环境，再跑 python main.py --langchain 验证 /docs 与 / 端点。",
+    "DeepWiki": "https://deepwiki.com/zilliztech/akcio",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zilliztech-akcio.json"
   },
   {
     "产品": "ompweb",
@@ -3867,7 +3964,62 @@
     "去重键": "kahme247-ompweb",
     "备注": "Web UI for oh-my-pi coding agent",
     "资产号": 69,
-    "首次写入": "2026-09-06"
+    "首次写入": "2026-09-06",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-28T03:14:31+08:00",
+    "启动指引": "最短路径：安装 Node.js >= 22.19.0 并确保 `omp` 在 PATH 中，然后运行 `npx @kahme247/ompweb@latest`。默认端口 30177，访问 http://127.0.0.1:30177。关键环境变量：OMP_WEB_OMP_BIN（指定 omp 二进制路径）、OMP_WEB_PASSWORD（启用 Web 密码）、OMP_WEB_HOSTNAME（绑定地址，默认 127.0.0.1）、PORT（端口）、OMP_WEB_NO_OPEN=1（禁止自动开浏览器）。鉴权要点：绑定非回环地址必须设置密码；OAuth 由 omp CLI 完成，Web 仅做代理；API Key 仅读取不写入。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/kahme247/ompweb"
+      },
+      {
+        "title": "DeepWiki 文档首页",
+        "url": "https://deepwiki.com/kahme247/ompweb"
+      },
+      {
+        "title": "快速开始与配置",
+        "url": "https://deepwiki.com/kahme247/ompweb#1.1"
+      },
+      {
+        "title": "CLI 与服务引导",
+        "url": "https://deepwiki.com/kahme247/ompweb#8.1"
+      },
+      {
+        "title": "模型、提供商与认证",
+        "url": "https://deepwiki.com/kahme247/ompweb#7.2"
+      },
+      {
+        "title": "Agent HTTP 与 SSE API",
+        "url": "https://deepwiki.com/kahme247/ompweb#4.3"
+      },
+      {
+        "title": "平台服务与托盘",
+        "url": "https://deepwiki.com/kahme247/ompweb#8.2"
+      },
+      {
+        "title": "测试与贡献",
+        "url": "https://deepwiki.com/kahme247/ompweb#8.5"
+      }
+    ],
+    "建议追问": [
+      "omp 代理的安装路径如何确认？",
+      "如何在无头服务器上以 systemd/launchd 方式常驻运行？",
+      "OAuth 登录回调地址需配置为何值？",
+      "Web 密码与 omp 自身 API Key 的关系是什么？",
+      "如何自定义 agent 工作目录（PI_CODING_AGENT_DIR）？",
+      "反向代理下如何正确传递 Host 与 X-Forwarded-* 头？"
+    ],
+    "已知坑": "1) 绑定 0.0.0.0 等非回环地址未设密码会直接拒绝启动；2) 端口被占用会报错退出，需手动指定 --port 或释放端口；3) omp 二进制不在 PATH 且未设 OMP_WEB_OMP_BIN 会导致无法启动 agent；4) API Key 管理仅读不写，需通过 omp CLI 或环境变量配置；5) 自动打开浏览器在无头环境会卡住，需加 --no-open 或 OMP_WEB_NO_OPEN=1。",
+    "成功标准": "控制台输出显示 omp 版本就绪、监听地址与端口（如 Listening on http://127.0.0.1:30177）、浏览器自动打开并渲染 Web UI、/api/agent/new 能创建会话并返回 SSE 事件流。",
+    "研判摘要": "ompweb 是 oh-my-pi 编码代理的轻量 Web 前端，依赖 Node.js 与已安装的 omp CLI，通过 npx 即可零安装启动，内置密码保护与 OAuth 代理，适合本地或内网快速可视化调试。",
+    "推荐启动": "npx @kahme247/ompweb@latest --no-open",
+    "agentHint": "先确认 omp 在 PATH，再用 npx 启动；需对外暴露时务必设 OMP_WEB_PASSWORD 并配合反向代理 HTTPS。",
+    "DeepWiki": "https://deepwiki.com/kahme247/ompweb",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/kahme247-ompweb.json"
   },
   {
     "产品": "NeMo-Agent-Toolkit-UI",
@@ -3888,7 +4040,39 @@
     "去重键": "nvidia-nemo-agent-toolkit-ui",
     "备注": "Next.js frontend; localhost:3000",
     "资产号": 66,
-    "首次写入": "2026-09-06"
+    "首次写入": "2026-09-06",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-28T03:16:20+08:00",
+    "启动指引": "使用 npm：git clone https://github.com/NVIDIA/NeMo-Agent-Toolkit-UI.git，cd 目录，npm ci，npm run dev，默认端口 3000（http://localhost:3000）。若使用 Docker：docker build -t AIQ Toolkit-UI .，docker run --env-file .env -p 3000:3000 AIQ Toolkit-UI，需在 .env 中设置 NODE_ENV=production、PORT=3000、HOSTNAME=0.0.0.0，并在 UI 设置 Domain URL 与 Consent Prompt Key 进行鉴权。",
+    "开工前先看": [
+      {
+        "title": "项目概览",
+        "url": "https://deepwiki.com/search/how-do-i-install-and-start-nem_f8239ace-351b-4ec0-a452-b3b74a929240"
+      },
+      {
+        "title": "核心架构",
+        "url": "https://deepwiki.com/wiki/NVIDIA/NeMo-Agent-Toolkit-UI#2"
+      },
+      {
+        "title": "聊天界面组件",
+        "url": "https://deepwiki.com/wiki/NVIDIA/NeMo-Agent-Toolkit-UI#3.1"
+      }
+    ],
+    "建议追问": [
+      "需要在 .env 中配置哪些必填环境变量？",
+      "UI 认证页面的 Domain URL 与 Consent Prompt Key 如何获取？",
+      "Docker 镜像构建时常见的依赖缺失错误如何处理？",
+      "如何在本地通过 npm 调试 WebSocket 连接？"
+    ],
+    "已知坑": "缺少或错误的 WebSocket URL 导致连接失败；ChatCompletion URL 或 WebSocket URL 未填写导致保存失败；服务器返回非 200 响应或 HTML 错误页面解析异常；Docker 运行时未挂载 .env 文件或端口映射错误；认证时 Domain URL 不可达或 Consent Prompt Key 错误。",
+    "成功标准": "启动后能在浏览器访问 http://localhost:3000 且出现 WebSocket 连接成功的提示 toast、绿色认证成功横幅，且无错误 toast。",
+    "推荐启动": "docker run --env-file .env -p 3000:3000 AIQ Toolkit-UI",
+    "agentHint": "确认端口 3000 可达并检查 UI 设置的 WebSocket 与 ChatCompletion URL 是否正确。",
+    "DeepWiki": "https://deepwiki.com/NVIDIA/NeMo-Agent-Toolkit-UI",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/nvidia-nemo-agent-toolkit-ui.json"
   },
   {
     "产品": "kiwi-mem",
@@ -3908,7 +4092,46 @@
     "去重键": "lucieeveille-kiwi-mem",
     "备注": "自托管 AI 记忆网关 + 管理面板",
     "资产号": 71,
-    "首次写入": "2026-09-13"
+    "首次写入": "2026-09-13",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-28T03:17:46+08:00",
+    "启动指引": "1. 克隆仓库：git clone https://github.com/LucieEveille/kiwi-mem.git && cd kiwi-mem\n2. 配置环境：cp .env.example .env && 编辑 .env 填入 API_KEY 与 API_BASE_URL（必填）\n3. 启动：docker compose up -d\n4. 验证：curl http://localhost:8080 返回 {\"status\":\"running\"} 即成功\n默认端口 8080；网关与管理面板无内置鉴权，公网暴露需自行加反向代理 Basic Auth 或 Cloudflare Access 保护 /admin、/sync/* 等敏感路径",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/LucieEveille/kiwi-mem"
+      },
+      {
+        "title": "DeepWiki 文档",
+        "url": "https://deepwiki.com/LucieEveille/kiwi-mem"
+      },
+      {
+        "title": "Getting Started & Deployment",
+        "url": "https://deepwiki.com/LucieEveille/kiwi-mem#1.1"
+      },
+      {
+        "title": "Project Docs & Known Issues",
+        "url": "https://deepwiki.com/LucieEveille/kiwi-mem#1.3"
+      }
+    ],
+    "建议追问": [
+      "如何在管理面板中添加多个 LLM 提供商并切换模型？",
+      "Dream 记忆巩固流程的触发条件与调度策略是什么？",
+      "如何通过 MCP 端点让外部 Agent 读写记忆？",
+      "生产环境下 PostgreSQL + pgvector 的备份与迁移方案？",
+      "前端客户端报 401/500 时的排查清单有哪些？",
+      "如何自定义系统提示词与记忆注入上限？"
+    ],
+    "已知坑": "1. 401 Missing Authentication header 通常是上游提供商 Key 未配置或错误；2. 500 API_KEY Not Set 表示面板未配置任何提供商；3. 移动端/iOS 必须 HTTPS+域名，纯 IP 无法连接；4. 易混淆“客户端对接的 API Base URL”与“面板里填的提供商地址”；5. 无内置鉴权，公网直暴极高风险；6. 部分提供商无模型列表 API 需手动填模型名",
+    "成功标准": "curl http://localhost:8080 返回 {\"status\":\"running\"}；浏览器访问 /admin 能打开管理面板；在面板配置提供商后 /v1/models 能列出模型；发送 /v1/chat/completions 能正常返回带记忆增强的回答",
+    "研判摘要": "kiwi-mem 是自托管的 OpenAI 兼容记忆网关，通过 Docker Compose 一键部署，核心价值在于为对话注入长期记忆与 Dream 巩固，但无内置鉴权、需自行解决 HTTPS 与反代，适合有一定运维能力的个人/小团队",
+    "推荐启动": "git clone https://github.com/LucieEveille/kiwi-mem.git && cd kiwi-mem && cp .env.example .env && docker compose up -d",
+    "agentHint": "先跑通 docker compose up -d 再去面板配 Key，公网务必加反代鉴权",
+    "DeepWiki": "https://deepwiki.com/LucieEveille/kiwi-mem",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lucieeveille-kiwi-mem.json"
   },
   {
     "产品": "pdf-analyze-streamlit",
@@ -3928,7 +4151,38 @@
     "去重键": "mehmetba-pdf-analyze-streamlit",
     "备注": "Streamlit PDF/TXT 问答",
     "资产号": 76,
-    "首次写入": "2026-09-13"
+    "首次写入": "2026-09-13",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-28T03:18:41+08:00",
+    "启动指引": "使用 pip 安装依赖：pip install -r requirements.txt，然后运行 Streamlit 应用：streamlit run qa_app.py。应用默认监听 0.0.0.0:8501，如需修改端口可通过 --server.port 指定。当前无认证要求。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/mehmetba/pdf-analyze-streamlit"
+      },
+      {
+        "title": "DeepWiki 文档",
+        "url": "https://deepwiki.com/mehmetba/pdf-analyze-streamlit"
+      }
+    ],
+    "建议追问": [
+      "如何在 Windows/macOS/Linux 上安装并运行该应用？",
+      "是否有必需的环境变量配置？",
+      "应用的 Web UI 地址和端口是什么？",
+      "是否存在身份验证或令牌设置？",
+      "运行时可能遇到哪些常见问题？",
+      "如何验证应用已成功启动并正常工作？"
+    ],
+    "已知坑": "可能遇到依赖缺失导致导入错误，端口 8501 被占用导致启动失败，以及大文件处理时内存不足。确保已安装所有 Python 依赖，且端口可用。",
+    "成功标准": "访问 http://localhost:8501，页面正常加载，用户可以上传 PDF/TXT 文件并提问，系统返回回答即表示应用运行正常。",
+    "研判摘要": "这是一个使用 Streamlit 构建的 PDF/TXT 问答应用，支持通过网页界面上传文件并进行智能问答。",
+    "推荐启动": "streamlit run qa_app.py",
+    "agentHint": "请提醒用户确保已安装 Streamlit 环境，并检查端口 8501 是否被其他服务占用。",
+    "DeepWiki": "https://deepwiki.com/mehmetba/pdf-analyze-streamlit",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mehmetba-pdf-analyze-streamlit.json"
   },
   {
     "产品": "local-LLM-with-RAG",
@@ -3948,7 +4202,36 @@
     "去重键": "amscotti-local-llm-with-rag",
     "备注": "Streamlit 本地 RAG；agentic 检索文档聊天",
     "资产号": 70,
-    "首次写入": "2026-09-13"
+    "首次写入": "2026-09-13",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-28T03:19:00+08:00",
+    "启动指引": "使用 uv 安装依赖后，运行 `uv run streamlit run interfaces/streamlit_app.py`。需要 Ollama 服务运行并确保已拉取所需模型。端口和具体环境变量请参考项目文档。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/amscotti/local-LLM-with-RAG"
+      },
+      {
+        "title": "DeepWiki 文档",
+        "url": "https://deepwiki.com/amscotti/local-LLM-with-RAG"
+      }
+    ],
+    "建议追问": [
+      "如何安装和配置 Ollama 以供本地 LLM 使用？",
+      "启动应用时需要设置哪些环境变量？",
+      "Streamlit 界面的默认访问地址和端口是什么？",
+      "遇到依赖冲突时如何排查？"
+    ],
+    "已知坑": "忘记启动 Ollama 服务或未拉取所需模型，导致应用无法生成回复。",
+    "成功标准": "Streamlit 应用成功启动并显示 RAG 聊天界面，且能通过界面查询 Ollama 模型返回结果。",
+    "研判摘要": "一个结合 Ollama 的本地 RAG 聊天应用，使用 Streamlit 提供网页界面。",
+    "推荐启动": "uv sync && uv run streamlit run interfaces/streamlit_app.py",
+    "agentHint": "确保 Ollama 运行并已拉取模型，然后执行 uv 命令启动 Streamlit 应用。",
+    "DeepWiki": "https://deepwiki.com/amscotti/local-LLM-with-RAG",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/amscotti-local-llm-with-rag.json"
   },
   {
     "产品": "RepoChat-200k",
