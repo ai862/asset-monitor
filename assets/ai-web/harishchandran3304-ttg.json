@@ -1,0 +1,56 @@
+{
+  "产品": "TalkToGitHub (TTG)",
+  "厂商": "HarishChandran3304",
+  "状态": "可下",
+  "类型": "代码助手",
+  "语言": "TypeScript",
+  "Stars": 216,
+  "GitHub": "https://github.com/HarishChandran3304/TTG",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "后端 fastapi dev :8000 + 前端 npm run dev :5173（需 Gemini key）",
+  "去重键": "harishchandran3304-ttg",
+  "备注": "FastAPI+React；与任意公开 GitHub 仓库对话",
+  "资产号": 72,
+  "首次写入": "2026-09-13",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-29T03:18:57+08:00",
+  "启动指引": "克隆仓库后，后端：uv sync，source ./.venv/bin/activate，创建 .env 并填写 GEMINI_API_KEY、GEMINI_MODEL、ENV、FALLBACK_COUNT，然后执行 fastapi dev src/main.py（默认 8000 端口）。前端：cd frontend，npm install，npm run dev（默认 5173 端口）。需确保已安装 Python 3.13+、uv、Node 23+，并拥有有效的 Gemini API Key。",
+  "开工前先看": [
+    {
+      "title": "系统架构概览",
+      "url": "https://deepwiki.com/wiki/HarishChandran3304/TTG#1.1"
+    },
+    {
+      "title": "安装与启动指南",
+      "url": "https://deepwiki.com/search/how-do-i-install-and-start-tal_0f511a3d-b4c6-4d32-89ec-9a96feb8973b"
+    },
+    {
+      "title": "常见坑与故障排查",
+      "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_f5a4df44-acb5-4082-a92c-6bb17051d38f"
+    }
+  ],
+  "建议追问": [
+    "uv sync 必须在仓库根目录执行吗？",
+    "GEMINI_API_KEY 从哪里获取？",
+    "前端运行时是否需要代理设置？",
+    "后端 healthcheck 端点是否可用于验证？",
+    "出现 API key 耗尽错误时如何切换到备用 key？"
+  ],
+  "已知坑": "缺少 .env 变量或错误的 GEMINI_API_KEY 会导致后端无法连接 Gemini，进而出现 API key 耗尽或连接超时；仓库过大、不存在或私有会返回相应错误；Node 版本低于 23 会导致前端安装失败；uv 环境未激活会导致依赖缺失。",
+  "成功标准": "后端在 localhost:8000 响应 /healthcheck 返回 {\"status\":\"ok\"}，前端在 localhost:5173 可正常加载并能通过 WebSocket 连接后端，输入任意公开 GitHub 仓库 URL 后出现 repo_processed 消息并显示 ready 状态。",
+  "研判摘要": "TalkToGitHub 是基于 FastAPI 与 React 的全栈应用，通过 Gemini API 实现对任意公开 GitHub 仓库的实时对话，需配置 API key 并同时启动后端（8000 端口）和前端（5173 端口）。",
+  "推荐启动": "uv sync && source ./.venv/bin/activate && fastapi dev src/main.py & cd frontend && npm install && npm run dev",
+  "agentHint": "确保后端和前端同时启动，并正确配置 GEMINI_API_KEY",
+  "DeepWiki": "https://deepwiki.com/HarishChandran3304/TTG",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/harishchandran3304-ttg.json",
+  "source": "ai-web"
+}

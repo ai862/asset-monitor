@@ -1,0 +1,53 @@
+{
+  "产品": "genius-ai",
+  "厂商": "sanidhyy",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "TypeScript",
+  "Stars": 85,
+  "GitHub": "https://github.com/sanidhyy/genius-ai",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "npm"
+  ],
+  "下载条件": "GitHub clone / 文档部署",
+  "去重键": "sanidhyy-genius-ai",
+  "备注": "Next SaaS AI platform; clone-and-run",
+  "资产号": 80,
+  "首次写入": "2026-09-20",
+  "渠道": "GitHub",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-29T03:23:41+08:00",
+  "启动指引": "1. Clone the repository: git clone https://github.com/sanidhyy/genius-ai\n2. Install dependencies: npm install\n3. Start the service (port may vary, check documentation)\n4. Authorization: Ensure proper token/auth setup as per project requirements",
+  "开工前先看": [
+    {
+      "title": "GitHub Repository",
+      "url": "https://github.com/sanidhyy/genius-ai"
+    },
+    {
+      "title": "DeepWiki Index",
+      "url": "https://deepwiki.com/sanidhyy/genius-ai"
+    }
+  ],
+  "建议追问": [
+    "如何配置环境变量以确保正确启动？",
+    "API 端点和认证机制是什么？",
+    "启动后如何验证服务是否正常运行？",
+    "是否需要特殊的权限或令牌？",
+    "如何处理常见的安装错误？"
+  ],
+  "已知坑": "仓库可能未在索引中，需确保正确克隆并访问。",
+  "成功标准": "成功启动后能访问 Web UI 或 API 接口，且无报错。",
+  "研判摘要": "该项目为 Next SaaS AI platform，采用 clone-and-run 模式，部署简单但需注意环境配置和认证。",
+  "推荐启动": "git clone https://github.com/sanidhyy/genius-ai && npm install",
+  "agentHint": "注意检查仓库是否已在 deepwiki 索引，部署时遵循 clone-and-run 流程",
+  "DeepWiki": "https://deepwiki.com/sanidhyy/genius-ai",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/sanidhyy-genius-ai.json",
+  "source": "ai-web"
+}

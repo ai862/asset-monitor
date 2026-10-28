@@ -52,5 +52,6 @@
   "推荐启动": "docker compose up --build",
   "agentHint": "仅需准备 Google API Key 即可一键跑通，适合作为 RAG 原型基线。",
   "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/kaifcoder-gemini_multipdf_chat.json",
+  "渠道": "GitHub",
   "source": "ai-web"
 }

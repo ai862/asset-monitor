@@ -54,5 +54,6 @@
   "推荐启动": "docker compose up --detach   # 启动后访问 http://localhost:3033",
   "agentHint": "请重点询问认证配置、必需环境变量及 API 端点信息。",
   "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mmo80-alpaca-webui.json",
+  "渠道": "GitHub",
   "source": "ai-web"
 }

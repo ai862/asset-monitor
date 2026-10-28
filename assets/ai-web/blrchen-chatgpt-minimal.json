@@ -1,0 +1,42 @@
+{
+  "产品": "chatgpt-minimal",
+  "厂商": "blrchen",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "TypeScript",
+  "Stars": 76,
+  "GitHub": "https://github.com/blrchen/chatgpt-minimal",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "GitHub clone / 文档部署",
+  "去重键": "blrchen-chatgpt-minimal",
+  "备注": "minimal Next ChatGPT; docker/compose",
+  "资产号": 81,
+  "首次写入": "2026-09-20",
+  "渠道": "GitHub",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-29T03:20:54+08:00",
+  "启动指引": "Docker方式：使用 `docker run -d -p 3000:3000 -e OPENAI_API_KEY=<REPLACE-ME>` 启动，应用默认端口3000。npm本地：`npm install` 后复制 `.env.example` 至 `.env.local`，配置 `OPENAI_API_KEY` 等环境变量，运行 `npm run dev` 访问 http://localhost:3000。认证要点：必须设置有效的 OpenAI API 密钥或 Azure 三要素环境变量，否则 /api/healthz 将返回错误提示。",
+  "建议追问": [
+    "使用 Azure OpenAI 时，是否必须同时配置 OPENAI_API_KEY 吗？",
+    "反向代理模式下 OPENAI_API_BASE_URL 会如何影响 API 请求路径？",
+    "生产环境部署时是否需要额外配置反向代理或 SSL？",
+    "健康检查端点 /api/healthz 在容器内无响应如何快速排查？"
+  ],
+  "已知坑": "API 密钥缺失或配置错误会导致应用启动失败或请求返回错误；消息字符计数超过 12000 时会被截断导致请求异常。",
+  "成功标准": "访问 /api/healthz 端点，若返回 'Ok' 则确认 API 密钥配置正确且应用运行正常。",
+  "研判摘要": "chatgpt-minimal 是一个轻量级的 Next.js ChatGPT 界面，支持 Docker 和 npm 两种部署方式，默认端口 3000，核心依赖有效的 OpenAI 或 Azure API 密钥配置。",
+  "推荐启动": "docker run -d -p 3000:3000 -e OPENAI_API_KEY=<REPLACE-ME> blrchen/chatgpt-minimal",
+  "agentHint": "请优先验证 API 密钥环境变量是否正确设置，否则应用将无法连接 AI 服务。",
+  "DeepWiki": "https://deepwiki.com/blrchen/chatgpt-minimal",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/blrchen-chatgpt-minimal.json",
+  "source": "ai-web"
+}

@@ -1,0 +1,66 @@
+{
+  "产品": "ai-chatbot-supabase",
+  "厂商": "nolly-studio",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "TypeScript",
+  "Stars": 290,
+  "GitHub": "https://github.com/nolly-studio/ai-chatbot-supabase",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "npm"
+  ],
+  "下载条件": "GitHub clone / 文档部署",
+  "去重键": "nolly-studio-ai-chatbot-supabase",
+  "备注": "Next AI chatbot + Supabase",
+  "资产号": 83,
+  "首次写入": "2026-09-20",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-29T03:23:36+08:00",
+  "启动指引": "先安装 Node.js 18+、pnpm、Git 和 Supabase CLI；克隆仓库后执行 pnpm install；在根目录创建 .env.local 并填写 NEXT_PUBLIC_SUPABASE_URL 与 NEXT_PUBLIC_SUPABASE_ANON_KEY（可在 Supabase 项目控制台 Project Settings > API 获取）；使用 npx supabase init 和 npx supabase link --project-ref <项目ID> 关联 Supabase，再执行 supabase db push 初始化数据库；最后运行 pnpm dev，应用默认监听 http://localhost:3000。鉴权由 Supabase Auth 通过中间件 middleware.ts 统一拦截，未登录访问 / 会重定向到 /register，登录后访问 /login 或 /register 会重定向回 /。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库主页",
+      "url": "https://github.com/nolly-studio/ai-chatbot-supabase"
+    },
+    {
+      "title": "DeepWiki 项目文档",
+      "url": "https://deepwiki.com/nolly-studio/ai-chatbot-supabase"
+    },
+    {
+      "title": "安装与启动指引（DeepWiki）",
+      "url": "https://deepwiki.com/search/how-do-i-install-and-start-aic_95b6f908-6b8b-4d93-a783-c8ad27114b42"
+    },
+    {
+      "title": "常见坑与鉴权验证（DeepWiki）",
+      "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_c2877b0b-fc15-48c7-a787-0371a669eb80"
+    },
+    {
+      "title": "Web UI 与 API 端点（DeepWiki）",
+      "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_a088f17a-80bf-446a-bf6d-dc5119d97cd8"
+    }
+  ],
+  "建议追问": [
+    "是否使用 Supabase Cloud 还是本地 Supabase 开发？",
+    "OPENAI_API_KEY 是否必填，缺失会影响哪些 AI 对话功能？",
+    "Supabase Auth 的邮件重定向回调 URL 是否已指向 /auth/callback？",
+    "生产环境是否计划部署到 Vercel，环境变量是否已同步？",
+    "是否已准备好 Supabase 项目的 URL、ANON KEY 及数据库密码？",
+    "是否需要自定义端口或使用 Docker 部署（当前资料未提供 Docker 命令）？"
+  ],
+  "已知坑": "NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY 填错或缺失会导致鉴权失败；未执行 supabase db push 会导致数据库表缺失；middleware.ts 配置错误会引起登录状态不同步或路由重定向异常；Server Component 操作 Cookie 报错通常可忽略（由中间件刷新会话）；构建失败可尝试 rm -rf .next 并重新 pnpm install。",
+  "成功标准": "本地运行 pnpm dev 后，浏览器打开 http://localhost:3000 未登录时自动重定向到 /register；注册登录后可正常访问首页；调用未登录状态下的 /api/chat 等接口返回 Unauthorized；浏览器开发者工具可见 Supabase 会话 Cookie。",
+  "研判摘要": "基于 Next.js + Supabase 的 AI 聊天机器人，需本地搭配 Supabase CLI 初始化数据库并配置两个关键环境变量，默认端口 3000，搭建难度中等。",
+  "推荐启动": "pnpm dev",
+  "agentHint": "先确认 Supabase 项目已关联且环境变量填写正确，再启动开发服务器验证鉴权跳转。",
+  "DeepWiki": "https://deepwiki.com/nolly-studio/ai-chatbot-supabase",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/nolly-studio-ai-chatbot-supabase.json",
+  "source": "ai-web"
+}

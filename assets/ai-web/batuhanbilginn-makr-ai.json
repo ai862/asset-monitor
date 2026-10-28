@@ -1,0 +1,54 @@
+{
+  "产品": "makr-ai",
+  "厂商": "batuhanbilginn",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "TypeScript",
+  "Stars": 118,
+  "GitHub": "https://github.com/batuhanbilginn/makr-ai",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "npm"
+  ],
+  "下载条件": "GitHub clone / 文档部署",
+  "去重键": "batuhanbilginn-makr-ai",
+  "备注": "Next ChatGPT clone + vector memory",
+  "资产号": 79,
+  "首次写入": "2026-09-20",
+  "渠道": "GitHub",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-29T03:22:23+08:00",
+  "启动指引": "需克隆仓库 (git clone https://github.com/batuhanbilginn/makr-ai)，安装依赖 (npm install)，启动开发服务器 (npm run dev)。具体端口、环境变量及鉴权配置请查阅仓库 README 或源码。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/batuhanbilginn/makr-ai"
+    },
+    {
+      "title": "DeepWiki 页面",
+      "url": "https://deepwiki.com/batuhanbilginn/makr-ai"
+    }
+  ],
+  "建议追问": [
+    "项目是否需要配置数据库或向量存储服务？",
+    "环境变量中必须设置哪些 API Key（如 OpenAI、向量数据库）？",
+    "是否有 Dockerfile 或 docker-compose 支持容器化部署？",
+    "认证机制是如何实现的（NextAuth、JWT 等）？",
+    "生产环境建议使用哪种构建命令（npm run build && npm start）？",
+    "向量记忆功能依赖哪些外部服务或本地模型？"
+  ],
+  "已知坑": "DeepWiki 未收录该仓库，缺乏官方文档，需自行阅读源码确定配置细节。",
+  "成功标准": "本地访问 Web UI 正常，能发起对话并存储向量记忆，控制台无报错。",
+  "研判摘要": "makr-ai 是一个基于 Next.js 的 ChatGPT 克隆项目，具备向量记忆功能，但缺乏公开文档，搭建需自行探索源码。",
+  "推荐启动": "未知",
+  "agentHint": "先克隆仓库阅读 package.json 与 README，确认依赖与启动脚本。",
+  "DeepWiki": "https://deepwiki.com/batuhanbilginn/makr-ai",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/batuhanbilginn-makr-ai.json",
+  "source": "ai-web"
+}

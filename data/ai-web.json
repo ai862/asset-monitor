@@ -4324,7 +4324,26 @@
     "备注": "Streamlit；选文件后用 Claude 200k 聊仓库",
     "资产号": 74,
     "首次写入": "2026-09-13",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-29T03:15:49+08:00",
+    "启动指引": "最短路径：pip install -r requirements.txt && streamlit run app.py。端口：未知，请根据 Streamlit 控制台输出确认。环境变量：Claude API 密钥需配置至环境变量或配置文件，具体请参照项目说明。鉴权要点：需有效的 Claude 200k 上下文访问权限，首次交互前请确认 API 配置无误。",
+    "建议追问": [
+      "是否需要配置 Claude API 密钥？",
+      "支持的文件类型和仓库大小限制是什么？",
+      "Streamlit 启动后的默认访问地址如何确认？",
+      "是否需要额外的依赖包 beyond requirements.txt？"
+    ],
+    "已知坑": "若 requirements.txt 中依赖版本冲突可能导致启动失败，Claude API 配置不当会造成认证错误，大型仓库文件上传可能受限于 Streamlit 文件大小阈值。",
+    "成功标准": "成功运行 streamlit run app.py 后，本地 UI 可用，且能够上传/选择仓库文件与 Claude 200k 上下文对话无报错。",
+    "研判摘要": "RepoChat-200k 是一个基于 Streamlit 的仓库聊天助手，结合 Claude 200k 长上下文能力，主要通过上传仓库文件后即可使用，关键需配置 Claude API 并处理依赖环境。",
+    "推荐启动": "pip install -r requirements.txt && streamlit run app.py",
+    "agentHint": "重点关注 Claude API 的环境变量配置以及 Streamlit 启动时的端口输出。",
+    "DeepWiki": "https://deepwiki.com/chenran-627/RepoChat-200k",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/chenran-627-repochat-200k.json"
   },
   {
     "产品": "renumics-rag",
@@ -4346,7 +4365,38 @@
     "备注": "LangChain+Streamlit RAG 探索可视化",
     "资产号": 73,
     "首次写入": "2026-09-13",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-29T03:16:07+08:00",
+    "启动指引": "请参考仓库 README 或安装说明以获取确切的启动命令、端口和环境变量。可能需要设置认证令牌等。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/Renumics/renumics-rag"
+      },
+      {
+        "title": "DeepWiki 文档",
+        "url": "https://deepwiki.com/Renumics/renumics-rag"
+      }
+    ],
+    "建议追问": [
+      "项目中 Web UI 的具体入口地址是什么？是否有默认的 API 端点？",
+      "启动时需要配置哪些环境变量（如认证令牌、模型参数）？",
+      "是否提供了 Docker 镜像或 Kubernetes Helm 图表以简化部署？",
+      "如何验证 RAG 功能是否正常工作（例如测试查询）？",
+      "项目中是否包含数据集或示例文件的获取方式？",
+      "是否存在已知的数据格式或版本兼容性问题？"
+    ],
+    "已知坑": "通常的陷阱包括：缺失 Python 依赖、端口冲突、认证令牌未设置、模型内存消耗过大以及 Streamlit 配置未针对生产环境优化。",
+    "成功标准": "Streamlit 应用成功启动并能处理示例查询，返回合理的 RAG 响应。",
+    "研判摘要": "renumics-rag 是一个基于 LangChain 和 Streamlit 的 RAG 可视化工具，但具体部署细节尚不清楚。",
+    "推荐启动": "pip install renumics-rag[all]@git+https://github.com/Renumics/renumics-rag.git",
+    "agentHint": "询问具体 UI 地址、环境变量和认证设置以确认部署细节。",
+    "DeepWiki": "https://deepwiki.com/Renumics/renumics-rag",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/renumics-renumics-rag.json"
   },
   {
     "产品": "KnowAgenticRAG (RAG-F)",
@@ -4368,7 +4418,62 @@
     "备注": "私有知识库 RAG 平台；Agent/文档创作",
     "资产号": 75,
     "首次写入": "2026-09-13",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-29T03:17:19+08:00",
+    "启动指引": "克隆仓库后，运行 `task init` 进行一键初始化（安装依赖、启动 Docker 服务、初始化数据库和种子数据），随后执行 `task dev` 启动开发服务器。FastAPI 后端默认监听 0.0.0.0:8000，API 文档地址为 http://127.0.0.1:8000/docs。需准备 .env 文件（参考 backend/src/.env.example），包含 DATABASE_HOST、REDIS_HOST、MILVUS_HOST、MINIO_HOST 等关键环境变量，以及 JWT 认证秘钥 TOKEN_SECRET_KEY。确保所有 Docker 依赖服务正常后方可启动。",
+    "开工前先看": [
+      {
+        "title": "项目概述",
+        "url": "https://deepwiki.com/Zhongye1/KnowAgenticRAG"
+      },
+      {
+        "title": "快速入门与本地开发",
+        "url": "https://deepwiki.com/Zhongye1/KnowAgenticRAG#1.1"
+      },
+      {
+        "title": "应用启动与配置",
+        "url": "https://deepwiki.com/Zhongye1/KnowAgenticRAG#2.1"
+      },
+      {
+        "title": "部署与运维",
+        "url": "https://deepwiki.com/Zhongye1/KnowAgenticRAG#8"
+      },
+      {
+        "title": "文档站点与规范",
+        "url": "https://deepwiki.com/Zhongye1/KnowAgenticRAG#8.3"
+      },
+      {
+        "title": "Docker 编排文件",
+        "url": "https://github.com/Zhongye1/KnowAgenticRAG/blob/main/docker-compose.yml"
+      },
+      {
+        "title": "环境变量示例",
+        "url": "https://github.com/Zhongye1/KnowAgenticRAG/blob/main/backend/src/.env.example"
+      },
+      {
+        "title": "API 端点规范",
+        "url": "https://github.com/Zhongye1/KnowAgenticRAG/blob/main/docs/specs/2026-08-25-rag-api设计与落地路线.md"
+      }
+    ],
+    "建议追问": [
+      "如何在生产环境中生成安全的 TOKEN_SECRET_KEY？",
+      "启动后前端应该访问哪些域名和端口？",
+      "如何验证所有 Docker 依赖服务（如 Milvus、MinIO）是否正常？",
+      "是否有自动化的 CI/CD 流程来更新镜像？",
+      "如何定制知识库的检索策略以适应特定领域？",
+      "遇到 `task init` 失败时应如何排查？"
+    ],
+    "已知坑": "缺少 .env 配置文件或关键变量（如 DATABASE_HOST）会导致启动失败；Redis 必须运行，否则插件导入会卡住；root .env 与 backend/src/.env 中的账户字段必须一致；JWT 秘钥 TOKEN_SECRET_KEY 需在生产环境中设置且保持安全。",
+    "成功标准": "访问 http://127.0.0.1:8000/docs 查看 API 文档；运行 `task deps-status` 确认 PostgreSQL、Redis、RabbitMQ、Milvus 等服务状态为 healthy；确保 JWT 认证的登录接口返回有效 token。",
+    "研判摘要": "KnowAgenticRAG 是一个支持私有知识库的 RAG 平台，提供一键初始化和开发流程，通过 Docker 编排管理多微服务。",
+    "推荐启动": "task init && task dev",
+    "agentHint": "使用 task 命令初始化和启动服务，确保 .env 文件存在并包含所有必需的环境变量。",
+    "DeepWiki": "https://deepwiki.com/Zhongye1/KnowAgenticRAG",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zhongye1-knowagenticrag.json"
   },
   {
     "产品": "TalkToGitHub (TTG)",
@@ -4389,7 +4494,41 @@
     "备注": "FastAPI+React；与任意公开 GitHub 仓库对话",
     "资产号": 72,
     "首次写入": "2026-09-13",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-29T03:18:57+08:00",
+    "启动指引": "克隆仓库后，后端：uv sync，source ./.venv/bin/activate，创建 .env 并填写 GEMINI_API_KEY、GEMINI_MODEL、ENV、FALLBACK_COUNT，然后执行 fastapi dev src/main.py（默认 8000 端口）。前端：cd frontend，npm install，npm run dev（默认 5173 端口）。需确保已安装 Python 3.13+、uv、Node 23+，并拥有有效的 Gemini API Key。",
+    "开工前先看": [
+      {
+        "title": "系统架构概览",
+        "url": "https://deepwiki.com/wiki/HarishChandran3304/TTG#1.1"
+      },
+      {
+        "title": "安装与启动指南",
+        "url": "https://deepwiki.com/search/how-do-i-install-and-start-tal_0f511a3d-b4c6-4d32-89ec-9a96feb8973b"
+      },
+      {
+        "title": "常见坑与故障排查",
+        "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_f5a4df44-acb5-4082-a92c-6bb17051d38f"
+      }
+    ],
+    "建议追问": [
+      "uv sync 必须在仓库根目录执行吗？",
+      "GEMINI_API_KEY 从哪里获取？",
+      "前端运行时是否需要代理设置？",
+      "后端 healthcheck 端点是否可用于验证？",
+      "出现 API key 耗尽错误时如何切换到备用 key？"
+    ],
+    "已知坑": "缺少 .env 变量或错误的 GEMINI_API_KEY 会导致后端无法连接 Gemini，进而出现 API key 耗尽或连接超时；仓库过大、不存在或私有会返回相应错误；Node 版本低于 23 会导致前端安装失败；uv 环境未激活会导致依赖缺失。",
+    "成功标准": "后端在 localhost:8000 响应 /healthcheck 返回 {\"status\":\"ok\"}，前端在 localhost:5173 可正常加载并能通过 WebSocket 连接后端，输入任意公开 GitHub 仓库 URL 后出现 repo_processed 消息并显示 ready 状态。",
+    "研判摘要": "TalkToGitHub 是基于 FastAPI 与 React 的全栈应用，通过 Gemini API 实现对任意公开 GitHub 仓库的实时对话，需配置 API key 并同时启动后端（8000 端口）和前端（5173 端口）。",
+    "推荐启动": "uv sync && source ./.venv/bin/activate && fastapi dev src/main.py & cd frontend && npm install && npm run dev",
+    "agentHint": "确保后端和前端同时启动，并正确配置 GEMINI_API_KEY",
+    "DeepWiki": "https://deepwiki.com/HarishChandran3304/TTG",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/harishchandran3304-ttg.json"
   },
   {
     "产品": "chatgpt-minimal",
@@ -4411,7 +4550,26 @@
     "备注": "minimal Next ChatGPT; docker/compose",
     "资产号": 81,
     "首次写入": "2026-09-20",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-29T03:20:54+08:00",
+    "启动指引": "Docker方式：使用 `docker run -d -p 3000:3000 -e OPENAI_API_KEY=<REPLACE-ME>` 启动，应用默认端口3000。npm本地：`npm install` 后复制 `.env.example` 至 `.env.local`，配置 `OPENAI_API_KEY` 等环境变量，运行 `npm run dev` 访问 http://localhost:3000。认证要点：必须设置有效的 OpenAI API 密钥或 Azure 三要素环境变量，否则 /api/healthz 将返回错误提示。",
+    "建议追问": [
+      "使用 Azure OpenAI 时，是否必须同时配置 OPENAI_API_KEY 吗？",
+      "反向代理模式下 OPENAI_API_BASE_URL 会如何影响 API 请求路径？",
+      "生产环境部署时是否需要额外配置反向代理或 SSL？",
+      "健康检查端点 /api/healthz 在容器内无响应如何快速排查？"
+    ],
+    "已知坑": "API 密钥缺失或配置错误会导致应用启动失败或请求返回错误；消息字符计数超过 12000 时会被截断导致请求异常。",
+    "成功标准": "访问 /api/healthz 端点，若返回 'Ok' 则确认 API 密钥配置正确且应用运行正常。",
+    "研判摘要": "chatgpt-minimal 是一个轻量级的 Next.js ChatGPT 界面，支持 Docker 和 npm 两种部署方式，默认端口 3000，核心依赖有效的 OpenAI 或 Azure API 密钥配置。",
+    "推荐启动": "docker run -d -p 3000:3000 -e OPENAI_API_KEY=<REPLACE-ME> blrchen/chatgpt-minimal",
+    "agentHint": "请优先验证 API 密钥环境变量是否正确设置，否则应用将无法连接 AI 服务。",
+    "DeepWiki": "https://deepwiki.com/blrchen/chatgpt-minimal",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/blrchen-chatgpt-minimal.json"
   },
   {
     "产品": "makr-ai",
@@ -4433,7 +4591,38 @@
     "备注": "Next ChatGPT clone + vector memory",
     "资产号": 79,
     "首次写入": "2026-09-20",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-29T03:22:23+08:00",
+    "启动指引": "需克隆仓库 (git clone https://github.com/batuhanbilginn/makr-ai)，安装依赖 (npm install)，启动开发服务器 (npm run dev)。具体端口、环境变量及鉴权配置请查阅仓库 README 或源码。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/batuhanbilginn/makr-ai"
+      },
+      {
+        "title": "DeepWiki 页面",
+        "url": "https://deepwiki.com/batuhanbilginn/makr-ai"
+      }
+    ],
+    "建议追问": [
+      "项目是否需要配置数据库或向量存储服务？",
+      "环境变量中必须设置哪些 API Key（如 OpenAI、向量数据库）？",
+      "是否有 Dockerfile 或 docker-compose 支持容器化部署？",
+      "认证机制是如何实现的（NextAuth、JWT 等）？",
+      "生产环境建议使用哪种构建命令（npm run build && npm start）？",
+      "向量记忆功能依赖哪些外部服务或本地模型？"
+    ],
+    "已知坑": "DeepWiki 未收录该仓库，缺乏官方文档，需自行阅读源码确定配置细节。",
+    "成功标准": "本地访问 Web UI 正常，能发起对话并存储向量记忆，控制台无报错。",
+    "研判摘要": "makr-ai 是一个基于 Next.js 的 ChatGPT 克隆项目，具备向量记忆功能，但缺乏公开文档，搭建需自行探索源码。",
+    "推荐启动": "未知",
+    "agentHint": "先克隆仓库阅读 package.json 与 README，确认依赖与启动脚本。",
+    "DeepWiki": "https://deepwiki.com/batuhanbilginn/makr-ai",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/batuhanbilginn-makr-ai.json"
   },
   {
     "产品": "ai-chatbot-supabase",
@@ -4455,7 +4644,50 @@
     "备注": "Next AI chatbot + Supabase",
     "资产号": 83,
     "首次写入": "2026-09-20",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-29T03:23:36+08:00",
+    "启动指引": "先安装 Node.js 18+、pnpm、Git 和 Supabase CLI；克隆仓库后执行 pnpm install；在根目录创建 .env.local 并填写 NEXT_PUBLIC_SUPABASE_URL 与 NEXT_PUBLIC_SUPABASE_ANON_KEY（可在 Supabase 项目控制台 Project Settings > API 获取）；使用 npx supabase init 和 npx supabase link --project-ref <项目ID> 关联 Supabase，再执行 supabase db push 初始化数据库；最后运行 pnpm dev，应用默认监听 http://localhost:3000。鉴权由 Supabase Auth 通过中间件 middleware.ts 统一拦截，未登录访问 / 会重定向到 /register，登录后访问 /login 或 /register 会重定向回 /。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库主页",
+        "url": "https://github.com/nolly-studio/ai-chatbot-supabase"
+      },
+      {
+        "title": "DeepWiki 项目文档",
+        "url": "https://deepwiki.com/nolly-studio/ai-chatbot-supabase"
+      },
+      {
+        "title": "安装与启动指引（DeepWiki）",
+        "url": "https://deepwiki.com/search/how-do-i-install-and-start-aic_95b6f908-6b8b-4d93-a783-c8ad27114b42"
+      },
+      {
+        "title": "常见坑与鉴权验证（DeepWiki）",
+        "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_c2877b0b-fc15-48c7-a787-0371a669eb80"
+      },
+      {
+        "title": "Web UI 与 API 端点（DeepWiki）",
+        "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_a088f17a-80bf-446a-bf6d-dc5119d97cd8"
+      }
+    ],
+    "建议追问": [
+      "是否使用 Supabase Cloud 还是本地 Supabase 开发？",
+      "OPENAI_API_KEY 是否必填，缺失会影响哪些 AI 对话功能？",
+      "Supabase Auth 的邮件重定向回调 URL 是否已指向 /auth/callback？",
+      "生产环境是否计划部署到 Vercel，环境变量是否已同步？",
+      "是否已准备好 Supabase 项目的 URL、ANON KEY 及数据库密码？",
+      "是否需要自定义端口或使用 Docker 部署（当前资料未提供 Docker 命令）？"
+    ],
+    "已知坑": "NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY 填错或缺失会导致鉴权失败；未执行 supabase db push 会导致数据库表缺失；middleware.ts 配置错误会引起登录状态不同步或路由重定向异常；Server Component 操作 Cookie 报错通常可忽略（由中间件刷新会话）；构建失败可尝试 rm -rf .next 并重新 pnpm install。",
+    "成功标准": "本地运行 pnpm dev 后，浏览器打开 http://localhost:3000 未登录时自动重定向到 /register；注册登录后可正常访问首页；调用未登录状态下的 /api/chat 等接口返回 Unauthorized；浏览器开发者工具可见 Supabase 会话 Cookie。",
+    "研判摘要": "基于 Next.js + Supabase 的 AI 聊天机器人，需本地搭配 Supabase CLI 初始化数据库并配置两个关键环境变量，默认端口 3000，搭建难度中等。",
+    "推荐启动": "pnpm dev",
+    "agentHint": "先确认 Supabase 项目已关联且环境变量填写正确，再启动开发服务器验证鉴权跳转。",
+    "DeepWiki": "https://deepwiki.com/nolly-studio/ai-chatbot-supabase",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/nolly-studio-ai-chatbot-supabase.json"
   },
   {
     "产品": "genius-ai",
@@ -4477,7 +4709,37 @@
     "备注": "Next SaaS AI platform; clone-and-run",
     "资产号": 80,
     "首次写入": "2026-09-20",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-29T03:23:41+08:00",
+    "启动指引": "1. Clone the repository: git clone https://github.com/sanidhyy/genius-ai\n2. Install dependencies: npm install\n3. Start the service (port may vary, check documentation)\n4. Authorization: Ensure proper token/auth setup as per project requirements",
+    "开工前先看": [
+      {
+        "title": "GitHub Repository",
+        "url": "https://github.com/sanidhyy/genius-ai"
+      },
+      {
+        "title": "DeepWiki Index",
+        "url": "https://deepwiki.com/sanidhyy/genius-ai"
+      }
+    ],
+    "建议追问": [
+      "如何配置环境变量以确保正确启动？",
+      "API 端点和认证机制是什么？",
+      "启动后如何验证服务是否正常运行？",
+      "是否需要特殊的权限或令牌？",
+      "如何处理常见的安装错误？"
+    ],
+    "已知坑": "仓库可能未在索引中，需确保正确克隆并访问。",
+    "成功标准": "成功启动后能访问 Web UI 或 API 接口，且无报错。",
+    "研判摘要": "该项目为 Next SaaS AI platform，采用 clone-and-run 模式，部署简单但需注意环境配置和认证。",
+    "推荐启动": "git clone https://github.com/sanidhyy/genius-ai && npm install",
+    "agentHint": "注意检查仓库是否已在 deepwiki 索引，部署时遵循 clone-and-run 流程",
+    "DeepWiki": "https://deepwiki.com/sanidhyy/genius-ai",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/sanidhyy-genius-ai.json"
   },
   {
     "产品": "DiscovAI-search",

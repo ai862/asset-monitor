@@ -65,5 +65,6 @@
   "schemaVersion": 2,
   "agentHint": "不要只跑推荐启动，先读启动指引与开工前先看，配好 LLM API key 后再按成功标准自测。",
   "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/rikyz90-shibaclaw.json",
+  "渠道": "GitHub",
   "source": "ai-web"
 }

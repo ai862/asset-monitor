@@ -68,5 +68,6 @@
   "推荐启动": "git clone https://github.com/ModelEngine-Group/DataMate.git && cd DataMate && make install INSTALLER=docker",
   "agentHint": "先用 Docker Compose 拉起全栈并核验 `/api/user/me`，再按目标环境明确启用 JWT 或 OMS 鉴权。",
   "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/modelengine-group-datamate.json",
+  "渠道": "GitHub",
   "source": "ai-web"
 }

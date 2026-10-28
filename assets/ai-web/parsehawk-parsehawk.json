@@ -51,5 +51,6 @@
   "成功标准": "暂无法定义具体检测步骤，请在获取官方文档后补充验证方法。",
   "agentHint": "请先访问官方文档获取安装与启动信息。",
   "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/parsehawk-parsehawk.json",
+  "渠道": "GitHub",
   "source": "ai-web"
 }

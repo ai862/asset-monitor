@@ -1,0 +1,78 @@
+{
+  "产品": "KnowAgenticRAG (RAG-F)",
+  "厂商": "Zhongye1",
+  "状态": "可下",
+  "类型": "知识库",
+  "语言": "Python",
+  "Stars": 142,
+  "GitHub": "https://github.com/Zhongye1/KnowAgenticRAG",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "task init && task dev；Docker 依赖 + FastAPI/React 前端",
+  "去重键": "zhongye1-knowagenticrag",
+  "备注": "私有知识库 RAG 平台；Agent/文档创作",
+  "资产号": 75,
+  "首次写入": "2026-09-13",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-29T03:17:19+08:00",
+  "启动指引": "克隆仓库后，运行 `task init` 进行一键初始化（安装依赖、启动 Docker 服务、初始化数据库和种子数据），随后执行 `task dev` 启动开发服务器。FastAPI 后端默认监听 0.0.0.0:8000，API 文档地址为 http://127.0.0.1:8000/docs。需准备 .env 文件（参考 backend/src/.env.example），包含 DATABASE_HOST、REDIS_HOST、MILVUS_HOST、MINIO_HOST 等关键环境变量，以及 JWT 认证秘钥 TOKEN_SECRET_KEY。确保所有 Docker 依赖服务正常后方可启动。",
+  "开工前先看": [
+    {
+      "title": "项目概述",
+      "url": "https://deepwiki.com/Zhongye1/KnowAgenticRAG"
+    },
+    {
+      "title": "快速入门与本地开发",
+      "url": "https://deepwiki.com/Zhongye1/KnowAgenticRAG#1.1"
+    },
+    {
+      "title": "应用启动与配置",
+      "url": "https://deepwiki.com/Zhongye1/KnowAgenticRAG#2.1"
+    },
+    {
+      "title": "部署与运维",
+      "url": "https://deepwiki.com/Zhongye1/KnowAgenticRAG#8"
+    },
+    {
+      "title": "文档站点与规范",
+      "url": "https://deepwiki.com/Zhongye1/KnowAgenticRAG#8.3"
+    },
+    {
+      "title": "Docker 编排文件",
+      "url": "https://github.com/Zhongye1/KnowAgenticRAG/blob/main/docker-compose.yml"
+    },
+    {
+      "title": "环境变量示例",
+      "url": "https://github.com/Zhongye1/KnowAgenticRAG/blob/main/backend/src/.env.example"
+    },
+    {
+      "title": "API 端点规范",
+      "url": "https://github.com/Zhongye1/KnowAgenticRAG/blob/main/docs/specs/2026-08-25-rag-api设计与落地路线.md"
+    }
+  ],
+  "建议追问": [
+    "如何在生产环境中生成安全的 TOKEN_SECRET_KEY？",
+    "启动后前端应该访问哪些域名和端口？",
+    "如何验证所有 Docker 依赖服务（如 Milvus、MinIO）是否正常？",
+    "是否有自动化的 CI/CD 流程来更新镜像？",
+    "如何定制知识库的检索策略以适应特定领域？",
+    "遇到 `task init` 失败时应如何排查？"
+  ],
+  "已知坑": "缺少 .env 配置文件或关键变量（如 DATABASE_HOST）会导致启动失败；Redis 必须运行，否则插件导入会卡住；root .env 与 backend/src/.env 中的账户字段必须一致；JWT 秘钥 TOKEN_SECRET_KEY 需在生产环境中设置且保持安全。",
+  "成功标准": "访问 http://127.0.0.1:8000/docs 查看 API 文档；运行 `task deps-status` 确认 PostgreSQL、Redis、RabbitMQ、Milvus 等服务状态为 healthy；确保 JWT 认证的登录接口返回有效 token。",
+  "研判摘要": "KnowAgenticRAG 是一个支持私有知识库的 RAG 平台，提供一键初始化和开发流程，通过 Docker 编排管理多微服务。",
+  "推荐启动": "task init && task dev",
+  "agentHint": "使用 task 命令初始化和启动服务，确保 .env 文件存在并包含所有必需的环境变量。",
+  "DeepWiki": "https://deepwiki.com/Zhongye1/KnowAgenticRAG",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zhongye1-knowagenticrag.json",
+  "source": "ai-web"
+}

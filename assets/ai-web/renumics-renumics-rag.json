@@ -1,0 +1,54 @@
+{
+  "产品": "renumics-rag",
+  "厂商": "Renumics",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 210,
+  "GitHub": "https://github.com/Renumics/renumics-rag",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "pip",
+    "源码"
+  ],
+  "下载条件": "pip install renumics-rag[all]@git+...；Streamlit RAG 可视化 demo",
+  "去重键": "renumics-renumics-rag",
+  "备注": "LangChain+Streamlit RAG 探索可视化",
+  "资产号": 73,
+  "首次写入": "2026-09-13",
+  "渠道": "GitHub",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-29T03:16:07+08:00",
+  "启动指引": "请参考仓库 README 或安装说明以获取确切的启动命令、端口和环境变量。可能需要设置认证令牌等。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/Renumics/renumics-rag"
+    },
+    {
+      "title": "DeepWiki 文档",
+      "url": "https://deepwiki.com/Renumics/renumics-rag"
+    }
+  ],
+  "建议追问": [
+    "项目中 Web UI 的具体入口地址是什么？是否有默认的 API 端点？",
+    "启动时需要配置哪些环境变量（如认证令牌、模型参数）？",
+    "是否提供了 Docker 镜像或 Kubernetes Helm 图表以简化部署？",
+    "如何验证 RAG 功能是否正常工作（例如测试查询）？",
+    "项目中是否包含数据集或示例文件的获取方式？",
+    "是否存在已知的数据格式或版本兼容性问题？"
+  ],
+  "已知坑": "通常的陷阱包括：缺失 Python 依赖、端口冲突、认证令牌未设置、模型内存消耗过大以及 Streamlit 配置未针对生产环境优化。",
+  "成功标准": "Streamlit 应用成功启动并能处理示例查询，返回合理的 RAG 响应。",
+  "研判摘要": "renumics-rag 是一个基于 LangChain 和 Streamlit 的 RAG 可视化工具，但具体部署细节尚不清楚。",
+  "推荐启动": "pip install renumics-rag[all]@git+https://github.com/Renumics/renumics-rag.git",
+  "agentHint": "询问具体 UI 地址、环境变量和认证设置以确认部署细节。",
+  "DeepWiki": "https://deepwiki.com/Renumics/renumics-rag",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/renumics-renumics-rag.json",
+  "source": "ai-web"
+}

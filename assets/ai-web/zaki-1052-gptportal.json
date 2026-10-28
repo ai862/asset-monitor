@@ -64,5 +64,6 @@
   "推荐启动": "cd GPTPortal && npm install && npm start",
   "agentHint": "启动前务必复制 `.env.example` 创建 `.env` 文件，并确保至少配置了一个有效的 AI 接口 Key（如 OPENAI_API_KEY）以及用户认证信息（USER_USERNAME/USER_PASSWORD）。",
   "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zaki-1052-gptportal.json",
+  "渠道": "GitHub",
   "source": "ai-web"
 }

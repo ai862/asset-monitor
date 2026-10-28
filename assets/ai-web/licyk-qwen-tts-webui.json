@@ -36,5 +36,6 @@
   "推荐启动": "./start.sh",
   "agentHint": "优先验证模型路径和访问令牌的配置情况。",
   "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/licyk-qwen-tts-webui.json",
+  "渠道": "GitHub",
   "source": "ai-web"
 }

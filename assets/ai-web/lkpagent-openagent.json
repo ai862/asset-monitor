@@ -64,5 +64,6 @@
   "推荐启动": "docker-compose up -d && cd backend && python -m uvicorn open_agent.main:app --reload --host 0.0.0.0 --port 8000",
   "agentHint": "先起 PostgreSQL pgvector 和后端，再配 .env 和 API Key，最后起前端；验证 /health 与登录。",
   "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lkpagent-openagent.json",
+  "渠道": "GitHub",
   "source": "ai-web"
 }

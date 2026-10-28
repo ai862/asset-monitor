@@ -55,5 +55,6 @@
   "推荐启动": "pnpm dev",
   "agentHint": "请先完成环境变量配置和 Docker 服务启动，再依次启动后端与前端服务。",
   "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/shutootaki-bookwith.json",
+  "渠道": "GitHub",
   "source": "ai-web"
 }

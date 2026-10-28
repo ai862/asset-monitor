@@ -74,5 +74,6 @@
   "研判来源": "openrouter+deepwiki",
   "schemaVersion": 2,
   "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zetaneko-animadex.json",
+  "渠道": "GitHub",
   "source": "ai-web"
 }

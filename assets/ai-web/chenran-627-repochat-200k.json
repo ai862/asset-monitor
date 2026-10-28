@@ -1,0 +1,41 @@
+{
+  "产品": "RepoChat-200k",
+  "厂商": "chenran-627",
+  "状态": "可下",
+  "类型": "代码助手",
+  "语言": "Python",
+  "Stars": 171,
+  "GitHub": "https://github.com/chenran-627/RepoChat-200k",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "pip install -r requirements.txt && streamlit run app.py（Claude 长上下文）",
+  "去重键": "chenran-627-repochat-200k",
+  "备注": "Streamlit；选文件后用 Claude 200k 聊仓库",
+  "资产号": 74,
+  "首次写入": "2026-09-13",
+  "渠道": "GitHub",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-29T03:15:49+08:00",
+  "启动指引": "最短路径：pip install -r requirements.txt && streamlit run app.py。端口：未知，请根据 Streamlit 控制台输出确认。环境变量：Claude API 密钥需配置至环境变量或配置文件，具体请参照项目说明。鉴权要点：需有效的 Claude 200k 上下文访问权限，首次交互前请确认 API 配置无误。",
+  "建议追问": [
+    "是否需要配置 Claude API 密钥？",
+    "支持的文件类型和仓库大小限制是什么？",
+    "Streamlit 启动后的默认访问地址如何确认？",
+    "是否需要额外的依赖包 beyond requirements.txt？"
+  ],
+  "已知坑": "若 requirements.txt 中依赖版本冲突可能导致启动失败，Claude API 配置不当会造成认证错误，大型仓库文件上传可能受限于 Streamlit 文件大小阈值。",
+  "成功标准": "成功运行 streamlit run app.py 后，本地 UI 可用，且能够上传/选择仓库文件与 Claude 200k 上下文对话无报错。",
+  "研判摘要": "RepoChat-200k 是一个基于 Streamlit 的仓库聊天助手，结合 Claude 200k 长上下文能力，主要通过上传仓库文件后即可使用，关键需配置 Claude API 并处理依赖环境。",
+  "推荐启动": "pip install -r requirements.txt && streamlit run app.py",
+  "agentHint": "重点关注 Claude API 的环境变量配置以及 Streamlit 启动时的端口输出。",
+  "DeepWiki": "https://deepwiki.com/chenran-627/RepoChat-200k",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/chenran-627-repochat-200k.json",
+  "source": "ai-web"
+}
