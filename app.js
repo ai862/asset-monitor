@@ -18,6 +18,7 @@
   const LINK_ICON_IDS = {
     官网: "i-link-web",
     GitHub: "i-link-github",
+    Gitee: "i-link-gitee",
     下载页: "i-link-download",
     文档: "i-link-docs",
   };
@@ -25,6 +26,7 @@
   const LINK_SPECS = [
     { key: "官网", label: "官网" },
     { key: "GitHub", label: "GitHub" },
+    { key: "Gitee", label: "Gitee" },
     { key: "下载页", label: "下载" },
     { key: "文档", label: "文档" },
   ];
@@ -38,6 +40,7 @@
     sourceId: null,
     search: "",
     status: new Set(),
+    channel: new Set(),
     extra: new Set(),
     difficulty: new Set(),
     view: "table",
@@ -139,12 +142,23 @@
   }
 
   function linkPills(item) {
-    return LINK_SPECS.filter((s) => isHttp(item[s.key]))
+    const hasGithub = isHttp(item.GitHub);
+    return LINK_SPECS.filter((s) => {
+        if (s.key === "Gitee" && hasGithub) return false; // prefer GitHub when both set
+        return isHttp(item[s.key]);
+      })
       .map((s) => {
         const ico = iconUse(LINK_ICON_IDS[s.key], 12);
         return `<a class="link-pill" href="${esc(item[s.key])}" target="_blank" rel="noopener">${ico}${esc(s.label)}</a>`;
       })
       .join("");
+  }
+
+  function channelBadge(r) {
+    const c = r["渠道"];
+    if (!c) return "";
+    const cls = c === "Gitee" ? "badge-channel-gitee" : "badge-channel-github";
+    return `<span class="badge ${cls}">${esc(c)}</span>`;
   }
 
   function fmtDeploy(v) {
@@ -202,6 +216,10 @@
     const isAi = state.sourceId === "ai-web";
     return rows.filter((r) => {
       if (state.status.size && !state.status.has(r["状态"])) return false;
+      if (isAi && state.channel.size) {
+        const ch = r["渠道"] || "GitHub";
+        if (!state.channel.has(ch)) return false;
+      }
       if (extraMeta && state.extra.size) {
         if (!state.extra.has(r[extraMeta.key])) return false;
       }
@@ -223,6 +241,9 @@
         r["研判摘要"],
         r["启动指引"],
         r["推荐启动"],
+        r["渠道"],
+        r["Gitee"],
+        r["GitHub"],
       ]
         .filter(Boolean)
         .join(" ")
@@ -385,6 +406,22 @@
 
   function renderFilters(rows) {
     renderChips($("status-chips"), uniqueValues(rows, "状态"), state.status, "全部");
+    const channelWrap = $("channel-filters");
+    if (channelWrap) {
+      if (state.sourceId !== "ai-web") {
+        channelWrap.classList.add("hidden");
+      } else {
+        channelWrap.classList.remove("hidden");
+        const normCh = rows.map((r) => ({
+          ...r,
+          渠道: r["渠道"] || "GitHub",
+        }));
+        const chOrder = ["GitHub", "Gitee"];
+        const chCounts = uniqueValues(normCh, "渠道");
+        chCounts.sort((a, b) => chOrder.indexOf(a[0]) - chOrder.indexOf(b[0]) || b[1] - a[1]);
+        renderChips($("channel-chips"), chCounts, state.channel, "全部");
+      }
+    }
     const extra = EXTRA_FIELD[state.sourceId];
     const extraWrap = $("extra-filters");
     if (!extra) {
@@ -462,7 +499,9 @@
         <div class="vendor">${esc(r["厂商"] || "")}</div>
         <div class="mono">${esc(r["去重键"] || "")}</div>
       </td>
-      <td><span class="badge ${statusClass(r["状态"])}">${esc(r["状态"] || "—")}</span></td>
+      <td><span class="badge ${statusClass(r["状态"])}">${esc(r["状态"] || "—")}</span>${
+        src === "ai-web" ? channelBadge(r) : ""
+      }</td>
       ${cols}
       <td><div class="links">${linkPills(r) || '<span class="cell-muted">—</span>'}</div></td>`;
   }
@@ -606,7 +645,9 @@
             </div>
             <span class="badge ${statusClass(r["状态"])}">${esc(r["状态"] || "—")}</span>
           </div>
-          <div class="card-meta">${meta}</div>
+          <div class="card-meta">${meta}${
+            src === "ai-web" && r["渠道"] ? ` · ${channelBadge(r)}` : ""
+          }</div>
           ${triageRow}
           <div class="card-body">
             ${bodyTop}
@@ -683,6 +724,7 @@
     state.sourceId = id;
     if (!same) {
       state.status = new Set();
+      state.channel = new Set();
       state.extra = new Set();
       state.difficulty = new Set();
       state.tableBuilt = false;
@@ -903,6 +945,22 @@
       renderFilters(state.cache[state.sourceId] || []);
       render({ resetScroll: true });
     });
+
+    const channelChips = $("channel-chips");
+    if (channelChips) {
+      channelChips.addEventListener("click", (e) => {
+        const btn = e.target.closest(".chip");
+        if (!btn) return;
+        const v = btn.dataset.value;
+        if (v === "__all__") state.channel = new Set();
+        else {
+          if (state.channel.has(v)) state.channel.delete(v);
+          else state.channel.add(v);
+        }
+        renderFilters(state.cache[state.sourceId] || []);
+        render({ resetScroll: true });
+      });
+    }
 
     $("extra-chips").addEventListener("click", (e) => {
       const btn = e.target.closest(".chip");

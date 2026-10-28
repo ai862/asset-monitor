@@ -36,6 +36,9 @@
       <symbol id="i-link-github" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05A9.3 9.3 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.9-1.32 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.48A10.03 10.03 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/>
       </symbol>
+      <symbol id="i-link-gitee" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M11.984 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.016 0zm6.09 14.528c0 .192-.016.4-.048.576a1.32 1.32 0 0 1-1.328 1.328H9.776c-.736 0-1.328-.64-1.328-1.328V9.328c0-.64.592-1.28 1.328-1.28h8.96c.192 0 .4.016.576.048A1.32 1.32 0 0 1 20.64 9.376v5.152z"/>
+      </symbol>
       <symbol id="i-link-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 4v10"/><path d="M8 10l4 4 4-4"/><path d="M5 18h14"/>
       </symbol>
@@ -116,6 +119,10 @@
         <div class="filter-group" id="status-filters">
           <span class="filter-label">状态</span>
           <div class="chips" id="status-chips"></div>
+        </div>
+        <div class="filter-group hidden" id="channel-filters">
+          <span class="filter-label">渠道</span>
+          <div class="chips" id="channel-chips"></div>
         </div>
         <p class="intel-hint hidden" id="intel-hint"></p>
         <div class="filter-group hidden" id="extra-filters">

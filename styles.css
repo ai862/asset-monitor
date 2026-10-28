@@ -553,3 +553,15 @@ tr.v-row:hover td { background: #f0f4fa; }
   opacity: .85;
   font-weight: 600;
 }
+
+
+.badge-channel-github {
+  background: rgba(36, 41, 47, 0.08);
+  color: #24292f;
+  margin-left: 4px;
+}
+.badge-channel-gitee {
+  background: rgba(192, 48, 40, 0.12);
+  color: #c03028;
+  margin-left: 4px;
+}

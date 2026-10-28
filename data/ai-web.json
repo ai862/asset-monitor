@@ -65,7 +65,8 @@
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
     "agentHint": "不要只跑推荐启动，先读启动指引与开工前先看，配好 LLM API key 后再按成功标准自测。",
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/rikyz90-shibaclaw.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/rikyz90-shibaclaw.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Hermes Studio",
@@ -133,7 +134,8 @@
     "DeepWiki": "https://deepwiki.com/JPeetz/Hermes-Studio",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/jpeetz-hermes-studio.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/jpeetz-hermes-studio.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Faster Chat",
@@ -193,7 +195,8 @@
     "DeepWiki": "https://deepwiki.com/1337hero/faster-chat",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/1337hero-faster-chat.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/1337hero-faster-chat.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "ollama-webUI",
@@ -252,7 +255,8 @@
     "DeepWiki": "https://deepwiki.com/812781385/ollama-webUI",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/812781385-ollama-webui.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/812781385-ollama-webui.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Basjoo",
@@ -312,7 +316,8 @@
     "DeepWiki": "https://deepwiki.com/haoyiyin/basjoo",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/haoyiyin-basjoo.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/haoyiyin-basjoo.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "AnimaDex",
@@ -389,7 +394,8 @@
     "DeepWiki": "https://deepwiki.com/zetaneko/AnimaDex",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zetaneko-animadex.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zetaneko-animadex.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "GPTPortal",
@@ -456,7 +462,8 @@
     "成功标准": "1. 终端输出 `✅ Application initialized successfully` 和 `✅ Server started successfully`；2. 浏览器访问 `http://localhost:3000/portal` 能正常加载界面，控制台输出 `GPTPortal is ready!`；3. 通过 `GET /api/models` 能够正常获取到配置的 AI 模型列表。",
     "推荐启动": "cd GPTPortal && npm install && npm start",
     "agentHint": "启动前务必复制 `.env.example` 创建 `.env` 文件，并确保至少配置了一个有效的 AI 接口 Key（如 OPENAI_API_KEY）以及用户认证信息（USER_USERNAME/USER_PASSWORD）。",
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zaki-1052-gptportal.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zaki-1052-gptportal.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "DataMate",
@@ -527,7 +534,8 @@
     "成功标准": "执行 `docker compose ps` 后核心容器均为运行且健康状态；浏览器访问 `http://localhost:30000` 能加载前端；请求 `http://localhost:8080/api/user/me` 能返回合法 JSON 或按配置明确提示需要登录，而不是网关错误或 5xx；启用 JWT 时登录后携带 `Authorization: Bearer <token>` 可访问受保护接口，启用 OMS 时 Cookie 校验成功；使用 Label Studio 时 `/check-ls-connection` 能确认连接及令牌有效。",
     "推荐启动": "git clone https://github.com/ModelEngine-Group/DataMate.git && cd DataMate && make install INSTALLER=docker",
     "agentHint": "先用 Docker Compose 拉起全栈并核验 `/api/user/me`，再按目标环境明确启用 JWT 或 OMS 鉴权。",
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/modelengine-group-datamate.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/modelengine-group-datamate.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "MCP Web UI",
@@ -602,7 +610,8 @@
     "DeepWiki": "https://deepwiki.com/MegaGrindStone/mcp-web-ui",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/megagrindstone-mcp-web-ui.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/megagrindstone-mcp-web-ui.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Lang-Agent",
@@ -661,7 +670,8 @@
     "DeepWiki": "https://deepwiki.com/cqzyys/lang-agent",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/cqzyys-lang-agent.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/cqzyys-lang-agent.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Revornix",
@@ -737,7 +747,8 @@
     "DeepWiki": "https://deepwiki.com/Qingyon-AI/Revornix",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/qingyon-ai-revornix.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/qingyon-ai-revornix.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "ParseHawk",
@@ -791,7 +802,8 @@
     "已知坑": "仓库资料未能获取，可能是仓库未公开或尚未被 DeepWiki 索引，无法确认安装流程和常见问题。",
     "成功标准": "暂无法定义具体检测步骤，请在获取官方文档后补充验证方法。",
     "agentHint": "请先访问官方文档获取安装与启动信息。",
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/parsehawk-parsehawk.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/parsehawk-parsehawk.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "faster-whisper-webui",
@@ -851,7 +863,8 @@
     "DeepWiki": "https://deepwiki.com/ycyy/faster-whisper-webui",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ycyy-faster-whisper-webui.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ycyy-faster-whisper-webui.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Coddy Agent",
@@ -927,7 +940,8 @@
     "DeepWiki": "https://deepwiki.com/coddy-project/coddy-agent",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/coddy-project-coddy-agent.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/coddy-project-coddy-agent.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "ThinkRAG",
@@ -1003,7 +1017,8 @@
     "DeepWiki": "https://deepwiki.com/wzdavid/ThinkRAG",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/wzdavid-thinkrag.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/wzdavid-thinkrag.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Ollama4j Web UI",
@@ -1059,7 +1074,8 @@
     "DeepWiki": "https://deepwiki.com/ollama4j/ollama4j-web-ui",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ollama4j-ollama4j-web-ui.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ollama4j-ollama4j-web-ui.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "MindBase",
@@ -1114,7 +1130,8 @@
     "DeepWiki": "https://deepwiki.com/frankchu91/mindbase-llm-wiki",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/frankchu91-mindbase-llm-wiki.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/frankchu91-mindbase-llm-wiki.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Oh-DSH",
@@ -1170,7 +1187,8 @@
     "DeepWiki": "https://deepwiki.com/hust-open-atom-club/oh-dsh",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/hust-open-atom-club-oh-dsh.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/hust-open-atom-club-oh-dsh.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "LLM X",
@@ -1229,7 +1247,8 @@
     "DeepWiki": "https://deepwiki.com/mrdjohnson/llm-x",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mrdjohnson-llm-x.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mrdjohnson-llm-x.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "生猪健康智慧医药",
@@ -1282,7 +1301,8 @@
     "DeepWiki": "https://deepwiki.com/linyshdhhcb/PigHealthSmartMedicine",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/linyshdhhcb-pighealthsmartmedicine.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/linyshdhhcb-pighealthsmartmedicine.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Open Deep Wide Research",
@@ -1341,7 +1361,8 @@
     "DeepWiki": "https://deepwiki.com/puppyone-ai/DeepWideResearch",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/puppyone-ai-deepwideresearch.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/puppyone-ai-deepwideresearch.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "DocPaws",
@@ -1401,7 +1422,8 @@
     "成功标准": "1. docker compose ps 显示 PG/Redis/MinIO 均 healthy。2. curl http://localhost:8000/healthz 返回 {\"status\":\"ok\"}。3. 浏览器访问 http://localhost:3000 能进入登录页。4. 调用 /api/v1/auth/register 注册用户成功。5. 上传 PDF 后能在 /kb 知识库中看到并成功检索引用。",
     "推荐启动": "docker compose up -d && cd backend && cp .env.example .env && pip install -r requirements.txt && uvicorn docpaws.main:app --reload --port 8000 & cd ../frontend && npm install && npm run dev",
     "agentHint": "启动前务必先配置 .env 中的 API Key 与 SECRET_KEY，并确认 Celery worker 已开启以支持异步索引。",
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/biao994-docpaws.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/biao994-docpaws.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Arkloop",
@@ -1465,7 +1487,8 @@
     "DeepWiki": "https://deepwiki.com/qqqqqf-q/Arkloop",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/qqqqqf-q-arkloop.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/qqqqqf-q-arkloop.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "NeuroSandboxWebUI",
@@ -1516,7 +1539,8 @@
     "DeepWiki": "https://deepwiki.com/Dartvauder/NeuroSandboxWebUI",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/dartvauder-neurosandboxwebui.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/dartvauder-neurosandboxwebui.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "LLaMazing",
@@ -1572,7 +1596,8 @@
     "DeepWiki": "https://deepwiki.com/da-z/llamazing",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/da-z-llamazing.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/da-z-llamazing.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Local Multimodal AI Chat",
@@ -1631,7 +1656,8 @@
     "DeepWiki": "https://deepwiki.com/Leon-Sander/Local-Multimodal-AI-Chat",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/leon-sander-local-multimodal-ai-chat.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/leon-sander-local-multimodal-ai-chat.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Libre Chat",
@@ -1707,7 +1733,8 @@
     "DeepWiki": "https://deepwiki.com/vemonet/libre-chat",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/vemonet-libre-chat.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/vemonet-libre-chat.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Elmo",
@@ -1778,7 +1805,8 @@
     "DeepWiki": "https://deepwiki.com/elmohq/elmo",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/elmohq-elmo.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/elmohq-elmo.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "NekoImageGallery",
@@ -1845,7 +1873,8 @@
     "DeepWiki": "https://deepwiki.com/hv0905/NekoImageGallery",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/hv0905-nekoimagegallery.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/hv0905-nekoimagegallery.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "WebOllama",
@@ -1921,7 +1950,8 @@
     "DeepWiki": "https://deepwiki.com/dkruyt/webollama",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/dkruyt-webollama.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/dkruyt-webollama.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Weam",
@@ -1997,7 +2027,8 @@
     "DeepWiki": "https://deepwiki.com/weam-ai/weam",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/weam-ai-weam.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/weam-ai-weam.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "BookWith",
@@ -2055,7 +2086,8 @@
     "成功标准": "访问 `http://localhost:7127` 可正常加载页面，并能拖拽上传 ePub 文件；访问 `http://localhost:8000/docs` 显示 FastAPI 文档；Weaviate 服务可通过 `http://localhost:8080/v1/meta` 正常响应。",
     "推荐启动": "pnpm dev",
     "agentHint": "请先完成环境变量配置和 Docker 服务启动，再依次启动后端与前端服务。",
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/shutootaki-bookwith.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/shutootaki-bookwith.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "sd.cpp-webui",
@@ -2110,7 +2142,8 @@
     "DeepWiki": "https://deepwiki.com/daniandtheweb/sd.cpp-webui",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/daniandtheweb-sd-cpp-webui.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/daniandtheweb-sd-cpp-webui.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "HanaVerse",
@@ -2166,7 +2199,8 @@
     "DeepWiki": "https://deepwiki.com/Ashish-Patnaik/HanaVerse",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ashish-patnaik-hanaverse.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ashish-patnaik-hanaverse.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "OvertChat",
@@ -2206,7 +2240,8 @@
     "DeepWiki": "https://deepwiki.com/yoloyash/overtchat",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/yoloyash-overtchat.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/yoloyash-overtchat.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Video-Analyzer WebUI",
@@ -2261,7 +2296,8 @@
     "DeepWiki": "https://deepwiki.com/lza6/video-to-txt",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lza6-video-to-txt.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lza6-video-to-txt.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "DeepSeek-OCR Dashboard",
@@ -2314,7 +2350,8 @@
     "DeepWiki": "https://deepwiki.com/Cross2pro/DeepSeek-OCR-Dashboard",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/cross2pro-deepseek-ocr-dashboard.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/cross2pro-deepseek-ocr-dashboard.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "ChatterMate",
@@ -2382,7 +2419,8 @@
     "DeepWiki": "https://deepwiki.com/chattermate/chattermate.chat",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/chattermate-chattermate-chat.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/chattermate-chattermate-chat.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Alpaca WebUI",
@@ -2439,7 +2477,8 @@
     "成功标准": "访问 http://localhost:3033（Docker）或 http://localhost:3000（npm）可正常加载 WebUI 页面；API 健康检查端点返回 200；RAG 上传及聊天功能正常响应。",
     "推荐启动": "docker compose up --detach   # 启动后访问 http://localhost:3033",
     "agentHint": "请重点询问认证配置、必需环境变量及 API 端点信息。",
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mmo80-alpaca-webui.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mmo80-alpaca-webui.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Claude Code Web",
@@ -2480,7 +2519,8 @@
     "DeepWiki": "https://deepwiki.com/heng1234/claude-web",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/heng1234-claude-web.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/heng1234-claude-web.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "RAG-F",
@@ -2551,7 +2591,8 @@
     "DeepWiki": "https://deepwiki.com/Zhongye1/KnowledgeRAG-OGAS",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zhongye1-knowledgerag-ogas.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zhongye1-knowledgerag-ogas.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "LLMinator",
@@ -2606,7 +2647,8 @@
     "DeepWiki": "https://deepwiki.com/Aesthisia/LLMinator",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/aesthisia-llminator.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/aesthisia-llminator.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "chatgpt-webui",
@@ -2663,7 +2705,8 @@
     "DeepWiki": "https://deepwiki.com/shibing624/chatgpt-webui",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/shibing624-chatgpt-webui.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/shibing624-chatgpt-webui.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "OpenDocuments",
@@ -2720,7 +2763,8 @@
     "DeepWiki": "https://deepwiki.com/joungminsung/OpenDocuments",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/joungminsung-opendocuments.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/joungminsung-opendocuments.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "docGPT-langchain",
@@ -2772,7 +2816,8 @@
     "DeepWiki": "https://deepwiki.com/Lin-jun-xiang/docGPT-langchain",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lin-jun-xiang-docgpt-langchain.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lin-jun-xiang-docgpt-langchain.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "KnowledgeBase RAG LLM",
@@ -2821,7 +2866,8 @@
     "DeepWiki": "https://deepwiki.com/lhh737/KnowledgeBase-RAG-LLM-System",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lhh737-knowledgebase-rag-llm-system.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lhh737-knowledgebase-rag-llm-system.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Qwen TTS WebUI",
@@ -2860,7 +2906,8 @@
     "成功标准": "WebUI界面成功加载，输入任意文本后可成功合成并播放Qwen3 TTS语音，无报错信息。",
     "推荐启动": "./start.sh",
     "agentHint": "优先验证模型路径和访问令牌的配置情况。",
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/licyk-qwen-tts-webui.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/licyk-qwen-tts-webui.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Nexior",
@@ -2929,7 +2976,8 @@
     "DeepWiki": "https://deepwiki.com/AceDataCloud/Nexior",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/acedatacloud-nexior.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/acedatacloud-nexior.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Facet",
@@ -2991,7 +3039,8 @@
     "DeepWiki": "https://deepwiki.com/ncoevoet/facet",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ncoevoet-facet.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ncoevoet-facet.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "openAgent",
@@ -3058,7 +3107,8 @@
     "成功标准": "后端 /health 返回 healthy，/ 返回 Chat Agent API is running，前端 localhost:3000 可打开登录页，用 test@example.com/123456 登录成功，或 /docs 可用。",
     "推荐启动": "docker-compose up -d && cd backend && python -m uvicorn open_agent.main:app --reload --host 0.0.0.0 --port 8000",
     "agentHint": "先起 PostgreSQL pgvector 和后端，再配 .env 和 API Key，最后起前端；验证 /health 与登录。",
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lkpagent-openagent.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lkpagent-openagent.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "chatgpt_webui",
@@ -3109,7 +3159,8 @@
     "DeepWiki": "https://deepwiki.com/dotmet/chatgpt_webui",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/dotmet-chatgpt_webui.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/dotmet-chatgpt_webui.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "deepseek-r1-chat",
@@ -3169,7 +3220,8 @@
     "DeepWiki": "https://deepwiki.com/Rizwankaka/deepseek-r1-chat",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/rizwankaka-deepseek-r1-chat.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/rizwankaka-deepseek-r1-chat.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "pytldr-oss",
@@ -3220,7 +3272,8 @@
     "DeepWiki": "https://deepwiki.com/mlc-delgado/pytldr-oss",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mlc-delgado-pytldr-oss.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mlc-delgado-pytldr-oss.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "LLMChat",
@@ -3283,7 +3336,8 @@
     "DeepWiki": "https://deepwiki.com/c0sogi/LLMChat",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/c0sogi-llmchat.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/c0sogi-llmchat.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "PDF-RAG-with-Llama2-and-Gradio",
@@ -3334,7 +3388,8 @@
     "DeepWiki": "https://deepwiki.com/Niez-Gharbi/PDF-RAG-with-Llama2-and-Gradio",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/niez-gharbi-pdf-rag-with-llama2-and-gradio.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/niez-gharbi-pdf-rag-with-llama2-and-gradio.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "langchain-chatbot",
@@ -3384,7 +3439,8 @@
     "DeepWiki": "https://deepwiki.com/shashankdeshpande/langchain-chatbot",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/shashankdeshpande-langchain-chatbot.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/shashankdeshpande-langchain-chatbot.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "keras-llm-robot",
@@ -3433,7 +3489,8 @@
     "DeepWiki": "https://deepwiki.com/smalltong02/keras-llm-robot",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/smalltong02-keras-llm-robot.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/smalltong02-keras-llm-robot.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "LangChain-ReAct-Agent",
@@ -3473,7 +3530,8 @@
     "DeepWiki": "https://deepwiki.com/lhh737/LangChain-ReAct-Agent",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lhh737-langchain-react-agent.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lhh737-langchain-react-agent.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "ragbase",
@@ -3523,7 +3581,8 @@
     "DeepWiki": "https://deepwiki.com/curiousily/ragbase",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/curiousily-ragbase.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/curiousily-ragbase.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "ai-real-estate-assistant",
@@ -3564,7 +3623,8 @@
     "DeepWiki": "https://deepwiki.com/AleksNeStu/ai-real-estate-assistant",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/aleksnestu-ai-real-estate-assistant.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/aleksnestu-ai-real-estate-assistant.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "gemini_multipdf_chat",
@@ -3619,7 +3679,8 @@
     "成功标准": "浏览器打开 http://localhost:8501 出现 Streamlit 界面，侧边栏可上传 PDF，输入问题后能返回 Gemini 生成的回答且无报错。",
     "推荐启动": "docker compose up --build",
     "agentHint": "仅需准备 Google API Key 即可一键跑通，适合作为 RAG 原型基线。",
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/kaifcoder-gemini_multipdf_chat.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/kaifcoder-gemini_multipdf_chat.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Multimodal-RAG-with-Llama-3.2",
@@ -3660,7 +3721,8 @@
     "DeepWiki": "https://deepwiki.com/jayrodge/Multimodal-RAG-with-Llama-3.2",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/jayrodge-multimodal-rag-with-llama-3.2.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/jayrodge-multimodal-rag-with-llama-3.2.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "ai-chatkit",
@@ -3722,7 +3784,8 @@
     "DeepWiki": "https://deepwiki.com/pasonk/ai-chatkit",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/pasonk-ai-chatkit.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/pasonk-ai-chatkit.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Clouds-Coder",
@@ -3772,7 +3835,8 @@
     "DeepWiki": "https://deepwiki.com/FonaTech/Clouds-Coder",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/fonatech-clouds-coder.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/fonatech-clouds-coder.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "agent-os",
@@ -3834,7 +3898,8 @@
     "DeepWiki": "https://deepwiki.com/saadnvd1/agent-os",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/saadnvd1-agent-os.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/saadnvd1-agent-os.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "chat_with_your_docs",
@@ -3881,7 +3946,8 @@
     "DeepWiki": "https://deepwiki.com/jorge-armando-navarro-flores/chat_with_your_docs",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/jorge-armando-navarro-flores-chat_with_your_docs.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/jorge-armando-navarro-flores-chat_with_your_docs.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "Akcio",
@@ -3944,7 +4010,8 @@
     "DeepWiki": "https://deepwiki.com/zilliztech/akcio",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zilliztech-akcio.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zilliztech-akcio.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "ompweb",
@@ -4019,7 +4086,8 @@
     "DeepWiki": "https://deepwiki.com/kahme247/ompweb",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/kahme247-ompweb.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/kahme247-ompweb.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "NeMo-Agent-Toolkit-UI",
@@ -4072,7 +4140,8 @@
     "DeepWiki": "https://deepwiki.com/NVIDIA/NeMo-Agent-Toolkit-UI",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/nvidia-nemo-agent-toolkit-ui.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/nvidia-nemo-agent-toolkit-ui.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "kiwi-mem",
@@ -4131,7 +4200,8 @@
     "DeepWiki": "https://deepwiki.com/LucieEveille/kiwi-mem",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lucieeveille-kiwi-mem.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lucieeveille-kiwi-mem.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "pdf-analyze-streamlit",
@@ -4182,7 +4252,8 @@
     "DeepWiki": "https://deepwiki.com/mehmetba/pdf-analyze-streamlit",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mehmetba-pdf-analyze-streamlit.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mehmetba-pdf-analyze-streamlit.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "local-LLM-with-RAG",
@@ -4231,7 +4302,8 @@
     "DeepWiki": "https://deepwiki.com/amscotti/local-LLM-with-RAG",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/amscotti-local-llm-with-rag.json"
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/amscotti-local-llm-with-rag.json",
+    "渠道": "GitHub"
   },
   {
     "产品": "RepoChat-200k",
@@ -4251,7 +4323,8 @@
     "去重键": "chenran-627-repochat-200k",
     "备注": "Streamlit；选文件后用 Claude 200k 聊仓库",
     "资产号": 74,
-    "首次写入": "2026-09-13"
+    "首次写入": "2026-09-13",
+    "渠道": "GitHub"
   },
   {
     "产品": "renumics-rag",
@@ -4272,7 +4345,8 @@
     "去重键": "renumics-renumics-rag",
     "备注": "LangChain+Streamlit RAG 探索可视化",
     "资产号": 73,
-    "首次写入": "2026-09-13"
+    "首次写入": "2026-09-13",
+    "渠道": "GitHub"
   },
   {
     "产品": "KnowAgenticRAG (RAG-F)",
@@ -4293,7 +4367,8 @@
     "去重键": "zhongye1-knowagenticrag",
     "备注": "私有知识库 RAG 平台；Agent/文档创作",
     "资产号": 75,
-    "首次写入": "2026-09-13"
+    "首次写入": "2026-09-13",
+    "渠道": "GitHub"
   },
   {
     "产品": "TalkToGitHub (TTG)",
@@ -4313,7 +4388,8 @@
     "去重键": "harishchandran3304-ttg",
     "备注": "FastAPI+React；与任意公开 GitHub 仓库对话",
     "资产号": 72,
-    "首次写入": "2026-09-13"
+    "首次写入": "2026-09-13",
+    "渠道": "GitHub"
   },
   {
     "产品": "chatgpt-minimal",
@@ -4334,7 +4410,8 @@
     "去重键": "blrchen-chatgpt-minimal",
     "备注": "minimal Next ChatGPT; docker/compose",
     "资产号": 81,
-    "首次写入": "2026-09-20"
+    "首次写入": "2026-09-20",
+    "渠道": "GitHub"
   },
   {
     "产品": "makr-ai",
@@ -4355,7 +4432,8 @@
     "去重键": "batuhanbilginn-makr-ai",
     "备注": "Next ChatGPT clone + vector memory",
     "资产号": 79,
-    "首次写入": "2026-09-20"
+    "首次写入": "2026-09-20",
+    "渠道": "GitHub"
   },
   {
     "产品": "ai-chatbot-supabase",
@@ -4376,7 +4454,8 @@
     "去重键": "nolly-studio-ai-chatbot-supabase",
     "备注": "Next AI chatbot + Supabase",
     "资产号": 83,
-    "首次写入": "2026-09-20"
+    "首次写入": "2026-09-20",
+    "渠道": "GitHub"
   },
   {
     "产品": "genius-ai",
@@ -4397,7 +4476,8 @@
     "去重键": "sanidhyy-genius-ai",
     "备注": "Next SaaS AI platform; clone-and-run",
     "资产号": 80,
-    "首次写入": "2026-09-20"
+    "首次写入": "2026-09-20",
+    "渠道": "GitHub"
   },
   {
     "产品": "DiscovAI-search",
@@ -4418,7 +4498,8 @@
     "去重键": "discovai-discovai-search",
     "备注": "Next AI search; clone+deploy",
     "资产号": 77,
-    "首次写入": "2026-09-20"
+    "首次写入": "2026-09-20",
+    "渠道": "GitHub"
   },
   {
     "产品": "chatgpt-lite",
@@ -4439,7 +4520,8 @@
     "去重键": "blrchen-chatgpt-lite",
     "备注": "self-hostable Next ChatGPT; compose/docker",
     "资产号": 78,
-    "首次写入": "2026-09-20"
+    "首次写入": "2026-09-20",
+    "渠道": "GitHub"
   },
   {
     "产品": "nextjs-fastapi-your-chat",
@@ -4459,7 +4541,8 @@
     "去重键": "mazzasaverio-nextjs-fastapi-your-chat",
     "备注": "Next+FastAPI chat-with-website",
     "资产号": 82,
-    "首次写入": "2026-09-20"
+    "首次写入": "2026-09-20",
+    "渠道": "GitHub"
   },
   {
     "产品": "ChatGLM-web-stream-demo",
@@ -4479,7 +4562,8 @@
     "去重键": "tylunasli-chatglm-web-stream-demo",
     "备注": "ChatGLM-6B 流式 HTTP API，Flask/FastAPI + 静态 Web UI。★93",
     "资产号": 86,
-    "首次写入": "2026-09-27"
+    "首次写入": "2026-09-27",
+    "渠道": "GitHub"
   },
   {
     "产品": "tech-trends-chatbot",
@@ -4500,7 +4584,8 @@
     "去重键": "ruizguille-tech-trends-chatbot",
     "备注": "科技趋势 RAG，FastAPI 后端 + React 前端。★107",
     "资产号": 85,
-    "首次写入": "2026-09-27"
+    "首次写入": "2026-09-27",
+    "渠道": "GitHub"
   },
   {
     "产品": "RAG-PDF-Streamlit-Python",
@@ -4521,7 +4606,8 @@
     "去重键": "hasan-py-rag-pdf-streamlit-python",
     "备注": "PDF RAG，Streamlit + LangChain + Ollama。★88",
     "资产号": 87,
-    "首次写入": "2026-09-27"
+    "首次写入": "2026-09-27",
+    "渠道": "GitHub"
   },
   {
     "产品": "RAGArch",
@@ -4542,7 +4628,8 @@
     "去重键": "ai-ank-ragarch",
     "备注": "LlamaIndex RAG 实验台，Streamlit 可配组件并导出代码。★88",
     "资产号": 88,
-    "首次写入": "2026-09-27"
+    "首次写入": "2026-09-27",
+    "渠道": "GitHub"
   },
   {
     "产品": "legal-document-assistant",
@@ -4563,7 +4650,8 @@
     "去重键": "lixx21-legal-document-assistant",
     "备注": "法律文档 RAG，Streamlit 界面，含 Airflow/Grafana。★108",
     "资产号": 84,
-    "首次写入": "2026-09-27"
+    "首次写入": "2026-09-27",
+    "渠道": "GitHub"
   },
   {
     "产品": "ClaraVerse",
@@ -4584,7 +4672,8 @@
     "去重键": "claraverse-space-claraverse",
     "备注": "★3900 · 最近 push 2026-08 · Private AI workspace :3000",
     "资产号": 100,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "RAGs",
@@ -4604,7 +4693,8 @@
     "去重键": "run-llama-rags",
     "备注": "Streamlit 自然语言搭 RAG 管线。具备 Web UI。★6551",
     "资产号": 91,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "llama2-webui",
@@ -4625,7 +4715,8 @@
     "去重键": "liltom-eth-llama2-webui",
     "备注": "本地 Llama2 Gradio Web UI（GPU/CPU）。具备 Web UI。★1934",
     "资产号": 96,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "Subs AI",
@@ -4647,7 +4738,8 @@
     "去重键": "absadiki-subsai",
     "备注": "★1679 · 最近 push 2026-04 · Whisper subtitles Web-UI+CLI",
     "资产号": 106,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "H2O LLM Studio",
@@ -4668,7 +4760,8 @@
     "去重键": "h2oai-h2o-llmstudio",
     "备注": "无代码 LLM 微调 GUI；Wave 服务 localhost:10101。具备 Web UI。★5183",
     "资产号": 93,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "BetterChatGPT",
@@ -4690,7 +4783,8 @@
     "去重键": "ztjhz-betterchatgpt",
     "备注": "ChatGPT Web UI；compose 或 yarn/npm 本地跑。具备 Web UI。★8381",
     "资产号": 89,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "lollms-webui",
@@ -4711,7 +4805,8 @@
     "去重键": "parisneo-lollms-webui",
     "备注": "★4789 · 最近 push 2026-09 · LoLLMs local multi-model WebUI",
     "资产号": 99,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "TTS-WebUI",
@@ -4733,7 +4828,8 @@
     "去重键": "rsxdalv-tts-webui",
     "备注": "★3274 · 最近 push 2026-09 · Multi-model TTS Gradio+React WebUI",
     "资产号": 101,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "AChat",
@@ -4754,7 +4850,8 @@
     "去重键": "aprilnea-achat",
     "备注": "★3258 · 最近 push 2026-04 · Self-hosted AI chat platform (canary)",
     "资产号": 102,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "DEEIX Chat",
@@ -4775,7 +4872,8 @@
     "去重键": "deeix-ai-deeix-chat",
     "备注": "★1509 · 最近 push 2026-09 · Enterprise multimodal chat workspace",
     "资产号": 107,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "FastSD CPU",
@@ -4797,7 +4895,8 @@
     "去重键": "rupeshs-fastsdcpu",
     "备注": "★2158 · 最近 push 2026-07 · FastSD CPU WebUI + GUI/CLI",
     "资产号": 105,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "Whisper-WebUI",
@@ -4818,7 +4917,8 @@
     "去重键": "jhj0517-whisper-webui",
     "备注": "★2885 · 最近 push 2025-12 · Gradio Whisper subtitle UI :7860",
     "资产号": 103,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "search_with_lepton",
@@ -4839,7 +4939,8 @@
     "去重键": "leptonai-search_with_lepton",
     "备注": "对话式搜索演示 UI；偏 Lepton 云但可自建前端。具备 Web UI。★8059",
     "资产号": 90,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "biniou",
@@ -4860,7 +4961,8 @@
     "去重键": "woolverine94-biniou",
     "备注": "★1150 · 最近 push 2026-09 · Self-hosted webui for 30+ genAI",
     "资产号": 108,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "FunClip",
@@ -4881,7 +4983,8 @@
     "去重键": "modelscope-funclip",
     "备注": "FunASR 视频剪辑/字幕 Gradio 本地工具。具备 Web UI。★6352",
     "资产号": 92,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "WebWhiz",
@@ -4902,7 +5005,8 @@
     "去重键": "webwhiz-ai-webwhiz",
     "备注": "★1045 · 最近 push 2026-01 · Train chatbot on website data",
     "资产号": 109,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "azure-search-openai-demo",
@@ -4923,7 +5027,8 @@
     "去重键": "azure-samples-azure-search-openai-demo",
     "备注": "★7773 · 最近 push 2026-09 · ChatGPT-like frontend over your docs",
     "资产号": 98,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "DeskcommCRM",
@@ -4944,7 +5049,8 @@
     "去重键": "melgarafael-deskcommcrm",
     "备注": "自托管 AI 销售 CRM + Agent + WhatsApp。具备 Web UI。★4168",
     "资产号": 94,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "Speech-AI-Forge",
@@ -4965,7 +5071,8 @@
     "去重键": "lenml-speech-ai-forge",
     "备注": "多模型 TTS API + Gradio WebUI。具备 Web UI。★1420",
     "资产号": 97,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "chatbot",
@@ -4986,7 +5093,8 @@
     "去重键": "zhaoyingjun-chatbot",
     "备注": "FastAPI+Streamlit ShoppingAgent 等场景 Agent。具备 Web UI。★3581",
     "资产号": 95,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "LiveAgent",
@@ -5007,7 +5115,8 @@
     "去重键": "stack-cairn-liveagent",
     "备注": "★2191 · 最近 push 2026-09 · Desktop+browser WebUI via gateway",
     "资产号": 104,
-    "首次写入": "2026-09-28"
+    "首次写入": "2026-09-28",
+    "渠道": "GitHub"
   },
   {
     "产品": "Meridian",
@@ -5029,7 +5138,8 @@
     "去重键": "rynfar-meridian",
     "备注": "★2110 · 最近 push 2026-10 · 本地 API 桥+浏览器用量看板（Claude/Antigravity）",
     "资产号": 112,
-    "首次写入": "2026-10-11"
+    "首次写入": "2026-10-11",
+    "渠道": "GitHub"
   },
   {
     "产品": "OpenExecutive",
@@ -5050,7 +5160,8 @@
     "去重键": "sentelabsai-openexecutive",
     "备注": "★5572 · 最近 push 2026-10 · Next.js15+FastAPI 多专家高管 Agent WebUI",
     "资产号": 110,
-    "首次写入": "2026-10-11"
+    "首次写入": "2026-10-11",
+    "渠道": "GitHub"
   },
   {
     "产品": "KiroCrew",
@@ -5072,6 +5183,231 @@
     "去重键": "kirodotdev-kirocrew",
     "备注": "★4368 · 最近 push 2026-10 · 持久开发工作区 Web dashboard + CLI/桌面",
     "资产号": 111,
-    "首次写入": "2026-10-11"
+    "首次写入": "2026-10-11",
+    "渠道": "GitHub"
+  },
+  {
+    "产品": "GeekAI",
+    "厂商": "blackfox",
+    "状态": "可下",
+    "类型": "聊天UI",
+    "语言": "Go",
+    "Stars": 3322,
+    "GitHub": null,
+    "Gitee": "https://gitee.com/blackfox/geekai",
+    "官网": null,
+    "文档": null,
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码"
+    ],
+    "下载条件": null,
+    "去重键": "gitee-blackfox-geekai",
+    "备注": "渠道:Gitee · ★3322 · 最近 push 2026-09",
+    "资产号": 116,
+    "首次写入": "2026-10-28",
+    "渠道": "Gitee"
+  },
+  {
+    "产品": "WCP5",
+    "厂商": "macplus",
+    "状态": "可下",
+    "类型": "知识库",
+    "语言": "Java",
+    "Stars": 2169,
+    "GitHub": null,
+    "Gitee": "https://gitee.com/macplus/WCP",
+    "官网": "http://skc.wcpknow.com/",
+    "文档": null,
+    "Web服务": true,
+    "部署方式": [
+      "源码"
+    ],
+    "下载条件": null,
+    "去重键": "gitee-macplus-wcp",
+    "备注": "渠道:Gitee · ★2169 · 最近 push 2026-09",
+    "资产号": 117,
+    "首次写入": "2026-10-28",
+    "渠道": "Gitee"
+  },
+  {
+    "产品": "LangChat",
+    "厂商": "langchat",
+    "状态": "可下",
+    "类型": "Agent",
+    "语言": "Java",
+    "Stars": 1714,
+    "GitHub": null,
+    "Gitee": "https://gitee.com/langchat/langchat",
+    "官网": "https://langchat.cn",
+    "文档": null,
+    "Web服务": true,
+    "部署方式": [
+      "源码"
+    ],
+    "下载条件": null,
+    "去重键": "gitee-langchat-langchat",
+    "备注": "渠道:Gitee · ★1714 · 最近 push 2026-09",
+    "资产号": 118,
+    "首次写入": "2026-10-28",
+    "渠道": "Gitee"
+  },
+  {
+    "产品": "科亿知识库",
+    "厂商": "kyxxjs",
+    "状态": "可下",
+    "类型": "知识库",
+    "语言": "Java",
+    "Stars": 944,
+    "GitHub": null,
+    "Gitee": "https://gitee.com/kyxxjs/km_community",
+    "官网": null,
+    "文档": null,
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码"
+    ],
+    "下载条件": null,
+    "去重键": "gitee-kyxxjs-km-community",
+    "备注": "渠道:Gitee · ★944 · 最近 push 2026-03",
+    "资产号": 119,
+    "首次写入": "2026-10-28",
+    "渠道": "Gitee"
+  },
+  {
+    "产品": "qKnow",
+    "厂商": "qiantongtech",
+    "状态": "可下",
+    "类型": "Agent",
+    "语言": "Java",
+    "Stars": 821,
+    "GitHub": null,
+    "Gitee": "https://gitee.com/qiantongtech/qKnow",
+    "官网": "https://demo.qknow.ai",
+    "文档": null,
+    "Web服务": true,
+    "部署方式": [
+      "源码"
+    ],
+    "下载条件": null,
+    "去重键": "gitee-qiantongtech-qknow",
+    "备注": "渠道:Gitee · ★821 · 最近 push 2026-10",
+    "资产号": 120,
+    "首次写入": "2026-10-28",
+    "渠道": "Gitee"
+  },
+  {
+    "产品": "Nuwax",
+    "厂商": "nuwax",
+    "状态": "可下",
+    "类型": "Agent",
+    "语言": "TypeScript",
+    "Stars": 412,
+    "GitHub": null,
+    "Gitee": "https://gitee.com/nuwax/nuwax",
+    "官网": "https://nuwax.com",
+    "文档": null,
+    "Web服务": true,
+    "部署方式": [
+      "Docker"
+    ],
+    "下载条件": null,
+    "去重键": "gitee-nuwax-nuwax",
+    "备注": "渠道:Gitee · ★412 · 最近 push 2026-06",
+    "资产号": 121,
+    "首次写入": "2026-10-28",
+    "渠道": "Gitee"
+  },
+  {
+    "产品": "NetCoreKevin",
+    "厂商": "netkevin-li",
+    "状态": "可下",
+    "类型": "Agent",
+    "语言": "其它",
+    "Stars": 313,
+    "GitHub": null,
+    "Gitee": "https://gitee.com/netkevin-li/NetCoreKevin",
+    "官网": null,
+    "文档": null,
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码"
+    ],
+    "下载条件": null,
+    "去重键": "gitee-netkevin-li-netcorekevin",
+    "备注": "渠道:Gitee · ★313 · 最近 push 2026-10",
+    "资产号": 122,
+    "首次写入": "2026-10-28",
+    "渠道": "Gitee"
+  },
+  {
+    "产品": "Lynx AI",
+    "厂商": "lynx-ai",
+    "状态": "可下",
+    "类型": "Agent",
+    "语言": "Java",
+    "Stars": 281,
+    "GitHub": null,
+    "Gitee": "https://gitee.com/lynx-ai/lynx-ai",
+    "官网": null,
+    "文档": null,
+    "Web服务": true,
+    "部署方式": [
+      "源码"
+    ],
+    "下载条件": null,
+    "去重键": "gitee-lynx-ai-lynx-ai",
+    "备注": "渠道:Gitee · ★281 · 最近 push 2026-03",
+    "资产号": 123,
+    "首次写入": "2026-10-28",
+    "渠道": "Gitee"
+  },
+  {
+    "产品": "Apboa",
+    "厂商": "studioustiger",
+    "状态": "待核",
+    "类型": "Agent",
+    "语言": "Java",
+    "Stars": 369,
+    "GitHub": null,
+    "Gitee": "https://gitee.com/studioustiger/apboa",
+    "官网": null,
+    "文档": null,
+    "Web服务": true,
+    "部署方式": [
+      "源码"
+    ],
+    "下载条件": null,
+    "去重键": "gitee-studioustiger-apboa",
+    "备注": "渠道:Gitee · ★369 · 最近 push 2026-06 · README 指向 Apboa-Next 升级版",
+    "资产号": 124,
+    "首次写入": "2026-10-28",
+    "渠道": "Gitee"
+  },
+  {
+    "产品": "Molan",
+    "厂商": "pangui0",
+    "状态": "待核",
+    "类型": "Agent",
+    "语言": "Java",
+    "Stars": 228,
+    "GitHub": null,
+    "Gitee": "https://gitee.com/pangui0/molan-cloud",
+    "官网": "https://molandev.com",
+    "文档": null,
+    "Web服务": true,
+    "部署方式": [
+      "Docker",
+      "源码"
+    ],
+    "下载条件": null,
+    "去重键": "gitee-pangui0-molan-cloud",
+    "备注": "渠道:Gitee · ★228 · 最近 push 2026-07 · 本轮可下已满约8，证据充分先待核",
+    "资产号": 125,
+    "首次写入": "2026-10-28",
+    "渠道": "Gitee"
   }
 ]
