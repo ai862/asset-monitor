@@ -1,0 +1,66 @@
+{
+  "产品": "legal-document-assistant",
+  "厂商": "lixx21",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "其它",
+  "Stars": 108,
+  "GitHub": "https://github.com/lixx21/legal-document-assistant",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "GitHub clone / Docker",
+  "去重键": "lixx21-legal-document-assistant",
+  "备注": "法律文档 RAG，Streamlit 界面，含 Airflow/Grafana。★108",
+  "资产号": 84,
+  "首次写入": "2026-09-27",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-30T03:27:37+08:00",
+  "启动指引": "克隆仓库并进入项目目录，然后在 docker-compose.yaml 中设置 HUGGINGFACE_KEY 环境变量（替换 <YOUR_API_KEY>），最后运行 `docker-compose up --build -d` 启动所有服务。启动后可访问：Streamlit 应用 http://localhost:8501，Airflow 控制台 http://localhost:8080，Grafana 监控 http://localhost:3000，pgAdmin 管理工具 http://localhost:5050，Elasticsearch HTTP API http://localhost:9200。默认认证：Airflow 用户 airflow/airflow，Grafana 用户 admin/admin，pgAdmin 用户 llm@example.com/123456。",
+  "开工前先看": [
+    {
+      "title": "Legal Document Assistant 项目主页",
+      "url": "https://github.com/lixx21/legal-document-assistant"
+    },
+    {
+      "title": "DeepWiki 知识库",
+      "url": "https://deepwiki.com/lixx21/legal-document-assistant"
+    },
+    {
+      "title": "docker-compose.yaml 配置说明",
+      "url": "https://github.com/lixx21/legal-document-assistant/blob/main/docker-compose.yaml"
+    },
+    {
+      "title": "LLM 应用依赖列表",
+      "url": "https://github.com/lixx21/legal-document-assistant/blob/main/llm-app/requirements.txt"
+    },
+    {
+      "title": "Getting Started 指南",
+      "url": "https://github.com/lixx21/legal-document-assistant/wiki/Getting-Started"
+    }
+  ],
+  "建议追问": [
+    "如何验证 Streamlit 应用是否已成功连接到 Elasticsearch？",
+    "当 Get_All_LLM_Data DAG 未显示在 Airflow UI 时该如何排查？",
+    "Grafana 仪表板显示无数据，如何配置 PostgreSQL 数据源以修复？",
+    "如果 Hugging Face API 返回 401/403 错误，该如何更新或验证令牌？",
+    "是否有办法查看所有容器的实时日志以确认服务就绪状态？",
+    "系统是否支持多用户认证，如需启用应如何配置？"
+  ],
+  "已知坑": "常见问题包括容器启动失败（如 airflow-init 迁移错误）、Elasticsearch 索引未建立导致 Streamlit 提示“Elastic Search is still running”、Hugging Face API 认证失败（401/403）、Airflow DAG 未显示、Grafana 仪表板无数据等。",
+  "成功标准": "自检项：1) 访问 http://localhost:8501 看到 Streamlit 登录界面；2) 访问 http://localhost:8080 Airflow UI 并使用 airflow/airflow 登录成功；3) 在 Airflow 中启用并触发 Get_All_LLM_Data DAG，确认所有任务运行成功；4) 访问 http://localhost:3000 Grafana，登录后显示默认仪表板；5) 访问 http://localhost:5050 pgAdmin，确认可管理 PostgreSQL 数据库；6) 执行 `curl -s http://localhost:9200 | grep -q open|true` 验证 Elasticsearch 健康状态。",
+  "研判摘要": "这是一个基于 Docker Compose 编排的法律文档 RAG 系统，集成了 Streamlit 前端、Airflow 工作流、Grafana 监控和 PostgreSQL/Elasticsearch 存储，依赖 Hugging Face BERT 模型提供问答能力。",
+  "推荐启动": "HUGGINGFACE_KEY=your_token docker-compose up --build -d",
+  "agentHint": "启动前请务必设置 HUGGINGFACE_KEY 环境变量，并检查 airflow-init 容器的日志以确认初始化成功。",
+  "DeepWiki": "https://deepwiki.com/lixx21/legal-document-assistant",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lixx21-legal-document-assistant.json",
+  "source": "ai-web"
+}

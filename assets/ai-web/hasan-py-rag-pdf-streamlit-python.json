@@ -1,0 +1,40 @@
+{
+  "产品": "RAG-PDF-Streamlit-Python",
+  "厂商": "hasan-py",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 88,
+  "GitHub": "https://github.com/hasan-py/RAG-PDF-Streamlit-Python",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "pip"
+  ],
+  "下载条件": "GitHub clone + Ollama + pip",
+  "去重键": "hasan-py-rag-pdf-streamlit-python",
+  "备注": "PDF RAG，Streamlit + LangChain + Ollama。★88",
+  "资产号": 87,
+  "首次写入": "2026-09-27",
+  "渠道": "GitHub",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-30T03:26:24+08:00",
+  "启动指引": "已知下载条件为GitHub clone + Ollama + pip。最短启动路径需先确保Ollama服务运行并下载对应模型，随后通过pip安装依赖并启动项目，具体端口号、环境变量和鉴权配置请参照仓库README，勿自行编造。",
+  "建议追问": [
+    "是否需要配置特定的PDF文档路径或目录结构？",
+    "Ollama 中需要下载哪些模型才能正常运行？",
+    "是否需要设置 API 密钥或认证 token？"
+  ],
+  "已知坑": "暂无直接验证的已知坑，建议先确认Ollama服务可用且模型已下载。",
+  "成功标准": "Streamlit 界面成功启动且能接受PDF文件上传，Ollama 模型能正常生成PDF相关问答响应。",
+  "研判摘要": "本资产为PDF RAG应用，基于Streamlit+LangChain+Ollama，需GitHub克隆并配置Ollama环境。",
+  "agentHint": "请确保 Ollama 后端已启动并已下载所需模型。",
+  "DeepWiki": "https://deepwiki.com/hasan-py/RAG-PDF-Streamlit-Python",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/hasan-py-rag-pdf-streamlit-python.json",
+  "source": "ai-web"
+}

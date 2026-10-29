@@ -1,0 +1,40 @@
+{
+  "产品": "DiscovAI-search",
+  "厂商": "DiscovAI",
+  "状态": "可下",
+  "类型": "搜索",
+  "语言": "TypeScript",
+  "Stars": 287,
+  "GitHub": "https://github.com/DiscovAI/DiscovAI-search",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "npm"
+  ],
+  "下载条件": "GitHub clone / 文档部署",
+  "去重键": "discovai-discovai-search",
+  "备注": "Next AI search; clone+deploy",
+  "资产号": 77,
+  "首次写入": "2026-09-20",
+  "渠道": "GitHub",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-30T03:23:21+08:00",
+  "启动指引": "未知",
+  "建议追问": [
+    "如何克隆 DiscovAI-search 仓库并安装依赖？",
+    "部署时需要哪些环境变量？",
+    "默认使用的端口是多少？",
+    "如何进行鉴权或 token 设置？"
+  ],
+  "已知坑": "未知",
+  "成功标准": "未知",
+  "agentHint": "仓库未找到，请先确认地址",
+  "DeepWiki": "https://deepwiki.com/DiscovAI/DiscovAI-search",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/discovai-discovai-search.json",
+  "source": "ai-web"
+}

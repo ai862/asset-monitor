@@ -1,0 +1,69 @@
+{
+  "产品": "tech-trends-chatbot",
+  "厂商": "ruizguille",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 107,
+  "GitHub": "https://github.com/ruizguille/tech-trends-chatbot",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "pip"
+  ],
+  "下载条件": "GitHub clone + pip/Node",
+  "去重键": "ruizguille-tech-trends-chatbot",
+  "备注": "科技趋势 RAG，FastAPI 后端 + React 前端。★107",
+  "资产号": 85,
+  "首次写入": "2026-09-27",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-30T03:25:33+08:00",
+  "启动指引": "最短启动路径：先启动 Redis Stack（默认端口 6379）；后端：cd backend && poetry install && cp .env.example .env && 设置 OPENAI_API_KEY=<your-api-key> && poetry run load && poetry shell && fastapi dev app/main.py，后端在 http://localhost:8000；前端：cd frontend && npm install && cp .env.development .env.development && 设置 VITE_API_URL=http://localhost:8000 && npm run dev，前端通常在 http://localhost:3000（Vite 端口也可能为 5173，以终端输出为准）。环境变量：后端 OPENAI_API_KEY 必填，REDIS_HOST=localhost，REDIS_PORT=6379；前端 VITE_API_URL=http://localhost:8000。鉴权要点：主要需要 OpenAI API Key。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/ruizguille/tech-trends-chatbot"
+    },
+    {
+      "title": "DeepWiki Getting Started",
+      "url": "https://deepwiki.com/ruizguille/tech-trends-chatbot#2"
+    },
+    {
+      "title": "DeepWiki Development Guide",
+      "url": "https://deepwiki.com/ruizguille/tech-trends-chatbot#6"
+    },
+    {
+      "title": "DeepWiki Frontend Development",
+      "url": "https://deepwiki.com/ruizguille/tech-trends-chatbot#6.2"
+    },
+    {
+      "title": "DeepWiki Backend Architecture",
+      "url": "https://deepwiki.com/ruizguille/tech-trends-chatbot#3.1"
+    },
+    {
+      "title": "DeepWiki Backend Systems",
+      "url": "https://deepwiki.com/ruizguille/tech-trends-chatbot#4"
+    }
+  ],
+  "建议追问": [
+    "Redis Stack 应该如何启动和访问，默认端口是否需要修改？",
+    "backend/.env.example 有哪些必填变量和可选变量？",
+    "前端生产构建后如何配置 VITE_API_URL？",
+    "如何配置 ALLOW_ORIGINS 以支持反向代理？",
+    "知识库文档支持哪些格式，加载脚本如何执行？"
+  ],
+  "已知坑": "OPENAI_API_KEY 未设置、Redis Stack 未启动、后端依赖未安装、前端依赖未安装、端口冲突、空知识库、CORS/ALLOW_ORIGINS 未配置。",
+  "成功标准": "后端访问 /health 返回 ok，/docs 可打开；前端能访问聊天页；发送问题后能流式返回并引用来源；Redis 连接正常且知识库已加载。",
+  "研判摘要": "tech-trends-chatbot 是 FastAPI + React 的科技趋势 RAG 聊天应用，本地需 Redis Stack 与 OpenAI API Key；部署主要走源码/pip，核心难点在外部依赖和知识库初始化。",
+  "推荐启动": "cd backend && poetry install && cp .env.example .env && export OPENAI_API_KEY=<your-api-key> && poetry run load && poetry shell && fastapi dev app/main.py",
+  "agentHint": "先启动 Redis Stack 和后端，再配 OpenAI API Key 和知识库，最后启动前端；不要跳过依赖安装。",
+  "DeepWiki": "https://deepwiki.com/ruizguille/tech-trends-chatbot",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ruizguille-tech-trends-chatbot.json",
+  "source": "ai-web"
+}

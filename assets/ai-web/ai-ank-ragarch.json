@@ -1,0 +1,52 @@
+{
+  "产品": "RAGArch",
+  "厂商": "AI-ANK",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 88,
+  "GitHub": "https://github.com/AI-ANK/RAGArch",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "pip"
+  ],
+  "下载条件": "GitHub clone + Streamlit",
+  "去重键": "ai-ank-ragarch",
+  "备注": "LlamaIndex RAG 实验台，Streamlit 可配组件并导出代码。★88",
+  "资产号": 88,
+  "首次写入": "2026-09-27",
+  "渠道": "GitHub",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-30T03:26:32+08:00",
+  "启动指引": "请查阅仓库中的 README 或 DeepWiki 页面以获取最新的安装和启动说明。通常包括克隆仓库、安装 Python 依赖、设置环境变量（如 API 密钥）、然后运行 Streamlit 应用。但具体命令和端口请以项目实际文档为准。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/AI-ANK/RAGArch"
+    },
+    {
+      "title": "DeepWiki 文档",
+      "url": "https://deepwiki.com/AI-ANK/RAGArch"
+    }
+  ],
+  "建议追问": [
+    "项目中是否提供了具体的 pip 安装命令和所需的环境变量？",
+    "是否有 Docker 镜像或 docker-compose 文件可用于部署？",
+    "Streamlit 应用默认监听的端口和反向代理配置说明是什么？",
+    "是否需要 API 密钥或令牌进行认证，如何获取和设置？",
+    "如何验证应用已成功启动并运行正常？"
+  ],
+  "已知坑": "常见问题包括缺少 Python 依赖、环境变量未设置导致认证失败、Streamlit 端口被占用，以及某些配置项（如模型路径）未正确指定。",
+  "成功标准": "应用可正常启动，Web 界面可访问，基本 RAG 操作（如查询、上下文检索）返回结果。",
+  "研判摘要": "RAGArch 是一个基于 LlamaIndex 的 RAG 实验平台，支持通过 Streamlit 配置组件和导出代码，但具体部署细节尚待查阅官方文档。",
+  "agentHint": "请优先查阅 DeepWiki 页面获取最新部署指南。",
+  "DeepWiki": "https://deepwiki.com/AI-ANK/RAGArch",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ai-ank-ragarch.json",
+  "source": "ai-web"
+}

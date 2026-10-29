@@ -4761,7 +4761,24 @@
     "备注": "Next AI search; clone+deploy",
     "资产号": 77,
     "首次写入": "2026-09-20",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-30T03:23:21+08:00",
+    "启动指引": "未知",
+    "建议追问": [
+      "如何克隆 DiscovAI-search 仓库并安装依赖？",
+      "部署时需要哪些环境变量？",
+      "默认使用的端口是多少？",
+      "如何进行鉴权或 token 设置？"
+    ],
+    "已知坑": "未知",
+    "成功标准": "未知",
+    "agentHint": "仓库未找到，请先确认地址",
+    "DeepWiki": "https://deepwiki.com/DiscovAI/DiscovAI-search",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/discovai-discovai-search.json"
   },
   {
     "产品": "chatgpt-lite",
@@ -4783,7 +4800,14 @@
     "备注": "self-hostable Next ChatGPT; compose/docker",
     "资产号": 78,
     "首次写入": "2026-09-20",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "研判状态": "未研判",
+    "研判时间": "2026-10-30T03:23:55+08:00",
+    "DeepWiki": "https://deepwiki.com/blrchen/chatgpt-lite",
+    "搭建难度": "未知",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "研判摘要": "OpenRouter 未能生成有效 JSON。"
   },
   {
     "产品": "nextjs-fastapi-your-chat",
@@ -4804,7 +4828,14 @@
     "备注": "Next+FastAPI chat-with-website",
     "资产号": 82,
     "首次写入": "2026-09-20",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "研判状态": "未研判",
+    "研判时间": "2026-10-30T03:24:01+08:00",
+    "DeepWiki": "https://deepwiki.com/mazzasaverio/nextjs-fastapi-your-chat",
+    "搭建难度": "未知",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "研判摘要": "OpenRouter 未能生成有效 JSON。"
   },
   {
     "产品": "ChatGLM-web-stream-demo",
@@ -4825,7 +4856,37 @@
     "备注": "ChatGLM-6B 流式 HTTP API，Flask/FastAPI + 静态 Web UI。★93",
     "资产号": 86,
     "首次写入": "2026-09-27",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-30T03:24:28+08:00",
+    "启动指引": "最短启动路径：GitHub clone + 接入本地 ChatGLM；端口：未知；环境变量：未知；鉴权要点：未知；当前资料不足，不能编造。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库 TylunasLi/ChatGLM-web-stream-demo",
+        "url": "https://github.com/TylunasLi/ChatGLM-web-stream-demo"
+      },
+      {
+        "title": "DeepWiki 仓库索引",
+        "url": "https://deepwiki.com/TylunasLi/ChatGLM-web-stream-demo"
+      }
+    ],
+    "建议追问": [
+      "这个 demo 需要本地部署哪个版本的 ChatGLM？",
+      "后端服务默认监听哪个端口？",
+      "需要哪些环境变量配置本地模型路径或 API key？",
+      "Web UI 是否有 token 或其他鉴权？",
+      "如何验证 ChatGLM 流式 HTTP API 和 Web UI 的完整链路？"
+    ],
+    "已知坑": "DeepWiki 检索返回 Repository not found，当前资料无法确认仓库内部实现；部署前必须以本地 ChatGLM 和仓库实际 README 为准。",
+    "成功标准": "本地 ChatGLM 流式 API 能返回流式响应，Web UI 能正常发起请求并展示流式输出；可通过浏览器访问 Web UI 和接口自测。",
+    "研判摘要": "该项目用于 ChatGLM-6B 流式 HTTP API 与静态 Web UI 演示，但当前仓库资料检索失败，关键启动细节仍不明确。",
+    "推荐启动": "git clone https://github.com/TylunasLi/ChatGLM-web-stream-demo.git && cd ChatGLM-web-stream-demo",
+    "agentHint": "先以本地 ChatGLM 为前提核对 README，再补齐端口、环境变量和鉴权，避免编造。",
+    "DeepWiki": "https://deepwiki.com/TylunasLi/ChatGLM-web-stream-demo",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/tylunasli-chatglm-web-stream-demo.json"
   },
   {
     "产品": "tech-trends-chatbot",
@@ -4847,7 +4908,53 @@
     "备注": "科技趋势 RAG，FastAPI 后端 + React 前端。★107",
     "资产号": 85,
     "首次写入": "2026-09-27",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-30T03:25:33+08:00",
+    "启动指引": "最短启动路径：先启动 Redis Stack（默认端口 6379）；后端：cd backend && poetry install && cp .env.example .env && 设置 OPENAI_API_KEY=<your-api-key> && poetry run load && poetry shell && fastapi dev app/main.py，后端在 http://localhost:8000；前端：cd frontend && npm install && cp .env.development .env.development && 设置 VITE_API_URL=http://localhost:8000 && npm run dev，前端通常在 http://localhost:3000（Vite 端口也可能为 5173，以终端输出为准）。环境变量：后端 OPENAI_API_KEY 必填，REDIS_HOST=localhost，REDIS_PORT=6379；前端 VITE_API_URL=http://localhost:8000。鉴权要点：主要需要 OpenAI API Key。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/ruizguille/tech-trends-chatbot"
+      },
+      {
+        "title": "DeepWiki Getting Started",
+        "url": "https://deepwiki.com/ruizguille/tech-trends-chatbot#2"
+      },
+      {
+        "title": "DeepWiki Development Guide",
+        "url": "https://deepwiki.com/ruizguille/tech-trends-chatbot#6"
+      },
+      {
+        "title": "DeepWiki Frontend Development",
+        "url": "https://deepwiki.com/ruizguille/tech-trends-chatbot#6.2"
+      },
+      {
+        "title": "DeepWiki Backend Architecture",
+        "url": "https://deepwiki.com/ruizguille/tech-trends-chatbot#3.1"
+      },
+      {
+        "title": "DeepWiki Backend Systems",
+        "url": "https://deepwiki.com/ruizguille/tech-trends-chatbot#4"
+      }
+    ],
+    "建议追问": [
+      "Redis Stack 应该如何启动和访问，默认端口是否需要修改？",
+      "backend/.env.example 有哪些必填变量和可选变量？",
+      "前端生产构建后如何配置 VITE_API_URL？",
+      "如何配置 ALLOW_ORIGINS 以支持反向代理？",
+      "知识库文档支持哪些格式，加载脚本如何执行？"
+    ],
+    "已知坑": "OPENAI_API_KEY 未设置、Redis Stack 未启动、后端依赖未安装、前端依赖未安装、端口冲突、空知识库、CORS/ALLOW_ORIGINS 未配置。",
+    "成功标准": "后端访问 /health 返回 ok，/docs 可打开；前端能访问聊天页；发送问题后能流式返回并引用来源；Redis 连接正常且知识库已加载。",
+    "研判摘要": "tech-trends-chatbot 是 FastAPI + React 的科技趋势 RAG 聊天应用，本地需 Redis Stack 与 OpenAI API Key；部署主要走源码/pip，核心难点在外部依赖和知识库初始化。",
+    "推荐启动": "cd backend && poetry install && cp .env.example .env && export OPENAI_API_KEY=<your-api-key> && poetry run load && poetry shell && fastapi dev app/main.py",
+    "agentHint": "先启动 Redis Stack 和后端，再配 OpenAI API Key 和知识库，最后启动前端；不要跳过依赖安装。",
+    "DeepWiki": "https://deepwiki.com/ruizguille/tech-trends-chatbot",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ruizguille-tech-trends-chatbot.json"
   },
   {
     "产品": "RAG-PDF-Streamlit-Python",
@@ -4869,7 +4976,24 @@
     "备注": "PDF RAG，Streamlit + LangChain + Ollama。★88",
     "资产号": 87,
     "首次写入": "2026-09-27",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-30T03:26:24+08:00",
+    "启动指引": "已知下载条件为GitHub clone + Ollama + pip。最短启动路径需先确保Ollama服务运行并下载对应模型，随后通过pip安装依赖并启动项目，具体端口号、环境变量和鉴权配置请参照仓库README，勿自行编造。",
+    "建议追问": [
+      "是否需要配置特定的PDF文档路径或目录结构？",
+      "Ollama 中需要下载哪些模型才能正常运行？",
+      "是否需要设置 API 密钥或认证 token？"
+    ],
+    "已知坑": "暂无直接验证的已知坑，建议先确认Ollama服务可用且模型已下载。",
+    "成功标准": "Streamlit 界面成功启动且能接受PDF文件上传，Ollama 模型能正常生成PDF相关问答响应。",
+    "研判摘要": "本资产为PDF RAG应用，基于Streamlit+LangChain+Ollama，需GitHub克隆并配置Ollama环境。",
+    "agentHint": "请确保 Ollama 后端已启动并已下载所需模型。",
+    "DeepWiki": "https://deepwiki.com/hasan-py/RAG-PDF-Streamlit-Python",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/hasan-py-rag-pdf-streamlit-python.json"
   },
   {
     "产品": "RAGArch",
@@ -4891,7 +5015,36 @@
     "备注": "LlamaIndex RAG 实验台，Streamlit 可配组件并导出代码。★88",
     "资产号": 88,
     "首次写入": "2026-09-27",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-30T03:26:32+08:00",
+    "启动指引": "请查阅仓库中的 README 或 DeepWiki 页面以获取最新的安装和启动说明。通常包括克隆仓库、安装 Python 依赖、设置环境变量（如 API 密钥）、然后运行 Streamlit 应用。但具体命令和端口请以项目实际文档为准。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/AI-ANK/RAGArch"
+      },
+      {
+        "title": "DeepWiki 文档",
+        "url": "https://deepwiki.com/AI-ANK/RAGArch"
+      }
+    ],
+    "建议追问": [
+      "项目中是否提供了具体的 pip 安装命令和所需的环境变量？",
+      "是否有 Docker 镜像或 docker-compose 文件可用于部署？",
+      "Streamlit 应用默认监听的端口和反向代理配置说明是什么？",
+      "是否需要 API 密钥或令牌进行认证，如何获取和设置？",
+      "如何验证应用已成功启动并运行正常？"
+    ],
+    "已知坑": "常见问题包括缺少 Python 依赖、环境变量未设置导致认证失败、Streamlit 端口被占用，以及某些配置项（如模型路径）未正确指定。",
+    "成功标准": "应用可正常启动，Web 界面可访问，基本 RAG 操作（如查询、上下文检索）返回结果。",
+    "研判摘要": "RAGArch 是一个基于 LlamaIndex 的 RAG 实验平台，支持通过 Streamlit 配置组件和导出代码，但具体部署细节尚待查阅官方文档。",
+    "agentHint": "请优先查阅 DeepWiki 页面获取最新部署指南。",
+    "DeepWiki": "https://deepwiki.com/AI-ANK/RAGArch",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ai-ank-ragarch.json"
   },
   {
     "产品": "legal-document-assistant",
@@ -4913,7 +5066,50 @@
     "备注": "法律文档 RAG，Streamlit 界面，含 Airflow/Grafana。★108",
     "资产号": 84,
     "首次写入": "2026-09-27",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-30T03:27:37+08:00",
+    "启动指引": "克隆仓库并进入项目目录，然后在 docker-compose.yaml 中设置 HUGGINGFACE_KEY 环境变量（替换 <YOUR_API_KEY>），最后运行 `docker-compose up --build -d` 启动所有服务。启动后可访问：Streamlit 应用 http://localhost:8501，Airflow 控制台 http://localhost:8080，Grafana 监控 http://localhost:3000，pgAdmin 管理工具 http://localhost:5050，Elasticsearch HTTP API http://localhost:9200。默认认证：Airflow 用户 airflow/airflow，Grafana 用户 admin/admin，pgAdmin 用户 llm@example.com/123456。",
+    "开工前先看": [
+      {
+        "title": "Legal Document Assistant 项目主页",
+        "url": "https://github.com/lixx21/legal-document-assistant"
+      },
+      {
+        "title": "DeepWiki 知识库",
+        "url": "https://deepwiki.com/lixx21/legal-document-assistant"
+      },
+      {
+        "title": "docker-compose.yaml 配置说明",
+        "url": "https://github.com/lixx21/legal-document-assistant/blob/main/docker-compose.yaml"
+      },
+      {
+        "title": "LLM 应用依赖列表",
+        "url": "https://github.com/lixx21/legal-document-assistant/blob/main/llm-app/requirements.txt"
+      },
+      {
+        "title": "Getting Started 指南",
+        "url": "https://github.com/lixx21/legal-document-assistant/wiki/Getting-Started"
+      }
+    ],
+    "建议追问": [
+      "如何验证 Streamlit 应用是否已成功连接到 Elasticsearch？",
+      "当 Get_All_LLM_Data DAG 未显示在 Airflow UI 时该如何排查？",
+      "Grafana 仪表板显示无数据，如何配置 PostgreSQL 数据源以修复？",
+      "如果 Hugging Face API 返回 401/403 错误，该如何更新或验证令牌？",
+      "是否有办法查看所有容器的实时日志以确认服务就绪状态？",
+      "系统是否支持多用户认证，如需启用应如何配置？"
+    ],
+    "已知坑": "常见问题包括容器启动失败（如 airflow-init 迁移错误）、Elasticsearch 索引未建立导致 Streamlit 提示“Elastic Search is still running”、Hugging Face API 认证失败（401/403）、Airflow DAG 未显示、Grafana 仪表板无数据等。",
+    "成功标准": "自检项：1) 访问 http://localhost:8501 看到 Streamlit 登录界面；2) 访问 http://localhost:8080 Airflow UI 并使用 airflow/airflow 登录成功；3) 在 Airflow 中启用并触发 Get_All_LLM_Data DAG，确认所有任务运行成功；4) 访问 http://localhost:3000 Grafana，登录后显示默认仪表板；5) 访问 http://localhost:5050 pgAdmin，确认可管理 PostgreSQL 数据库；6) 执行 `curl -s http://localhost:9200 | grep -q open|true` 验证 Elasticsearch 健康状态。",
+    "研判摘要": "这是一个基于 Docker Compose 编排的法律文档 RAG 系统，集成了 Streamlit 前端、Airflow 工作流、Grafana 监控和 PostgreSQL/Elasticsearch 存储，依赖 Hugging Face BERT 模型提供问答能力。",
+    "推荐启动": "HUGGINGFACE_KEY=your_token docker-compose up --build -d",
+    "agentHint": "启动前请务必设置 HUGGINGFACE_KEY 环境变量，并检查 airflow-init 容器的日志以确认初始化成功。",
+    "DeepWiki": "https://deepwiki.com/lixx21/legal-document-assistant",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lixx21-legal-document-assistant.json"
   },
   {
     "产品": "ClaraVerse",
