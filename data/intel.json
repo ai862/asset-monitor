@@ -1,5 +1,57 @@
 [
   {
+    "产品": "AI挖洞短板：业务逻辑与多链",
+    "厂商": "@Hacker0x01",
+    "状态": "SRC速报",
+    "类型": "报告经验",
+    "备注": "H1研究报告：多数研究者认为AI最弱于业务逻辑与多链利用，可据此排人工优先级。",
+    "实用价值": "规划AI辅助挖洞时把业务逻辑/多步链留给人工。",
+    "官网": "https://x.com/Hacker0x01/status/2115473870366900439",
+    "文档": "",
+    "去重键": "2115473870366900439",
+    "首次写入": "2026-10-29",
+    "批次": "2026-10-29"
+  },
+  {
+    "产品": "Cloudflare图片端点XSS与CSP绕过",
+    "厂商": "@assetnote",
+    "状态": "SRC速报",
+    "类型": "绕过方法",
+    "备注": "CDN /cdn-cgi/image 链SVG消毒绕过与Cache-Control CSP绕过，已向Cloudflare报告并修复。",
+    "实用价值": "测CDN图片代理/同站XSS与CSP边缘场景时可对照。",
+    "官网": "https://x.com/assetnote/status/2115447225534845431",
+    "文档": "https://www.slcyber.io/research/cache-me-if-you-can-xss-in-cloudflares-cdn-cgi-image",
+    "去重键": "2115447225534845431",
+    "首次写入": "2026-10-29",
+    "批次": "2026-10-29"
+  },
+  {
+    "产品": "Vert.x头字段拼写导致会话固定",
+    "厂商": "@JFrogSecurity",
+    "状态": "SRC速报",
+    "类型": "技巧分享",
+    "备注": "Vert.x将Content-Xength误当Content-Length(CVE-2026-102479)，可配合反代做响应污染与会话固定。",
+    "实用价值": "测HTTP解析差异、反代后会话/缓存一致性时参考。",
+    "官网": "https://x.com/JFrogSecurity/status/2115434075104137553",
+    "文档": "https://research.jfrog.com/post/byte-debt-vertx-header-typo-session-fixation/",
+    "去重键": "2115434075104137553",
+    "首次写入": "2026-10-29",
+    "批次": "2026-10-29"
+  },
+  {
+    "产品": "试用账号越权升超管并绕过MFA",
+    "厂商": "@infinitelogins",
+    "状态": "SRC速报",
+    "类型": "实战复盘",
+    "备注": "Mass assignment写权限字段+设备自动登录跳过MFA+跨租户读数据，三环逻辑链。",
+    "实用价值": "测SaaS权限、MFA覆盖面与设备/API密钥登录路径。",
+    "官网": "https://x.com/infinitelogins/status/2115429533738262954",
+    "文档": "",
+    "去重键": "2115429533738262954",
+    "首次写入": "2026-10-29",
+    "批次": "2026-10-29"
+  },
+  {
     "产品": "Viral Maniar：MITRE ATT&CK v20 为企业矩阵新增约 9 条 AI 技术",
     "厂商": "@ManiarViral",
     "状态": "推荐流",
