@@ -41,14 +41,14 @@
       "安装包",
       "ISO"
     ],
-    "下载条件": "需在西门子支持站注册登录后方可下载试用版，可能需要审核；直连：fetch fail: <urlopen error timed out>；直连：fetch fail: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>；直连：页面疑似登录/留资墙，未见公开直链",
+    "下载条件": "需在西门子支持站注册登录后方可下载试用版，可能需要审核；直连：fetch fail: <urlopen error timed out>；直连：fetch fail: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>；直连：页面疑似登录/留资墙，未见公开直链；直连：fetch fail: The read operation timed out",
     "去重键": "siemens-wincc-unified-trial",
-    "备注": "Unified 支持 Web 客户端；组态+PC Runtime 试用包分链下载；fetch fail: <urlopen error timed out>；fetch fail: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in v；页面疑似登录/留资墙，未见公开直链",
+    "备注": "Unified 支持 Web 客户端；组态+PC Runtime 试用包分链下载；fetch fail: <urlopen error timed out>；fetch fail: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in v；页面疑似登录/留资墙，未见公开直链；fetch fail: The read operation timed out",
     "资产号": 16,
     "首次写入": "2026-09-09",
     "下载核验时间": "2026-10-20T14:34:09+08:00",
     "下载核验来源": "openrouter+browser",
-    "直连核验时间": "2026-10-30T04:07:27+08:00"
+    "直连核验时间": "2026-10-30T15:07:23+08:00"
   },
   {
     "产品": "NDS6000 配电监控平台",
@@ -87,7 +87,7 @@
     "备注": "垂直：楼宇自控 BMS；Sedona 编程工具+控制器内置 Web 配置页；非独立 SCADA 服务器；页面疑似登录/留资墙，未见公开直链；fetch fail: HTTP Error 403: Forbidden",
     "资产号": 86,
     "首次写入": "2026-09-09",
-    "直连核验时间": "2026-10-30T04:07:27+08:00"
+    "直连核验时间": "2026-10-30T15:07:25+08:00"
   },
   {
     "产品": "EasyCVR",
@@ -110,7 +110,7 @@
     "首次写入": "2026-09-09",
     "下载核验时间": "2026-10-21T02:54:40+08:00",
     "下载核验来源": "openrouter+browser",
-    "直连核验时间": "2026-10-30T04:07:28+08:00"
+    "直连核验时间": "2026-10-30T15:07:31+08:00"
   },
   {
     "产品": "ThingsBoard CE",
