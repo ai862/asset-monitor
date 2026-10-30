@@ -1,0 +1,51 @@
+{
+  "产品": "nextjs-fastapi-your-chat",
+  "厂商": "mazzasaverio",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "TypeScript",
+  "Stars": 72,
+  "GitHub": "https://github.com/mazzasaverio/nextjs-fastapi-your-chat",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "GitHub clone / 文档部署",
+  "去重键": "mazzasaverio-nextjs-fastapi-your-chat",
+  "备注": "Next+FastAPI chat-with-website",
+  "资产号": 82,
+  "首次写入": "2026-09-20",
+  "渠道": "GitHub",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-31T02:57:43+08:00",
+  "DeepWiki": "https://deepwiki.com/mazzasaverio/nextjs-fastapi-your-chat",
+  "搭建难度": "未知",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "研判摘要": "该项目为 Next.js + FastAPI 架构的聊天应用，仓库暂未被文档工具索引，需手动查阅代码或 README 进行部署。",
+  "启动指引": "仓库暂未被 DeepWiki 索引，无法获取确切的安装与启动命令。建议先访问 https://github.com/mazzasaverio/nextjs-fastapi-your-chat 浏览 README，一般为 Next.js 前端 + FastAPI 后端结构，可能需分别安装 npm 与 pip 依赖，前端默认端口 3000，后端默认端口 8000。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库主页",
+      "url": "https://github.com/mazzasaverio/nextjs-fastapi-your-chat"
+    },
+    {
+      "title": "DeepWiki 页面（待索引）",
+      "url": "https://deepwiki.com/mazzasaverio/nextjs-fastapi-your-chat"
+    }
+  ],
+  "建议追问": [
+    "这个项目是否提供 Docker 部署方式？",
+    "前端和后端是否需要分别配置环境变量？",
+    "是否有必填的 API Key 或第三方服务配置？",
+    "前后端启动顺序是否有要求？",
+    "如何验证前端和后端是否正常连接？"
+  ],
+  "已知坑": "仓库未被 DeepWiki 索引，缺乏部署文档，可能需手动阅读代码判断依赖与端口。",
+  "成功标准": "前端页面可正常访问（如 http://localhost:3000），后端 API 可响应（如 http://localhost:8000/docs），聊天功能可正常使用。",
+  "agentHint": "仓库未被索引，请先查阅 GitHub README 获取部署信息。",
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mazzasaverio-nextjs-fastapi-your-chat.json",
+  "source": "ai-web"
+}

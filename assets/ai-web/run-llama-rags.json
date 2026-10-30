@@ -1,0 +1,42 @@
+{
+  "产品": "RAGs",
+  "厂商": "run-llama",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 6551,
+  "GitHub": "https://github.com/run-llama/rags",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码"
+  ],
+  "下载条件": "poetry install + streamlit run",
+  "去重键": "run-llama-rags",
+  "备注": "Streamlit 自然语言搭 RAG 管线。具备 Web UI。★6551",
+  "资产号": 91,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-31T03:01:44+08:00",
+  "启动指引": "克隆仓库后运行 poetry install --with dev 安装依赖，创建 .streamlit/secrets.toml 并填入 open_key = \"<your-key>\"，随后运行 streamlit run 1_🏠_Home.py。默认端口 8501，OpenAI API key 为必需环境变量，通过 Streamlit secrets 加载。",
+  "建议追问": [
+    "如何在不使用 OpenAI 的情况下配置 Anthropic 或 Replicate 等其他 LLM 提供商？",
+    "多模态支持需要额外安装什么依赖？",
+    "升级 RAGs 后报错如何清理缓存恢复功能？",
+    "如何自定义 RAG pipeline 的检索参数（如 top-k, chunk size）？",
+    "该项目是否支持 Docker 部署，还是仅限源码运行？"
+  ],
+  "已知坑": "升级后可能因数据结构变更需删除 home 目录下的 cache 文件夹；load_data 需且仅需指定 file_names、directory 或 urls 三者之一；非 OpenAI function-calling LLM 需提供 vector_index 否则报 ValueError。",
+  "成功标准": "Streamlit 界面在 http://localhost:8501 打开，Home Page 可正常加载，配置 OpenAI key 后可构建 RAG agent，Generated RAG Agent 页面提供可交互的聊天界面。",
+  "研判摘要": "RAGs 是一个基于 Streamlit 的开源 RAG 管线工具，依赖 Poetry 管理 Python 环境，需配置 OpenAI API key 方可启动 Web UI。适合快速原型开发，但需注意数据源配置规范和跨版本缓存兼容性问题。",
+  "推荐启动": "streamlit run 1_🏠_Home.py",
+  "agentHint": "请先配置 .streamlit/secrets.toml 并获取 OpenAI API Key，否则应用将因缺少 LLM 密钥而启动失败。",
+  "DeepWiki": "https://deepwiki.com/run-llama/rags",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/run-llama-rags.json",
+  "source": "ai-web"
+}

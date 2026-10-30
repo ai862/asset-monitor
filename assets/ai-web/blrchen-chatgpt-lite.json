@@ -1,0 +1,61 @@
+{
+  "产品": "chatgpt-lite",
+  "厂商": "blrchen",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "TypeScript",
+  "Stars": 272,
+  "GitHub": "https://github.com/blrchen/chatgpt-lite",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "GitHub clone / 文档部署",
+  "去重键": "blrchen-chatgpt-lite",
+  "备注": "self-hostable Next ChatGPT; compose/docker",
+  "资产号": 78,
+  "首次写入": "2026-09-20",
+  "渠道": "GitHub",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-31T02:57:29+08:00",
+  "DeepWiki": "https://deepwiki.com/blrchen/chatgpt-lite",
+  "搭建难度": "中",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "研判摘要": "chatgpt-lite 是一个基于 Next.js 的轻量级 ChatGPT 克隆应用，支持 npm 开发和 Docker 部署，需配置 OpenAI 或 Azure API 密钥方可运行。",
+  "启动指引": "克隆仓库，运行 npm install，复制 .env.example 为 .env.local，设置 OPENAI_API_KEY（或 AZURE_OPENAI_* 系列）等环境变量，然后执行 npm run dev。应用将监听 3000 端口，可通过 http://localhost:3000 访问。Docker 用户可直接运行：docker run -d -p 3000:3000 -e OPENAI_API_KEY=YOUR_KEY blrchen/chatgpt-lite",
+  "开工前先看": [
+    {
+      "title": "项目概述",
+      "url": "https://deepwiki.com/blrchen/chatgpt-lite"
+    },
+    {
+      "title": "快速入门",
+      "url": "https://deepwiki.com/blrchen/chatgpt-lite#1"
+    },
+    {
+      "title": "架构说明",
+      "url": "https://deepwiki.com/blrchen/chatgpt-lite#2"
+    },
+    {
+      "title": "术语表",
+      "url": "https://deepwiki.com/blrchen/chatgpt-lite#7"
+    }
+  ],
+  "建议追问": [
+    "如何在生产环境中配置反向代理以保护 API 密钥？",
+    "Docker 镜像如何自定义标签并持久化数据？",
+    "如何监控应用日志和性能指标？",
+    "是否支持自定义模型参数和温度控制？",
+    "如何扩展多用户会话和权限管理？"
+  ],
+  "已知坑": "最常见的问题是环境变量中的 API 密钥配置错误或缺失，导致 401/403 错误。此外，Docker 镜像使用公共标签可能导致版本不一致。",
+  "成功标准": "启动后，访问 http://localhost:3000 应显示聊天界面；控制台输出中出现启动消息；API 端点 /api/chat 返回 SSE 数据；验证环境变量已加载（例如 node -e 'console.log(process.env.OPENAI_API_KEY)')。",
+  "推荐启动": "docker run -d -p 3000:3000 -e OPENAI_API_KEY=YOUR_KEY blrchen/chatgpt-lite",
+  "agentHint": "请检查环境变量配置和端口映射，避免因 API 密钥错误导致认证失败。",
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/blrchen-chatgpt-lite.json",
+  "source": "ai-web"
+}

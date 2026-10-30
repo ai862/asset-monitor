@@ -1,0 +1,66 @@
+{
+  "产品": "H2O LLM Studio",
+  "厂商": "h2oai",
+  "状态": "可下",
+  "类型": "其它",
+  "语言": "Python",
+  "Stars": 5183,
+  "GitHub": "https://github.com/h2oai/h2o-llmstudio",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "make llmstudio / Docker pull",
+  "去重键": "h2oai-h2o-llmstudio",
+  "备注": "无代码 LLM 微调 GUI；Wave 服务 localhost:10101。具备 Web UI。★5183",
+  "资产号": 93,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-31T03:05:43+08:00",
+  "启动指引": "使用 make llmstudio 启动，默认端口 10101，无必需环境变量，若需鉴权请设置 HF_TOKEN、NEPTUNE_API_TOKEN、WANDB_API_KEY、OPENAI_API_KEY 等。",
+  "开工前先看": [
+    {
+      "title": "Overview (h2oai/h2o-llmstudio)",
+      "url": "https://deepwiki.com/h2oai/h2o-llmstudio#1"
+    },
+    {
+      "title": "System Architecture (h2oai/h2o-llmstudio)",
+      "url": "https://deepwiki.com/h2oai/h2o-llmstudio#2"
+    },
+    {
+      "title": "User Interface (h2oai/h2o-llmstudio)",
+      "url": "https://deepwiki.com/h2oai/h2o-llmstudio#7"
+    },
+    {
+      "title": "Installation Guide",
+      "url": "https://deepwiki.com/search/how-do-i-install-and-start-h2o_e13ad2de-e1fe-4aec-b2b3-aa708effeda0"
+    },
+    {
+      "title": "Common Pitfalls",
+      "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_e0e4c24d-d2e5-4c5c-8e2e-66eef3fd779f"
+    }
+  ],
+  "建议追问": [
+    "如何配置 GPU 内存限制？",
+    "Docker 镜像的最小化步骤是什么？",
+    "在云环境中需要哪些 reverse proxy 设置？",
+    "如何在不使用 GPU 的情况下运行？",
+    "支持的模型格式有哪些？",
+    "如何导出模型到 Hugging Face？"
+  ],
+  "已知坑": "GPU/内存不足、NVIDIA 驱动版本低、网络访问受限、磁盘空间不足、量化不匹配预训练模型、DeepSpeed 多 GPU 要求、OS 错误导致训练中断",
+  "成功标准": "Web UI 在 localhost:10101 可访问且无启动错误，make llmstudio 进程运行正常",
+  "研判摘要": "H2O LLM Studio 提供通过 pipenv、requirements.txt 或 Docker 安装的本地 LLM 微调 GUI，默认端口 10101，常见瓶颈为 GPU/内存不足及网络访问限制。",
+  "推荐启动": "make llmstudio",
+  "agentHint": "确认 GPU、Docker 环境后直接执行 make llmstudio 启动。",
+  "DeepWiki": "https://deepwiki.com/h2oai/h2o-llmstudio",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/h2oai-h2o-llmstudio.json",
+  "source": "ai-web"
+}

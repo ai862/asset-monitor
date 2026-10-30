@@ -1,0 +1,58 @@
+{
+  "产品": "BetterChatGPT",
+  "厂商": "ztjhz",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "TypeScript",
+  "Stars": 8381,
+  "GitHub": "https://github.com/ztjhz/BetterChatGPT",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码",
+    "npm"
+  ],
+  "下载条件": "GitHub clone / docker compose / npm",
+  "去重键": "ztjhz-betterchatgpt",
+  "备注": "ChatGPT Web UI；compose 或 yarn/npm 本地跑。具备 Web UI。★8381",
+  "资产号": 89,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-31T03:06:20+08:00",
+  "启动指引": "本地安装：git clone https://github.com/ztjhz/BetterChatGPT.git → cd BetterChatGPT → yarn install → yarn dev; Docker部署：docker compose build → docker compose up -d; 默认端口 5173; 无需环境变量",
+  "开工前先看": [
+    {
+      "title": "BetterChatGPT 官方仓库",
+      "url": "https://github.com/ztjhz/BetterChatGPT"
+    },
+    {
+      "title": "BetterChatGPT 文档",
+      "url": "https://deepwiki.com/ztjhz/BetterChatGPT"
+    },
+    {
+      "title": "如何安装和启动 BetterChatGPT",
+      "url": "https://deepwiki.com/search/how-do-i-install-and-start-bet_179c7644-0dc2-48b4-988d-eb1bc80bf1c6"
+    }
+  ],
+  "建议追问": [
+    "如何配置自定义 API 端点？",
+    "需要 OpenAI API Key 才能启动？",
+    "如何查看应用日志？",
+    "端口 5173 是否是默认端口？",
+    "是否支持 Azure OpenAI 集成？"
+  ],
+  "已知坑": "未配置 API Key 会提示 'You haven't entered an API key.'；无效 API 端点返回 404/405 错误；模型未找到时需检查 GPT-4 API 访问权限；超出配额或被限流时需调整 API 端点或 Key。",
+  "成功标准": "应用在 http://localhost:5173/ 可访问，能够成功发送消息并收到响应，无错误提示。",
+  "研判摘要": "BetterChatGPT 支持 Docker、npm/yarn 等多种部署方式，默认 Web 端口为 5173，需配置 API Key 才能正常运行。",
+  "推荐启动": "docker compose up -d",
+  "agentHint": "注意配置 API Key 和端口 5173",
+  "DeepWiki": "https://deepwiki.com/ztjhz/BetterChatGPT",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ztjhz-betterchatgpt.json",
+  "source": "ai-web"
+}

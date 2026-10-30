@@ -1,0 +1,78 @@
+{
+  "产品": "Subs AI",
+  "厂商": "absadiki",
+  "状态": "可下",
+  "类型": "其它",
+  "语言": "Python",
+  "Stars": 1679,
+  "GitHub": "https://github.com/absadiki/subsai",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "pip",
+    "Docker"
+  ],
+  "下载条件": "pip / Docker / 源码",
+  "去重键": "absadiki-subsai",
+  "备注": "★1679 · 最近 push 2026-04 · Whisper subtitles Web-UI+CLI",
+  "资产号": 106,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-31T03:04:36+08:00",
+  "启动指引": "最短启动路径为通过 pip 安装：`pip install git+https://github.com/absadiki/subsai`，然后运行 `subsai-webui` 启动 Streamlit Web UI（默认端口为 8501）。亦可使用 Docker 快速拉取镜像运行：`docker run --gpus=all -p 8501:8501 -v /本地媒体目录:/media_files absadiki/subsai:main`。环境变量方面，基本开箱无需强制配置，但若使用 OpenAI Whisper API 需配置 `OPENAI_KEY`（或在 model_config 中传入 api_key），若使用 WhisperX 说话人分离需配置 `HF_TOKEN`。Web UI 为 Streamlit 应用，本地直接访问 http://localhost:8501 即可，无需额外鉴权。",
+  "开工前先看": [
+    {
+      "title": "Subs AI GitHub 仓库",
+      "url": "https://github.com/absadiki/subsai"
+    },
+    {
+      "title": "Subs AI DeepWiki 安装与启动指南",
+      "url": "https://deepwiki.com/search/how-do-i-install-and-start-sub_c109eb38-c9dc-48d7-a94d-9273d519a15b"
+    },
+    {
+      "title": "Subs AI 常见陷阱与鉴权配置",
+      "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_03937497-45eb-4be5-92b0-8245ee6fdc7e"
+    },
+    {
+      "title": "Web UI、网关与反向代理说明",
+      "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_3d1f8822-bdd4-4a20-b9a3-7a4e2360a4e6"
+    },
+    {
+      "title": "User Interfaces Wiki Page",
+      "url": "https://deepwiki.com/absadiki/subsai#3"
+    },
+    {
+      "title": "Command Line Interface Wiki Page",
+      "url": "https://deepwiki.com/absadiki/subsai#3.1"
+    },
+    {
+      "title": "Web User Interface Wiki Page",
+      "url": "https://deepwiki.com/absadiki/subsai#3.2"
+    },
+    {
+      "title": "Architecture Wiki Page",
+      "url": "https://deepwiki.com/absadiki/subsai#4"
+    }
+  ],
+  "建议追问": [
+    "如何在 Subs AI 中配置 GPU 加速？如果 torch 无法检测到 GPU 怎么办？",
+    "Docker 部署时如何挂载本地媒体文件目录？有什么性能优化建议吗？",
+    "WhisperX 模型的 speaker diarization（说话人识别）如何启用和配置 HF_TOKEN？",
+    "Subs AI 支持哪些输出字幕格式？如何自定义字幕样式？",
+    "如果遇到 Python 3.12 兼容性问题，如何降级到 Python 3.11？"
+  ],
+  "已知坑": "1. Python 3.12 或更高版本可能存在兼容性问题，强烈建议使用 Python 3.10 或 3.11；2. 依赖项采用‘优雅降级’策略，如果某些模型的特定依赖未安装，对应模型将不可用，但系统仍会启动（可能导致模型列表不全）；3. torch 可能会默认安装 CPU 版本，若需 GPU 加速需手动安装 CUDA 版本的 torch；4. 缺少 ffmpeg 会导致核心转录功能失效；5. 使用 Whisper API 或 WhisperX 说话人识别时，必须正确配置 `OPENAI_KEY` 或 `HF_TOKEN` 环境变量，否则对应功能会报错。",
+  "成功标准": "1. 启动 Web UI 后，能在浏览器访问 `http://localhost:8501`，且侧边栏的模型下拉框中能看到成功加载的模型（非空）；2. 运行 `subsai --help` 命令，输出的帮助信息中 `Available models` 列表不为空；3. 使用 Python API 编写简单脚本，成功导入 `SubsAI` 类，调用 `available_models()` 返回模型列表，并能成功创建模型实例、转录测试视频并生成 SRT 字幕文件。",
+  "研判摘要": "Subs AI 是一个功能完整的 Whisper 字幕生成工具，提供 CLI、Python API 和 Streamlit Web UI 三种交互方式。它支持离线部署，但也需要处理 ffmpeg、Python 版本兼容性以及 torch/GPU 加载等常见坑。",
+  "推荐启动": "pip install git+https://github.com/absadiki/subsai && subsai-webui",
+  "agentHint": "建议优先使用 Docker 部署以隔离环境，通过 `-v` 挂载媒体目录，并使用 `--gpus=all` 启用 GPU 加速。注意 Python 版本需在 3.10 或 3.11 之间。",
+  "DeepWiki": "https://deepwiki.com/absadiki/subsai",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/absadiki-subsai.json",
+  "source": "ai-web"
+}

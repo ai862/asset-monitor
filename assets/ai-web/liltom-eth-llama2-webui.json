@@ -1,0 +1,66 @@
+{
+  "产品": "llama2-webui",
+  "厂商": "liltom-eth",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "Python",
+  "Stars": 1934,
+  "GitHub": "https://github.com/liltom-eth/llama2-webui",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "pip",
+    "源码"
+  ],
+  "下载条件": "pip install llama2-wrapper / clone",
+  "去重键": "liltom-eth-llama2-webui",
+  "备注": "本地 Llama2 Gradio Web UI（GPU/CPU）。具备 Web UI。★1934",
+  "资产号": 96,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-10-31T03:03:08+08:00",
+  "启动指引": "最短路径：`pip install llama2-wrapper && python app.py`（Gradio UI）或 `python -m llama2_wrapper.server`（OpenAI 兼容 API，默认端口 8000）。环境变量：MODEL_PATH、BACKEND_TYPE(llama.cpp/gptq/transformers)、MAX_TOKENS、LOAD_IN_8BIT、HOST、PORT。鉴权：无内置鉴权，OpenAI 客户端需传 dummy key（如 `openai.api_key=\"dummy\"`）。首次运行会自动下载模型到 ./models。",
+  "开工前先看": [
+    {
+      "title": "Overview (DeepWiki)",
+      "url": "https://deepwiki.com/liltom-eth/llama2-webui#1"
+    },
+    {
+      "title": "Core Components (DeepWiki)",
+      "url": "https://deepwiki.com/liltom-eth/llama2-webui#3"
+    },
+    {
+      "title": "OpenAI-Compatible API (DeepWiki)",
+      "url": "https://deepwiki.com/liltom-eth/llama2-webui#3.3"
+    },
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/liltom-eth/llama2-webui"
+    },
+    {
+      "title": "环境变量示例",
+      "url": "https://github.com/liltom-eth/llama2-webui/tree/main/env_examples"
+    }
+  ],
+  "建议追问": [
+    "如何指定使用已有的本地模型文件而非自动下载？",
+    "GPU 显存不足时如何切换到 CPU 或量化模型？",
+    "Gradio UI 与 API 服务能否同时运行？端口冲突如何解决？",
+    "如何在反向代理后正确暴露 /v1/completions 与 /docs？",
+    "transformers 后端启用 8-bit 加载的具体依赖与命令？",
+    "模型上下文窗口超限报错如何通过参数规避？"
+  ],
+  "已知坑": "首次启动会自动下载约 4GB 模型，需保证磁盘空间与网络；context length 超限会直接报错无自动截断；无内置鉴权，暴露公网需自行加认证层；transformers 后端需额外安装 bitsandbytes 才能用 8-bit；Gradio UI 默认监听 7860 端口，与 API 8000 端口易混淆。",
+  "成功标准": "控制台输出显示 backend 类型与模型加载路径；浏览器访问 http://localhost:8000/docs 返回 OpenAPI 文档；curl POST /v1/completions 返回 JSON 且含 choices 字段；Gradio UI 页面可正常对话且不报 token 超限。",
+  "研判摘要": "llama2-webui 提供基于 Gradio 的本地聊天界面与 OpenAI 兼容 API，支持 llama.cpp/GPTQ/Transformers 多后端，安装启动均为纯 Python 流程，适合快速在本地跑通 Llama2 推理验证。",
+  "推荐启动": "pip install llama2-wrapper && python -m llama2_wrapper.server --host 0.0.0.0 --port 8000",
+  "agentHint": "首跑建议先用 llama.cpp 后端跑通 API，再按需切换量化或 GPU 后端；注意模型路径与端口隔离。",
+  "DeepWiki": "https://deepwiki.com/liltom-eth/llama2-webui",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/liltom-eth-llama2-webui.json",
+  "source": "ai-web"
+}

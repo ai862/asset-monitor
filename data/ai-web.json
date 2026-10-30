@@ -4801,13 +4801,44 @@
     "资产号": 78,
     "首次写入": "2026-09-20",
     "渠道": "GitHub",
-    "研判状态": "未研判",
-    "研判时间": "2026-10-30T03:23:55+08:00",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-31T02:57:29+08:00",
     "DeepWiki": "https://deepwiki.com/blrchen/chatgpt-lite",
-    "搭建难度": "未知",
+    "搭建难度": "中",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "研判摘要": "OpenRouter 未能生成有效 JSON。"
+    "研判摘要": "chatgpt-lite 是一个基于 Next.js 的轻量级 ChatGPT 克隆应用，支持 npm 开发和 Docker 部署，需配置 OpenAI 或 Azure API 密钥方可运行。",
+    "启动指引": "克隆仓库，运行 npm install，复制 .env.example 为 .env.local，设置 OPENAI_API_KEY（或 AZURE_OPENAI_* 系列）等环境变量，然后执行 npm run dev。应用将监听 3000 端口，可通过 http://localhost:3000 访问。Docker 用户可直接运行：docker run -d -p 3000:3000 -e OPENAI_API_KEY=YOUR_KEY blrchen/chatgpt-lite",
+    "开工前先看": [
+      {
+        "title": "项目概述",
+        "url": "https://deepwiki.com/blrchen/chatgpt-lite"
+      },
+      {
+        "title": "快速入门",
+        "url": "https://deepwiki.com/blrchen/chatgpt-lite#1"
+      },
+      {
+        "title": "架构说明",
+        "url": "https://deepwiki.com/blrchen/chatgpt-lite#2"
+      },
+      {
+        "title": "术语表",
+        "url": "https://deepwiki.com/blrchen/chatgpt-lite#7"
+      }
+    ],
+    "建议追问": [
+      "如何在生产环境中配置反向代理以保护 API 密钥？",
+      "Docker 镜像如何自定义标签并持久化数据？",
+      "如何监控应用日志和性能指标？",
+      "是否支持自定义模型参数和温度控制？",
+      "如何扩展多用户会话和权限管理？"
+    ],
+    "已知坑": "最常见的问题是环境变量中的 API 密钥配置错误或缺失，导致 401/403 错误。此外，Docker 镜像使用公共标签可能导致版本不一致。",
+    "成功标准": "启动后，访问 http://localhost:3000 应显示聊天界面；控制台输出中出现启动消息；API 端点 /api/chat 返回 SSE 数据；验证环境变量已加载（例如 node -e 'console.log(process.env.OPENAI_API_KEY)')。",
+    "推荐启动": "docker run -d -p 3000:3000 -e OPENAI_API_KEY=YOUR_KEY blrchen/chatgpt-lite",
+    "agentHint": "请检查环境变量配置和端口映射，避免因 API 密钥错误导致认证失败。",
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/blrchen-chatgpt-lite.json"
   },
   {
     "产品": "nextjs-fastapi-your-chat",
@@ -4829,13 +4860,35 @@
     "资产号": 82,
     "首次写入": "2026-09-20",
     "渠道": "GitHub",
-    "研判状态": "未研判",
-    "研判时间": "2026-10-30T03:24:01+08:00",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-31T02:57:43+08:00",
     "DeepWiki": "https://deepwiki.com/mazzasaverio/nextjs-fastapi-your-chat",
     "搭建难度": "未知",
     "研判来源": "openrouter+deepwiki",
     "schemaVersion": 2,
-    "研判摘要": "OpenRouter 未能生成有效 JSON。"
+    "研判摘要": "该项目为 Next.js + FastAPI 架构的聊天应用，仓库暂未被文档工具索引，需手动查阅代码或 README 进行部署。",
+    "启动指引": "仓库暂未被 DeepWiki 索引，无法获取确切的安装与启动命令。建议先访问 https://github.com/mazzasaverio/nextjs-fastapi-your-chat 浏览 README，一般为 Next.js 前端 + FastAPI 后端结构，可能需分别安装 npm 与 pip 依赖，前端默认端口 3000，后端默认端口 8000。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库主页",
+        "url": "https://github.com/mazzasaverio/nextjs-fastapi-your-chat"
+      },
+      {
+        "title": "DeepWiki 页面（待索引）",
+        "url": "https://deepwiki.com/mazzasaverio/nextjs-fastapi-your-chat"
+      }
+    ],
+    "建议追问": [
+      "这个项目是否提供 Docker 部署方式？",
+      "前端和后端是否需要分别配置环境变量？",
+      "是否有必填的 API Key 或第三方服务配置？",
+      "前后端启动顺序是否有要求？",
+      "如何验证前端和后端是否正常连接？"
+    ],
+    "已知坑": "仓库未被 DeepWiki 索引，缺乏部署文档，可能需手动阅读代码判断依赖与端口。",
+    "成功标准": "前端页面可正常访问（如 http://localhost:3000），后端 API 可响应（如 http://localhost:8000/docs），聊天功能可正常使用。",
+    "agentHint": "仓库未被索引，请先查阅 GitHub README 获取部署信息。",
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/mazzasaverio-nextjs-fastapi-your-chat.json"
   },
   {
     "产品": "ChatGLM-web-stream-demo",
@@ -5131,7 +5184,28 @@
     "备注": "★3900 · 最近 push 2026-08 · Private AI workspace :3000",
     "资产号": 100,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-31T02:59:35+08:00",
+    "启动指引": "推荐使用一键脚本快速启动: curl -fsSL https://raw.githubusercontent.com/claraverse-space/ClaraVerse/main/cli/install.sh | bash && claraverse init；默认访问端口 3000，可通过 CLARAVERSE_PORT 环境变量覆盖；生产环境必须设置 JWT_SECRET，否则应用将致命退出；AI provider 认证需配置 OLLAMA_BASE_URL/LMSTUDIO_BASE_URL 等环境变量。",
+    "建议追问": [
+      "是否已在生产环境配置了 JWT_SECRET？未设置将导致应用退出。",
+      "计划使用自建 Ollama 或 LM Studio，是否已确保 host.docker.internal 可达？",
+      "是否需要使用 pi-coding-agent？若需，需配置对应 AI Provider API Key 或使用 /login 命令。",
+      "Docker Compose 部署时，MySQL/MongoDB/Redis 等服务的资源限制是否已调整？",
+      "是否计划通过 reverse proxy (Nginx) 外部访问？默认端口 3000 的映射规则是否清楚？",
+      "首次注册后是否已验证管理员身份？首个注册用户将自动成为管理员。"
+    ],
+    "已知坑": "生产环境未设置 JWT_SECRET 会导致应用致命退出；跨主机共享 auth.json 会导致 OAuth refresh 失败；OLLAMA_HOST 必须设为 0.0.0.0 才能让 Docker 容器访问 Ollama；Docker Compose 涉及 MySQL/MongoDB/Redis 等多服务，资源不足可能启动失败。",
+    "成功标准": "访问 http://localhost:3000 且 Web UI 加载成功；后端日志出现 '✅ Local JWT authentication initialized' 字样；或运行 claraverse status 显示服务正常。",
+    "研判摘要": "ClaraVerse 是一个私有 AI 工作空间，提供一键安装脚本和 Docker Compose 两种部署方式，默认端口 3000，核心依赖 JWT_SECRET 环境变量与 AI Provider 认证，适合希望自托管 AI 工具的用户。",
+    "推荐启动": "curl -fsSL https://raw.githubusercontent.com/claraverse-space/ClaraVerse/main/cli/install.sh | bash && claraverse init",
+    "agentHint": "请确保生产环境已配置 JWT_SECRET，否则 ClaraVerse 将无法启动。",
+    "DeepWiki": "https://deepwiki.com/claraverse-space/ClaraVerse",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/claraverse-space-claraverse.json"
   },
   {
     "产品": "RAGs",
@@ -5152,7 +5226,27 @@
     "备注": "Streamlit 自然语言搭 RAG 管线。具备 Web UI。★6551",
     "资产号": 91,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-31T03:01:44+08:00",
+    "启动指引": "克隆仓库后运行 poetry install --with dev 安装依赖，创建 .streamlit/secrets.toml 并填入 open_key = \"<your-key>\"，随后运行 streamlit run 1_🏠_Home.py。默认端口 8501，OpenAI API key 为必需环境变量，通过 Streamlit secrets 加载。",
+    "建议追问": [
+      "如何在不使用 OpenAI 的情况下配置 Anthropic 或 Replicate 等其他 LLM 提供商？",
+      "多模态支持需要额外安装什么依赖？",
+      "升级 RAGs 后报错如何清理缓存恢复功能？",
+      "如何自定义 RAG pipeline 的检索参数（如 top-k, chunk size）？",
+      "该项目是否支持 Docker 部署，还是仅限源码运行？"
+    ],
+    "已知坑": "升级后可能因数据结构变更需删除 home 目录下的 cache 文件夹；load_data 需且仅需指定 file_names、directory 或 urls 三者之一；非 OpenAI function-calling LLM 需提供 vector_index 否则报 ValueError。",
+    "成功标准": "Streamlit 界面在 http://localhost:8501 打开，Home Page 可正常加载，配置 OpenAI key 后可构建 RAG agent，Generated RAG Agent 页面提供可交互的聊天界面。",
+    "研判摘要": "RAGs 是一个基于 Streamlit 的开源 RAG 管线工具，依赖 Poetry 管理 Python 环境，需配置 OpenAI API key 方可启动 Web UI。适合快速原型开发，但需注意数据源配置规范和跨版本缓存兼容性问题。",
+    "推荐启动": "streamlit run 1_🏠_Home.py",
+    "agentHint": "请先配置 .streamlit/secrets.toml 并获取 OpenAI API Key，否则应用将因缺少 LLM 密钥而启动失败。",
+    "DeepWiki": "https://deepwiki.com/run-llama/rags",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/run-llama-rags.json"
   },
   {
     "产品": "llama2-webui",
@@ -5174,7 +5268,50 @@
     "备注": "本地 Llama2 Gradio Web UI（GPU/CPU）。具备 Web UI。★1934",
     "资产号": 96,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-31T03:03:08+08:00",
+    "启动指引": "最短路径：`pip install llama2-wrapper && python app.py`（Gradio UI）或 `python -m llama2_wrapper.server`（OpenAI 兼容 API，默认端口 8000）。环境变量：MODEL_PATH、BACKEND_TYPE(llama.cpp/gptq/transformers)、MAX_TOKENS、LOAD_IN_8BIT、HOST、PORT。鉴权：无内置鉴权，OpenAI 客户端需传 dummy key（如 `openai.api_key=\"dummy\"`）。首次运行会自动下载模型到 ./models。",
+    "开工前先看": [
+      {
+        "title": "Overview (DeepWiki)",
+        "url": "https://deepwiki.com/liltom-eth/llama2-webui#1"
+      },
+      {
+        "title": "Core Components (DeepWiki)",
+        "url": "https://deepwiki.com/liltom-eth/llama2-webui#3"
+      },
+      {
+        "title": "OpenAI-Compatible API (DeepWiki)",
+        "url": "https://deepwiki.com/liltom-eth/llama2-webui#3.3"
+      },
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/liltom-eth/llama2-webui"
+      },
+      {
+        "title": "环境变量示例",
+        "url": "https://github.com/liltom-eth/llama2-webui/tree/main/env_examples"
+      }
+    ],
+    "建议追问": [
+      "如何指定使用已有的本地模型文件而非自动下载？",
+      "GPU 显存不足时如何切换到 CPU 或量化模型？",
+      "Gradio UI 与 API 服务能否同时运行？端口冲突如何解决？",
+      "如何在反向代理后正确暴露 /v1/completions 与 /docs？",
+      "transformers 后端启用 8-bit 加载的具体依赖与命令？",
+      "模型上下文窗口超限报错如何通过参数规避？"
+    ],
+    "已知坑": "首次启动会自动下载约 4GB 模型，需保证磁盘空间与网络；context length 超限会直接报错无自动截断；无内置鉴权，暴露公网需自行加认证层；transformers 后端需额外安装 bitsandbytes 才能用 8-bit；Gradio UI 默认监听 7860 端口，与 API 8000 端口易混淆。",
+    "成功标准": "控制台输出显示 backend 类型与模型加载路径；浏览器访问 http://localhost:8000/docs 返回 OpenAPI 文档；curl POST /v1/completions 返回 JSON 且含 choices 字段；Gradio UI 页面可正常对话且不报 token 超限。",
+    "研判摘要": "llama2-webui 提供基于 Gradio 的本地聊天界面与 OpenAI 兼容 API，支持 llama.cpp/GPTQ/Transformers 多后端，安装启动均为纯 Python 流程，适合快速在本地跑通 Llama2 推理验证。",
+    "推荐启动": "pip install llama2-wrapper && python -m llama2_wrapper.server --host 0.0.0.0 --port 8000",
+    "agentHint": "首跑建议先用 llama.cpp 后端跑通 API，再按需切换量化或 GPU 后端；注意模型路径与端口隔离。",
+    "DeepWiki": "https://deepwiki.com/liltom-eth/llama2-webui",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/liltom-eth-llama2-webui.json"
   },
   {
     "产品": "Subs AI",
@@ -5197,7 +5334,61 @@
     "备注": "★1679 · 最近 push 2026-04 · Whisper subtitles Web-UI+CLI",
     "资产号": 106,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-31T03:04:36+08:00",
+    "启动指引": "最短启动路径为通过 pip 安装：`pip install git+https://github.com/absadiki/subsai`，然后运行 `subsai-webui` 启动 Streamlit Web UI（默认端口为 8501）。亦可使用 Docker 快速拉取镜像运行：`docker run --gpus=all -p 8501:8501 -v /本地媒体目录:/media_files absadiki/subsai:main`。环境变量方面，基本开箱无需强制配置，但若使用 OpenAI Whisper API 需配置 `OPENAI_KEY`（或在 model_config 中传入 api_key），若使用 WhisperX 说话人分离需配置 `HF_TOKEN`。Web UI 为 Streamlit 应用，本地直接访问 http://localhost:8501 即可，无需额外鉴权。",
+    "开工前先看": [
+      {
+        "title": "Subs AI GitHub 仓库",
+        "url": "https://github.com/absadiki/subsai"
+      },
+      {
+        "title": "Subs AI DeepWiki 安装与启动指南",
+        "url": "https://deepwiki.com/search/how-do-i-install-and-start-sub_c109eb38-c9dc-48d7-a94d-9273d519a15b"
+      },
+      {
+        "title": "Subs AI 常见陷阱与鉴权配置",
+        "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_03937497-45eb-4be5-92b0-8245ee6fdc7e"
+      },
+      {
+        "title": "Web UI、网关与反向代理说明",
+        "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_3d1f8822-bdd4-4a20-b9a3-7a4e2360a4e6"
+      },
+      {
+        "title": "User Interfaces Wiki Page",
+        "url": "https://deepwiki.com/absadiki/subsai#3"
+      },
+      {
+        "title": "Command Line Interface Wiki Page",
+        "url": "https://deepwiki.com/absadiki/subsai#3.1"
+      },
+      {
+        "title": "Web User Interface Wiki Page",
+        "url": "https://deepwiki.com/absadiki/subsai#3.2"
+      },
+      {
+        "title": "Architecture Wiki Page",
+        "url": "https://deepwiki.com/absadiki/subsai#4"
+      }
+    ],
+    "建议追问": [
+      "如何在 Subs AI 中配置 GPU 加速？如果 torch 无法检测到 GPU 怎么办？",
+      "Docker 部署时如何挂载本地媒体文件目录？有什么性能优化建议吗？",
+      "WhisperX 模型的 speaker diarization（说话人识别）如何启用和配置 HF_TOKEN？",
+      "Subs AI 支持哪些输出字幕格式？如何自定义字幕样式？",
+      "如果遇到 Python 3.12 兼容性问题，如何降级到 Python 3.11？"
+    ],
+    "已知坑": "1. Python 3.12 或更高版本可能存在兼容性问题，强烈建议使用 Python 3.10 或 3.11；2. 依赖项采用‘优雅降级’策略，如果某些模型的特定依赖未安装，对应模型将不可用，但系统仍会启动（可能导致模型列表不全）；3. torch 可能会默认安装 CPU 版本，若需 GPU 加速需手动安装 CUDA 版本的 torch；4. 缺少 ffmpeg 会导致核心转录功能失效；5. 使用 Whisper API 或 WhisperX 说话人识别时，必须正确配置 `OPENAI_KEY` 或 `HF_TOKEN` 环境变量，否则对应功能会报错。",
+    "成功标准": "1. 启动 Web UI 后，能在浏览器访问 `http://localhost:8501`，且侧边栏的模型下拉框中能看到成功加载的模型（非空）；2. 运行 `subsai --help` 命令，输出的帮助信息中 `Available models` 列表不为空；3. 使用 Python API 编写简单脚本，成功导入 `SubsAI` 类，调用 `available_models()` 返回模型列表，并能成功创建模型实例、转录测试视频并生成 SRT 字幕文件。",
+    "研判摘要": "Subs AI 是一个功能完整的 Whisper 字幕生成工具，提供 CLI、Python API 和 Streamlit Web UI 三种交互方式。它支持离线部署，但也需要处理 ffmpeg、Python 版本兼容性以及 torch/GPU 加载等常见坑。",
+    "推荐启动": "pip install git+https://github.com/absadiki/subsai && subsai-webui",
+    "agentHint": "建议优先使用 Docker 部署以隔离环境，通过 `-v` 挂载媒体目录，并使用 `--gpus=all` 启用 GPU 加速。注意 Python 版本需在 3.10 或 3.11 之间。",
+    "DeepWiki": "https://deepwiki.com/absadiki/subsai",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/absadiki-subsai.json"
   },
   {
     "产品": "H2O LLM Studio",
@@ -5219,7 +5410,50 @@
     "备注": "无代码 LLM 微调 GUI；Wave 服务 localhost:10101。具备 Web UI。★5183",
     "资产号": 93,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-31T03:05:43+08:00",
+    "启动指引": "使用 make llmstudio 启动，默认端口 10101，无必需环境变量，若需鉴权请设置 HF_TOKEN、NEPTUNE_API_TOKEN、WANDB_API_KEY、OPENAI_API_KEY 等。",
+    "开工前先看": [
+      {
+        "title": "Overview (h2oai/h2o-llmstudio)",
+        "url": "https://deepwiki.com/h2oai/h2o-llmstudio#1"
+      },
+      {
+        "title": "System Architecture (h2oai/h2o-llmstudio)",
+        "url": "https://deepwiki.com/h2oai/h2o-llmstudio#2"
+      },
+      {
+        "title": "User Interface (h2oai/h2o-llmstudio)",
+        "url": "https://deepwiki.com/h2oai/h2o-llmstudio#7"
+      },
+      {
+        "title": "Installation Guide",
+        "url": "https://deepwiki.com/search/how-do-i-install-and-start-h2o_e13ad2de-e1fe-4aec-b2b3-aa708effeda0"
+      },
+      {
+        "title": "Common Pitfalls",
+        "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_e0e4c24d-d2e5-4c5c-8e2e-66eef3fd779f"
+      }
+    ],
+    "建议追问": [
+      "如何配置 GPU 内存限制？",
+      "Docker 镜像的最小化步骤是什么？",
+      "在云环境中需要哪些 reverse proxy 设置？",
+      "如何在不使用 GPU 的情况下运行？",
+      "支持的模型格式有哪些？",
+      "如何导出模型到 Hugging Face？"
+    ],
+    "已知坑": "GPU/内存不足、NVIDIA 驱动版本低、网络访问受限、磁盘空间不足、量化不匹配预训练模型、DeepSpeed 多 GPU 要求、OS 错误导致训练中断",
+    "成功标准": "Web UI 在 localhost:10101 可访问且无启动错误，make llmstudio 进程运行正常",
+    "研判摘要": "H2O LLM Studio 提供通过 pipenv、requirements.txt 或 Docker 安装的本地 LLM 微调 GUI，默认端口 10101，常见瓶颈为 GPU/内存不足及网络访问限制。",
+    "推荐启动": "make llmstudio",
+    "agentHint": "确认 GPU、Docker 环境后直接执行 make llmstudio 启动。",
+    "DeepWiki": "https://deepwiki.com/h2oai/h2o-llmstudio",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/h2oai-h2o-llmstudio.json"
   },
   {
     "产品": "BetterChatGPT",
@@ -5242,7 +5476,41 @@
     "备注": "ChatGPT Web UI；compose 或 yarn/npm 本地跑。具备 Web UI。★8381",
     "资产号": 89,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-10-31T03:06:20+08:00",
+    "启动指引": "本地安装：git clone https://github.com/ztjhz/BetterChatGPT.git → cd BetterChatGPT → yarn install → yarn dev; Docker部署：docker compose build → docker compose up -d; 默认端口 5173; 无需环境变量",
+    "开工前先看": [
+      {
+        "title": "BetterChatGPT 官方仓库",
+        "url": "https://github.com/ztjhz/BetterChatGPT"
+      },
+      {
+        "title": "BetterChatGPT 文档",
+        "url": "https://deepwiki.com/ztjhz/BetterChatGPT"
+      },
+      {
+        "title": "如何安装和启动 BetterChatGPT",
+        "url": "https://deepwiki.com/search/how-do-i-install-and-start-bet_179c7644-0dc2-48b4-988d-eb1bc80bf1c6"
+      }
+    ],
+    "建议追问": [
+      "如何配置自定义 API 端点？",
+      "需要 OpenAI API Key 才能启动？",
+      "如何查看应用日志？",
+      "端口 5173 是否是默认端口？",
+      "是否支持 Azure OpenAI 集成？"
+    ],
+    "已知坑": "未配置 API Key 会提示 'You haven't entered an API key.'；无效 API 端点返回 404/405 错误；模型未找到时需检查 GPT-4 API 访问权限；超出配额或被限流时需调整 API 端点或 Key。",
+    "成功标准": "应用在 http://localhost:5173/ 可访问，能够成功发送消息并收到响应，无错误提示。",
+    "研判摘要": "BetterChatGPT 支持 Docker、npm/yarn 等多种部署方式，默认 Web 端口为 5173，需配置 API Key 才能正常运行。",
+    "推荐启动": "docker compose up -d",
+    "agentHint": "注意配置 API Key 和端口 5173",
+    "DeepWiki": "https://deepwiki.com/ztjhz/BetterChatGPT",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/ztjhz-betterchatgpt.json"
   },
   {
     "产品": "lollms-webui",
