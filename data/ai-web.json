@@ -5532,7 +5532,48 @@
     "备注": "★4789 · 最近 push 2026-09 · LoLLMs local multi-model WebUI",
     "资产号": 99,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-01T02:08:12+08:00",
+    "启动指引": "最短启动路径：使用Docker命令 `docker run -d -p 9600:9600 --name lollms-webui-container lollms-webui-app`，默认端口9600。环境变量需在 `local_config.yaml` 中配置，如 `host: 0.0.0.0` 开启远程访问，`force_accept_remote_access: true` 强制接受远程连接，`headless_server_mode: true` 用于API-only模式。鉴权要点：系统无内置用户认证，Socket.IO连接时使用 `client_id` 鉴权，远程访问建议配合安全隧道（如SSH隧道或Tailscale）。",
+    "开工前先看": [
+      {
+        "title": "安装和设置指南",
+        "url": "https://deepwiki.com/ParisNeo/lollms-webui/wiki/ParisNeo/lollms-webui#3"
+      },
+      {
+        "title": "Docker部署指南",
+        "url": "https://deepwiki.com/ParisNeo/lollms-webui/wiki/ParisNeo/lollms-webui#3.1"
+      },
+      {
+        "title": "项目概述",
+        "url": "https://deepwiki.com/ParisNeo/lollms-webui/wiki/ParisNeo/lollms-webui#1"
+      },
+      {
+        "title": "API参考",
+        "url": "https://deepwiki.com/ParisNeo/lollms-webui/wiki/ParisNeo/lollms-webui#11"
+      },
+      {
+        "title": "GitHub仓库主页",
+        "url": "https://github.com/ParisNeo/lollms-webui"
+      }
+    ],
+    "建议追问": [
+      "如何配置Ollama绑定以使用本地模型？",
+      "Docker部署时如何挂载自定义配置文件或模型目录？",
+      "headless_server_mode下如何通过API调用生成文本？",
+      "是否支持多用户同时访问？如何实现基本的访问控制？",
+      "如何更新到最新版本？升级过程中需要注意什么？",
+      "代码执行功能在哪些场景下会被禁用？如何安全地启用它？"
+    ],
+    "研判摘要": "lollms-webui 是功能完整的本地多模型WebUI，支持Docker和源码部署，提供丰富的API和WebSocket接口。搭建难度中等，需注意安全配置和绑定安装，适合有本地模型推理需求的用户。",
+    "推荐启动": "docker run -d -p 9600:9600 --name lollms-webui-container lollms-webui-app",
+    "agentHint": "优先使用Docker部署简化流程，远程访问务必配置安全隧道，首次使用前先安装Ollama等绑定。",
+    "DeepWiki": "https://deepwiki.com/ParisNeo/lollms-webui",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/parisneo-lollms-webui.json"
   },
   {
     "产品": "TTS-WebUI",
@@ -5555,7 +5596,27 @@
     "备注": "★3274 · 最近 push 2026-09 · Multi-model TTS Gradio+React WebUI",
     "资产号": 101,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-01T02:10:45+08:00",
+    "启动指引": "推荐使用自动化脚本 start_tts_webui.sh（Windows 使用 start_tts_webui.bat），脚本会自动检测平台、搭建 Conda/Python 环境并安装依赖；或使用 Docker: docker pull ghcr.io/rsxdalv/tts-webui:main && docker compose up -d。Gradio 后端默认端口 7770，React 前端默认端口 3000，可通过环境变量 TTS_PORT 和 UI_PORT 修改。认证方式：在 config.json 的 gradio_interface_options 中设置 auth 为 \"username:password\"，或在 Gradio UI 的 Settings 标签中配置；环境变量 GRADIO_AUTH 也会被系统传递。",
+    "建议追问": [
+      "您的部署目标是本地开发还是生产环境？",
+      "是否需要启用 Gradio 认证？",
+      "使用的硬件平台是 CPU、CUDA 还是 ROCM？",
+      "是否计划使用 Docker 部署？",
+      "是否需要集成现有的 PostgreSQL 实例？"
+    ],
+    "已知坑": "依赖冲突（conda/python 包版本不兼容）、PyTorch 安装需根据硬件平台精选命令、前端构建失败常因 node 版本或网络原因、认证配置易被忽略导致无法访问、Docker 环境需 NVIDIA Container Toolkit 支持 CUDA、PostgreSQL 端口 7773 需要在网络策略中开放",
+    "成功标准": "Gradio 后端在 http://localhost:7770 可访问并返回 TTS 接口、React 前端在 http://localhost:3000 正常加载并能调用 API、控制台输出包含 'Gradio server is running...' 且无红色依赖警告、Docker 容器状态为 running 且端口映射正确、如设置了 auth 则弹出登录提示",
+    "研判摘要": "TTS-WebUI 是一个支持多模型 TTS 的 Gradio+React WebUI。近期活跃（2026-09 push），提供自动化安装脚本、Docker 部署和手动源码三种方式，默认端口 7770/3000，支持 Gradio 认证和环境变量自定义。",
+    "推荐启动": "docker compose up -d",
+    "agentHint": "部署前请确认硬件驱动与 PyTorch 兼容性，特别是 CUDA 版本与 PyTorch 2.6.0+cu124 的匹配。",
+    "DeepWiki": "https://deepwiki.com/rsxdalv/TTS-WebUI",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/rsxdalv-tts-webui.json"
   },
   {
     "产品": "AChat",
@@ -5577,7 +5638,37 @@
     "备注": "★3258 · 最近 push 2026-04 · Self-hosted AI chat platform (canary)",
     "资产号": 102,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "未知",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-01T02:11:03+08:00",
+    "启动指引": "请访问 AChat 的 GitHub 仓库（https://github.com/AprilNEA/AChat）查看最新的 README 或部署文档，获取具体的安装命令、默认端口和所需环境变量。仓库目前没有可用的在线文档索引。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/AprilNEA/AChat"
+      },
+      {
+        "title": "DeepWiki 文档",
+        "url": "https://deepwiki.com/AprilNEA/AChat"
+      }
+    ],
+    "建议追问": [
+      "AChat 的具体安装命令是什么（Docker、源码等）？",
+      "服务启动后默认监听哪些端口？",
+      "需要设置哪些环境变量或配置文件？",
+      "认证/令牌如何配置，是否有文档说明？",
+      "Web UI / API 端点是什么，是否需要反向代理？",
+      "常见部署坑有哪些，如何避免？"
+    ],
+    "已知坑": "仓库尚未在 DeepWiki 上建立索引，导致详细的安装指南和配置说明缺失。用户需要直接查阅 GitHub 仓库或本地代码。",
+    "成功标准": "服务能够正常启动，Web 界面可访问（如有），API 端点返回预期的响应。",
+    "研判摘要": "AChat 是一个自托管的 AI 聊天平台，但目前缺乏可用的官方文档索引，安装和配置信息需要从 GitHub 仓库中获取。",
+    "agentHint": "提示用户查阅 GitHub 仓库以获取安装和配置细节。",
+    "DeepWiki": "https://deepwiki.com/AprilNEA/AChat",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/aprilnea-achat.json"
   },
   {
     "产品": "DEEIX Chat",
@@ -5599,7 +5690,50 @@
     "备注": "★1509 · 最近 push 2026-09 · Enterprise multimodal chat workspace",
     "资产号": 107,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-01T02:13:10+08:00",
+    "启动指引": "Docker 部署为主：需准备 config.yaml 与环境变量（JWT_SECRET、DATA_ENCRYPTION_KEY、PUBLIC_API_BASE_URL、PUBLIC_WEB_BASE_URL、CORS_ALLOW_ORIGIN 等），生产环境必须 HTTPS。后端默认监听 8080 端口（/healthz、/readyz、/api/v1/*、/swagger/index.html），前端开发模式 3000 端口，生产建议由反向代理托管静态资源。首次启动日志会输出 bootstrap superadmin 临时密码，首次登录需修改用户名密码。可选依赖：Tika(9998)、Tesseract(8004)、Docling(8005)。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/DEEIX-AI/DEEIX-Chat"
+      },
+      {
+        "title": "DeepWiki 项目概览",
+        "url": "https://deepwiki.com/DEEIX-AI/DEEIX-Chat#1"
+      },
+      {
+        "title": "DeepWiki 配置与运行时设置",
+        "url": "https://deepwiki.com/DEEIX-AI/DEEIX-Chat#2.1"
+      },
+      {
+        "title": "DeepWiki 部署指南",
+        "url": "https://deepwiki.com/DEEIX-AI/DEEIX-Chat#1.1"
+      },
+      {
+        "title": "DeepWiki HTTP 传输层",
+        "url": "https://deepwiki.com/DEEIX-AI/DEEIX-Chat#2.2"
+      }
+    ],
+    "建议追问": [
+      "docker-compose.yml 文件在仓库哪个位置？",
+      "生产环境必须设置哪些环境变量？",
+      "如何配置反向代理的 CORS 与 Trusted Proxies？",
+      "数据库（PostgreSQL?）是否内置或需外部部署？",
+      "邮件/Turnstile 注册功能如何启用与配置？",
+      "可选 OCR 服务（Tika/Tesseract/Docling）是否必须？如何接入？"
+    ],
+    "已知坑": "生产环境下 JWT_SECRET、DATA_ENCRYPTION_KEY 不能为空或用默认值；CORS_ALLOW_ORIGIN 不能为空或 *；PUBLIC_API_BASE_URL 与 PUBLIC_WEB_BASE_URL 必须 HTTPS。开启 Turnstile 注册需同时配置 site_key 与 secret_key。关闭邮箱登录会同时禁用邮箱注册。首次启动临时密码仅在日志出现一次，需及时记录。",
+    "成功标准": "curl http://localhost:8080/healthz 返回健康；docker compose exec app ls -l /app/config.yaml 确认配置挂载；日志出现 bootstrap superadmin created 并获取一次性密码；可访问 Swagger UI（开发模式）与前端页面；反向代理下 OAuth 回调、Stripe Webhook 正常。",
+    "研判摘要": "DEEIX Chat 为企业级多模态聊天工作空间，Go 后端 + Next.js 前端，支持 Docker/源码部署，依赖 JWT 认证、配置文件与环境变量双轨制，生产需反向代理与 HTTPS，含可选文档/OCR 微服务。",
+    "推荐启动": "docker compose up -d",
+    "agentHint": "重点核对生产环境必填环境变量与反向代理公网 URL 配置，首次启动务必捕获超管临时密码。",
+    "DeepWiki": "https://deepwiki.com/DEEIX-AI/DEEIX-Chat",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/deeix-ai-deeix-chat.json"
   },
   {
     "产品": "FastSD CPU",
@@ -5622,7 +5756,49 @@
     "备注": "★2158 · 最近 push 2026-07 · FastSD CPU WebUI + GUI/CLI",
     "资产号": 105,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-01T02:14:15+08:00",
+    "启动指引": "克隆仓库后安装uv，运行平台安装脚本（如Linux下./install.sh），再通过./start-webui.sh启动Web UI（默认端口7860）或./start.sh启动GUI。API服务使用python src/app.py --api（默认端口8000）。环境变量DEVICE可设为cpu/gpu/npu（默认cpu），GGUF_THREADS控制线程数。无需鉴权，本地直连。",
+    "开工前先看": [
+      {
+        "title": "GitHub仓库",
+        "url": "https://github.com/rupeshs/fastsdcpu"
+      },
+      {
+        "title": "DeepWiki概述",
+        "url": "https://deepwiki.com/rupeshs/fastsdcpu#1"
+      },
+      {
+        "title": "安装指南",
+        "url": "https://deepwiki.com/rupeshs/fastsdcpu#1.1"
+      },
+      {
+        "title": "Web UI说明",
+        "url": "https://deepwiki.com/rupeshs/fastsdcpu#3.2"
+      },
+      {
+        "title": "API与MCP服务器",
+        "url": "https://deepwiki.com/rupeshs/fastsdcpu#3.4"
+      }
+    ],
+    "建议追问": [
+      "当前系统是否已安装Python 3.8以上和uv？",
+      "是否需要启用GPU或NPU加速？",
+      "是否计划使用ControlNet功能？",
+      "模型文件是否已下载到指定目录？",
+      "是否需要配置反向代理或远程访问？"
+    ],
+    "已知坑": "Python版本需3.8+（推荐3.11.6），uv必须提前安装；ControlNet模型需手动从Hugging Face下载至controlnet_models目录；macOS M1/M2/M3芯片不支持OpenVINO，需用DEVICE=mps尝试提速；安装脚本会创建虚拟环境，首次运行较慢。",
+    "成功标准": "运行启动脚本后无报错，浏览器可访问http://localhost:7860看到Gradio界面，或http://localhost:8000/api/docs看到API文档，且能成功生成测试图片。",
+    "研判摘要": "FastSD CPU提供脚本化安装与多模式启动（GUI/WebUI/API），无需复杂配置即可在本地CPU运行稳定扩散，适合快速体验与集成。",
+    "推荐启动": "git clone https://github.com/rupeshs/fastsdcpu.git && cd fastsdcpu && chmod +x install.sh && ./install.sh && ./start-webui.sh",
+    "agentHint": "克隆仓库后依次运行安装与启动脚本，首次需确保Python和uv环境就绪。",
+    "DeepWiki": "https://deepwiki.com/rupeshs/fastsdcpu",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/rupeshs-fastsdcpu.json"
   },
   {
     "产品": "Whisper-WebUI",
@@ -5644,7 +5820,54 @@
     "备注": "★2885 · 最近 push 2025-12 · Gradio Whisper subtitle UI :7860",
     "资产号": 103,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-01T02:16:15+08:00",
+    "启动指引": "克隆仓库后，本地运行 start-webui.sh（Linux/macOS）或 start-webui.bat（Windows），或在仓库目录执行 docker compose up。WebUI 默认端口 7860，REST API 默认端口 8000。可通过 --server_port/--server_name 调整端口与绑定地址；使用 --username/--password 启用 Gradio 基础鉴权；说话人分离需设置 HF_TOKEN 环境变量并事先在 Hugging Face 同意 pyannote 模型协议。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库主页",
+        "url": "https://github.com/jhj0517/Whisper-WebUI"
+      },
+      {
+        "title": "DeepWiki 项目文档",
+        "url": "https://deepwiki.com/jhj0517/Whisper-WebUI"
+      },
+      {
+        "title": "安装与部署说明",
+        "url": "https://github.com/jhj0517/Whisper-WebUI/wiki"
+      },
+      {
+        "title": "启动与常见坑（DeepWiki）",
+        "url": "https://deepwiki.com/search/how-do-i-install-and-start-whi_67c8d616-1f53-4f9f-a8d3-9cf3643d6bb2"
+      },
+      {
+        "title": "身份认证与验证（DeepWiki）",
+        "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_1128f9f7-64d8-403a-8d0d-dc5cc2e838b9"
+      },
+      {
+        "title": "端点与反向代理（DeepWiki）",
+        "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_7f44403e-caf2-4d90-a5a1-4e4e5abefd60"
+      }
+    ],
+    "建议追问": [
+      "是否需要 GPU 加速？使用的 CUDA 版本是多少？",
+      "是否需要启用说话人分离（diarization）？如需要，是否已准备好 Hugging Face Token？",
+      "是否需要通过 Nginx 反向代理或配置子路径（--root_path）？",
+      "是否需要启用 Gradio 基础认证（--username/--password）？",
+      "是选择 Docker 部署还是本地源码启动？",
+      "是否需要对接独立的 FastAPI 后端（默认端口 8000）？"
+    ],
+    "已知坑": "requirements.txt 默认面向 NVIDIA CUDA 12.6，非 NVIDIA 或其他 CUDA 版本需修改 --extra-index-url；必须将 FFmpeg/bin 加入系统 PATH；说话人分离依赖 pyannote 模型，需 HF_TOKEN 且事先在 Hugging Face 同意相关模型协议，否则会提示无法分离；Docker 镜像体积约 7GB，构建较慢。",
+    "成功标准": "启动后浏览器可打开 http://localhost:7860 并看到 Gradio 页面；控制台输出服务启动地址与所选 Whisper 实现/设备信息；如启用后端，访问 http://localhost:8000/docs 可看到 Swagger 文档。",
+    "研判摘要": "Whisper-WebUI 提供 Gradio 页面与独立 FastAPI 后端，支持 Docker 和源码两种部署，默认端口 7860，需注意 CUDA、FFmpeg 与 Hugging Face Token 配置。",
+    "推荐启动": "docker compose up",
+    "agentHint": "优先确认部署方式与 GPU/CUDA 环境，再按 Docker 或脚本启动并校验 7860 端口。",
+    "DeepWiki": "https://deepwiki.com/jhj0517/Whisper-WebUI",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/jhj0517-whisper-webui.json"
   },
   {
     "产品": "search_with_lepton",
@@ -5666,7 +5889,38 @@
     "备注": "对话式搜索演示 UI；偏 Lepton 云但可自建前端。具备 Web UI。★8059",
     "资产号": 90,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-01T02:17:24+08:00",
+    "启动指引": "最短启动命令：`cd search_with_lepton && python search_with_lepton.py`。端口未知（Photon 服务端口未明确指定）。需设置环境变量：LEPTON_WORKSPACE_TOKEN（从 Lepton AI 仪表板获取）、BACKEND（可选值：LEPTON、BING、GOOGLE、SERPER、SEARCHAPI）、LLM_MODEL（如 mixtral-8x7b）、KV_NAME（默认 search-with-lepton）、RELATED_QUESTIONS（true/false）、LEPTON_ENABLE_AUTH_BY_COOKIE（true/false）。如选择 Bing/Google 等搜索引擎，还需提供对应 API 密钥（BING_SEARCH_V7_SUBSCRIPTION_KEY、SEARCHAPI_API_KEY、SERPER_SEARCH_API_KEY、GOOGLE_SEARCH_API_KEY、GOOGLE_SEARCH_CX）。首次使用需执行 `lep login` 获取令牌。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/leptonai/search_with_lepton"
+      },
+      {
+        "title": "DeepWiki 文档",
+        "url": "https://deepwiki.com/leptonai/search_with_lepton"
+      }
+    ],
+    "建议追问": [
+      "如何配置特定搜索引擎（如 Bing、Google）的 API 密钥？",
+      "启动后如何验证服务是否正常运行？",
+      "前端 UI 是否需要额外端口或反向代理配置？",
+      "是否有 Docker 镜像可直接部署？",
+      "KV 缓存的默认名称能否修改？",
+      "相关问题功能如何开启和自定义？"
+    ],
+    "已知坑": "未设置必要的搜索引擎 API 密钥或 Lepton 工作空间令牌；BACKEND 值错误或缺少 GOOGLE_SEARCH_CX；网络连接超时导致搜索失败；LLM 模型不可用；前端静态文件未构建或端口冲突。",
+    "成功标准": "确认服务已启动并监听默认端口（端口未知），访问 /ui/ 可加载前端页面，发送查询请求至 /query 端点获取结果，并查看日志中是否存在 \"RAG service started\" 等启动信息。",
+    "研判摘要": "这是一个结合 Lepton AI 后端 RAG 服务与 Next.js 前端的可对话式搜索演示项目，支持多种搜索引擎和 LLM 模型，通过 Web UI 提供搜索与问答功能。",
+    "推荐启动": "cd search_with_lepton && python search_with_lepton.py",
+    "agentHint": "先执行 `lep login` 获取工作空间令牌，并根据选定的搜索引擎设置相应的 API 密钥环境变量。",
+    "DeepWiki": "https://deepwiki.com/leptonai/search_with_lepton",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/leptonai-search_with_lepton.json"
   },
   {
     "产品": "biniou",
@@ -5688,7 +5942,61 @@
     "备注": "★1150 · 最近 push 2026-09 · Self-hosted webui for 30+ genAI",
     "资产号": 108,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-01T02:18:27+08:00",
+    "启动指引": "最简启动方式为使用预构建的 Docker 镜像：docker run -it --restart=always -p 7860:7860 -v biniou_outputs:/home/biniou/biniou/outputs -v biniou_models:/home/biniou/biniou/models -v biniou_cache:/home/biniou/.cache/huggingface -v biniou_gfpgan:/home/biniou/biniou/gfpgan ghcr.io/woolverine94/biniou:main。服务将监听 7860 端口，自动设置环境变量 HF_HUB_DISABLE_XET=1 和 AUDIOCRAFT_CACHE_DIR='./models/Audiocraft/'。认证可选，通过 Web UI 中的控制模块启用 global auth，默认账号密码为 biniou:biniou（存储于 .ini/auth.cfg）。",
+    "开工前先看": [
+      {
+        "title": "项目总览",
+        "url": "https://github.com/Woolverine94/biniou/wiki/Overview"
+      },
+      {
+        "title": "首次运行与基本使用",
+        "url": "https://github.com/Woolverine94/biniou/wiki/First-Run-and-Basic-Usage"
+      },
+      {
+        "title": "硬件要求",
+        "url": "https://github.com/Woolverine94/biniou/wiki/Hardware-Requirements"
+      },
+      {
+        "title": "DeepWiki 文档",
+        "url": "https://deepwiki.com/Woolverine94/biniou"
+      },
+      {
+        "title": "Docker 镜像构建指南",
+        "url": "https://github.com/Woolverine94/biniou/blob/main/CUDA/Dockerfile"
+      },
+      {
+        "title": "Windows 安装脚本",
+        "url": "https://github.com/Woolverine94/biniou/blob/main/install_win.cmd"
+      },
+      {
+        "title": "One-Click 安装脚本 (Debian)",
+        "url": "https://raw.githubusercontent.com/Woolverine94/biniou/main/oci-debian.sh"
+      },
+      {
+        "title": "常见问题与故障排除",
+        "url": "https://github.com/Woolverine94/biniou/wiki/Common-Pitfalls"
+      }
+    ],
+    "建议追问": [
+      "系统内存是否至少 16 GB？否则可能 OOM。",
+      "是否有至少 200 GB 可用磁盘空间以存放默认模型？",
+      "是否需要 GPU 加速？是否有 CUDA Docker 镜像？",
+      "是否需要启用全局认证？如何修改默认的 biniou:biniou 账号？",
+      "端口 7860 是否被其他服务占用？如何更改 biniou 的监听端口？"
+    ],
+    "已知坑": "内存不足易导致 OOM（建议 ≥16 GB），模型存储占用大（约 200 GB），CPU 仅运行较慢，认证需通过 Web UI 启用且默认密码存储在 .ini/auth.cfg 中。",
+    "成功标准": "启动后检查控制台日志确认 Gradio 服务器正在 7860 端口运行，浏览器访问 http://127.0.0.1:7860（或主机 IP）可正常加载 Web UI，如果启用了认证则需使用 biniou:biniou 登录。",
+    "研判摘要": "biniou 是一个支持 30+ 款生成式 AI 模型的自托管 Web 界面，提供 Docker、源码及一键脚本安装方式，推荐使用 CPU 环境并预留充足内存与磁盘空间。",
+    "推荐启动": "docker run -it --restart=always -p 7860:7860 -v biniou_outputs:/home/biniou/biniou/outputs -v biniou_models:/home/biniou/biniou/models -v biniou_cache:/home/biniou/.cache/huggingface -v biniou_gfpgan:/home/biniou/biniou/gfpgan ghcr.io/woolverine94/biniou:main",
+    "agentHint": "重点关注内存/磁盘空间限制，确认端口 7860 空闲，挂载数据卷以持久化输出和模型，验证认证状态。",
+    "DeepWiki": "https://deepwiki.com/Woolverine94/biniou",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/woolverine94-biniou.json"
   },
   {
     "产品": "FunClip",

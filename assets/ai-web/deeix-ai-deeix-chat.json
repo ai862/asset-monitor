@@ -1,0 +1,66 @@
+{
+  "产品": "DEEIX Chat",
+  "厂商": "DEEIX-AI",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "TypeScript",
+  "Stars": 1509,
+  "GitHub": "https://github.com/DEEIX-AI/DEEIX-Chat",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "Docker / 源码",
+  "去重键": "deeix-ai-deeix-chat",
+  "备注": "★1509 · 最近 push 2026-09 · Enterprise multimodal chat workspace",
+  "资产号": 107,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-11-01T02:13:10+08:00",
+  "启动指引": "Docker 部署为主：需准备 config.yaml 与环境变量（JWT_SECRET、DATA_ENCRYPTION_KEY、PUBLIC_API_BASE_URL、PUBLIC_WEB_BASE_URL、CORS_ALLOW_ORIGIN 等），生产环境必须 HTTPS。后端默认监听 8080 端口（/healthz、/readyz、/api/v1/*、/swagger/index.html），前端开发模式 3000 端口，生产建议由反向代理托管静态资源。首次启动日志会输出 bootstrap superadmin 临时密码，首次登录需修改用户名密码。可选依赖：Tika(9998)、Tesseract(8004)、Docling(8005)。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/DEEIX-AI/DEEIX-Chat"
+    },
+    {
+      "title": "DeepWiki 项目概览",
+      "url": "https://deepwiki.com/DEEIX-AI/DEEIX-Chat#1"
+    },
+    {
+      "title": "DeepWiki 配置与运行时设置",
+      "url": "https://deepwiki.com/DEEIX-AI/DEEIX-Chat#2.1"
+    },
+    {
+      "title": "DeepWiki 部署指南",
+      "url": "https://deepwiki.com/DEEIX-AI/DEEIX-Chat#1.1"
+    },
+    {
+      "title": "DeepWiki HTTP 传输层",
+      "url": "https://deepwiki.com/DEEIX-AI/DEEIX-Chat#2.2"
+    }
+  ],
+  "建议追问": [
+    "docker-compose.yml 文件在仓库哪个位置？",
+    "生产环境必须设置哪些环境变量？",
+    "如何配置反向代理的 CORS 与 Trusted Proxies？",
+    "数据库（PostgreSQL?）是否内置或需外部部署？",
+    "邮件/Turnstile 注册功能如何启用与配置？",
+    "可选 OCR 服务（Tika/Tesseract/Docling）是否必须？如何接入？"
+  ],
+  "已知坑": "生产环境下 JWT_SECRET、DATA_ENCRYPTION_KEY 不能为空或用默认值；CORS_ALLOW_ORIGIN 不能为空或 *；PUBLIC_API_BASE_URL 与 PUBLIC_WEB_BASE_URL 必须 HTTPS。开启 Turnstile 注册需同时配置 site_key 与 secret_key。关闭邮箱登录会同时禁用邮箱注册。首次启动临时密码仅在日志出现一次，需及时记录。",
+  "成功标准": "curl http://localhost:8080/healthz 返回健康；docker compose exec app ls -l /app/config.yaml 确认配置挂载；日志出现 bootstrap superadmin created 并获取一次性密码；可访问 Swagger UI（开发模式）与前端页面；反向代理下 OAuth 回调、Stripe Webhook 正常。",
+  "研判摘要": "DEEIX Chat 为企业级多模态聊天工作空间，Go 后端 + Next.js 前端，支持 Docker/源码部署，依赖 JWT 认证、配置文件与环境变量双轨制，生产需反向代理与 HTTPS，含可选文档/OCR 微服务。",
+  "推荐启动": "docker compose up -d",
+  "agentHint": "重点核对生产环境必填环境变量与反向代理公网 URL 配置，首次启动务必捕获超管临时密码。",
+  "DeepWiki": "https://deepwiki.com/DEEIX-AI/DEEIX-Chat",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/deeix-ai-deeix-chat.json",
+  "source": "ai-web"
+}

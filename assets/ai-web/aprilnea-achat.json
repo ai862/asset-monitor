@@ -1,0 +1,53 @@
+{
+  "产品": "AChat",
+  "厂商": "AprilNEA",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "TypeScript",
+  "Stars": 3258,
+  "GitHub": "https://github.com/AprilNEA/AChat",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "Docker / 文档部署",
+  "去重键": "aprilnea-achat",
+  "备注": "★3258 · 最近 push 2026-04 · Self-hosted AI chat platform (canary)",
+  "资产号": 102,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "未知",
+  "研判状态": "已研判",
+  "研判时间": "2026-11-01T02:11:03+08:00",
+  "启动指引": "请访问 AChat 的 GitHub 仓库（https://github.com/AprilNEA/AChat）查看最新的 README 或部署文档，获取具体的安装命令、默认端口和所需环境变量。仓库目前没有可用的在线文档索引。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/AprilNEA/AChat"
+    },
+    {
+      "title": "DeepWiki 文档",
+      "url": "https://deepwiki.com/AprilNEA/AChat"
+    }
+  ],
+  "建议追问": [
+    "AChat 的具体安装命令是什么（Docker、源码等）？",
+    "服务启动后默认监听哪些端口？",
+    "需要设置哪些环境变量或配置文件？",
+    "认证/令牌如何配置，是否有文档说明？",
+    "Web UI / API 端点是什么，是否需要反向代理？",
+    "常见部署坑有哪些，如何避免？"
+  ],
+  "已知坑": "仓库尚未在 DeepWiki 上建立索引，导致详细的安装指南和配置说明缺失。用户需要直接查阅 GitHub 仓库或本地代码。",
+  "成功标准": "服务能够正常启动，Web 界面可访问（如有），API 端点返回预期的响应。",
+  "研判摘要": "AChat 是一个自托管的 AI 聊天平台，但目前缺乏可用的官方文档索引，安装和配置信息需要从 GitHub 仓库中获取。",
+  "agentHint": "提示用户查阅 GitHub 仓库以获取安装和配置细节。",
+  "DeepWiki": "https://deepwiki.com/AprilNEA/AChat",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/aprilnea-achat.json",
+  "source": "ai-web"
+}

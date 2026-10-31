@@ -1,0 +1,54 @@
+{
+  "产品": "search_with_lepton",
+  "厂商": "leptonai",
+  "状态": "可下",
+  "类型": "搜索",
+  "语言": "TypeScript",
+  "Stars": 8059,
+  "GitHub": "https://github.com/leptonai/search_with_lepton",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "npm"
+  ],
+  "下载条件": "GitHub clone / npm build",
+  "去重键": "leptonai-search_with_lepton",
+  "备注": "对话式搜索演示 UI；偏 Lepton 云但可自建前端。具备 Web UI。★8059",
+  "资产号": 90,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-11-01T02:17:24+08:00",
+  "启动指引": "最短启动命令：`cd search_with_lepton && python search_with_lepton.py`。端口未知（Photon 服务端口未明确指定）。需设置环境变量：LEPTON_WORKSPACE_TOKEN（从 Lepton AI 仪表板获取）、BACKEND（可选值：LEPTON、BING、GOOGLE、SERPER、SEARCHAPI）、LLM_MODEL（如 mixtral-8x7b）、KV_NAME（默认 search-with-lepton）、RELATED_QUESTIONS（true/false）、LEPTON_ENABLE_AUTH_BY_COOKIE（true/false）。如选择 Bing/Google 等搜索引擎，还需提供对应 API 密钥（BING_SEARCH_V7_SUBSCRIPTION_KEY、SEARCHAPI_API_KEY、SERPER_SEARCH_API_KEY、GOOGLE_SEARCH_API_KEY、GOOGLE_SEARCH_CX）。首次使用需执行 `lep login` 获取令牌。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/leptonai/search_with_lepton"
+    },
+    {
+      "title": "DeepWiki 文档",
+      "url": "https://deepwiki.com/leptonai/search_with_lepton"
+    }
+  ],
+  "建议追问": [
+    "如何配置特定搜索引擎（如 Bing、Google）的 API 密钥？",
+    "启动后如何验证服务是否正常运行？",
+    "前端 UI 是否需要额外端口或反向代理配置？",
+    "是否有 Docker 镜像可直接部署？",
+    "KV 缓存的默认名称能否修改？",
+    "相关问题功能如何开启和自定义？"
+  ],
+  "已知坑": "未设置必要的搜索引擎 API 密钥或 Lepton 工作空间令牌；BACKEND 值错误或缺少 GOOGLE_SEARCH_CX；网络连接超时导致搜索失败；LLM 模型不可用；前端静态文件未构建或端口冲突。",
+  "成功标准": "确认服务已启动并监听默认端口（端口未知），访问 /ui/ 可加载前端页面，发送查询请求至 /query 端点获取结果，并查看日志中是否存在 \"RAG service started\" 等启动信息。",
+  "研判摘要": "这是一个结合 Lepton AI 后端 RAG 服务与 Next.js 前端的可对话式搜索演示项目，支持多种搜索引擎和 LLM 模型，通过 Web UI 提供搜索与问答功能。",
+  "推荐启动": "cd search_with_lepton && python search_with_lepton.py",
+  "agentHint": "先执行 `lep login` 获取工作空间令牌，并根据选定的搜索引擎设置相应的 API 密钥环境变量。",
+  "DeepWiki": "https://deepwiki.com/leptonai/search_with_lepton",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/leptonai-search_with_lepton.json",
+  "source": "ai-web"
+}

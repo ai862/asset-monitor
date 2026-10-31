@@ -1,0 +1,70 @@
+{
+  "产品": "Whisper-WebUI",
+  "厂商": "jhj0517",
+  "状态": "可下",
+  "类型": "其它",
+  "语言": "Python",
+  "Stars": 2885,
+  "GitHub": "https://github.com/jhj0517/Whisper-WebUI",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "Docker / 源码",
+  "去重键": "jhj0517-whisper-webui",
+  "备注": "★2885 · 最近 push 2025-12 · Gradio Whisper subtitle UI :7860",
+  "资产号": 103,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-11-01T02:16:15+08:00",
+  "启动指引": "克隆仓库后，本地运行 start-webui.sh（Linux/macOS）或 start-webui.bat（Windows），或在仓库目录执行 docker compose up。WebUI 默认端口 7860，REST API 默认端口 8000。可通过 --server_port/--server_name 调整端口与绑定地址；使用 --username/--password 启用 Gradio 基础鉴权；说话人分离需设置 HF_TOKEN 环境变量并事先在 Hugging Face 同意 pyannote 模型协议。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库主页",
+      "url": "https://github.com/jhj0517/Whisper-WebUI"
+    },
+    {
+      "title": "DeepWiki 项目文档",
+      "url": "https://deepwiki.com/jhj0517/Whisper-WebUI"
+    },
+    {
+      "title": "安装与部署说明",
+      "url": "https://github.com/jhj0517/Whisper-WebUI/wiki"
+    },
+    {
+      "title": "启动与常见坑（DeepWiki）",
+      "url": "https://deepwiki.com/search/how-do-i-install-and-start-whi_67c8d616-1f53-4f9f-a8d3-9cf3643d6bb2"
+    },
+    {
+      "title": "身份认证与验证（DeepWiki）",
+      "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_1128f9f7-64d8-403a-8d0d-dc5cc2e838b9"
+    },
+    {
+      "title": "端点与反向代理（DeepWiki）",
+      "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_7f44403e-caf2-4d90-a5a1-4e4e5abefd60"
+    }
+  ],
+  "建议追问": [
+    "是否需要 GPU 加速？使用的 CUDA 版本是多少？",
+    "是否需要启用说话人分离（diarization）？如需要，是否已准备好 Hugging Face Token？",
+    "是否需要通过 Nginx 反向代理或配置子路径（--root_path）？",
+    "是否需要启用 Gradio 基础认证（--username/--password）？",
+    "是选择 Docker 部署还是本地源码启动？",
+    "是否需要对接独立的 FastAPI 后端（默认端口 8000）？"
+  ],
+  "已知坑": "requirements.txt 默认面向 NVIDIA CUDA 12.6，非 NVIDIA 或其他 CUDA 版本需修改 --extra-index-url；必须将 FFmpeg/bin 加入系统 PATH；说话人分离依赖 pyannote 模型，需 HF_TOKEN 且事先在 Hugging Face 同意相关模型协议，否则会提示无法分离；Docker 镜像体积约 7GB，构建较慢。",
+  "成功标准": "启动后浏览器可打开 http://localhost:7860 并看到 Gradio 页面；控制台输出服务启动地址与所选 Whisper 实现/设备信息；如启用后端，访问 http://localhost:8000/docs 可看到 Swagger 文档。",
+  "研判摘要": "Whisper-WebUI 提供 Gradio 页面与独立 FastAPI 后端，支持 Docker 和源码两种部署，默认端口 7860，需注意 CUDA、FFmpeg 与 Hugging Face Token 配置。",
+  "推荐启动": "docker compose up",
+  "agentHint": "优先确认部署方式与 GPU/CUDA 环境，再按 Docker 或脚本启动并校验 7860 端口。",
+  "DeepWiki": "https://deepwiki.com/jhj0517/Whisper-WebUI",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/jhj0517-whisper-webui.json",
+  "source": "ai-web"
+}

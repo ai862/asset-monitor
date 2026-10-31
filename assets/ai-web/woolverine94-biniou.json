@@ -1,0 +1,77 @@
+{
+  "产品": "biniou",
+  "厂商": "Woolverine94",
+  "状态": "可下",
+  "类型": "图像",
+  "语言": "Python",
+  "Stars": 1150,
+  "GitHub": "https://github.com/Woolverine94/biniou",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "Docker / 源码",
+  "去重键": "woolverine94-biniou",
+  "备注": "★1150 · 最近 push 2026-09 · Self-hosted webui for 30+ genAI",
+  "资产号": 108,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-11-01T02:18:27+08:00",
+  "启动指引": "最简启动方式为使用预构建的 Docker 镜像：docker run -it --restart=always -p 7860:7860 -v biniou_outputs:/home/biniou/biniou/outputs -v biniou_models:/home/biniou/biniou/models -v biniou_cache:/home/biniou/.cache/huggingface -v biniou_gfpgan:/home/biniou/biniou/gfpgan ghcr.io/woolverine94/biniou:main。服务将监听 7860 端口，自动设置环境变量 HF_HUB_DISABLE_XET=1 和 AUDIOCRAFT_CACHE_DIR='./models/Audiocraft/'。认证可选，通过 Web UI 中的控制模块启用 global auth，默认账号密码为 biniou:biniou（存储于 .ini/auth.cfg）。",
+  "开工前先看": [
+    {
+      "title": "项目总览",
+      "url": "https://github.com/Woolverine94/biniou/wiki/Overview"
+    },
+    {
+      "title": "首次运行与基本使用",
+      "url": "https://github.com/Woolverine94/biniou/wiki/First-Run-and-Basic-Usage"
+    },
+    {
+      "title": "硬件要求",
+      "url": "https://github.com/Woolverine94/biniou/wiki/Hardware-Requirements"
+    },
+    {
+      "title": "DeepWiki 文档",
+      "url": "https://deepwiki.com/Woolverine94/biniou"
+    },
+    {
+      "title": "Docker 镜像构建指南",
+      "url": "https://github.com/Woolverine94/biniou/blob/main/CUDA/Dockerfile"
+    },
+    {
+      "title": "Windows 安装脚本",
+      "url": "https://github.com/Woolverine94/biniou/blob/main/install_win.cmd"
+    },
+    {
+      "title": "One-Click 安装脚本 (Debian)",
+      "url": "https://raw.githubusercontent.com/Woolverine94/biniou/main/oci-debian.sh"
+    },
+    {
+      "title": "常见问题与故障排除",
+      "url": "https://github.com/Woolverine94/biniou/wiki/Common-Pitfalls"
+    }
+  ],
+  "建议追问": [
+    "系统内存是否至少 16 GB？否则可能 OOM。",
+    "是否有至少 200 GB 可用磁盘空间以存放默认模型？",
+    "是否需要 GPU 加速？是否有 CUDA Docker 镜像？",
+    "是否需要启用全局认证？如何修改默认的 biniou:biniou 账号？",
+    "端口 7860 是否被其他服务占用？如何更改 biniou 的监听端口？"
+  ],
+  "已知坑": "内存不足易导致 OOM（建议 ≥16 GB），模型存储占用大（约 200 GB），CPU 仅运行较慢，认证需通过 Web UI 启用且默认密码存储在 .ini/auth.cfg 中。",
+  "成功标准": "启动后检查控制台日志确认 Gradio 服务器正在 7860 端口运行，浏览器访问 http://127.0.0.1:7860（或主机 IP）可正常加载 Web UI，如果启用了认证则需使用 biniou:biniou 登录。",
+  "研判摘要": "biniou 是一个支持 30+ 款生成式 AI 模型的自托管 Web 界面，提供 Docker、源码及一键脚本安装方式，推荐使用 CPU 环境并预留充足内存与磁盘空间。",
+  "推荐启动": "docker run -it --restart=always -p 7860:7860 -v biniou_outputs:/home/biniou/biniou/outputs -v biniou_models:/home/biniou/biniou/models -v biniou_cache:/home/biniou/.cache/huggingface -v biniou_gfpgan:/home/biniou/biniou/gfpgan ghcr.io/woolverine94/biniou:main",
+  "agentHint": "重点关注内存/磁盘空间限制，确认端口 7860 空闲，挂载数据卷以持久化输出和模型，验证认证状态。",
+  "DeepWiki": "https://deepwiki.com/Woolverine94/biniou",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/woolverine94-biniou.json",
+  "source": "ai-web"
+}

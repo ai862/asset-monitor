@@ -1,0 +1,64 @@
+{
+  "产品": "lollms-webui",
+  "厂商": "ParisNeo",
+  "状态": "可下",
+  "类型": "聊天UI",
+  "语言": "Python",
+  "Stars": 4789,
+  "GitHub": "https://github.com/ParisNeo/lollms-webui",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "Docker"
+  ],
+  "下载条件": "Docker / 源码",
+  "去重键": "parisneo-lollms-webui",
+  "备注": "★4789 · 最近 push 2026-09 · LoLLMs local multi-model WebUI",
+  "资产号": 99,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-11-01T02:08:12+08:00",
+  "启动指引": "最短启动路径：使用Docker命令 `docker run -d -p 9600:9600 --name lollms-webui-container lollms-webui-app`，默认端口9600。环境变量需在 `local_config.yaml` 中配置，如 `host: 0.0.0.0` 开启远程访问，`force_accept_remote_access: true` 强制接受远程连接，`headless_server_mode: true` 用于API-only模式。鉴权要点：系统无内置用户认证，Socket.IO连接时使用 `client_id` 鉴权，远程访问建议配合安全隧道（如SSH隧道或Tailscale）。",
+  "开工前先看": [
+    {
+      "title": "安装和设置指南",
+      "url": "https://deepwiki.com/ParisNeo/lollms-webui/wiki/ParisNeo/lollms-webui#3"
+    },
+    {
+      "title": "Docker部署指南",
+      "url": "https://deepwiki.com/ParisNeo/lollms-webui/wiki/ParisNeo/lollms-webui#3.1"
+    },
+    {
+      "title": "项目概述",
+      "url": "https://deepwiki.com/ParisNeo/lollms-webui/wiki/ParisNeo/lollms-webui#1"
+    },
+    {
+      "title": "API参考",
+      "url": "https://deepwiki.com/ParisNeo/lollms-webui/wiki/ParisNeo/lollms-webui#11"
+    },
+    {
+      "title": "GitHub仓库主页",
+      "url": "https://github.com/ParisNeo/lollms-webui"
+    }
+  ],
+  "建议追问": [
+    "如何配置Ollama绑定以使用本地模型？",
+    "Docker部署时如何挂载自定义配置文件或模型目录？",
+    "headless_server_mode下如何通过API调用生成文本？",
+    "是否支持多用户同时访问？如何实现基本的访问控制？",
+    "如何更新到最新版本？升级过程中需要注意什么？",
+    "代码执行功能在哪些场景下会被禁用？如何安全地启用它？"
+  ],
+  "研判摘要": "lollms-webui 是功能完整的本地多模型WebUI，支持Docker和源码部署，提供丰富的API和WebSocket接口。搭建难度中等，需注意安全配置和绑定安装，适合有本地模型推理需求的用户。",
+  "推荐启动": "docker run -d -p 9600:9600 --name lollms-webui-container lollms-webui-app",
+  "agentHint": "优先使用Docker部署简化流程，远程访问务必配置安全隧道，首次使用前先安装Ollama等绑定。",
+  "DeepWiki": "https://deepwiki.com/ParisNeo/lollms-webui",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/parisneo-lollms-webui.json",
+  "source": "ai-web"
+}

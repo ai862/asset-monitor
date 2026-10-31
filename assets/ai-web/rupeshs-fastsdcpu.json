@@ -1,0 +1,66 @@
+{
+  "产品": "FastSD CPU",
+  "厂商": "rupeshs",
+  "状态": "可下",
+  "类型": "图像",
+  "语言": "Python",
+  "Stars": 2158,
+  "GitHub": "https://github.com/rupeshs/fastsdcpu",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "pip",
+    "Docker"
+  ],
+  "下载条件": "源码 / pip / Docker",
+  "去重键": "rupeshs-fastsdcpu",
+  "备注": "★2158 · 最近 push 2026-07 · FastSD CPU WebUI + GUI/CLI",
+  "资产号": 105,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-11-01T02:14:15+08:00",
+  "启动指引": "克隆仓库后安装uv，运行平台安装脚本（如Linux下./install.sh），再通过./start-webui.sh启动Web UI（默认端口7860）或./start.sh启动GUI。API服务使用python src/app.py --api（默认端口8000）。环境变量DEVICE可设为cpu/gpu/npu（默认cpu），GGUF_THREADS控制线程数。无需鉴权，本地直连。",
+  "开工前先看": [
+    {
+      "title": "GitHub仓库",
+      "url": "https://github.com/rupeshs/fastsdcpu"
+    },
+    {
+      "title": "DeepWiki概述",
+      "url": "https://deepwiki.com/rupeshs/fastsdcpu#1"
+    },
+    {
+      "title": "安装指南",
+      "url": "https://deepwiki.com/rupeshs/fastsdcpu#1.1"
+    },
+    {
+      "title": "Web UI说明",
+      "url": "https://deepwiki.com/rupeshs/fastsdcpu#3.2"
+    },
+    {
+      "title": "API与MCP服务器",
+      "url": "https://deepwiki.com/rupeshs/fastsdcpu#3.4"
+    }
+  ],
+  "建议追问": [
+    "当前系统是否已安装Python 3.8以上和uv？",
+    "是否需要启用GPU或NPU加速？",
+    "是否计划使用ControlNet功能？",
+    "模型文件是否已下载到指定目录？",
+    "是否需要配置反向代理或远程访问？"
+  ],
+  "已知坑": "Python版本需3.8+（推荐3.11.6），uv必须提前安装；ControlNet模型需手动从Hugging Face下载至controlnet_models目录；macOS M1/M2/M3芯片不支持OpenVINO，需用DEVICE=mps尝试提速；安装脚本会创建虚拟环境，首次运行较慢。",
+  "成功标准": "运行启动脚本后无报错，浏览器可访问http://localhost:7860看到Gradio界面，或http://localhost:8000/api/docs看到API文档，且能成功生成测试图片。",
+  "研判摘要": "FastSD CPU提供脚本化安装与多模式启动（GUI/WebUI/API），无需复杂配置即可在本地CPU运行稳定扩散，适合快速体验与集成。",
+  "推荐启动": "git clone https://github.com/rupeshs/fastsdcpu.git && cd fastsdcpu && chmod +x install.sh && ./install.sh && ./start-webui.sh",
+  "agentHint": "克隆仓库后依次运行安装与启动脚本，首次需确保Python和uv环境就绪。",
+  "DeepWiki": "https://deepwiki.com/rupeshs/fastsdcpu",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/rupeshs-fastsdcpu.json",
+  "source": "ai-web"
+}
