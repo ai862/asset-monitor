@@ -1,0 +1,78 @@
+{
+  "产品": "azure-search-openai-demo",
+  "厂商": "Azure-Samples",
+  "状态": "可下",
+  "类型": "RAG",
+  "语言": "Python",
+  "Stars": 7773,
+  "GitHub": "https://github.com/Azure-Samples/azure-search-openai-demo",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "Docker"
+  ],
+  "下载条件": "Azure 账号 + azd / Docker",
+  "去重键": "azure-samples-azure-search-openai-demo",
+  "备注": "★7773 · 最近 push 2026-09 · ChatGPT-like frontend over your docs",
+  "资产号": 98,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-11-02T02:47:34+08:00",
+  "启动指引": "最短路径：GitHub Codespaces 或 VS Code Dev Containers（自动配置工具链）。本地需安装 azd、Python 3.10+、Node 20+、Git、PowerShell 7+。执行：azd init -t azure-search-openai-demo → azd auth login → azd env new → azd up（预配 Azure 资源并部署）。本地开发再运行 ./app/start.sh (Linux/Mac) 或 ./app/start.ps1 (Windows)，后端默认监听 50505，前端热重载 5173。关键环境变量由 azd 自动注入；若接本地 OpenAI 兼容 API 需手动设置 USE_VECTORS=false、OPENAI_HOST=local、OPENAI_BASE_URL、AZURE_OPENAI_CHATGPT_MODEL。鉴权默认走 Microsoft Entra ID，需两个应用注册（客户端/服务端），azd 可自动化配置 AZURE_USE_AUTHENTICATION 等变量。",
+  "开工前先看": [
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/Azure-Samples/azure-search-openai-demo"
+    },
+    {
+      "title": "DeepWiki 文档",
+      "url": "https://deepwiki.com/Azure-Samples/azure-search-openai-demo"
+    },
+    {
+      "title": "Azure Developer CLI (azd) 安装",
+      "url": "https://aka.ms/azure-dev/install"
+    },
+    {
+      "title": "认证与 MSAL 集成说明",
+      "url": "https://deepwiki.com/Azure-Samples/azure-search-openai-demo#3.4"
+    },
+    {
+      "title": "API 端点与 HTTP 协议",
+      "url": "https://deepwiki.com/Azure-Samples/azure-search-openai-demo#4.5"
+    },
+    {
+      "title": "架构概览",
+      "url": "https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/docs/architecture.md"
+    },
+    {
+      "title": "贡献指南（本地依赖安装）",
+      "url": "https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/CONTRIBUTING.md"
+    },
+    {
+      "title": "网络安全与 VNet 集成",
+      "url": "https://deepwiki.com/Azure-Samples/azure-search-openai-demo#7.3"
+    }
+  ],
+  "建议追问": [
+    "如何在无 Azure 订阅的情况下用本地 LLM（如 Ollama）跑通全流程？",
+    "生产环境如何配置私有终结点与 VNet 隔离？",
+    "前端改动后如何仅重新部署前端而不重新预配基础设施？",
+    "如何自定义数据源（如 SharePoint、本地文件夹）并重建索引？",
+    "启用聊天历史（CosmosDB）与访问控制的完整步骤是什么？",
+    "常见部署失败（权限不足、租户限制、密钥过期）如何排查？"
+  ],
+  "已知坑": "环境变量冲突：AZURE_ENABLE_GLOBAL_DOCUMENT_ACCESS=true 但未开启 AZURE_ENFORCE_ACCESS_CONTROL 会报错；USE_CHAT_HISTORY_COSMOS 需先开启 AZURE_USE_AUTHENTICATION。Azure 权限不足（Entra 应用注册需特定角色）、租户限制应用创建/同意、同意弹窗不弹出。azd up 后 5-10 分钟应用仍不可用，需等待冷启动。本地开发若未跑 azd up 直接运行 start.sh 会缺少必要环境变量导致启动失败。",
+  "成功标准": "azd up 结束输出 URL 且浏览器访问该 URL 显示聊天界面；本地运行 start.sh/start.ps1 后访问 http://localhost:50505 返回前端页面；后端日志出现 \"Application startup complete\" 且 Gunicorn 监听 50505；前端控制台无 401/500 错误，能发送消息并收到流式回复。",
+  "研判摘要": "这是一个面向 Azure 的 RAG 参考实现，依赖 azd 一键预配全托管资源（Search、OpenAI、Storage、App Service 等），本地开发需完整 Azure 环境，适合已有 Azure 订阅的团队快速落地企业级知识库问答。",
+  "推荐启动": "azd init -t azure-search-openai-demo && azd auth login && azd env new && azd up",
+  "agentHint": "优先推荐 Codespaces/Dev Container 避免本地环境差异；本地调试必须先跑通 azd up 再启动 start.sh，切勿跳过预配步骤。",
+  "DeepWiki": "https://deepwiki.com/Azure-Samples/azure-search-openai-demo",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/azure-samples-azure-search-openai-demo.json",
+  "source": "ai-web"
+}

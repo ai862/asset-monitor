@@ -1,0 +1,63 @@
+{
+  "产品": "Meridian",
+  "厂商": "rynfar",
+  "状态": "可下",
+  "类型": "代码助手",
+  "语言": "TypeScript",
+  "Stars": 2110,
+  "GitHub": "https://github.com/rynfar/meridian",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "npm",
+    "源码",
+    "Docker"
+  ],
+  "下载条件": "npm i -g @rynfar/meridian → http://127.0.0.1:3456；Docker/Nix",
+  "去重键": "rynfar-meridian",
+  "备注": "★2110 · 最近 push 2026-10 · 本地 API 桥+浏览器用量看板（Claude/Antigravity）",
+  "资产号": 112,
+  "首次写入": "2026-10-11",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-11-02T02:53:04+08:00",
+  "启动指引": "最短启动路径：使用 npm 全局安装 @rynfar/meridian，执行 claude login 完成 Claude 认证，然后运行 meridian 启动代理服务，默认运行在 http://127.0.0.1:3456。环境变量：需设置 ANTHROPIC_BASE_URL 为 http://127.0.0.1:3456，并配置 ANTHROPIC_API_KEY 占位值（任意字符串即可）。鉴权要点：Meridian 通过 Claude Code SDK 进行 OAuth 认证，无需 API 密钥，但需先执行 claude login 登录 Claude 账户；若需网络暴露可设置 MERIDIAN_API_KEY 开启 API Key 鉴权。",
+  "开工前先看": [
+    {
+      "title": "Overview",
+      "url": "https://deepwiki.com/rynfar/meridian#1"
+    },
+    {
+      "title": "Getting Started",
+      "url": "https://deepwiki.com/rynfar/meridian#1.1"
+    },
+    {
+      "title": "GitHub Repository",
+      "url": "https://github.com/rynfar/meridian"
+    },
+    {
+      "title": "DeepWiki Home",
+      "url": "https://deepwiki.com/rynfar/meridian"
+    }
+  ],
+  "建议追问": [
+    "是否需要配置多个 Claude 账户？如何管理 profiles 并切换?",
+    "OpenCode 插件的作用是什么？运行 meridian setup 会配置哪些内容?",
+    "Docker 部署时如何正确挂载本地 Claude 凭证以避免认证失败?",
+    "NixOS 用户如何声明式配置 Meridian，避免 meridian setup 写入绝对路径导致重建后损坏?",
+    "Sonnet 1M 上下文支持如何开启？使用时有什么计费或限制注意事项?",
+    "OAuth Token 过期后如何自动刷新？手动刷新的命令或 API 端点是什么?"
+  ],
+  "已知坑": "OpenCode 插件未配置会导致 /health 返回 plugin.not-configured，影响会话跟踪和子代理模型选择；NixOS 上运行 meridian setup 会写入绝对 Nix store 路径，系统重建后配置易损坏；Sonnet 默认仅 200k 上下文，如需 1M 必须显式设置 MERIDIAN_SONNET_MODEL=sonnet[1m]；OAuth Token 约每 8 小时过期，虽然会自动刷新，但失败时需手动执行 claude login 或调用 /auth/refresh；端口被占用时会报 EADDRINUSE 错误，需更换端口或停掉旧实例。",
+  "成功标准": "启动后控制台应显示监听主机和端口（如 127.0.0.1:3456）；访问 http://127.0.0.1:3456/health 返回 JSON 包含 \"status\": \"healthy\"、\"auth\": { \"loggedIn\": true }、\"plugin\": { \"opencode\": \"configured\" }；使用 netstat 或 lsof 确认端口 3456 处于监听状态；浏览器打开 /telemetry 可查看实时用量仪表盘。",
+  "研判摘要": "Meridian 是一个本地 API 代理桥，将 Claude Code SDK 桥接至标准 Anthropic/OpenAI 接口，使多种 AI 编程代理能够利用 Claude Max 订阅，并内置浏览器用量看板进行实时监控与诊断。",
+  "推荐启动": "npm i -g @rynfar/meridian && claude login && meridian",
+  "agentHint": "启动前确保已安装 Node.js 并完成 Claude 登录，首次使用建议运行 meridian setup 配置 OpenCode 插件以启用完整会话跟踪功能。",
+  "DeepWiki": "https://deepwiki.com/rynfar/meridian",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/rynfar-meridian.json",
+  "source": "ai-web"
+}

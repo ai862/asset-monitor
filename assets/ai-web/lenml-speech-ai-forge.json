@@ -1,0 +1,66 @@
+{
+  "产品": "Speech-AI-Forge",
+  "厂商": "lenML",
+  "状态": "可下",
+  "类型": "其它",
+  "语言": "Python",
+  "Stars": 1420,
+  "GitHub": "https://github.com/lenML/Speech-AI-Forge",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "源码"
+  ],
+  "下载条件": "python webui.py / Docker",
+  "去重键": "lenml-speech-ai-forge",
+  "备注": "多模型 TTS API + Gradio WebUI。具备 Web UI。★1420",
+  "资产号": 97,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-11-02T02:49:49+08:00",
+  "启动指引": "使用源码启动：执行 `python webui.py`，默认端口 7860，也可通过环境变量 `SERVER_PORT` 或参数 `--server_port` 调整。WebUI 支持用户名/密码认证 (--auth 或 `.env.webui` 中的 `AUTH`)。使用 Docker 启动：`docker-compose -f ./docker-compose.webui.yml up -d`。API 模式执行 `python launch.py`，默认端口 7870，可通过 `PORT` 或 `--port` 调整。某些云 TTS 模型（如 MiniMax）需要设置环境变量 `MINIMAX_API_KEY`。",
+  "开工前先看": [
+    {
+      "title": "Speech-AI-Forge 概述",
+      "url": "https://deepwiki.com/lenML/Speech-AI-Forge"
+    },
+    {
+      "title": "GitHub 仓库主页",
+      "url": "https://github.com/lenML/Speech-AI-Forge"
+    },
+    {
+      "title": "安装与启动指南",
+      "url": "https://github.com/lenML/Speech-AI-Forge/wiki/Getting-Started"
+    },
+    {
+      "title": "Docker 部署文档",
+      "url": "https://github.com/lenML/Speech-AI-Forge/wiki/Docker-Deployment"
+    },
+    {
+      "title": "API 参考",
+      "url": "https://github.com/lenML/Speech-AI-Forge/wiki/API-Reference"
+    }
+  ],
+  "建议追问": [
+    "如何配置 MiniMax API 密钥以使用云 TTS 模型？",
+    "启动后如何验证 WebUI 是否正常运行？",
+    "是否支持 GPU 加速？如何选择设备？",
+    "如何自定义端口或启用反向代理？",
+    "是否存在语音克隆功能？如何使用？",
+    "Docker 镜像中如何挂载本地模型目录？"
+  ],
+  "已知坑": "缺少 MINIMAX_API_KEY 导致云 TTS 模型加载失败；FFmpeg 路径未设置导致音频处理报错；WebUI 未启用认证可能暴露服务。",
+  "成功标准": "WebUI 可访问，默认端口 7860，页面加载正常；API 文档页 (/docs) 可访问，健康检查端点 /v1/ping 返回 {\"message\":\"pong\"}。",
+  "研判摘要": "Speech-AI-Forge 提供本地和 Docker 部署方式，包含多模型 TTS API 和 Gradio WebUI，支持 WebUI（7860）与 API（7870）两种模式，需配置音频后端、模型及可选云服务密钥。",
+  "推荐启动": "python webui.py  # 默认端口 7860",
+  "agentHint": "确保先安装 FFmpeg 等音频工具，设置 MINIMAX_API_KEY（如使用云 TTS），并根据需要启用 WebUI 认证。",
+  "DeepWiki": "https://deepwiki.com/lenML/Speech-AI-Forge",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lenml-speech-ai-forge.json",
+  "source": "ai-web"
+}

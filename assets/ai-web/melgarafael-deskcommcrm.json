@@ -1,0 +1,78 @@
+{
+  "产品": "DeskcommCRM",
+  "厂商": "melgarafael",
+  "状态": "可下",
+  "类型": "Agent",
+  "语言": "TypeScript",
+  "Stars": 4168,
+  "GitHub": "https://github.com/melgarafael/DeskcommCRM",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "Docker"
+  ],
+  "下载条件": "一键 install.sh / 自托管镜像",
+  "去重键": "melgarafael-deskcommcrm",
+  "备注": "自托管 AI 销售 CRM + Agent + WhatsApp。具备 Web UI。★4168",
+  "资产号": 94,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-11-02T02:48:47+08:00",
+  "启动指引": "生产环境：运行 `bash hostgator-setup-kit/install.sh`，脚本会自动安装 Docker、配置反向代理、创建 Supabase 连接、生成内部密钥并启动服务。应用默认监听 3000 端口，通过反向代理暴露 80/443。开发环境：`pnpm dev` 直接启动 Next.js 服务，端口 3000，需复制 `.env.example` 为 `.env.local` 并填写 Supabase URL/密钥、DOMAIN、AI 提供商密钥、WAHA API 密钥等。首次访问会引导设置管理员账户和 MFA。",
+  "开工前先看": [
+    {
+      "title": "安装与启动指南",
+      "url": "https://deepwiki.com/search/how-do-i-install-and-start-des_4d717475-f0d6-4aa1-82f4-fa78c6c06520"
+    },
+    {
+      "title": "常见安装问题与解决方法",
+      "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_8994e381-480e-4398-93fb-a881d8a178c7"
+    },
+    {
+      "title": "Web 界面与 API 端点说明",
+      "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_d63dc74f-caba-4c40-ba5b-3c19fe435bfe"
+    },
+    {
+      "title": "项目愿景与定位",
+      "url": "https://deepwiki.com/melgarafael/DeskcommCRM#wiki-1.1"
+    },
+    {
+      "title": "部署与基础设施",
+      "url": "https://deepwiki.com/melgarafael/DeskcommCRM#wiki-12"
+    },
+    {
+      "title": "概述",
+      "url": "https://deepwiki.com/melgarafael/DeskcommCRM#wiki-1"
+    },
+    {
+      "title": "术语表",
+      "url": "https://deepwiki.com/melgarafael/DeskcommCRM#wiki-15"
+    },
+    {
+      "title": "安装脚本说明",
+      "url": "https://github.com/melgarafael/DeskcommCRM/blob/main/hostgator-setup-kit/install.sh"
+    }
+  ],
+  "建议追问": [
+    "如何获取并配置 Supabase 的会话池器连接字符串以避免 IPv6 问题？",
+    "如果服务器已安装 Traefik，如何让 DeskcommCRM 使用现有的反向代理？",
+    "如何验证 AI 提供商密钥的有效性和余额？",
+    "WAHA 的 WhatsApp 会话在开发模式下如何启动与连接？",
+    "MFA 设置完成后，如何重置或禁用两步验证？",
+    "如何监控应用日志以排查启动失败的问题？"
+  ],
+  "已知坑": "1. 使用 Supabase 的直接连接字符串（IPv6）会导致 VPS 无法解析。2. 服务器已存在反向代理（如 Traefik）时，Caddy 会冲突。3. 缺少 PostgreSQL 扩展 vector、citext、pg_trgm 会导致 schema 应用失败。4. 关键环境变量缺失（如 INTERNAL_SECRET）会引发应用重启循环。5. 防火墙未开放 80/443 或 SSH 端口导致服务无法访问。",
+  "成功标准": "1. 通过域名访问 https://<DOMAIN> 并看到登录/引导页。2. 健康检查端点返回 200：`curl -f https://<DOMAIN>/api/v1/health`。3. AI 密钥验证成功：`curl 'https://<DOMAIN>/api/v1/system/instalacao?provar=1' -H 'Authorization: Bearer <TOKEN>'` 返回有效。4. Docker 容器状态正常，无错误日志。",
+  "研判摘要": "DeskcommCRM 是一个支持 Docker 与源码部署的 AI 销售 CRM，集 Web 管理界面、Supabase 认证、AI 智能体与 WhatsApp 通道于一体。安装流程自动化，但需正确配置域名、Supabase 凭据、AI 密钥及反向代理。",
+  "推荐启动": "bash hostgator-setup-kit/install.sh",
+  "agentHint": "请确保使用 Supabase 会话池器连接字符串，避免 IPv6 问题，并开放服务器的 80/443 端口以供反向代理服务。",
+  "DeepWiki": "https://deepwiki.com/melgarafael/DeskcommCRM",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/melgarafael-deskcommcrm.json",
+  "source": "ai-web"
+}

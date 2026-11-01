@@ -6018,7 +6018,27 @@
     "备注": "FunASR 视频剪辑/字幕 Gradio 本地工具。具备 Web UI。★6352",
     "资产号": 92,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-02T02:44:17+08:00",
+    "启动指引": "最短路径：git clone https://github.com/modelscope/FunClip.git && cd FunClip && pip install -r requirements.txt，默认端口 7860，环境变量：OPENAI_API_KEY(LLM集成可选)，鉴权要点：Gradio界面LLM标签页输入Qwen/Bailian/API key或OpenAI key，g4f为免费但不稳定选择。",
+    "建议追问": [
+      "是否需要配置具体的 LLM API 密钥？",
+      "视频剪辑时字幕嵌入失败的具体解决方法？",
+      "如何在生产环境中通过反向代理暴露 Gradio 服务？",
+      "FunClip 支持的视频格式和时长限制是多少？",
+      "离线环境下如何解决 ImageMagick/ffmpeg 依赖？"
+    ],
+    "已知坑": "ImageMagick/ffmpeg 配置错误会导致字幕嵌入失败；同一端口多个 Gradio 界面会造成上传卡顿；LLM 功能需提供 API 密钥且网络受限时可能失效；g4f 集成可能不稳定。",
+    "成功标准": "Gradio Web UI 在 localhost:7860 可访问并能上传视频进行识别/剪辑；Stage 1 识别成功输出 SRT 文本并保存至 output_dir；Stage 2 剪辑生成目标 mp4 视频文件。",
+    "研判摘要": "FunClip 是一个 Gradio 界面的视频剪辑与字幕生成工具，核心功能为语音识别与文本驱动的视频剪辑。部署依赖 Python 环境和可选的多媒体库，LLM 功能需自行配置 API 密钥。常见阻点多在多媒体依赖配置和 API 网络环境上。",
+    "推荐启动": "python funclip/launch.py",
+    "agentHint": "注意 ImageMagick policy.xml 配置和 LLM API 密钥的网络可达性。",
+    "DeepWiki": "https://deepwiki.com/modelscope/FunClip",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/modelscope-funclip.json"
   },
   {
     "产品": "WebWhiz",
@@ -6040,7 +6060,28 @@
     "备注": "★1045 · 最近 push 2026-01 · Train chatbot on website data",
     "资产号": 109,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-02T02:46:14+08:00",
+    "启动指引": "Docker方式：克隆仓库后编辑 .env.docker，添加 OPENAI_KEY 与 OPENAI_KEY_2，执行 docker-compose up。前端UI: 3030，后端API: 3000，Widget: 3031。必需环境变量: OPENAI_KEY, OPENAI_KEY_2, MONGO_URI, SECRET_KEY。JWT 鉴权，token 15天过期。",
+    "建议追问": [
+      "如何在生产环境中配置自定义域名和 SSL？",
+      "Celery workers（JS/Python）的启动和监控方法有哪些？",
+      "支持的 OpenAI Key 轮换与限流策略？",
+      "Docker 部署下的持久化存储（MongoDB/Redis）配置建议？",
+      "reverse proxy（Nginx/AWS ALB）下的 WebSocket 断连与重连处理？",
+      "多知识库模式下的自定义 Prompt 和模型切换配置？"
+    ],
+    "已知坑": "环境变量缺失或错误（SECRET_KEY, OPENAI_KEY）; MongoDB/Redis 连接失败; Celery Workers（JS/Python）未启动; JWT 鉴权配置不当; OpenAI Key 无效导致 AI 功能失效。",
+    "成功标准": "Docker containers running (docker-compose up -d) 且无报错; 访问 http://localhost:3030 进入 UI; 后端 API http://localhost:3000 响应; Widget http://localhost:3031 可用; JWT 登录成功并获取 token; OpenAI Key 生效（可提问获取回答）。",
+    "研判摘要": "WebWhiz 是一个基于 Docker 和源码的网站数据训练聊天机器人平台。支持 Docker 快速部署与手动源码部署，涉及 MongoDB、Redis、Node.js、Python Celery 等组件，需配置 OpenAI Key 与 JWT 认证。",
+    "推荐启动": "docker-compose up -d",
+    "agentHint": "注意环境变量与数据库连接稳定性。",
+    "DeepWiki": "https://deepwiki.com/webwhiz-ai/webwhiz",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/webwhiz-ai-webwhiz.json"
   },
   {
     "产品": "azure-search-openai-demo",
@@ -6062,7 +6103,62 @@
     "备注": "★7773 · 最近 push 2026-09 · ChatGPT-like frontend over your docs",
     "资产号": 98,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-02T02:47:34+08:00",
+    "启动指引": "最短路径：GitHub Codespaces 或 VS Code Dev Containers（自动配置工具链）。本地需安装 azd、Python 3.10+、Node 20+、Git、PowerShell 7+。执行：azd init -t azure-search-openai-demo → azd auth login → azd env new → azd up（预配 Azure 资源并部署）。本地开发再运行 ./app/start.sh (Linux/Mac) 或 ./app/start.ps1 (Windows)，后端默认监听 50505，前端热重载 5173。关键环境变量由 azd 自动注入；若接本地 OpenAI 兼容 API 需手动设置 USE_VECTORS=false、OPENAI_HOST=local、OPENAI_BASE_URL、AZURE_OPENAI_CHATGPT_MODEL。鉴权默认走 Microsoft Entra ID，需两个应用注册（客户端/服务端），azd 可自动化配置 AZURE_USE_AUTHENTICATION 等变量。",
+    "开工前先看": [
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/Azure-Samples/azure-search-openai-demo"
+      },
+      {
+        "title": "DeepWiki 文档",
+        "url": "https://deepwiki.com/Azure-Samples/azure-search-openai-demo"
+      },
+      {
+        "title": "Azure Developer CLI (azd) 安装",
+        "url": "https://aka.ms/azure-dev/install"
+      },
+      {
+        "title": "认证与 MSAL 集成说明",
+        "url": "https://deepwiki.com/Azure-Samples/azure-search-openai-demo#3.4"
+      },
+      {
+        "title": "API 端点与 HTTP 协议",
+        "url": "https://deepwiki.com/Azure-Samples/azure-search-openai-demo#4.5"
+      },
+      {
+        "title": "架构概览",
+        "url": "https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/docs/architecture.md"
+      },
+      {
+        "title": "贡献指南（本地依赖安装）",
+        "url": "https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/CONTRIBUTING.md"
+      },
+      {
+        "title": "网络安全与 VNet 集成",
+        "url": "https://deepwiki.com/Azure-Samples/azure-search-openai-demo#7.3"
+      }
+    ],
+    "建议追问": [
+      "如何在无 Azure 订阅的情况下用本地 LLM（如 Ollama）跑通全流程？",
+      "生产环境如何配置私有终结点与 VNet 隔离？",
+      "前端改动后如何仅重新部署前端而不重新预配基础设施？",
+      "如何自定义数据源（如 SharePoint、本地文件夹）并重建索引？",
+      "启用聊天历史（CosmosDB）与访问控制的完整步骤是什么？",
+      "常见部署失败（权限不足、租户限制、密钥过期）如何排查？"
+    ],
+    "已知坑": "环境变量冲突：AZURE_ENABLE_GLOBAL_DOCUMENT_ACCESS=true 但未开启 AZURE_ENFORCE_ACCESS_CONTROL 会报错；USE_CHAT_HISTORY_COSMOS 需先开启 AZURE_USE_AUTHENTICATION。Azure 权限不足（Entra 应用注册需特定角色）、租户限制应用创建/同意、同意弹窗不弹出。azd up 后 5-10 分钟应用仍不可用，需等待冷启动。本地开发若未跑 azd up 直接运行 start.sh 会缺少必要环境变量导致启动失败。",
+    "成功标准": "azd up 结束输出 URL 且浏览器访问该 URL 显示聊天界面；本地运行 start.sh/start.ps1 后访问 http://localhost:50505 返回前端页面；后端日志出现 \"Application startup complete\" 且 Gunicorn 监听 50505；前端控制台无 401/500 错误，能发送消息并收到流式回复。",
+    "研判摘要": "这是一个面向 Azure 的 RAG 参考实现，依赖 azd 一键预配全托管资源（Search、OpenAI、Storage、App Service 等），本地开发需完整 Azure 环境，适合已有 Azure 订阅的团队快速落地企业级知识库问答。",
+    "推荐启动": "azd init -t azure-search-openai-demo && azd auth login && azd env new && azd up",
+    "agentHint": "优先推荐 Codespaces/Dev Container 避免本地环境差异；本地调试必须先跑通 azd up 再启动 start.sh，切勿跳过预配步骤。",
+    "DeepWiki": "https://deepwiki.com/Azure-Samples/azure-search-openai-demo",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/azure-samples-azure-search-openai-demo.json"
   },
   {
     "产品": "DeskcommCRM",
@@ -6084,7 +6180,62 @@
     "备注": "自托管 AI 销售 CRM + Agent + WhatsApp。具备 Web UI。★4168",
     "资产号": 94,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-02T02:48:47+08:00",
+    "启动指引": "生产环境：运行 `bash hostgator-setup-kit/install.sh`，脚本会自动安装 Docker、配置反向代理、创建 Supabase 连接、生成内部密钥并启动服务。应用默认监听 3000 端口，通过反向代理暴露 80/443。开发环境：`pnpm dev` 直接启动 Next.js 服务，端口 3000，需复制 `.env.example` 为 `.env.local` 并填写 Supabase URL/密钥、DOMAIN、AI 提供商密钥、WAHA API 密钥等。首次访问会引导设置管理员账户和 MFA。",
+    "开工前先看": [
+      {
+        "title": "安装与启动指南",
+        "url": "https://deepwiki.com/search/how-do-i-install-and-start-des_4d717475-f0d6-4aa1-82f4-fa78c6c06520"
+      },
+      {
+        "title": "常见安装问题与解决方法",
+        "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_8994e381-480e-4398-93fb-a881d8a178c7"
+      },
+      {
+        "title": "Web 界面与 API 端点说明",
+        "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_d63dc74f-caba-4c40-ba5b-3c19fe435bfe"
+      },
+      {
+        "title": "项目愿景与定位",
+        "url": "https://deepwiki.com/melgarafael/DeskcommCRM#wiki-1.1"
+      },
+      {
+        "title": "部署与基础设施",
+        "url": "https://deepwiki.com/melgarafael/DeskcommCRM#wiki-12"
+      },
+      {
+        "title": "概述",
+        "url": "https://deepwiki.com/melgarafael/DeskcommCRM#wiki-1"
+      },
+      {
+        "title": "术语表",
+        "url": "https://deepwiki.com/melgarafael/DeskcommCRM#wiki-15"
+      },
+      {
+        "title": "安装脚本说明",
+        "url": "https://github.com/melgarafael/DeskcommCRM/blob/main/hostgator-setup-kit/install.sh"
+      }
+    ],
+    "建议追问": [
+      "如何获取并配置 Supabase 的会话池器连接字符串以避免 IPv6 问题？",
+      "如果服务器已安装 Traefik，如何让 DeskcommCRM 使用现有的反向代理？",
+      "如何验证 AI 提供商密钥的有效性和余额？",
+      "WAHA 的 WhatsApp 会话在开发模式下如何启动与连接？",
+      "MFA 设置完成后，如何重置或禁用两步验证？",
+      "如何监控应用日志以排查启动失败的问题？"
+    ],
+    "已知坑": "1. 使用 Supabase 的直接连接字符串（IPv6）会导致 VPS 无法解析。2. 服务器已存在反向代理（如 Traefik）时，Caddy 会冲突。3. 缺少 PostgreSQL 扩展 vector、citext、pg_trgm 会导致 schema 应用失败。4. 关键环境变量缺失（如 INTERNAL_SECRET）会引发应用重启循环。5. 防火墙未开放 80/443 或 SSH 端口导致服务无法访问。",
+    "成功标准": "1. 通过域名访问 https://<DOMAIN> 并看到登录/引导页。2. 健康检查端点返回 200：`curl -f https://<DOMAIN>/api/v1/health`。3. AI 密钥验证成功：`curl 'https://<DOMAIN>/api/v1/system/instalacao?provar=1' -H 'Authorization: Bearer <TOKEN>'` 返回有效。4. Docker 容器状态正常，无错误日志。",
+    "研判摘要": "DeskcommCRM 是一个支持 Docker 与源码部署的 AI 销售 CRM，集 Web 管理界面、Supabase 认证、AI 智能体与 WhatsApp 通道于一体。安装流程自动化，但需正确配置域名、Supabase 凭据、AI 密钥及反向代理。",
+    "推荐启动": "bash hostgator-setup-kit/install.sh",
+    "agentHint": "请确保使用 Supabase 会话池器连接字符串，避免 IPv6 问题，并开放服务器的 80/443 端口以供反向代理服务。",
+    "DeepWiki": "https://deepwiki.com/melgarafael/DeskcommCRM",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/melgarafael-deskcommcrm.json"
   },
   {
     "产品": "Speech-AI-Forge",
@@ -6106,7 +6257,50 @@
     "备注": "多模型 TTS API + Gradio WebUI。具备 Web UI。★1420",
     "资产号": 97,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-02T02:49:49+08:00",
+    "启动指引": "使用源码启动：执行 `python webui.py`，默认端口 7860，也可通过环境变量 `SERVER_PORT` 或参数 `--server_port` 调整。WebUI 支持用户名/密码认证 (--auth 或 `.env.webui` 中的 `AUTH`)。使用 Docker 启动：`docker-compose -f ./docker-compose.webui.yml up -d`。API 模式执行 `python launch.py`，默认端口 7870，可通过 `PORT` 或 `--port` 调整。某些云 TTS 模型（如 MiniMax）需要设置环境变量 `MINIMAX_API_KEY`。",
+    "开工前先看": [
+      {
+        "title": "Speech-AI-Forge 概述",
+        "url": "https://deepwiki.com/lenML/Speech-AI-Forge"
+      },
+      {
+        "title": "GitHub 仓库主页",
+        "url": "https://github.com/lenML/Speech-AI-Forge"
+      },
+      {
+        "title": "安装与启动指南",
+        "url": "https://github.com/lenML/Speech-AI-Forge/wiki/Getting-Started"
+      },
+      {
+        "title": "Docker 部署文档",
+        "url": "https://github.com/lenML/Speech-AI-Forge/wiki/Docker-Deployment"
+      },
+      {
+        "title": "API 参考",
+        "url": "https://github.com/lenML/Speech-AI-Forge/wiki/API-Reference"
+      }
+    ],
+    "建议追问": [
+      "如何配置 MiniMax API 密钥以使用云 TTS 模型？",
+      "启动后如何验证 WebUI 是否正常运行？",
+      "是否支持 GPU 加速？如何选择设备？",
+      "如何自定义端口或启用反向代理？",
+      "是否存在语音克隆功能？如何使用？",
+      "Docker 镜像中如何挂载本地模型目录？"
+    ],
+    "已知坑": "缺少 MINIMAX_API_KEY 导致云 TTS 模型加载失败；FFmpeg 路径未设置导致音频处理报错；WebUI 未启用认证可能暴露服务。",
+    "成功标准": "WebUI 可访问，默认端口 7860，页面加载正常；API 文档页 (/docs) 可访问，健康检查端点 /v1/ping 返回 {\"message\":\"pong\"}。",
+    "研判摘要": "Speech-AI-Forge 提供本地和 Docker 部署方式，包含多模型 TTS API 和 Gradio WebUI，支持 WebUI（7860）与 API（7870）两种模式，需配置音频后端、模型及可选云服务密钥。",
+    "推荐启动": "python webui.py  # 默认端口 7860",
+    "agentHint": "确保先安装 FFmpeg 等音频工具，设置 MINIMAX_API_KEY（如使用云 TTS），并根据需要启用 WebUI 认证。",
+    "DeepWiki": "https://deepwiki.com/lenML/Speech-AI-Forge",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/lenml-speech-ai-forge.json"
   },
   {
     "产品": "chatbot",
@@ -6128,7 +6322,49 @@
     "备注": "FastAPI+Streamlit ShoppingAgent 等场景 Agent。具备 Web UI。★3581",
     "资产号": 95,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-02T02:50:46+08:00",
+    "启动指引": "pip 安装依赖，将语料文件放入 train_data 目录，编辑 seq2seq.ini 配置，运行 data_util.py，然后执行 execute.py（serve 模式），最后启动 app.py；默认端口 8808，无必填环境变量，无需认证。",
+    "开工前先看": [
+      {
+        "title": "项目架构概览",
+        "url": "https://deepwiki.com/zhaoyingjun/chatbot"
+      },
+      {
+        "title": "Web Interface 说明",
+        "url": "https://deepwiki.com/zhaoyingjun/chatbot#6"
+      },
+      {
+        "title": "配置文件详解",
+        "url": "https://deepwiki.com/zhaoyingjun/chatbot#7"
+      },
+      {
+        "title": "安装与启动指南",
+        "url": "https://deepwiki.com/search/how-do-i-install-and-start-cha_24bfad76-f440-4187-ad82-faf0734d70dd"
+      },
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/zhaoyingjun/chatbot"
+      }
+    ],
+    "建议追问": [
+      "语料文件应放在哪个目录并准备哪些格式？",
+      "seq2seq.ini 中需要设置哪些关键参数？",
+      "app.py 默认监听哪个端口，如何修改？",
+      "是否支持 Docker 部署，若支持请给出示例？",
+      "生产环境如何配置反向代理或 HTTPS？"
+    ],
+    "已知坑": "配置文件路径或内容错误、模型文件缺失或损坏、jieba 分词库加载失败、前端 AJAX 请求地址错误或网络阻塞、缺少必需的语料文件",
+    "成功标准": "控制台显示 Flask 启动于 0.0.0.0:8808，浏览器能打开 http://localhost:8808 并加载聊天界面，输入文字后能收到 bot 回复",
+    "研判摘要": "该 chatbot 通过 FastAPI+Streamlit 实现中文对话的 Web UI，依赖 seq2seq 模型，配置文件化，默认端口 8808，无认证",
+    "推荐启动": "pip install -r requirements.txt && python data_util.py && python execute.py --mode serve && python app.py",
+    "agentHint": "确保配置文件和模型就绪后直接运行 app.py，即可在 8808 端口访问聊天界面",
+    "DeepWiki": "https://deepwiki.com/zhaoyingjun/chatbot",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zhaoyingjun-chatbot.json"
   },
   {
     "产品": "LiveAgent",
@@ -6150,7 +6386,57 @@
     "备注": "★2191 · 最近 push 2026-09 · Desktop+browser WebUI via gateway",
     "资产号": 104,
     "首次写入": "2026-09-28",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-02T02:51:45+08:00",
+    "启动指引": "拉取镜像 `docker pull ghcr.io/stack-cairn/liveagent-gateway:latest`，运行容器时映射主机端口 3000 到容器的 8080，设置环境变量 `LIVEAGENT_GATEWAY_TOKEN=your-token`，并挂载持久化数据卷 `-v liveagent-gateway-data:/var/lib/liveagent`。桌面应用请从 GitHub Releases 下载对应平台的安装程序（macOS .dmg、Windows .exe/MSI/.zip、Linux AppImage/DEB/RPM）。",
+    "开工前先看": [
+      {
+        "title": "LiveAgent 概述",
+        "url": "https://deepwiki.com/Stack-Cairn/LiveAgent#1"
+      },
+      {
+        "title": "CI/CD、发布与部署",
+        "url": "https://deepwiki.com/Stack-Cairn/LiveAgent#9"
+      },
+      {
+        "title": "网关 Docker 与自托管部署",
+        "url": "https://deepwiki.com/Stack-Cairn/LiveAgent#9.2"
+      },
+      {
+        "title": "Workbench、项目工具与右侧面板",
+        "url": "https://deepwiki.com/Stack-Cairn/LiveAgent#10.3"
+      },
+      {
+        "title": "认证与令牌设置",
+        "url": "https://deepwiki.com/search/how-do-i-install-and-start-liv_b2eaaac9-cebe-45f4-8cff-1fea57d2a244"
+      },
+      {
+        "title": "常见问题与验证",
+        "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_64bed9f8-4b1e-433d-bbab-f5b583ce2652"
+      },
+      {
+        "title": "Web UI / 网关 / API 端点总结",
+        "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_4b4b182d-0d49-46e7-9418-62f44b822152"
+      }
+    ],
+    "建议追问": [
+      "如何配置 Nginx 等反向代理以支持 WebSocket 连接？",
+      "网关启动后如何验证健康状态和认证？",
+      "桌面应用与网关的认证流程是什么，token 如何在桌面端使用？",
+      "如何确保 agent 凭证在容器重启后持久化？",
+      "是否有开发模式（如 `make dev`）可以本地运行网关和桌面应用？"
+    ],
+    "已知坑": "忘记设置 LIVEAGENT_GATEWAY_TOKEN 会导致网关 panic；未挂载数据卷会导致重启后丢失 agent 凭证；token 格式错误（如带 Bearer 前缀）可能导致认证失败；超时配置不当可能导致聊天命令丢失。",
+    "成功标准": "网关容器启动后，`curl http://localhost:3000/healthz` 返回 `{\"ok\":true}`；WebUI 通过 Authorization header 验证 token 并能建立 WebSocket 连接到桌面端。",
+    "研判摘要": "LiveAgent 提供桌面客户端和 Docker 网关，通过共享 token 实现远程控制。网关使用 WebSocket v2 协议，提供 HTTP API 和 WebUI，需正确配置环境变量、持久化存储和反向代理以支持 WebSocket。",
+    "推荐启动": "docker run -d --name liveagent-gateway --restart unless-stopped -p 3000:8080 -v liveagent-gateway-data:/var/lib/liveagent -e LIVEAGENT_GATEWAY_TOKEN=your-token ghcr.io/stack-cairn/liveagent-gateway:latest",
+    "agentHint": "请确保设置 LIVEAGENT_GATEWAY_TOKEN 环境变量，并挂载持久化数据卷以保留 agent 凭证。",
+    "DeepWiki": "https://deepwiki.com/Stack-Cairn/LiveAgent",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/stack-cairn-liveagent.json"
   },
   {
     "产品": "Meridian",
@@ -6173,7 +6459,46 @@
     "备注": "★2110 · 最近 push 2026-10 · 本地 API 桥+浏览器用量看板（Claude/Antigravity）",
     "资产号": 112,
     "首次写入": "2026-10-11",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-02T02:53:04+08:00",
+    "启动指引": "最短启动路径：使用 npm 全局安装 @rynfar/meridian，执行 claude login 完成 Claude 认证，然后运行 meridian 启动代理服务，默认运行在 http://127.0.0.1:3456。环境变量：需设置 ANTHROPIC_BASE_URL 为 http://127.0.0.1:3456，并配置 ANTHROPIC_API_KEY 占位值（任意字符串即可）。鉴权要点：Meridian 通过 Claude Code SDK 进行 OAuth 认证，无需 API 密钥，但需先执行 claude login 登录 Claude 账户；若需网络暴露可设置 MERIDIAN_API_KEY 开启 API Key 鉴权。",
+    "开工前先看": [
+      {
+        "title": "Overview",
+        "url": "https://deepwiki.com/rynfar/meridian#1"
+      },
+      {
+        "title": "Getting Started",
+        "url": "https://deepwiki.com/rynfar/meridian#1.1"
+      },
+      {
+        "title": "GitHub Repository",
+        "url": "https://github.com/rynfar/meridian"
+      },
+      {
+        "title": "DeepWiki Home",
+        "url": "https://deepwiki.com/rynfar/meridian"
+      }
+    ],
+    "建议追问": [
+      "是否需要配置多个 Claude 账户？如何管理 profiles 并切换?",
+      "OpenCode 插件的作用是什么？运行 meridian setup 会配置哪些内容?",
+      "Docker 部署时如何正确挂载本地 Claude 凭证以避免认证失败?",
+      "NixOS 用户如何声明式配置 Meridian，避免 meridian setup 写入绝对路径导致重建后损坏?",
+      "Sonnet 1M 上下文支持如何开启？使用时有什么计费或限制注意事项?",
+      "OAuth Token 过期后如何自动刷新？手动刷新的命令或 API 端点是什么?"
+    ],
+    "已知坑": "OpenCode 插件未配置会导致 /health 返回 plugin.not-configured，影响会话跟踪和子代理模型选择；NixOS 上运行 meridian setup 会写入绝对 Nix store 路径，系统重建后配置易损坏；Sonnet 默认仅 200k 上下文，如需 1M 必须显式设置 MERIDIAN_SONNET_MODEL=sonnet[1m]；OAuth Token 约每 8 小时过期，虽然会自动刷新，但失败时需手动执行 claude login 或调用 /auth/refresh；端口被占用时会报 EADDRINUSE 错误，需更换端口或停掉旧实例。",
+    "成功标准": "启动后控制台应显示监听主机和端口（如 127.0.0.1:3456）；访问 http://127.0.0.1:3456/health 返回 JSON 包含 \"status\": \"healthy\"、\"auth\": { \"loggedIn\": true }、\"plugin\": { \"opencode\": \"configured\" }；使用 netstat 或 lsof 确认端口 3456 处于监听状态；浏览器打开 /telemetry 可查看实时用量仪表盘。",
+    "研判摘要": "Meridian 是一个本地 API 代理桥，将 Claude Code SDK 桥接至标准 Anthropic/OpenAI 接口，使多种 AI 编程代理能够利用 Claude Max 订阅，并内置浏览器用量看板进行实时监控与诊断。",
+    "推荐启动": "npm i -g @rynfar/meridian && claude login && meridian",
+    "agentHint": "启动前确保已安装 Node.js 并完成 Claude 登录，首次使用建议运行 meridian setup 配置 OpenCode 插件以启用完整会话跟踪功能。",
+    "DeepWiki": "https://deepwiki.com/rynfar/meridian",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/rynfar-meridian.json"
   },
   {
     "产品": "OpenExecutive",

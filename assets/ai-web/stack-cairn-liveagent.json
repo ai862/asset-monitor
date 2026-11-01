@@ -1,0 +1,73 @@
+{
+  "产品": "LiveAgent",
+  "厂商": "Stack-Cairn",
+  "状态": "可下",
+  "类型": "Agent",
+  "语言": "Rust",
+  "Stars": 2191,
+  "GitHub": "https://github.com/Stack-Cairn/LiveAgent",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "Docker",
+    "二进制"
+  ],
+  "下载条件": "Releases / Docker gateway",
+  "去重键": "stack-cairn-liveagent",
+  "备注": "★2191 · 最近 push 2026-09 · Desktop+browser WebUI via gateway",
+  "资产号": 104,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-11-02T02:51:45+08:00",
+  "启动指引": "拉取镜像 `docker pull ghcr.io/stack-cairn/liveagent-gateway:latest`，运行容器时映射主机端口 3000 到容器的 8080，设置环境变量 `LIVEAGENT_GATEWAY_TOKEN=your-token`，并挂载持久化数据卷 `-v liveagent-gateway-data:/var/lib/liveagent`。桌面应用请从 GitHub Releases 下载对应平台的安装程序（macOS .dmg、Windows .exe/MSI/.zip、Linux AppImage/DEB/RPM）。",
+  "开工前先看": [
+    {
+      "title": "LiveAgent 概述",
+      "url": "https://deepwiki.com/Stack-Cairn/LiveAgent#1"
+    },
+    {
+      "title": "CI/CD、发布与部署",
+      "url": "https://deepwiki.com/Stack-Cairn/LiveAgent#9"
+    },
+    {
+      "title": "网关 Docker 与自托管部署",
+      "url": "https://deepwiki.com/Stack-Cairn/LiveAgent#9.2"
+    },
+    {
+      "title": "Workbench、项目工具与右侧面板",
+      "url": "https://deepwiki.com/Stack-Cairn/LiveAgent#10.3"
+    },
+    {
+      "title": "认证与令牌设置",
+      "url": "https://deepwiki.com/search/how-do-i-install-and-start-liv_b2eaaac9-cebe-45f4-8cff-1fea57d2a244"
+    },
+    {
+      "title": "常见问题与验证",
+      "url": "https://deepwiki.com/search/what-are-common-pitfalls-autht_64bed9f8-4b1e-433d-bbab-f5b583ce2652"
+    },
+    {
+      "title": "Web UI / 网关 / API 端点总结",
+      "url": "https://deepwiki.com/search/summarize-web-ui-gateway-api-e_4b4b182d-0d49-46e7-9418-62f44b822152"
+    }
+  ],
+  "建议追问": [
+    "如何配置 Nginx 等反向代理以支持 WebSocket 连接？",
+    "网关启动后如何验证健康状态和认证？",
+    "桌面应用与网关的认证流程是什么，token 如何在桌面端使用？",
+    "如何确保 agent 凭证在容器重启后持久化？",
+    "是否有开发模式（如 `make dev`）可以本地运行网关和桌面应用？"
+  ],
+  "已知坑": "忘记设置 LIVEAGENT_GATEWAY_TOKEN 会导致网关 panic；未挂载数据卷会导致重启后丢失 agent 凭证；token 格式错误（如带 Bearer 前缀）可能导致认证失败；超时配置不当可能导致聊天命令丢失。",
+  "成功标准": "网关容器启动后，`curl http://localhost:3000/healthz` 返回 `{\"ok\":true}`；WebUI 通过 Authorization header 验证 token 并能建立 WebSocket 连接到桌面端。",
+  "研判摘要": "LiveAgent 提供桌面客户端和 Docker 网关，通过共享 token 实现远程控制。网关使用 WebSocket v2 协议，提供 HTTP API 和 WebUI，需正确配置环境变量、持久化存储和反向代理以支持 WebSocket。",
+  "推荐启动": "docker run -d --name liveagent-gateway --restart unless-stopped -p 3000:8080 -v liveagent-gateway-data:/var/lib/liveagent -e LIVEAGENT_GATEWAY_TOKEN=your-token ghcr.io/stack-cairn/liveagent-gateway:latest",
+  "agentHint": "请确保设置 LIVEAGENT_GATEWAY_TOKEN 环境变量，并挂载持久化数据卷以保留 agent 凭证。",
+  "DeepWiki": "https://deepwiki.com/Stack-Cairn/LiveAgent",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/stack-cairn-liveagent.json",
+  "source": "ai-web"
+}

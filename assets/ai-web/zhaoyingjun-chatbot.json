@@ -1,0 +1,65 @@
+{
+  "产品": "chatbot",
+  "厂商": "zhaoyingjun",
+  "状态": "可下",
+  "类型": "Agent",
+  "语言": "Python",
+  "Stars": 3581,
+  "GitHub": "https://github.com/zhaoyingjun/chatbot",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "pip"
+  ],
+  "下载条件": "pip + streamlit run",
+  "去重键": "zhaoyingjun-chatbot",
+  "备注": "FastAPI+Streamlit ShoppingAgent 等场景 Agent。具备 Web UI。★3581",
+  "资产号": 95,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-11-02T02:50:46+08:00",
+  "启动指引": "pip 安装依赖，将语料文件放入 train_data 目录，编辑 seq2seq.ini 配置，运行 data_util.py，然后执行 execute.py（serve 模式），最后启动 app.py；默认端口 8808，无必填环境变量，无需认证。",
+  "开工前先看": [
+    {
+      "title": "项目架构概览",
+      "url": "https://deepwiki.com/zhaoyingjun/chatbot"
+    },
+    {
+      "title": "Web Interface 说明",
+      "url": "https://deepwiki.com/zhaoyingjun/chatbot#6"
+    },
+    {
+      "title": "配置文件详解",
+      "url": "https://deepwiki.com/zhaoyingjun/chatbot#7"
+    },
+    {
+      "title": "安装与启动指南",
+      "url": "https://deepwiki.com/search/how-do-i-install-and-start-cha_24bfad76-f440-4187-ad82-faf0734d70dd"
+    },
+    {
+      "title": "GitHub 仓库",
+      "url": "https://github.com/zhaoyingjun/chatbot"
+    }
+  ],
+  "建议追问": [
+    "语料文件应放在哪个目录并准备哪些格式？",
+    "seq2seq.ini 中需要设置哪些关键参数？",
+    "app.py 默认监听哪个端口，如何修改？",
+    "是否支持 Docker 部署，若支持请给出示例？",
+    "生产环境如何配置反向代理或 HTTPS？"
+  ],
+  "已知坑": "配置文件路径或内容错误、模型文件缺失或损坏、jieba 分词库加载失败、前端 AJAX 请求地址错误或网络阻塞、缺少必需的语料文件",
+  "成功标准": "控制台显示 Flask 启动于 0.0.0.0:8808，浏览器能打开 http://localhost:8808 并加载聊天界面，输入文字后能收到 bot 回复",
+  "研判摘要": "该 chatbot 通过 FastAPI+Streamlit 实现中文对话的 Web UI，依赖 seq2seq 模型，配置文件化，默认端口 8808，无认证",
+  "推荐启动": "pip install -r requirements.txt && python data_util.py && python execute.py --mode serve && python app.py",
+  "agentHint": "确保配置文件和模型就绪后直接运行 app.py，即可在 8808 端口访问聊天界面",
+  "DeepWiki": "https://deepwiki.com/zhaoyingjun/chatbot",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/zhaoyingjun-chatbot.json",
+  "source": "ai-web"
+}

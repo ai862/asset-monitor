@@ -1,0 +1,43 @@
+{
+  "产品": "FunClip",
+  "厂商": "modelscope",
+  "状态": "可下",
+  "类型": "视频",
+  "语言": "Python",
+  "Stars": 6352,
+  "GitHub": "https://github.com/modelscope/FunClip",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "pip"
+  ],
+  "下载条件": "pip + Gradio 本地部署",
+  "去重键": "modelscope-funclip",
+  "备注": "FunASR 视频剪辑/字幕 Gradio 本地工具。具备 Web UI。★6352",
+  "资产号": 92,
+  "首次写入": "2026-09-28",
+  "渠道": "GitHub",
+  "搭建难度": "易",
+  "研判状态": "已研判",
+  "研判时间": "2026-11-02T02:44:17+08:00",
+  "启动指引": "最短路径：git clone https://github.com/modelscope/FunClip.git && cd FunClip && pip install -r requirements.txt，默认端口 7860，环境变量：OPENAI_API_KEY(LLM集成可选)，鉴权要点：Gradio界面LLM标签页输入Qwen/Bailian/API key或OpenAI key，g4f为免费但不稳定选择。",
+  "建议追问": [
+    "是否需要配置具体的 LLM API 密钥？",
+    "视频剪辑时字幕嵌入失败的具体解决方法？",
+    "如何在生产环境中通过反向代理暴露 Gradio 服务？",
+    "FunClip 支持的视频格式和时长限制是多少？",
+    "离线环境下如何解决 ImageMagick/ffmpeg 依赖？"
+  ],
+  "已知坑": "ImageMagick/ffmpeg 配置错误会导致字幕嵌入失败；同一端口多个 Gradio 界面会造成上传卡顿；LLM 功能需提供 API 密钥且网络受限时可能失效；g4f 集成可能不稳定。",
+  "成功标准": "Gradio Web UI 在 localhost:7860 可访问并能上传视频进行识别/剪辑；Stage 1 识别成功输出 SRT 文本并保存至 output_dir；Stage 2 剪辑生成目标 mp4 视频文件。",
+  "研判摘要": "FunClip 是一个 Gradio 界面的视频剪辑与字幕生成工具，核心功能为语音识别与文本驱动的视频剪辑。部署依赖 Python 环境和可选的多媒体库，LLM 功能需自行配置 API 密钥。常见阻点多在多媒体依赖配置和 API 网络环境上。",
+  "推荐启动": "python funclip/launch.py",
+  "agentHint": "注意 ImageMagick policy.xml 配置和 LLM API 密钥的网络可达性。",
+  "DeepWiki": "https://deepwiki.com/modelscope/FunClip",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/modelscope-funclip.json",
+  "source": "ai-web"
+}
