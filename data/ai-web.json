@@ -6520,7 +6520,41 @@
     "备注": "★5572 · 最近 push 2026-10 · Next.js15+FastAPI 多专家高管 Agent WebUI",
     "资产号": 110,
     "首次写入": "2026-10-11",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "中",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-02T04:11:13+08:00",
+    "启动指引": "使用 make dev 命令启动，FastAPI 后端在 8000 端口，Next.js UI 在 3000 端口。环境变量需包含 ANTHROPIC_API_KEY、BACKEND_SHARED_SECRET、DEFAULT_MODEL、DEEP_REASONING_MODEL、VECTOR_STORE_PATH、EPISODIC_DB_PATH、COMPANY_PROFILE_PATH。鉴权通过 x-api-key 头匹配 BACKEND_SHARED_SECRET 实现。",
+    "开工前先看": [
+      {
+        "title": "OpenExecutive GitHub 仓库",
+        "url": "https://github.com/SenteLabsAI/OpenExecutive"
+      },
+      {
+        "title": "DeepWiki 项目页面",
+        "url": "https://deepwiki.com/SenteLabsAI/OpenExecutive"
+      },
+      {
+        "title": "Open Executive 项目概述",
+        "url": "https://deepwiki.com/search/how-do-i-install-and-start-ope_4632f3d2-5548-4b80-80f6-97faaaea29c4"
+      }
+    ],
+    "建议追问": [
+      "如何配置 BACKEND_SHARED_SECRET 以确保 API 认证正常工作？",
+      "在 Fly.io 部署时，如何设置 CORS 允许的源？",
+      "如果 API 启动失败，常见的错误信息有哪些？",
+      "如何验证 Web UI 是否正确连接到后端 API？",
+      "Honcho 模式下需要额外的 HONCHO_API_KEY 吗？"
+    ],
+    "已知坑": "BACKEND_SHARED_SECRET 与 UI 应用的配置不一致会导致 401 错误；缺少 ANTHROPIC_API_KEY 会导致 API 启动失败；AUTH_URL 未设置可能导致浏览器加载失败。",
+    "成功标准": "API 健康检查 /health 返回 ok，UI 端点 /api/backend/health 可访问，x-api-key 认证返回 200。",
+    "研判摘要": "OpenExecutive 采用 Next.js Web UI 与 FastAPI 后端架构，依赖共享密钥认证和多端部署，需注意配置一致性。",
+    "推荐启动": "make dev",
+    "agentHint": "优先检查 BACKEND_SHARED_SECRET 一致性和 ANTHROPIC_API_KEY 配置",
+    "DeepWiki": "https://deepwiki.com/SenteLabsAI/OpenExecutive",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/sentelabsai-openexecutive.json"
   },
   {
     "产品": "KiroCrew",
@@ -6543,7 +6577,58 @@
     "备注": "★4368 · 最近 push 2026-10 · 持久开发工作区 Web dashboard + CLI/桌面",
     "资产号": 111,
     "首次写入": "2026-10-11",
-    "渠道": "GitHub"
+    "渠道": "GitHub",
+    "搭建难度": "易",
+    "研判状态": "已研判",
+    "研判时间": "2026-11-02T04:12:52+08:00",
+    "启动指引": "最短路径：`curl -fsSL https://download.crew.kiro.dev/cli.sh | sh` → `kirocrew setup` → `kirocrew gateway`。默认端口 5476，Web 面板访问 http://localhost:5476。关键环境变量：KIROCREW_HOME(数据目录)、KIROCREW_PORT(端口)、KIROCREW_TELEMETRY_DISABLED=1(关闭遥测)、Slack 集成需 SLACK_APP_TOKEN、SLACK_BOT_TOKEN、KIROCREW_OWNER_ID。鉴权：Dashboard token 视同密码，泄露需执行 `kirocrew logout` 吊销；Slack token 需在 Slack App 配置 Socket Mode、Event Subscriptions、App Home。",
+    "开工前先看": [
+      {
+        "title": "Getting Started & Installation",
+        "url": "https://deepwiki.com/kirodotdev/KiroCrew#1.1"
+      },
+      {
+        "title": "CLI Commands & Setup",
+        "url": "https://deepwiki.com/kirodotdev/KiroCrew#9.1"
+      },
+      {
+        "title": "Core Architecture",
+        "url": "https://deepwiki.com/kirodotdev/KiroCrew#2"
+      },
+      {
+        "title": "Web Dashboard (Frontend)",
+        "url": "https://deepwiki.com/kirodotdev/KiroCrew#5"
+      },
+      {
+        "title": "App Platform (App Kit)",
+        "url": "https://deepwiki.com/kirodotdev/KiroCrew#7"
+      },
+      {
+        "title": "GitHub 仓库",
+        "url": "https://github.com/kirodotdev/KiroCrew"
+      },
+      {
+        "title": "DeepWiki 总览",
+        "url": "https://deepwiki.com/kirodotdev/KiroCrew"
+      }
+    ],
+    "建议追问": [
+      "如何在无公网 IP 的服务器上通过反向代理暴露 Dashboard？",
+      "Docker 部署时如何持久化数据并配置自动更新？",
+      "Slack Bot Token 与 App Token 申请的完整步骤是什么？",
+      "如何离线/内网环境下安装并使用本地嵌入模型？",
+      "多用户/多团队场景下如何隔离工作区与鉴权？",
+      "Gateway 启动后 `kirocrew doctor` 报错常见原因及排查步骤？"
+    ],
+    "已知坑": "1) Sidebar 无界面常因缺少 ui.entry 或文件扩展名非 .mjs；2) Skill 启用后不生效需检查路径与 skill_search；3) UI/Manifest 修改需 App Store Sync/Update 或开发模式才生效；4) 本地路径安装跳过 onInstall 钩子，需先本地构建；5) data/ 与 .app_secret 不应入 Git；6) Slack “Install App” 灰色需走 OAuth & Permissions → Install to Workspace；7) 无事件收到需确认 Socket Mode 开启、Event Subscriptions 订阅、App Home Chat Tab 启用并重装；8) Bot 不回应先跑 `kirocrew doctor` 确认 Gateway 运行。",
+    "成功标准": "`kirocrew doctor` 输出 `✅ Kiro Crew is ready!`；`curl http://localhost:5476/api/status` 返回 200 且含 gateway 状态；浏览器打开 http://localhost:5476 能加载 Dashboard 且无 token 报错。",
+    "研判摘要": "KiroCrew 提供一键 CLI 安装、Docker 与 pip 三种部署方式，默认端口 5476，内置 Web Dashboard 与 CLI/桌面客户端，适合持久化开发工作区。认证体系包含 Dashboard token 与 Slack Bot/App token，需注意 token 吊销与反向代理安全。",
+    "推荐启动": "curl -fsSL https://download.crew.kiro.dev/cli.sh | sh && kirocrew setup && kirocrew gateway",
+    "agentHint": "优先走 CLI 一键安装，再跑 setup 与 doctor 验证；Slack 集成按向导填三个 token 即可。",
+    "DeepWiki": "https://deepwiki.com/kirodotdev/KiroCrew",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/kirodotdev-kirocrew.json"
   },
   {
     "产品": "GeekAI",
@@ -6566,7 +6651,13 @@
     "备注": "渠道:Gitee · ★3322 · 最近 push 2026-09",
     "资产号": 116,
     "首次写入": "2026-10-28",
-    "渠道": "Gitee"
+    "渠道": "Gitee",
+    "研判状态": "索引缺失",
+    "研判时间": "2026-11-02T04:12:52+08:00",
+    "搭建难度": "未知",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "研判摘要": "无有效 GitHub 地址，无法 DeepWiki 取材。"
   },
   {
     "产品": "WCP5",
@@ -6588,7 +6679,13 @@
     "备注": "渠道:Gitee · ★2169 · 最近 push 2026-09",
     "资产号": 117,
     "首次写入": "2026-10-28",
-    "渠道": "Gitee"
+    "渠道": "Gitee",
+    "研判状态": "索引缺失",
+    "研判时间": "2026-11-02T04:12:52+08:00",
+    "搭建难度": "未知",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "研判摘要": "无有效 GitHub 地址，无法 DeepWiki 取材。"
   },
   {
     "产品": "LangChat",
@@ -6610,7 +6707,13 @@
     "备注": "渠道:Gitee · ★1714 · 最近 push 2026-09",
     "资产号": 118,
     "首次写入": "2026-10-28",
-    "渠道": "Gitee"
+    "渠道": "Gitee",
+    "研判状态": "索引缺失",
+    "研判时间": "2026-11-02T04:12:52+08:00",
+    "搭建难度": "未知",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "研判摘要": "无有效 GitHub 地址，无法 DeepWiki 取材。"
   },
   {
     "产品": "科亿知识库",
@@ -6633,7 +6736,13 @@
     "备注": "渠道:Gitee · ★944 · 最近 push 2026-03",
     "资产号": 119,
     "首次写入": "2026-10-28",
-    "渠道": "Gitee"
+    "渠道": "Gitee",
+    "研判状态": "索引缺失",
+    "研判时间": "2026-11-02T04:12:52+08:00",
+    "搭建难度": "未知",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "研判摘要": "无有效 GitHub 地址，无法 DeepWiki 取材。"
   },
   {
     "产品": "qKnow",
@@ -6655,7 +6764,13 @@
     "备注": "渠道:Gitee · ★821 · 最近 push 2026-10",
     "资产号": 120,
     "首次写入": "2026-10-28",
-    "渠道": "Gitee"
+    "渠道": "Gitee",
+    "研判状态": "索引缺失",
+    "研判时间": "2026-11-02T04:12:52+08:00",
+    "搭建难度": "未知",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "研判摘要": "无有效 GitHub 地址，无法 DeepWiki 取材。"
   },
   {
     "产品": "Nuwax",
@@ -6677,7 +6792,13 @@
     "备注": "渠道:Gitee · ★412 · 最近 push 2026-06",
     "资产号": 121,
     "首次写入": "2026-10-28",
-    "渠道": "Gitee"
+    "渠道": "Gitee",
+    "研判状态": "索引缺失",
+    "研判时间": "2026-11-02T04:12:52+08:00",
+    "搭建难度": "未知",
+    "研判来源": "openrouter+deepwiki",
+    "schemaVersion": 2,
+    "研判摘要": "无有效 GitHub 地址，无法 DeepWiki 取材。"
   },
   {
     "产品": "NetCoreKevin",

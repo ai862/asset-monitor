@@ -1,0 +1,57 @@
+{
+  "产品": "OpenExecutive",
+  "厂商": "SenteLabsAI",
+  "状态": "可下",
+  "类型": "Agent",
+  "语言": "Python",
+  "Stars": 5572,
+  "GitHub": "https://github.com/SenteLabsAI/OpenExecutive",
+  "官网": null,
+  "文档": null,
+  "Web服务": true,
+  "部署方式": [
+    "源码",
+    "Docker"
+  ],
+  "下载条件": "make install && make dev；或 make docker / docker-compose",
+  "去重键": "sentelabsai-openexecutive",
+  "备注": "★5572 · 最近 push 2026-10 · Next.js15+FastAPI 多专家高管 Agent WebUI",
+  "资产号": 110,
+  "首次写入": "2026-10-11",
+  "渠道": "GitHub",
+  "搭建难度": "中",
+  "研判状态": "已研判",
+  "研判时间": "2026-11-02T04:11:13+08:00",
+  "启动指引": "使用 make dev 命令启动，FastAPI 后端在 8000 端口，Next.js UI 在 3000 端口。环境变量需包含 ANTHROPIC_API_KEY、BACKEND_SHARED_SECRET、DEFAULT_MODEL、DEEP_REASONING_MODEL、VECTOR_STORE_PATH、EPISODIC_DB_PATH、COMPANY_PROFILE_PATH。鉴权通过 x-api-key 头匹配 BACKEND_SHARED_SECRET 实现。",
+  "开工前先看": [
+    {
+      "title": "OpenExecutive GitHub 仓库",
+      "url": "https://github.com/SenteLabsAI/OpenExecutive"
+    },
+    {
+      "title": "DeepWiki 项目页面",
+      "url": "https://deepwiki.com/SenteLabsAI/OpenExecutive"
+    },
+    {
+      "title": "Open Executive 项目概述",
+      "url": "https://deepwiki.com/search/how-do-i-install-and-start-ope_4632f3d2-5548-4b80-80f6-97faaaea29c4"
+    }
+  ],
+  "建议追问": [
+    "如何配置 BACKEND_SHARED_SECRET 以确保 API 认证正常工作？",
+    "在 Fly.io 部署时，如何设置 CORS 允许的源？",
+    "如果 API 启动失败，常见的错误信息有哪些？",
+    "如何验证 Web UI 是否正确连接到后端 API？",
+    "Honcho 模式下需要额外的 HONCHO_API_KEY 吗？"
+  ],
+  "已知坑": "BACKEND_SHARED_SECRET 与 UI 应用的配置不一致会导致 401 错误；缺少 ANTHROPIC_API_KEY 会导致 API 启动失败；AUTH_URL 未设置可能导致浏览器加载失败。",
+  "成功标准": "API 健康检查 /health 返回 ok，UI 端点 /api/backend/health 可访问，x-api-key 认证返回 200。",
+  "研判摘要": "OpenExecutive 采用 Next.js Web UI 与 FastAPI 后端架构，依赖共享密钥认证和多端部署，需注意配置一致性。",
+  "推荐启动": "make dev",
+  "agentHint": "优先检查 BACKEND_SHARED_SECRET 一致性和 ANTHROPIC_API_KEY 配置",
+  "DeepWiki": "https://deepwiki.com/SenteLabsAI/OpenExecutive",
+  "研判来源": "openrouter+deepwiki",
+  "schemaVersion": 2,
+  "指引URL": "https://ai862.github.io/asset-monitor/assets/ai-web/sentelabsai-openexecutive.json",
+  "source": "ai-web"
+}
