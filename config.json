@@ -1,1 +1,34 @@
-  "updatedAt": "2026-11-10T07:44:37+08:00",
+{
+  "title": "资产监控中心",
+  "updatedAt": "2026-11-10T09:11:25+08:00",
+  "sources": [
+    {
+      "id": "ai-web",
+      "name": "AI Web",
+      "data": "data/ai-web.json",
+      "notion": "https://bedecked-oregano-603.notion.site/6b9b20b7999e4f3b9e8eb59657ae59b0",
+      "accent": "#0071e3"
+    },
+    {
+      "id": "ics",
+      "name": "工控 Web",
+      "data": "data/ics.json",
+      "notion": "https://bedecked-oregano-603.notion.site/8291c64b5325432f95410c720b6dc8c8",
+      "accent": "#00a4c2"
+    },
+    {
+      "id": "xinchuang",
+      "name": "信创 Web",
+      "data": "data/xinchuang.json",
+      "notion": "https://bedecked-oregano-603.notion.site/010b0f973d6245fdaa14318193468ce5",
+      "accent": "#ff9500"
+    },
+    {
+      "id": "intel",
+      "name": "每日情报",
+      "data": "data/intel.json",
+      "notion": "",
+      "accent": "#af52de"
+    }
+  ]
+}
