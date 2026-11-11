@@ -1,0 +1,54 @@
+[
+  {
+    "产品": "CRLF头注入升级为Desync攻击录像",
+    "厂商": "@t0xodile",
+    "状态": "SRC速报",
+    "类型": "绕过方法",
+    "备注": "DEF CON 34 录像公开：把头注入/CRLF 推到 HTTP desync，影响 CDN 内凭证与购物车共享状态。",
+    "实用价值": "发现头注入后继续验证是否能影响请求边界和共享缓存/会话。",
+    "官网": "https://x.com/t0xodile/status/2120156825085509868",
+    "文档": "https://www.youtube.com/watch?v=PVOmWVF2YFQ",
+    "去重键": "2120156825085509868",
+    "首次写入": "2026-11-11",
+    "批次": "2026-11-11"
+  },
+  {
+    "产品": "AWS公开AI漏洞分诊三层流水线",
+    "厂商": "@mqst_",
+    "状态": "SRC速报",
+    "类型": "技巧分享",
+    "备注": "AWS 安全博客方法文今日在 X 被集中转发：多扫描器交叉、AST 核验数据流、再结合 IaC 部署上下文分诊，并用 steering file 约束模型。",
+    "实用价值": "扫描分诊跟不上时可借鉴先核结构、再看部署上下文的顺序，减少把误报当成可报项。",
+    "官网": "https://x.com/mqst_/status/2120146961533939758",
+    "文档": "https://aws.amazon.com/blogs/security/building-your-ai-vulnerability-harness-part-1/",
+    "去重键": "2120146961533939758",
+    "首次写入": "2026-11-11",
+    "批次": "2026-11-11"
+  },
+  {
+    "产品": "用慢雾Agent安全Skill做适配插件",
+    "厂商": "@evilcos",
+    "状态": "SRC速报",
+    "类型": "工具推荐",
+    "备注": "把 SlowMist Agent Security Skill 交给 DeepSeek Harness「创造模式」，按仓库写适合 DSH 的安全插件并多轮打磨；核心是外部输入先验证再信任。",
+    "实用价值": "给正在用 DeepSeek Harness 或类似 Agent 做辅助审查的人，快速补一层输入不可信的安全插件。",
+    "官网": "https://x.com/evilcos/status/2119977910371270869",
+    "文档": "https://github.com/slowmist/slowmist-agent-security",
+    "去重键": "2119977910371270869",
+    "首次写入": "2026-11-11",
+    "批次": "2026-11-11"
+  },
+  {
+    "产品": "反爬静默拦截Hackbot请求链",
+    "厂商": "@Jhaddix",
+    "状态": "SRC速报",
+    "类型": "技巧分享",
+    "备注": "Web fetch、Curl、Wget、Puppeteer、Playwright、Chrome DevTools MCP 等取页方式会被反爬拦截，失败常发生在子 agent 里不易察觉，需自建请求器。",
+    "实用价值": "用 AI/hackbot 抓页前先验证取页通道是否真的打到目标，避免在被拦的子任务上空转。",
+    "官网": "https://x.com/Jhaddix/status/2119975126720749582",
+    "文档": "",
+    "去重键": "2119975126720749582",
+    "首次写入": "2026-11-11",
+    "批次": "2026-11-11"
+  }
+]
