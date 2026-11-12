@@ -1,0 +1,54 @@
+[
+  {
+    "产品": "政府域名悬空 DNS 与拼写错误依赖",
+    "厂商": "@hakluke",
+    "状态": "SRC速报",
+    "类型": "资产收集",
+    "备注": "一条政府 DNS 把 Amazon SES 拼错，就会把大量 IP 放进可认证发信白名单。SH Consulting 在美国州和地方政府域名中发现 43 个仍指向过期、拼写错误或已易主的 SPF/MX/NS/DMARC 依赖。",
+    "实用价值": "资产收集时把 SPF/MX/NS/DMARC 外部依赖单独列出来，检查拼写错误、过期或可抢注，可套到国内政企邮箱域。",
+    "官网": "https://x.com/hakluke/status/2120674291440091393",
+    "文档": "https://www.sh.consulting/blog/government-dangling-dns-records",
+    "去重键": "2120674291440091393",
+    "首次写入": "2026-11-12",
+    "批次": "2026-11-12"
+  },
+  {
+    "产品": "Telegram 消息小组件沙盒并不隔离",
+    "厂商": "@evilcos",
+    "状态": "SRC速报",
+    "类型": "实战复盘",
+    "备注": "新版消息 HTML 小组件的所谓沙盒只是进程内 QuickJS 线程，未见进程隔离或 seccomp；QuickJS 层问题可能拿到客户端权限。余弦建议暂缓升级。",
+    "实用价值": "评估 IM 或嵌入式消息能力时，要核实 JS 运行时是否真隔离，不能只看产品宣传中的 sandbox。",
+    "官网": "https://x.com/evilcos/status/2120665611466633246",
+    "文档": "https://x.com/OwariDa/status/2120539850541560316",
+    "去重键": "2120665611466633246",
+    "首次写入": "2026-11-12",
+    "批次": "2026-11-12"
+  },
+  {
+    "产品": "Codex 工作流注入打到 npm 发布",
+    "厂商": "@0xLupin",
+    "状态": "SRC速报",
+    "类型": "实战复盘",
+    "备注": "Codex issue-labeler 把外部 issue 送进提示词，经沙箱逃逸与 GitHub cache 投毒摸到官方 npm 发布路径；OpenAI 已修复。",
+    "实用价值": "排查 AI 编码代理与自动打标签工作流时，要看到供应链出口，而不只停在提示注入能否执行命令。",
+    "官网": "https://x.com/0xLupin/status/2120570349775622242",
+    "文档": "https://depi.security/blog/20261111-backdooring-codex/",
+    "去重键": "2120570349775622242",
+    "首次写入": "2026-11-12",
+    "批次": "2026-11-12"
+  },
+  {
+    "产品": "严格 CSP 下仍可带出登录凭证",
+    "厂商": "@garethheyes",
+    "状态": "SRC速报",
+    "类型": "绕过方法",
+    "备注": "form-action 不回退到 default-src；default-src none 且 form-action self 时，反射型 HTML 注入仍可能用同源表单外带凭证，不必执行脚本。已做成 Burp AT skill。",
+    "实用价值": "XSS/HTML 注入遇到看似锁死的 CSP 不要直接结案，先核对 form-action。",
+    "官网": "https://x.com/garethheyes/status/2120523482220167240",
+    "文档": "https://portswigger.net/research/blind-trust-stealing-credentials-through-csp",
+    "去重键": "2120523482220167240",
+    "首次写入": "2026-11-12",
+    "批次": "2026-11-12"
+  }
+]
