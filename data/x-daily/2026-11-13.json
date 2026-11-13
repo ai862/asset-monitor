@@ -1,0 +1,54 @@
+[
+  {
+    "产品": "Mandoline为Agent补程序分析能力",
+    "厂商": "@InsiderPhD",
+    "状态": "SRC速报",
+    "类型": "工具推荐",
+    "备注": "与 Semgrep 合作的 Mandoline 研究预览：用静态分析加 LLM 流程找漏洞，可视化 Agent 已探索和尚未覆盖的路径；帖中称已发现 Mythos 错过的问题并有 2 个 CVE。构建 Agent 的人可按博客申请预览。",
+    "实用价值": "适合用模型做白盒/代码审计的人，用来降低乱扫成本、看清未覆盖路径；目前是研究预览。",
+    "官网": "https://x.com/InsiderPhD/status/2120952208632021055",
+    "文档": "https://semgrep.dev/blog/2026/semgrep-mandoline-program-analysis-for-agents/",
+    "去重键": "2120952208632021055",
+    "首次写入": "2026-11-13",
+    "批次": "2026-11-13"
+  },
+  {
+    "产品": "Shopify公布常见报告评审口径",
+    "厂商": "@ShopifyEng",
+    "状态": "SRC速报",
+    "类型": "报告经验",
+    "备注": "Shopify 写清权限/范围绕过、预注册劫持、泄露凭据等常见报告怎么评估：权限问题要看敏感权限、资金影响或未授权买家 PII；订单权限含客户信息是设计如此；空号或仅阻止注册不在预注册劫持奖励范围；HTML 注入需链式证明影响，部分 B2B 与未达 DoS 标准的 GraphQL 过载不合格。",
+    "实用价值": "交 Shopify 及同类电商 SRC 报告前对照口径，避免把设计行为或不合格类型送进去。",
+    "官网": "https://x.com/ShopifyEng/status/2120908553275965821",
+    "文档": "https://www.shopify.com/bugbounty/resources/clarifications-to-the-shopify-bug-bounty-program",
+    "去重键": "2120908553275965821",
+    "首次写入": "2026-11-13",
+    "批次": "2026-11-13"
+  },
+  {
+    "产品": "用小而确定的工具搭建挖洞Agent",
+    "厂商": "@hakluke",
+    "状态": "SRC速报",
+    "类型": "技巧分享",
+    "备注": "挖洞 Agent 应把子域枚举、带外回调等确定性工作交给精简可串联的 CLI，模型只做需要判断的部分；用 MCP 暴露工作流，输入分类型、输出保持精简，并由工具自己写不可被模型篡改的测试日志。",
+    "实用价值": "减少 LLM 在 recon/验证上的误报和 token 浪费，把流程拉回可核验的工具链。",
+    "官网": "https://x.com/hakluke/status/2120907910536634716",
+    "文档": "https://blog.detectify.com/best-practices/why-im-building-my-hacking-agent-out-of-tiny-boring-tools/",
+    "去重键": "2120907910536634716",
+    "首次写入": "2026-11-13",
+    "批次": "2026-11-13"
+  },
+  {
+    "产品": "开源模型黑盒挖洞栈搭建法",
+    "厂商": "@mdp_sec",
+    "状态": "SRC速报",
+    "类型": "技巧分享",
+    "备注": "基于 BB Arena v2 给出开源权重模型分工：鉴权/访问控制与逻辑竞态用 DeepSeek，浏览器/服务端/基础设施用 MiMo Pro，廉价广扫用 MiMo Flash；先广扫再把像样线索交给更强模型，发现必须人工验证。",
+    "实用价值": "给已在用 Agent 辅助挖洞的猎人排模型分工、控制成本和拒答中断。",
+    "官网": "https://x.com/mdp_sec/status/2120699530589196595",
+    "文档": "https://github.com/mdpsec/bug-bounty-hunting-prompts",
+    "去重键": "2120699530589196595",
+    "首次写入": "2026-11-13",
+    "批次": "2026-11-13"
+  }
+]
