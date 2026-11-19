@@ -164,13 +164,20 @@
     "Web服务": true,
     "统信清单": true,
     "适配信号": "统信清单本批（OfficeAnywhere通达网络智能办公系统）",
-    "下载条件": "官网服务端自助下：down.php?VERSION=v13 → cdndown TDOA13.6.exe（约701MB）；客户端 ispirit 直链；20用户永久免费需注册 oa/reg/",
+    "下载条件": "官网服务端自助下：down.php?VERSION=v13 → cdndown TDOA13.7.exe（约716MB）；客户端 ispirit 直链；20用户永久免费需注册 oa/reg/",
     "去重键": "tongda-oa",
     "备注": "agent-browser 打开 p2024.php：正文写明「新部署通达OA服务器端」；HEAD down.php?VERSION=v13 302 到 https://cdndown.tongda2000.com/oa/2024/TDOA13.6.exe（200, 701129376 bytes）。信创专用包仍未见。",
     "资产号": 8,
     "首次写入": "2026-09-03",
     "下载核验时间": "2026-10-20 14:58 CST",
-    "下载核验来源": "agent-browser+curl（Pi因OpenRouter free日配额429未成）"
+    "下载核验来源": "agent-browser+curl（Pi因OpenRouter free日配额429未成）",
+    "直连下载": [
+      "https://cdndown.tongda2000.com/oa/2024/TDOA13.7.exe",
+      "https://cdndown.tongda2000.com/ispirit/2024/win/2026.08.31/ispirit_Setup.exe",
+      "https://cdndown.tongda2000.com/ispirit/2024/mac/2025.04.16/ispirit_for_Mac.pkg",
+      "https://cdndown.tongda2000.com/ispirit/2024/android/2026.08.31/ispirit_for_Android.apk"
+    ],
+    "直连核验时间": "2026-11-19T15:07:29+08:00"
   },
   {
     "产品": "360 信创安全浏览器",
@@ -188,7 +195,13 @@
     "去重键": "360-xinchuang-browser",
     "备注": "另有 https://browser.360.net/gc/",
     "资产号": 9,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "直连核验时间": "2026-11-19T15:07:29+08:00",
+    "直连下载": [
+      "https://down.360safe.com/gc/signed_com.360.browser-stable_10.6.1000.37-1_amd64.deb",
+      "https://down.360safe.com/gc/browser360-cn-stable_10.6.1000.37-1_amd64.deb",
+      "https://down.360safe.com/gc/browser360-cn-stable_10.6.1000.37-1_arm64.deb"
+    ]
   },
   {
     "产品": "奇安信可信浏览器 国密开发者版",
@@ -354,7 +367,13 @@
     "去重键": "pageoffice",
     "备注": "Web 在线 Office 控件。下载中心 HTTP 200；Gitee README 有 UOS deb 直链。",
     "资产号": 18,
-    "首次写入": "2026-09-03"
+    "首次写入": "2026-09-03",
+    "直连核验时间": "2026-11-19T15:07:29+08:00",
+    "直连下载": [
+      "https://www.zhuozhengsoft.com/dowm/download.aspx?filename=posetup_7.0.0.1.exe",
+      "https://www.zhuozhengsoft.com/dowm/download.aspx?filename=com.zhuozhengsoft.pageoffice_6.7.0.1_amd64_kylin.deb",
+      "https://www.zhuozhengsoft.com/dowm/download.aspx?filename=com.zhuozhengsoft.pageoffice_6.7.0.1_amd64_uos.deb"
+    ]
   },
   {
     "产品": "心通达 OA",

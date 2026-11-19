@@ -382,7 +382,13 @@
     "去重键": "chirpstack",
     "备注": "开源 LoRaWAN Network Server；多租户 Web UI :8080 管理网关/设备",
     "资产号": 54,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "直连下载": [
+      "https://artifacts.chirpstack.io/downloads/chirpstack/chirpstack_4.20.0_linux_amd64.deb",
+      "https://artifacts.chirpstack.io/downloads/chirpstack/chirpstack_4.20.0_linux_armhf.deb",
+      "https://artifacts.chirpstack.io/downloads/chirpstack/chirpstack_4.20.0_linux_arm64.deb"
+    ],
+    "直连核验时间": "2026-11-19T15:02:31+08:00"
   },
   {
     "产品": "【重复】openHAB",
@@ -424,7 +430,13 @@
     "去重键": "scadabr",
     "备注": "开源 Web SCADA，浏览器 HMI；GPL；官方迁至 GitHub",
     "资产号": 22,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "直连下载": [
+      "https://github.com/ScadaBR/ScadaBR/releases/download/v1.2/ScadaBR_Setup_Windows.exe",
+      "https://github.com/ScadaBR/ScadaBR/releases/download/v1.2/ScadaBR_Setup_Linux.zip",
+      "https://github.com/ScadaBR/ScadaBR/releases/download/v1.2/ScadaBR.war"
+    ],
+    "直连核验时间": "2026-11-19T15:07:29+08:00"
   },
   {
     "产品": "Hanwha Wisenet WAVE",
@@ -463,7 +475,9 @@
     "去重键": "scada-lts",
     "备注": "浏览器访问 :8080/Scada-LTS 或 /ScadaBR；含 Graphical Views HMI",
     "资产号": 3,
-    "首次写入": "2026-09-09"
+    "首次写入": "2026-09-09",
+    "直连下载": "https://github.com/SCADA-LTS/Scada-LTS/releases/download/v2.7.8.1/Scada-LTS.war",
+    "直连核验时间": "2026-11-19T15:02:32+08:00"
   },
   {
     "产品": "Agent DVR",
