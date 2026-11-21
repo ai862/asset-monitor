@@ -48,7 +48,7 @@
     "首次写入": "2026-09-09",
     "下载核验时间": "2026-10-20T14:34:09+08:00",
     "下载核验来源": "openrouter+browser",
-    "直连核验时间": "2026-11-21T06:08:31+08:00"
+    "直连核验时间": "2026-11-22T04:47:11+08:00"
   },
   {
     "产品": "NDS6000 配电监控平台",
@@ -87,7 +87,7 @@
     "备注": "垂直：楼宇自控 BMS；Sedona 编程工具+控制器内置 Web 配置页；非独立 SCADA 服务器；页面疑似登录/留资墙，未见公开直链；fetch fail: HTTP Error 403: Forbidden",
     "资产号": 86,
     "首次写入": "2026-09-09",
-    "直连核验时间": "2026-11-21T06:08:32+08:00"
+    "直连核验时间": "2026-11-22T04:47:12+08:00"
   },
   {
     "产品": "EasyCVR",
@@ -103,14 +103,14 @@
       "安装包",
       "Docker"
     ],
-    "下载条件": "可直接下载 Windows、Linux、ARM 和 Docker 安装包，无需登录。；直连：fetch fail: HTTP Error 404: Not Found；直连：fetch fail: <urlopen error _ssl.c:993: The handshake operation timed out>",
+    "下载条件": "可直接下载 Windows、Linux、ARM 和 Docker 安装包，无需登录。；直连：fetch fail: HTTP Error 404: Not Found；直连：fetch fail: <urlopen error _ssl.c:993: The handshake operation timed out>；直连：fetch fail: <urlopen error _ssl.c:994: The handshake operation timed out>",
     "去重键": "easycvr-tsingsee",
-    "备注": "安徽旭帆信息科技有限公司（TSINGSEE 青犀视频）产品；视频融合/边缘网关，Web 管理口常见 :18000；试用授权常需邮件机器码。；fetch fail: HTTP Error 404: Not Found；fetch fail: <urlopen error _ssl.c:993: The handshake operation timed out>",
+    "备注": "安徽旭帆信息科技有限公司（TSINGSEE 青犀视频）产品；视频融合/边缘网关，Web 管理口常见 :18000；试用授权常需邮件机器码。；fetch fail: HTTP Error 404: Not Found；fetch fail: <urlopen error _ssl.c:993: The handshake operation timed out>；fetch fail: <urlopen error _ssl.c:994: The handshake operation timed out>",
     "资产号": 37,
     "首次写入": "2026-09-09",
     "下载核验时间": "2026-10-21T02:54:40+08:00",
     "下载核验来源": "openrouter+browser",
-    "直连核验时间": "2026-11-21T06:08:33+08:00"
+    "直连核验时间": "2026-11-22T04:47:38+08:00"
   },
   {
     "产品": "ThingsBoard CE",
@@ -1945,7 +1945,7 @@
     "备注": "安徽旭帆互联网视频点播/直播流媒体平台；Web 控制台",
     "资产号": 96,
     "首次写入": "2026-09-11",
-    "下载核验时间": "2026-11-21T06:07:22+08:00",
+    "下载核验时间": "2026-11-22T04:46:13+08:00",
     "下载核验来源": "openrouter+browser"
   },
   {
