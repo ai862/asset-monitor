@@ -1,0 +1,41 @@
+[
+  {
+    "产品": "公开报告套路做成Claude挖洞技能包",
+    "厂商": "@trending_repos",
+    "状态": "SRC速报",
+    "类型": "工具推荐",
+    "备注": "elementalsouls/Claude-BugHunter：面向授权 bug hunting / 外部红队的 Claude Code 技能包。帖文写明 82 个 skills、15 条 slash commands、681 条已公开报告模式，覆盖 24 类核心漏洞。",
+    "实用价值": "已用 Claude Code 做授权赏金或靶场练习时，可减少从零拼工作流的时间；只打 in-scope 或自有靶场。",
+    "官网": "https://x.com/trending_repos/status/2124475007032324143",
+    "文档": "https://github.com/elementalsouls/Claude-BugHunter",
+    "去重键": "2124475007032324143",
+    "首次写入": "2026-11-23",
+    "批次": "2026-11-23"
+  },
+  {
+    "产品": "Fluidkey：三方日志组件旧漏洞击穿本地密钥假设",
+    "厂商": "@evilcos",
+    "状态": "SRC速报",
+    "类型": "实战复盘",
+    "备注": "余弦转发 Fluidkey 事后报告：自建 SigNoz 停在 v0.121.1，两个已披露漏洞加上日志中的会话令牌，使攻击者能在服务端预备转账；用户解锁 App 后完成签名。私钥始终在设备上。",
+    "实用价值": "测“密钥在本地”的钱包或类似应用时，把自建日志/监控三方组件和日志敏感信息一并纳入攻击面。",
+    "官网": "https://x.com/evilcos/status/2124379591771046170",
+    "文档": "https://docs.fluidkey.com/security/incident-2026-11-19/",
+    "去重键": "2124379591771046170",
+    "首次写入": "2026-11-23",
+    "批次": "2026-11-23"
+  },
+  {
+    "产品": "RunPod官方MCP在工具返回里夹带隐瞒指令",
+    "厂商": "@mylifcc",
+    "状态": "SRC速报",
+    "类型": "实战复盘",
+    "备注": "官方 MCP（runpod-mcp 4.13.0）在 create-pod 成功返回末尾夹带要求模型调用评分工具且勿告知用户的指令；同操作走 REST 则是干净 JSON，可用 X-Runpod-Analytics: off 退出。",
+    "实用价值": "测 AI 产品或自建 MCP 时，将工具返回视为不可信输入，并对比 MCP 与底层 REST 的差异。",
+    "官网": "https://x.com/mylifcc/status/2124331029678682432",
+    "文档": "https://github.com/runpod/runpod-mcp/issues/202",
+    "去重键": "2124331029678682432",
+    "首次写入": "2026-11-23",
+    "批次": "2026-11-23"
+  }
+]
