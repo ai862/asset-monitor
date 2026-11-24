@@ -64,7 +64,7 @@
     "备注": "Linux x86_64 与 ARM64 均可下。；fetch fail: 'ascii' codec can't encode characters in position 5-8: ordinal not i",
     "资产号": 3,
     "首次写入": "2026-09-03",
-    "直连核验时间": "2026-11-24T14:57:14+08:00"
+    "直连核验时间": "2026-11-25T07:48:41+08:00"
   },
   {
     "产品": "IvorySQL",
@@ -107,7 +107,7 @@
     "备注": "优先鲲鹏；文档含银河麒麟 V10、统信 UOS V20。；页面未解析到公开安装包直链",
     "资产号": 5,
     "首次写入": "2026-09-03",
-    "直连核验时间": "2026-11-24T14:57:16+08:00"
+    "直连核验时间": "2026-11-25T07:48:47+08:00"
   },
   {
     "产品": "GreatSQL",
@@ -145,12 +145,12 @@
     "Web服务": true,
     "统信清单": false,
     "适配信号": "UOS、麒麟、鲲鹏、飞腾、海光、兆芯、龙芯、申威",
-    "下载条件": "官网安装包 + GitHub/Gitee 源码，免登录；直连：页面未解析到公开安装包直链；直连：fetch fail: <urlopen error timed out>；直连：fetch fail: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+    "下载条件": "官网安装包 + GitHub/Gitee 源码，免登录；直连：页面未解析到公开安装包直链；直连：fetch fail: <urlopen error timed out>；直连：fetch fail: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>；直连：fetch fail: <urlopen error _ssl.c:994: The handshake operation timed out>",
     "去重键": "o2oa",
-    "备注": "默认 HTTP 80/20020/20030。支持麒麟、UOS、鲲鹏/飞腾/龙芯/申威。；页面未解析到公开安装包直链；fetch fail: <urlopen error timed out>；fetch fail: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in v",
+    "备注": "默认 HTTP 80/20020/20030。支持麒麟、UOS、鲲鹏/飞腾/龙芯/申威。；页面未解析到公开安装包直链；fetch fail: <urlopen error timed out>；fetch fail: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in v；fetch fail: <urlopen error _ssl.c:994: The handshake operation timed out>",
     "资产号": 7,
     "首次写入": "2026-09-03",
-    "直连核验时间": "2026-11-24T14:57:17+08:00"
+    "直连核验时间": "2026-11-25T07:49:13+08:00"
   },
   {
     "产品": "通达 OA V13",
@@ -502,7 +502,7 @@
     "备注": "零信任套件同墙未单独建行。",
     "资产号": 25,
     "首次写入": "2026-09-03",
-    "下载核验时间": "2026-11-23T04:56:48+08:00",
+    "下载核验时间": "2026-11-25T07:47:42+08:00",
     "下载核验来源": "openrouter+browser"
   },
   {
@@ -517,12 +517,12 @@
     "Web服务": true,
     "统信清单": true,
     "适配信号": "统信清单本批",
-    "下载条件": "官网无法访问且未检索到官方下载入口，需联系厂商或稍后重试官网",
+    "下载条件": "官网暂无法访问，未确认官方下载入口，需稍后重试或联系厂商",
     "去重键": "bingo-fuse-apigw",
     "备注": "服务总线/API 网关/API 市场。",
     "资产号": 26,
     "首次写入": "2026-09-03",
-    "下载核验时间": "2026-11-23T04:56:52+08:00",
+    "下载核验时间": "2026-11-25T07:48:03+08:00",
     "下载核验来源": "openrouter+browser"
   },
   {
@@ -618,7 +618,7 @@
     "备注": "thunisoft.com 本次被盾拦截。控制台 tas-console。",
     "资产号": 31,
     "首次写入": "2026-09-03",
-    "下载核验时间": "2026-11-23T04:56:59+08:00",
+    "下载核验时间": "2026-11-25T07:48:14+08:00",
     "下载核验来源": "openrouter+browser"
   },
   {
