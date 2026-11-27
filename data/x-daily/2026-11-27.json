@@ -1,0 +1,54 @@
+[
+  {
+    "产品": "Safari 27.2 无等号也可触发 XSS",
+    "厂商": "@hakluke",
+    "状态": "SRC速报",
+    "类型": "绕过方法",
+    "备注": "原帖称，多年来被认为无法在不使用等号的情况下于 innerHTML 里打出 XSS，现已不再成立。做法是结合新的 selectedcontent 元素与 svg、script，浏览器会克隆节点并绕过 already started 标记，从而在 Safari 27.2 中不依赖等号、斜杠或空白即可执行脚本。研究来自 @garethheyes 与 @kinugawamasato，完整技术拆解见下方文章。",
+    "实用价值": "面向仍需在严格过滤（不允许等号、斜杠、空白）下找 XSS 的 Web 目标，尤其是会把输入写入 innerHTML、且用户可能使用 Safari 27.2 的场景。适合过滤绕过已卡住的阶段，用来更新对可用字符集的假设。",
+    "官网": "https://x.com/hakluke/status/2126110076029063339",
+    "文档": "https://portswigger.net/research/achieving-the-impossible-xss-in-innerhtml-without-equals",
+    "去重键": "2126110076029063339",
+    "首次写入": "2026-11-27",
+    "批次": "2026-11-27"
+  },
+  {
+    "产品": "要 raw JSON 绕过助手输出拦截",
+    "厂商": "@quarkslab",
+    "状态": "SRC速报",
+    "类型": "绕过方法",
+    "备注": "原帖称，在一次 AI 红队中，针对该助手做了 129 次尝试，prompt injection、伪造 traces、tokenizer 技巧均被拒绝；改为要求输出 raw JSON 则获准。研究员 @Anthr4ce 通过强迫输出格式，泄露了 agent 配置、工具调用和内部文档。额外资源的文章标题写明对象是 LangChain 助手。",
+    "实用价值": "测试带输出格式约束或工具调用的 AI 助手、客服/Agent 类功能时，不要只堆注入话术；可在常规注入被拒后，改测输出格式是否被额外放行。适合 AI 产品漏洞的初测与红队阶段。",
+    "官网": "https://x.com/quarkslab/status/2126003300772307188",
+    "文档": "https://blog.quarkslab.com/ill-have-a-raw-json-please-leaking-a-langchain-assistant-through-format-coercion.html",
+    "去重键": "2126003300772307188",
+    "首次写入": "2026-11-27",
+    "批次": "2026-11-27"
+  },
+  {
+    "产品": "推理链路金丝雀揭出提示词外泄",
+    "厂商": "@hakluke",
+    "状态": "SRC速报",
+    "类型": "实战复盘",
+    "备注": "原帖称，HD Moore 与 Dragos 团队向推理路由和托管服务商投放了约 200 万条带金丝雀（伪造 AWS 密钥和 URL）的提示。他们发现三起仍在进行的服务商泄露、有攻击者拿被盗密钥发起数万次 API 调用，以及声称「零数据留存」的请求仍被未披露的转售方记录并在数周后泄露。原帖指出：隐私标记只约束你直接对话的那一家；一旦对方把提示转发到转售链，上下文里的敏感信息就失控，提示里放的秘密应视为已经暴露。",
+    "实用价值": "测评或接入 AI 推理/路由服务、以及在提示里放置密钥或客户数据的功能时，不要只看「零数据留存」开关。适合评估 AI 供应链与提示泄露面，也可借鉴用金丝雀检测外泄路径。",
+    "官网": "https://x.com/hakluke/status/2125861935505637462",
+    "文档": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+    "去重键": "2125861935505637462",
+    "首次写入": "2026-11-27",
+    "批次": "2026-11-27"
+  },
+  {
+    "产品": "用压缩与语言学 gadget 做 AI 攻击",
+    "厂商": "@monkehack",
+    "状态": "SRC速报",
+    "类型": "技巧分享",
+    "备注": "作者称近几个月研究了把数据压缩、以及语言学中的 gadget 用于 AI 攻击的新手法，并在 Prompt2Pwn 上首次公开，随后写成文章。原帖未展开具体步骤。窗口内该文被优先账号 @stokfredrik 引用、@Jhaddix 转发，@wunderwuzzi23 评论推荐。",
+    "实用价值": "做 LLM 应用安全或 prompt 相关测试时，可先读其 writeup，了解「模型与人类理解差异」这条攻击面，再决定是否纳入自己的检查清单。细节以原文链接为准。",
+    "官网": "https://x.com/monkehack/status/2125568597774750138",
+    "文档": "https://www.monke.ie/p/human-model-differentials-and-language-hacking",
+    "去重键": "2125568597774750138",
+    "首次写入": "2026-11-27",
+    "批次": "2026-11-27"
+  }
+]
